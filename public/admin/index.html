@@ -7,6 +7,12 @@
     <title>Správa obsahu</title>
   </head>
   <body>
-    <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
+    <script>
+      if (window.location.hostname === 'localhost') {
+        document.write('<script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"><\/script>');
+      } else {
+        document.write('<script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"><\/script>');
+      }
+    </script>
   </body>
 </html>
