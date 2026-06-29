@@ -1,0 +1,120 @@
+---
+import '../styles/global.css';
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const {
+  title = "Vladka Horáková — Marketingový stratég & Web designérka",
+  description = "Weby, které prodávají. Tvořím s 20 lety marketingových zkušeností."
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="cs">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" href="/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="generator" content={Astro.generator} />
+    <meta name="description" content={description} />
+    <title>{title}</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  </head>
+  <body class="bg-vh-ivory text-vh-dark">
+
+    <!-- Navigace -->
+    <header class="fixed top-0 left-0 right-0 z-50 bg-white border-b border-black/8">
+      <nav class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+
+        <!-- Logo -->
+        <a href="#hero" class="flex items-center gap-3 no-underline">
+          <span class="font-serif leading-none select-none" style="font-size: 32px; color: #1C1C1C; letter-spacing: 0;">VH</span>
+          <span class="text-sm text-vh-muted font-sans font-normal">Vladka Horáková</span>
+        </a>
+
+        <!-- Desktop nav -->
+        <ul class="hidden md:flex items-center gap-7 text-sm text-vh-muted font-sans">
+          <li><a href="#services" class="no-underline hover:text-vh-dark transition-colors">Služby</a></li>
+          <li><a href="#portfolio" class="no-underline hover:text-vh-dark transition-colors">Portfolio</a></li>
+          <li><a href="#about" class="no-underline hover:text-vh-dark transition-colors">O mně</a></li>
+          <li><a href="#contact" class="no-underline hover:text-vh-dark transition-colors">Kontakt</a></li>
+          <li>
+            <a
+              href="#contact"
+              class="no-underline px-5 py-2 border border-[#1C1C1C] text-vh-dark bg-transparent rounded-sm text-sm hover:bg-vh-dark hover:text-white transition-colors whitespace-nowrap font-sans"
+            >
+              Konzultace zdarma
+            </a>
+          </li>
+        </ul>
+
+        <!-- Mobile toggle -->
+        <button id="menu-toggle" class="md:hidden p-2 flex flex-col gap-1.5" aria-label="Otevřít menu">
+          <span class="w-6 h-px bg-vh-dark block transition-all"></span>
+          <span class="w-6 h-px bg-vh-dark block transition-all"></span>
+          <span class="w-4 h-px bg-vh-dark block transition-all"></span>
+        </button>
+      </nav>
+
+      <!-- Mobile menu -->
+      <div id="mobile-menu" class="md:hidden hidden bg-vh-ivory border-t border-vh-dark/10">
+        <ul class="flex flex-col px-6 py-5 gap-5 text-sm text-vh-muted">
+          <li><a href="#services" class="hover:text-vh-dark transition-colors">Služby</a></li>
+          <li><a href="#portfolio" class="hover:text-vh-dark transition-colors">Portfolio</a></li>
+          <li><a href="#about" class="hover:text-vh-dark transition-colors">O mně</a></li>
+          <li><a href="#contact" class="hover:text-vh-dark transition-colors">Kontakt</a></li>
+          <li>
+            <a href="#contact" class="inline-block px-5 py-2.5 border border-vh-dark text-vh-dark rounded-full hover:bg-vh-dark hover:text-white transition-colors">
+              Konzultace zdarma
+            </a>
+          </li>
+        </ul>
+      </div>
+    </header>
+
+    <main>
+      <slot />
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-vh-dark text-white">
+      <div class="max-w-6xl mx-auto px-6 pt-14 pb-8">
+        <div class="flex flex-col md:flex-row justify-between gap-10 pb-10 border-b border-white/10">
+          <!-- Brand -->
+          <div>
+            <span class="font-serif leading-none select-none mb-3 inline-block" style="font-size: 32px; letter-spacing: 0;">VH</span>
+            <p class="text-white/50 font-serif italic text-base">Weby s marketingovou duší.</p>
+          </div>
+          <!-- Links -->
+          <ul class="flex flex-col sm:flex-row gap-4 sm:gap-8 text-sm text-white/50">
+            <li><a href="#services" class="hover:text-white transition-colors">Služby</a></li>
+            <li><a href="#portfolio" class="hover:text-white transition-colors">Portfolio</a></li>
+            <li><a href="#about" class="hover:text-white transition-colors">O mně</a></li>
+            <li><a href="#contact" class="hover:text-white transition-colors">Kontakt</a></li>
+            <li><a href="#" class="hover:text-white transition-colors">Ochrana osobních údajů</a></li>
+          </ul>
+        </div>
+        <div class="pt-6 flex flex-col sm:flex-row justify-between gap-2">
+          <p class="text-white/30 text-xs">© 2026 Vladka Horáková. Všechna práva vyhrazena.</p>
+          <p class="text-white/30 text-xs font-serif italic">Weby s marketingovou duší.</p>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      const toggle = document.getElementById('menu-toggle');
+      const menu = document.getElementById('mobile-menu');
+      toggle?.addEventListener('click', () => menu?.classList.toggle('hidden'));
+      menu?.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => menu?.classList.add('hidden'));
+      });
+    </script>
+
+  </body>
+</html>

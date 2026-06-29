@@ -1,0 +1,560 @@
+---
+import Layout from '../layouts/Layout.astro';
+import FAQ from '../components/FAQ.tsx';
+---
+
+<Layout>
+
+  <!-- ═══════════════════════════════════════════
+       HERO
+  ════════════════════════════════════════════ -->
+  <section id="hero" class="relative min-h-screen flex items-center bg-vh-ivory overflow-hidden">
+
+    <!-- Dekorativní kruh vpravo -->
+    <div class="absolute right-0 top-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full bg-vh-muted opacity-[0.08] pointer-events-none translate-x-1/4"></div>
+
+    <!-- Vodoznakové V -->
+    <div class="absolute inset-0 flex items-center justify-end overflow-hidden pointer-events-none select-none">
+      <span class="font-serif font-light leading-none text-vh-dark opacity-[0.06]" style="font-size: 100vh;">V</span>
+    </div>
+
+    <div class="relative max-w-6xl mx-auto px-6 pt-32 pb-24 w-full">
+      <div class="max-w-2xl">
+
+        <!-- Kicker -->
+        <div class="flex items-center gap-4 text-vh-bronze mb-8">
+          <span class="w-8 h-px bg-vh-bronze"></span>
+          <span class="uppercase tracking-widest text-xs font-medium font-sans">Marketingový stratég & Web designérka</span>
+        </div>
+
+        <!-- H1 -->
+        <h1 class="font-serif leading-[1.1] text-vh-dark mb-8" style="font-size: clamp(3rem, 7vw, 5rem); font-weight: 400;">
+          <span style="font-style: normal;">Web, který prodává.</span><br/>
+          <span style="font-style: italic; font-size: calc(1em - 4px);">Postavený na 20 letech <span class="whitespace-nowrap">zkušeností v&nbsp;marketingu.</span></span>
+        </h1>
+
+        <!-- Perex -->
+        <p class="text-vh-muted text-lg leading-relaxed mb-10 max-w-lg font-sans">
+          Pomáhám podnikatelům a malým firmám získat web, který jim skutečně přináší zákazníky. Spojuji marketingové myšlení s moderním web designem.
+        </p>
+
+        <!-- Tlačítka -->
+        <div class="flex flex-wrap items-center gap-6">
+          <a
+            href="#contact"
+            class="px-8 py-4 bg-vh-sage text-white rounded-full text-sm font-medium hover:bg-vh-sage/80 transition-colors font-sans"
+          >
+            Chci nezávaznou konzultaci
+          </a>
+          <a
+            href="#portfolio"
+            class="text-vh-dark text-sm font-medium hover:text-vh-sage transition-colors font-sans group flex items-center gap-1"
+          >
+            Prohlédnout portfolio
+            <span class="inline-block group-hover:translate-x-1 transition-transform">→</span>
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════════
+       MŮJ PŘÍSTUP
+  ════════════════════════════════════════════ -->
+  <section id="approach" class="bg-white/50 py-24">
+    <div class="max-w-6xl mx-auto px-6">
+
+      <!-- Header -->
+      <div class="text-center mb-14">
+        <div class="flex items-center justify-center gap-4 text-vh-bronze mb-5">
+          <span class="w-8 h-px bg-vh-bronze"></span>
+          <span class="uppercase tracking-widest text-xs font-medium font-sans">Můj přístup</span>
+          <span class="w-8 h-px bg-vh-bronze"></span>
+        </div>
+        <h2 class="font-serif font-light text-5xl text-vh-dark mb-5">Dostanete víc než web</h2>
+        <p class="text-vh-muted font-sans text-sm leading-relaxed max-w-lg mx-auto">
+          Každý web je pro mě marketingový projekt. Proto přemýšlím nad strategií, obsahem i uživatelským zážitkem dřív, než navrhnu první pixel.
+        </p>
+      </div>
+
+      <!-- 4 karty -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+
+        <!-- Realizace webu -->
+        <div class="bg-white rounded-2xl p-7 flex flex-col gap-6 border border-vh-dark/5">
+          <div class="text-vh-sage">
+            <svg width="36" height="36" viewBox="0 0 36 36" fill="none">
+              <rect x="2" y="6" width="32" height="22" rx="2.5" stroke="currentColor" strokeWidth="1.5"/>
+              <path d="M12 32h12M18 28v4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/>
+              <path d="M2 22h32" stroke="currentColor" strokeWidth="1.5"/>
+            </svg>
+          </div>
+          <div class="flex-1">
+            <h3 class="font-serif text-xl text-vh-dark mb-2">Realizace webu</h3>
+            <p class="text-vh-muted font-sans text-sm leading-relaxed">Komplexní realizace od strategie přes design až po technické spuštění. Vše pod jednou střechou.</p>
+          </div>
+          <div class="h-1.5 w-10 bg-vh-ivory rounded-full"></div>
+        </div>
+
+        <!-- UX & Použitelnost -->
+        <div class="bg-white rounded-2xl p-7 flex flex-col gap-6 border border-vh-dark/5">
+          <div class="text-vh-sage">
+            <svg width="36" height="36" viewBox="0 0 36 36" fill="none">
+              <path d="M12 6l-8 22 10-6 4 8 4-8 10 6L24 6l-6 9-6-9z" stroke="currentColor" strokeWidth="1.5" strokeLinejoin="round"/>
+            </svg>
+          </div>
+          <div class="flex-1">
+            <h3 class="font-serif text-xl text-vh-dark mb-2">UX & Použitelnost</h3>
+            <p class="text-vh-muted font-sans text-sm leading-relaxed">Design, ve kterém se návštěvník zorientuje. Intuitivní struktura, rychlé načítání, mobilní optimalizace.</p>
+          </div>
+          <div class="h-1.5 w-10 bg-vh-ivory rounded-full"></div>
+        </div>
+
+        <!-- SEO od základu -->
+        <div class="bg-white rounded-2xl p-7 flex flex-col gap-6 border border-vh-dark/5">
+          <div class="text-vh-sage">
+            <svg width="36" height="36" viewBox="0 0 36 36" fill="none">
+              <circle cx="16" cy="16" r="11" stroke="currentColor" strokeWidth="1.5"/>
+              <path d="M29 29l-5-5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/>
+              <path d="M10 19l4-5 3 3 5-6" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+            </svg>
+          </div>
+          <div class="flex-1">
+            <h3 class="font-serif text-xl text-vh-dark mb-2">SEO od základu</h3>
+            <p class="text-vh-muted font-sans text-sm leading-relaxed">Web navržený s ohledem na vyhledávače od prvního dne. Správná struktura, meta data, rychlost načítání.</p>
+          </div>
+          <div class="h-1.5 w-10 bg-vh-ivory rounded-full"></div>
+        </div>
+
+        <!-- Copywriting -->
+        <div class="bg-white rounded-2xl p-7 flex flex-col gap-6 border border-vh-dark/5">
+          <div class="text-vh-sage">
+            <svg width="36" height="36" viewBox="0 0 36 36" fill="none">
+              <path d="M26 4l6 6-18 18H8v-6L26 4z" stroke="currentColor" strokeWidth="1.5" strokeLinejoin="round"/>
+              <path d="M22 8l6 6" stroke="currentColor" strokeWidth="1.5"/>
+              <path d="M4 32h10" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/>
+            </svg>
+          </div>
+          <div class="flex-1">
+            <h3 class="font-serif text-xl text-vh-dark mb-2">Copywriting</h3>
+            <p class="text-vh-muted font-sans text-sm leading-relaxed">Texty, které osloví a přesvědčí. Píšu s pochopením vaší cílové skupiny a obchodních cílů.</p>
+          </div>
+          <div class="h-1.5 w-10 bg-vh-ivory rounded-full"></div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════════
+       SLUŽBY
+  ════════════════════════════════════════════ -->
+  <section id="services" class="bg-vh-ivory py-24">
+    <div class="max-w-6xl mx-auto px-6">
+
+      <!-- Header -->
+      <div class="flex flex-col md:flex-row md:items-end justify-between gap-8 mb-14">
+        <div>
+          <div class="flex items-center gap-4 text-vh-bronze mb-5">
+            <span class="w-8 h-px bg-vh-bronze"></span>
+            <span class="uppercase tracking-widest text-xs font-medium font-sans">Co nabízím</span>
+          </div>
+          <h2 class="font-serif font-light text-5xl text-vh-dark leading-tight">Jak mohu pomoci</h2>
+        </div>
+        <p class="text-vh-muted leading-relaxed max-w-sm font-sans text-sm md:text-right">
+          Každý projekt začínám strategií. Výsledkem není jen hezký web — je to nástroj, který pracuje pro vás.
+        </p>
+      </div>
+
+      <!-- Hlavní karta — zelená -->
+      <div class="bg-vh-sage rounded-2xl p-8 md:p-12 mb-5 grid md:grid-cols-2 gap-10">
+        <!-- Vlevo -->
+        <div class="flex flex-col justify-between">
+          <div>
+            <p class="text-vh-sage-light text-xs uppercase tracking-widest font-sans mb-4">— Stěžejní služba</p>
+            <h3 class="font-serif font-light text-4xl text-white leading-tight mb-4">Webové stránky</h3>
+            <p class="text-white/60 font-sans text-sm leading-relaxed mb-8">
+              Kompletní web od strategie a designu až po technickou realizaci. Pracuji sama, komunikujete přímo se mnou.
+            </p>
+            <p class="font-serif italic text-2xl text-white/80 mb-10">Cena od 45 000 Kč</p>
+          </div>
+          <a
+            href="#contact"
+            class="inline-block self-start px-7 py-3.5 bg-white text-vh-sage rounded-full text-sm font-medium hover:bg-vh-ivory transition-colors font-sans"
+          >
+            Nezávazná konzultace
+          </a>
+        </div>
+        <!-- Vpravo — checklist -->
+        <ul class="space-y-3 self-center">
+          {[
+            "Analýza potřeb a cílové skupiny",
+            "Návrh struktury a wireframy",
+            "Vizuální design a prototyp",
+            "Copywriting",
+            "SEO optimalizace",
+            "Technická realizace a spuštění",
+            "Základní školení správy webu",
+          ].map(item => (
+            <li class="flex items-start gap-3 text-white/80 font-sans text-sm">
+              <svg class="w-5 h-5 text-vh-sage-light flex-shrink-0 mt-0.5" viewBox="0 0 20 20" fill="none">
+                <circle cx="10" cy="10" r="9" stroke="currentColor" strokeWidth="1.2"/>
+                <path d="M6.5 10.5l2.5 2.5 4.5-5" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round"/>
+              </svg>
+              {item}
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <!-- 2 barevné karty -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-5 mb-5">
+        <!-- Bronzová -->
+        <div class="bg-vh-bronze rounded-2xl p-8">
+          <p class="text-white/60 text-xs uppercase tracking-widest font-sans mb-3">Online vizitka</p>
+          <h3 class="font-serif font-light text-3xl text-white mb-2">Online vizitka</h3>
+          <p class="font-serif italic text-white/70 text-xl mb-4">od 8 500 Kč</p>
+          <p class="text-white/60 font-sans text-sm leading-relaxed">
+            Elegantní jednostránkový web pro freelancery a živnostníky. Rychlá prezentace, kontakt, portfolio.
+          </p>
+        </div>
+        <!-- Zelená světlejší -->
+        <div class="bg-vh-sage/80 rounded-2xl p-8">
+          <p class="text-white/60 text-xs uppercase tracking-widest font-sans mb-3">One page web</p>
+          <h3 class="font-serif font-light text-3xl text-white mb-2">One page</h3>
+          <p class="font-serif italic text-white/70 text-xl mb-4">od 11 000 Kč</p>
+          <p class="text-white/60 font-sans text-sm leading-relaxed">
+            Kompletní prezentace firmy na jedné stránce. Všechny klíčové sekce, výzva k akci, kontaktní formulář.
+          </p>
+        </div>
+      </div>
+
+      <!-- 3 bílé karty -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
+        {[
+          { name: "UX Audit", price: "od 8 000 Kč", desc: "Odhalím, kde váš web ztrácí zákazníky, a dostanete konkrétní doporučení pro zlepšení." },
+          { name: "SEO & obsahová strategie", price: "od 15 000 Kč", desc: "Analýza klíčových slov, obsahový plán a doporučení pro organický růst ve vyhledávačích." },
+          { name: "Copywriting", price: "od 1 000 Kč / ns", desc: "Texty, které prodávají. Píšu s pochopením vaší cílové skupiny a obchodních cílů." },
+        ].map(card => (
+          <div class="bg-white rounded-2xl p-8 border border-vh-dark/5">
+            <h3 class="font-serif font-light text-2xl text-vh-dark mb-2">{card.name}</h3>
+            <p class="font-serif italic text-vh-bronze text-lg mb-4">{card.price}</p>
+            <p class="text-vh-muted font-sans text-sm leading-relaxed">{card.desc}</p>
+          </div>
+        ))}
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════════
+       O MNĚ
+  ════════════════════════════════════════════ -->
+  <section id="about" class="bg-white/50 py-24">
+    <div class="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-16 items-center">
+
+      <!-- Fotka placeholder -->
+      <div class="aspect-[3/4] bg-vh-sage-light/40 rounded-2xl flex items-center justify-center text-vh-muted/40 font-sans text-sm">
+        <div class="text-center">
+          <svg class="w-16 h-16 mx-auto mb-3 opacity-30" viewBox="0 0 64 64" fill="none">
+            <rect x="4" y="4" width="56" height="56" rx="4" stroke="currentColor" strokeWidth="1.5"/>
+            <circle cx="32" cy="24" r="10" stroke="currentColor" strokeWidth="1.5"/>
+            <path d="M8 56c0-13.3 10.7-24 24-24s24 10.7 24 24" stroke="currentColor" strokeWidth="1.5"/>
+          </svg>
+          Fotografie
+        </div>
+      </div>
+
+      <!-- Text -->
+      <div>
+        <div class="flex items-center gap-4 text-vh-bronze mb-6">
+          <span class="w-8 h-px bg-vh-bronze"></span>
+          <span class="uppercase tracking-widest text-xs font-medium font-sans">O mně</span>
+        </div>
+        <h2 class="font-serif font-light text-5xl text-vh-dark leading-tight mb-3">Vladka Horáková</h2>
+        <p class="font-serif italic text-vh-muted text-xl mb-8">Marketingový stratég & web designér</p>
+
+        <div class="space-y-4 text-vh-muted font-sans text-sm leading-relaxed">
+          <p>
+            Marketingem se zabývám víc jak 20 let. Řídila jsem marketingová oddělení a zastávala pozici seniorního stratéga v předních reklamních agenturách, navrhovala jsem projekty a kampaně pro české i světové brandy.
+          </p>
+          <p>
+            Dnes se zabývám marketingovými strategiemi a všechny své zkušenosti přenáším do tvorby webů, s plným pochopením toho, co web skutečně potřebuje, aby fungoval. Nejde jen o design — jde o strategii, obsah a uživatelský zážitek.
+          </p>
+          <p>
+            Pracuji zejména s podnikateli, freelancery a malými firmami, kteří chtějí web, který jim skutečně přináší zákazníky. Od one page po složité webové projekty.
+          </p>
+          <p>
+            Každý projekt beru osobně. Nepředávám zakázky dál, nekomunikuji přes prostředníky. Pracujete přímo se mnou.
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════════
+       PORTFOLIO
+  ════════════════════════════════════════════ -->
+  <section id="portfolio" class="bg-vh-ivory py-24">
+    <div class="max-w-6xl mx-auto px-6">
+
+      <!-- Header -->
+      <div class="flex flex-col md:flex-row md:items-end justify-between gap-8 mb-14">
+        <div>
+          <div class="flex items-center gap-4 text-vh-bronze mb-5">
+            <span class="w-8 h-px bg-vh-bronze"></span>
+            <span class="uppercase tracking-widest text-xs font-medium font-sans">Moje práce</span>
+          </div>
+          <h2 class="font-serif font-light text-5xl text-vh-dark leading-tight">Vybrané projekty</h2>
+        </div>
+        <p class="text-vh-muted leading-relaxed max-w-sm font-sans text-sm md:text-right">
+          Každý projekt je jedinečný. Zde jsou vybrané ukázky mé práce.
+        </p>
+      </div>
+
+      <!-- Karty projektů -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+
+        <!-- Chovatelský web -->
+        <div class="group bg-white rounded-2xl overflow-hidden border border-vh-dark/5 hover:shadow-lg transition-shadow">
+          <div class="aspect-[4/3] bg-vh-sage-light/30 flex items-center justify-center">
+            <svg class="w-14 h-14 text-vh-muted/30" viewBox="0 0 56 56" fill="none">
+              <rect x="2" y="2" width="52" height="52" rx="4" stroke="currentColor" strokeWidth="1.5"/>
+              <path d="M2 36l14-12 10 10 8-8 20 16" stroke="currentColor" strokeWidth="1.5" strokeLinejoin="round"/>
+              <circle cx="40" cy="18" r="6" stroke="currentColor" strokeWidth="1.5"/>
+            </svg>
+          </div>
+          <div class="p-6">
+            <div class="flex gap-2 mb-3 flex-wrap">
+              {["Web", "UX", "Copywriting"].map(tag => (
+                <span class="text-xs px-2.5 py-1 bg-vh-ivory text-vh-muted rounded-full font-sans">{tag}</span>
+              ))}
+            </div>
+            <h3 class="font-serif text-xl text-vh-dark mb-2">Chovatelský web</h3>
+            <p class="text-vh-muted font-sans text-sm leading-relaxed">
+              Kompletní web pro chovatele psů se systémem pro správu vrhů, galerií a kontaktním formulářem.
+            </p>
+          </div>
+        </div>
+
+        <!-- Stomacentrum Dragoun -->
+        <div class="group bg-white rounded-2xl overflow-hidden border border-vh-dark/5 hover:shadow-lg transition-shadow">
+          <div class="aspect-[4/3] bg-vh-bronze/10 flex items-center justify-center">
+            <svg class="w-14 h-14 text-vh-muted/30" viewBox="0 0 56 56" fill="none">
+              <rect x="2" y="2" width="52" height="52" rx="4" stroke="currentColor" strokeWidth="1.5"/>
+              <path d="M2 36l14-12 10 10 8-8 20 16" stroke="currentColor" strokeWidth="1.5" strokeLinejoin="round"/>
+              <circle cx="40" cy="18" r="6" stroke="currentColor" strokeWidth="1.5"/>
+            </svg>
+          </div>
+          <div class="p-6">
+            <div class="flex gap-2 mb-3 flex-wrap">
+              {["UX", "Copywriting"].map(tag => (
+                <span class="text-xs px-2.5 py-1 bg-vh-ivory text-vh-muted rounded-full font-sans">{tag}</span>
+              ))}
+            </div>
+            <h3 class="font-serif text-xl text-vh-dark mb-2">Stomacentrum Dragoun</h3>
+            <p class="text-vh-muted font-sans text-sm leading-relaxed">
+              Redesign webu zdravotnického zařízení se zaměřením na přístupnost, přehlednost a důvěryhodnost.
+            </p>
+          </div>
+        </div>
+
+        <!-- Advokátní kancelář Pešek -->
+        <div class="group bg-white rounded-2xl overflow-hidden border border-vh-dark/5 hover:shadow-lg transition-shadow">
+          <div class="aspect-[4/3] bg-vh-dark/5 flex items-center justify-center">
+            <svg class="w-14 h-14 text-vh-muted/30" viewBox="0 0 56 56" fill="none">
+              <rect x="2" y="2" width="52" height="52" rx="4" stroke="currentColor" strokeWidth="1.5"/>
+              <path d="M2 36l14-12 10 10 8-8 20 16" stroke="currentColor" strokeWidth="1.5" strokeLinejoin="round"/>
+              <circle cx="40" cy="18" r="6" stroke="currentColor" strokeWidth="1.5"/>
+            </svg>
+          </div>
+          <div class="p-6">
+            <div class="flex gap-2 mb-3 flex-wrap">
+              {["Web", "SEO"].map(tag => (
+                <span class="text-xs px-2.5 py-1 bg-vh-ivory text-vh-muted rounded-full font-sans">{tag}</span>
+              ))}
+            </div>
+            <h3 class="font-serif text-xl text-vh-dark mb-2">Advokátní kancelář Pešek</h3>
+            <p class="text-vh-muted font-sans text-sm leading-relaxed">
+              Profesionální web advokátní kanceláře s důrazem na autoritu, přehlednost a SEO optimalizaci.
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════════
+       REFERENCE
+  ════════════════════════════════════════════ -->
+  <section id="testimonials" class="bg-vh-sage py-24">
+    <div class="max-w-6xl mx-auto px-6">
+
+      <!-- Header -->
+      <div class="text-center mb-14">
+        <div class="flex items-center justify-center gap-4 text-vh-sage-light mb-5">
+          <span class="w-8 h-px bg-vh-sage-light"></span>
+          <span class="uppercase tracking-widest text-xs font-medium font-sans">Spokojení klienti</span>
+          <span class="w-8 h-px bg-vh-sage-light"></span>
+        </div>
+        <h2 class="font-serif font-light text-5xl text-white">Co říkají klienti</h2>
+      </div>
+
+      <!-- Karty -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+
+        <div class="bg-vh-dark/20 rounded-2xl p-8">
+          <p class="font-serif text-3xl text-white/30 leading-none mb-4">"</p>
+          <p class="text-white/80 font-sans text-sm leading-relaxed mb-8">
+            Vladka zcela proměnila naše online přítomnost. Díky novému webu a propracované SEO strategii zaznamenáváme výrazný nárůst pacientů. Spolupráce byla profesionální a příjemná od prvního do posledního dne.
+          </p>
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-full bg-vh-sage-light/30 flex items-center justify-center font-serif text-white font-light">P</div>
+            <div>
+              <p class="text-white font-medium text-sm font-sans">Petra Dragounová</p>
+              <p class="text-white/50 text-xs font-sans">Stomacentrum Louny s.r.o.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-vh-dark/20 rounded-2xl p-8">
+          <p class="font-serif text-3xl text-white/30 leading-none mb-4">"</p>
+          <p class="text-white/80 font-sans text-sm leading-relaxed mb-8">
+            Konečně mám web, na který jsem hrdá. Vladka pochopila, co potřebuji, a výsledek předčil moje očekávání. Investice se vrátila do tří měsíců.
+          </p>
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-full bg-vh-sage-light/30 flex items-center justify-center font-serif text-white font-light">P</div>
+            <div>
+              <p class="text-white font-medium text-sm font-sans">Petra Novotná</p>
+              <p class="text-white/50 text-xs font-sans">Majitelka Studio Petra</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-vh-dark/20 rounded-2xl p-8">
+          <p class="font-serif text-3xl text-white/30 leading-none mb-4">"</p>
+          <p class="text-white/80 font-sans text-sm leading-relaxed mb-8">
+            Profesionální přístup, rychlá komunikace a krásný výsledek. Web funguje skvěle a zákazníci se na mě obracejí přes kontaktní formulář daleko více než dříve.
+          </p>
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-full bg-vh-sage-light/30 flex items-center justify-center font-serif text-white font-light">K</div>
+            <div>
+              <p class="text-white font-medium text-sm font-sans">Kristýna Strnadová</p>
+              <p class="text-white/50 text-xs font-sans">Výcviková škola Segugi di Bosco</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════════
+       CTA
+  ════════════════════════════════════════════ -->
+  <section class="bg-vh-ivory py-24">
+    <div class="max-w-xl mx-auto px-6 text-center flex flex-col items-center gap-6">
+      <h2 class="font-serif font-light text-4xl text-vh-dark">Začneme rozhovorem</h2>
+      <p class="font-sans text-vh-muted text-base leading-relaxed">
+        Máte projekt, nápad nebo otázku? Napište mi — nezávazně, bez salespitche. Ráda si popovídám o tom, co váš web potřebuje.
+      </p>
+      <a
+        href="mailto:info@vladkahorakova.cz"
+        class="w-full px-10 py-5 bg-vh-sage text-white text-base font-medium font-sans rounded-lg hover:bg-vh-sage/85 transition-colors"
+      >
+        Pojďme si o vašem projektu promluvit
+      </a>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════════
+       FAQ
+  ════════════════════════════════════════════ -->
+  <section id="faq" class="bg-vh-ivory py-24">
+    <div class="max-w-6xl mx-auto px-6">
+
+      <div class="text-center mb-12">
+        <div class="flex items-center justify-center gap-4 text-vh-bronze mb-5">
+          <span class="w-8 h-px bg-vh-bronze"></span>
+          <span class="uppercase tracking-widest text-xs font-medium font-sans">FAQ</span>
+          <span class="w-8 h-px bg-vh-bronze"></span>
+        </div>
+        <h2 class="font-serif font-light text-5xl text-vh-dark">Časté otázky</h2>
+      </div>
+
+      <FAQ client:load />
+
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════════
+       KONTAKT
+  ════════════════════════════════════════════ -->
+  <section id="contact" class="bg-white/50 py-24">
+    <div class="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-16 items-start">
+
+      <!-- Levá strana -->
+      <div>
+        <div class="flex items-center gap-4 text-vh-bronze mb-6">
+          <span class="w-8 h-px bg-vh-bronze"></span>
+          <span class="uppercase tracking-widest text-xs font-medium font-sans">Kontakt</span>
+        </div>
+        <h2 class="font-serif font-light text-5xl text-vh-dark leading-tight mb-6">
+          Pojďme spolupracovat
+        </h2>
+        <p class="text-vh-muted font-sans text-sm leading-relaxed mb-10">
+          Napište mi, zavolejte nebo vyplňte formulář. Ozvu se do 24 hodin v pracovní dny. První konzultace je zdarma.
+        </p>
+        <div class="space-y-4 font-sans text-sm">
+          <div class="flex items-center gap-3 text-vh-dark">
+            <svg class="w-5 h-5 text-vh-sage flex-shrink-0" viewBox="0 0 20 20" fill="none">
+              <path d="M2 6l8 5 8-5M2 6v10a1 1 0 001 1h14a1 1 0 001-1V6a1 1 0 00-1-1H3a1 1 0 00-1 1z" stroke="currentColor" strokeWidth="1.2" strokeLinejoin="round"/>
+            </svg>
+            <a href="mailto:vladka.marketing@gmail.com" class="hover:text-vh-sage transition-colors">vladka.marketing@gmail.com</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Formulář -->
+      <form class="space-y-5">
+        <div class="grid grid-cols-2 gap-4">
+          <div>
+            <label class="block text-xs font-medium text-vh-muted uppercase tracking-wider mb-1.5 font-sans">Jméno</label>
+            <input type="text" placeholder="Vaše jméno" class="w-full px-4 py-3 rounded-lg border border-vh-dark/15 bg-white text-vh-dark placeholder:text-vh-muted/50 text-sm font-sans focus:outline-none focus:border-vh-sage transition-colors" />
+          </div>
+          <div>
+            <label class="block text-xs font-medium text-vh-muted uppercase tracking-wider mb-1.5 font-sans">Firma</label>
+            <input type="text" placeholder="Název firmy" class="w-full px-4 py-3 rounded-lg border border-vh-dark/15 bg-white text-vh-dark placeholder:text-vh-muted/50 text-sm font-sans focus:outline-none focus:border-vh-sage transition-colors" />
+          </div>
+        </div>
+        <div>
+          <label class="block text-xs font-medium text-vh-muted uppercase tracking-wider mb-1.5 font-sans">E-mail</label>
+          <input type="email" placeholder="vas@email.cz" class="w-full px-4 py-3 rounded-lg border border-vh-dark/15 bg-white text-vh-dark placeholder:text-vh-muted/50 text-sm font-sans focus:outline-none focus:border-vh-sage transition-colors" />
+        </div>
+        <div>
+          <label class="block text-xs font-medium text-vh-muted uppercase tracking-wider mb-1.5 font-sans">Zpráva</label>
+          <textarea rows="5" placeholder="Popis projektu, otázky..." class="w-full px-4 py-3 rounded-lg border border-vh-dark/15 bg-white text-vh-dark placeholder:text-vh-muted/50 text-sm font-sans focus:outline-none focus:border-vh-sage transition-colors resize-none"></textarea>
+        </div>
+        <button
+          type="submit"
+          class="w-full py-4 bg-vh-sage text-white rounded-full text-sm font-medium hover:bg-vh-sage/80 transition-colors font-sans"
+        >
+          Odeslat zprávu
+        </button>
+      </form>
+
+    </div>
+  </section>
+
+</Layout>
