@@ -7,6 +7,7 @@ export default async function handler(req, res) {
     const params = new URLSearchParams({
       client_id,
       scope: 'repo,user',
+      redirect_uri: 'https://vladka-web.vercel.app/api/auth',
     });
     return res.redirect(`https://github.com/login/oauth/authorize?${params}`);
   }
@@ -26,18 +27,20 @@ export default async function handler(req, res) {
   const html = `<!DOCTYPE html>
 <html>
 <body>
+<p>Pøihlašování...</p>
 <script>
-const token = ${JSON.stringify(access_token)};
-const message = JSON.stringify({
-  token,
-  provider: 'github'
-});
-if (window.opener) {
-  window.opener.postMessage('authorization:github:success:' + message, '*');
-  setTimeout(() => window.close(), 1000);
-} else {
-  document.body.innerText = 'Pøihlášení probìhlo, zavøi toto okno.';
-}
+(function() {
+  var token = ${JSON.stringify(access_token)};
+  var data = JSON.stringify({ token: token, provider: "github" });
+  var msg = "authorization:github:success:" + data;
+  if (window.opener) {
+    window.opener.postMessage(msg, "https://vladka-web.vercel.app");
+    document.querySelector("p").innerText = "Hotovo! Toto okno se zavøe.";
+    setTimeout(function() { window.close(); }, 2000);
+  } else {
+    document.querySelector("p").innerText = "Chyba: žádné opener okno.";
+  }
+})();
 </script>
 </body>
 </html>`;
