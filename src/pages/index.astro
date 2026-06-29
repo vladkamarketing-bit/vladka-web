@@ -1,5 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import homepage from '../content/homepage.json';
 import FAQ from '../components/FAQ.tsx';
 ---
 
@@ -29,13 +30,13 @@ import FAQ from '../components/FAQ.tsx';
 
         <!-- H1 -->
         <h1 class="font-serif leading-[1.1] text-vh-dark mb-8" style="font-size: clamp(3rem, 7vw, 5rem); font-weight: 400;">
-          <span style="font-style: normal;">Web, který prodává.</span><br/>
+          <span style="font-style: normal;">{homepage.heroTitle}</span><br/>
           <span style="font-style: italic; font-size: calc(1em - 4px);">Postavený na 20 letech <span class="whitespace-nowrap">zkušeností v&nbsp;marketingu.</span></span>
         </h1>
 
         <!-- Perex -->
         <p class="text-vh-muted text-lg leading-relaxed mb-10 max-w-lg font-sans">
-          Pomáhám podnikatelům a malým firmám získat web, který jim skutečně přináší zákazníky. Spojuji marketingové myšlení s moderním web designem.
+        {homepage.heroSubtitle}
         </p>
 
         <!-- Tlačítka -->
@@ -558,3 +559,4 @@ import FAQ from '../components/FAQ.tsx';
   </section>
 
 </Layout>
+
