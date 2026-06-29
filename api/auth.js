@@ -4,35 +4,44 @@ export default async function handler(req, res) {
   const client_secret = process.env.GITHUB_CLIENT_SECRET;
 
   if (!code) {
-    return res.redirect(
-      `https://github.com/login/oauth/authorize?client_id=${client_id}&scope=repo`
-    );
+    const params = new URLSearchParams({
+      client_id,
+      scope: 'repo,user',
+    });
+    return res.redirect(`https://github.com/login/oauth/authorize?${params}`);
   }
 
-  const response = await fetch('https://github.com/login/oauth/access_token', {
+  const tokenRes = await fetch('https://github.com/login/oauth/access_token', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
     body: JSON.stringify({ client_id, client_secret, code }),
   });
 
-  const data = await response.json();
-  const token = data.access_token;
+  const { access_token, error } = await tokenRes.json();
 
-  const script = `
-    <script>
-      (function() {
-        function receiveMessage(e) {
-          window.opener.postMessage(
-            'authorization:github:success:${JSON.stringify({ token })}',
-            e.origin
-          );
-        }
-        window.addEventListener("message", receiveMessage, false);
-        window.opener.postMessage("authorizing:github", "*");
-      })()
-    </script>
-  `;
+  if (error || !access_token) {
+    return res.status(400).send(`OAuth error: ${error}`);
+  }
+
+  const html = `<!DOCTYPE html>
+<html>
+<body>
+<script>
+const token = ${JSON.stringify(access_token)};
+const message = JSON.stringify({
+  token,
+  provider: 'github'
+});
+if (window.opener) {
+  window.opener.postMessage('authorization:github:success:' + message, '*');
+  setTimeout(() => window.close(), 1000);
+} else {
+  document.body.innerText = 'Pøihlášení probìhlo, zavøi toto okno.';
+}
+</script>
+</body>
+</html>`;
 
   res.setHeader('Content-Type', 'text/html');
-  return res.send(script);
+  return res.send(html);
 }
