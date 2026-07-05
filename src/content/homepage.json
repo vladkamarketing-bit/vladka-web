@@ -1,35 +1,28 @@
 {
-  "heroTitle": "Vlaďka Horáková ",
-  "heroSubtitle": "Tvorba webu pro malé firmy a živnostníky ",
-  "approachKicker": "Můj přístup",
-  "approachTitle": "Dostanete víc než web",
-  "approachText": "Každý web je pro mě marketingový projekt. Proto přemýšlím nad strategií, obsahem i uživatelským zážitkem dřív, než navrhnu první pixel.",
-  "approachCards": [
+  "aboutKicker": "O mně",
+  "servicesMainTitle": "Webové stránky",
+  "portfolioProjects": [
     {
-      "title": "Realizace webu",
-      "text": "Komplexní realizace od strategie přes design až po technické spuštění. Vše pod jednou střechou."
+      "tags": "Web, UX, Copywriting",
+      "title": "Chovatelský web",
+      "desc": "Kompletní web pro chovatele psů se systémem pro správu vrhů, galerií a kontaktním formulářem."
     },
     {
-      "title": "UX & Použitelnost",
-      "text": "Design, ve kterém se návštěvník zorientuje. Intuitivní struktura, rychlé načítání, mobilní optimalizace."
+      "tags": "UX, Copywriting",
+      "title": "Stomacentrum Dragoun",
+      "desc": "Redesign webu zdravotnického zařízení se zaměřením na přístupnost, přehlednost a důvěryhodnost."
     },
     {
-      "title": "SEO od základu",
-      "text": "Web navržený s ohledem na vyhledávače od prvního dne. Správná struktura, meta data, rychlost načítání."
-    },
-    {
-      "title": "Copywriting",
-      "text": "Texty, které osloví a přesvědčí. Píšu s pochopením vaší cílové skupiny a obchodních cílů."
+      "tags": "Web, SEO",
+      "title": "Advokátní kancelář Pešek",
+      "desc": "Profesionální web advokátní kanceláře s důrazem na autoritu, přehlednost a SEO optimalizaci."
     }
   ],
-  "servicesKicker": "Co nabízím",
-  "servicesTitle": "Jak mohu pomoci",
-  "servicesText": "Každý projekt začínám strategií. Výsledkem není jen hezký web — je to nástroj, který pracuje pro vás.",
-  "servicesMainLabel": "— Stěžejní služba",
-  "servicesMainTitle": "Webové stránky",
   "servicesMainText": "Kompletní web od strategie a designu až po technickou realizaci. Pracuji sama, komunikujete přímo se mnou.",
-  "servicesMainPrice": "Cena od 45 000 Kč",
-  "servicesMainButton": "Nezávazná konzultace",
+  "testimonialsTitle": "Co říkají klienti",
+  "aboutPhoto": "/images/čb.jpg",
+  "aboutSubtitle": "Marketingový stratég & web designér",
+  "testimonialsKicker": "Spokojení klienti",
   "servicesChecklist": [
     "Analýza potřeb a cílové skupiny",
     "Návrh struktury a wireframy",
@@ -39,6 +32,8 @@
     "Technická realizace a spuštění",
     "Základní školení správy webu"
   ],
+  "servicesMainButton": "Nezávazná konzultace",
+  "servicesText": "Každý projekt začínám strategií. Výsledkem není jen hezký web — je to nástroj, který pracuje pro vás.",
   "servicesCards2": [
     {
       "label": "Online vizitka",
@@ -70,37 +65,17 @@
       "desc": "Texty, které prodávají. Píšu s pochopením vaší cílové skupiny a obchodních cílů."
     }
   ],
-  "aboutKicker": "O mně",
-  "aboutName": "Vladka Horáková",
-  "aboutSubtitle": "Marketingový stratég & web designér",
+  "portfolioTitle": "Vybrané projekty",
+  "approachTitle": "Dostanete víc než web",
+  "servicesKicker": "Co nabízím",
   "aboutParagraphs": [
     "Marketingem se zabývám víc jak 20 let. Řídila jsem marketingová oddělení a zastávala pozici seniorního stratéga v předních reklamních agenturách, navrhovala jsem projekty a kampaně pro české i světové brandy.",
     "Dnes se zabývám marketingovými strategiemi a všechny své zkušenosti přenáším do tvorby webů, s plným pochopením toho, co web skutečně potřebuje, aby fungoval. Nejde jen o design — jde o strategii, obsah a uživatelský zážitek.",
     "Pracuji zejména s podnikateli, freelancery a malými firmami, kteří chtějí web, který jim skutečně přináší zákazníky. Od one page po složité webové projekty.",
     "Každý projekt beru osobně. Nepředávám zakázky dál, nekomunikuji přes prostředníky. Pracujete přímo se mnou."
   ],
-  "portfolioKicker": "Moje práce",
-  "portfolioTitle": "Vybrané projekty",
-  "portfolioText": "Každý projekt je jedinečný. Zde jsou vybrané ukázky mé práce.",
-  "portfolioProjects": [
-    {
-      "tags": "Web, UX, Copywriting",
-      "title": "Chovatelský web",
-      "desc": "Kompletní web pro chovatele psů se systémem pro správu vrhů, galerií a kontaktním formulářem."
-    },
-    {
-      "tags": "UX, Copywriting",
-      "title": "Stomacentrum Dragoun",
-      "desc": "Redesign webu zdravotnického zařízení se zaměřením na přístupnost, přehlednost a důvěryhodnost."
-    },
-    {
-      "tags": "Web, SEO",
-      "title": "Advokátní kancelář Pešek",
-      "desc": "Profesionální web advokátní kanceláře s důrazem na autoritu, přehlednost a SEO optimalizaci."
-    }
-  ],
-  "testimonialsKicker": "Spokojení klienti",
-  "testimonialsTitle": "Co říkají klienti",
+  "servicesMainPrice": "Cena od 45 000 Kč",
+  "heroSubtitle": "Tvorba webu pro malé firmy a živnostníky ",
   "testimonials": [
     {
       "quote": "Vladka zcela proměnila naše online přítomnost. Díky novému webu a propracované SEO strategii zaznamenáváme výrazný nárůst pacientů. Spolupráce byla profesionální a příjemná od prvního do posledního dne.",
@@ -117,5 +92,31 @@
       "name": "Kristýna Strnadová",
       "role": "Výcviková škola Segugi di Bosco"
     }
-  ]
+  ],
+  "approachText": "Každý web je pro mě marketingový projekt. Proto přemýšlím nad strategií, obsahem i uživatelským zážitkem dřív, než navrhnu první pixel.",
+  "portfolioText": "Každý projekt je jedinečný. Zde jsou vybrané ukázky mé práce.",
+  "aboutName": "Vladka Horáková",
+  "servicesTitle": "Jak mohu pomoci",
+  "approachCards": [
+    {
+      "title": "Realizace webu",
+      "text": "Komplexní realizace od strategie přes design až po technické spuštění. Vše pod jednou střechou."
+    },
+    {
+      "title": "UX & Použitelnost",
+      "text": "Design, ve kterém se návštěvník zorientuje. Intuitivní struktura, rychlé načítání, mobilní optimalizace."
+    },
+    {
+      "title": "SEO od základu",
+      "text": "Web navržený s ohledem na vyhledávače od prvního dne. Správná struktura, meta data, rychlost načítání."
+    },
+    {
+      "title": "Copywriting",
+      "text": "Texty, které osloví a přesvědčí. Píšu s pochopením vaší cílové skupiny a obchodních cílů."
+    }
+  ],
+  "portfolioKicker": "Moje práce",
+  "approachKicker": "Můj přístup",
+  "servicesMainLabel": "— Stěžejní služba",
+  "heroTitle": "Vlaďka Horáková "
 }
