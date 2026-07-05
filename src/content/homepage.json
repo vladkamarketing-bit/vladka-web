@@ -21,5 +21,53 @@
       "title": "Copywriting",
       "text": "Texty, které osloví a přesvědčí. Píšu s pochopením vaší cílové skupiny a obchodních cílů."
     }
+  ],
+  "servicesKicker": "Co nabízím",
+  "servicesTitle": "Jak mohu pomoci",
+  "servicesText": "Každý projekt začínám strategií. Výsledkem není jen hezký web — je to nástroj, který pracuje pro vás.",
+  "servicesMainLabel": "— Stěžejní služba",
+  "servicesMainTitle": "Webové stránky",
+  "servicesMainText": "Kompletní web od strategie a designu až po technickou realizaci. Pracuji sama, komunikujete přímo se mnou.",
+  "servicesMainPrice": "Cena od 45 000 Kč",
+  "servicesMainButton": "Nezávazná konzultace",
+  "servicesChecklist": [
+    "Analýza potřeb a cílové skupiny",
+    "Návrh struktury a wireframy",
+    "Vizuální design a prototyp",
+    "Copywriting",
+    "SEO optimalizace",
+    "Technická realizace a spuštění",
+    "Základní školení správy webu"
+  ],
+  "servicesCards2": [
+    {
+      "label": "Online vizitka",
+      "title": "Online vizitka",
+      "price": "od 8 500 Kč",
+      "text": "Elegantní jednostránkový web pro freelancery a živnostníky. Rychlá prezentace, kontakt, portfolio."
+    },
+    {
+      "label": "One page web",
+      "title": "One page",
+      "price": "od 11 000 Kč",
+      "text": "Kompletní prezentace firmy na jedné stránce. Všechny klíčové sekce, výzva k akci, kontaktní formulář."
+    }
+  ],
+  "servicesCards3": [
+    {
+      "name": "UX Audit",
+      "price": "od 8 000 Kč",
+      "desc": "Odhalím, kde váš web ztrácí zákazníky, a dostanete konkrétní doporučení pro zlepšení."
+    },
+    {
+      "name": "SEO & obsahová strategie",
+      "price": "od 15 000 Kč",
+      "desc": "Analýza klíčových slov, obsahový plán a doporučení pro organický růst ve vyhledávačích."
+    },
+    {
+      "name": "Copywriting",
+      "price": "od 1 000 Kč / ns",
+      "desc": "Texty, které prodávají. Píšu s pochopením vaší cílové skupiny a obchodních cílů."
+    }
   ]
 }

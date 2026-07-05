@@ -24,3 +24,29 @@ collections:
             fields:
               - { label: "Název karty", name: "title", widget: "string" }
               - { label: "Text karty", name: "text", widget: "text" }
+          - { label: "Kicker - Služby", name: "servicesKicker", widget: "string" }
+          - { label: "Nadpis - Služby", name: "servicesTitle", widget: "string" }
+          - { label: "Popis - Služby", name: "servicesText", widget: "text" }
+          - { label: "Hlavní karta - popisek", name: "servicesMainLabel", widget: "string" }
+          - { label: "Hlavní karta - název", name: "servicesMainTitle", widget: "string" }
+          - { label: "Hlavní karta - text", name: "servicesMainText", widget: "text" }
+          - { label: "Hlavní karta - cena", name: "servicesMainPrice", widget: "string" }
+          - { label: "Hlavní karta - text tlačítka", name: "servicesMainButton", widget: "string" }
+          - label: "Hlavní karta - checklist"
+            name: "servicesChecklist"
+            widget: "list"
+          - label: "Služby - 2 barevné karty"
+            name: "servicesCards2"
+            widget: "list"
+            fields:
+              - { label: "Popisek", name: "label", widget: "string" }
+              - { label: "Název", name: "title", widget: "string" }
+              - { label: "Cena", name: "price", widget: "string" }
+              - { label: "Text", name: "text", widget: "text" }
+          - label: "Služby - 3 bílé karty"
+            name: "servicesCards3"
+            widget: "list"
+            fields:
+              - { label: "Název", name: "name", widget: "string" }
+              - { label: "Cena", name: "price", widget: "string" }
+              - { label: "Text", name: "desc", widget: "text" }

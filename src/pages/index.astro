@@ -134,12 +134,12 @@ import FAQ from '../components/FAQ.tsx';
         <div>
           <div class="flex items-center gap-4 text-vh-bronze mb-5">
             <span class="w-8 h-px bg-vh-bronze"></span>
-            <span class="uppercase tracking-widest text-xs font-medium font-sans">Co nabízím</span>
+            <span class="uppercase tracking-widest text-xs font-medium font-sans">{homepage.servicesKicker}</span>
           </div>
-          <h2 class="font-serif font-light text-5xl text-vh-dark leading-tight">Jak mohu pomoci</h2>
+          <h2 class="font-serif font-light text-5xl text-vh-dark leading-tight">{homepage.servicesTitle}</h2>
         </div>
         <p class="text-vh-muted leading-relaxed max-w-sm font-sans text-sm md:text-right">
-          Každý projekt začínám strategií. Výsledkem není jen hezký web — je to nástroj, který pracuje pro vás.
+          {homepage.servicesText}
         </p>
       </div>
 
@@ -148,31 +148,23 @@ import FAQ from '../components/FAQ.tsx';
         <!-- Vlevo -->
         <div class="flex flex-col justify-between">
           <div>
-            <p class="text-vh-sage-light text-xs uppercase tracking-widest font-sans mb-4">— Stěžejní služba</p>
-            <h3 class="font-serif font-light text-4xl text-white leading-tight mb-4">Webové stránky</h3>
+            <p class="text-vh-sage-light text-xs uppercase tracking-widest font-sans mb-4">{homepage.servicesMainLabel}</p>
+            <h3 class="font-serif font-light text-4xl text-white leading-tight mb-4">{homepage.servicesMainTitle}</h3>
             <p class="text-white/60 font-sans text-sm leading-relaxed mb-8">
-              Kompletní web od strategie a designu až po technickou realizaci. Pracuji sama, komunikujete přímo se mnou.
+              {homepage.servicesMainText}
             </p>
-            <p class="font-serif italic text-2xl text-white/80 mb-10">Cena od 45 000 Kč</p>
+            <p class="font-serif italic text-2xl text-white/80 mb-10">{homepage.servicesMainPrice}</p>
           </div>
           <a
             href="#contact"
             class="inline-block self-start px-7 py-3.5 bg-white text-vh-sage rounded-full text-sm font-medium hover:bg-vh-ivory transition-colors font-sans"
           >
-            Nezávazná konzultace
+            {homepage.servicesMainButton}
           </a>
         </div>
         <!-- Vpravo — checklist -->
         <ul class="space-y-3 self-center">
-          {[
-            "Analýza potřeb a cílové skupiny",
-            "Návrh struktury a wireframy",
-            "Vizuální design a prototyp",
-            "Copywriting",
-            "SEO optimalizace",
-            "Technická realizace a spuštění",
-            "Základní školení správy webu",
-          ].map(item => (
+          {homepage.servicesChecklist.map(item => (
             <li class="flex items-start gap-3 text-white/80 font-sans text-sm">
               <svg class="w-5 h-5 text-vh-sage-light flex-shrink-0 mt-0.5" viewBox="0 0 20 20" fill="none">
                 <circle cx="10" cy="10" r="9" stroke="currentColor" strokeWidth="1.2"/>
@@ -186,33 +178,21 @@ import FAQ from '../components/FAQ.tsx';
 
       <!-- 2 barevné karty -->
       <div class="grid grid-cols-1 sm:grid-cols-2 gap-5 mb-5">
-        <!-- Bronzová -->
-        <div class="bg-vh-bronze rounded-2xl p-8">
-          <p class="text-white/60 text-xs uppercase tracking-widest font-sans mb-3">Online vizitka</p>
-          <h3 class="font-serif font-light text-3xl text-white mb-2">Online vizitka</h3>
-          <p class="font-serif italic text-white/70 text-xl mb-4">od 8 500 Kč</p>
-          <p class="text-white/60 font-sans text-sm leading-relaxed">
-            Elegantní jednostránkový web pro freelancery a živnostníky. Rychlá prezentace, kontakt, portfolio.
-          </p>
-        </div>
-        <!-- Zelená světlejší -->
-        <div class="bg-vh-sage/80 rounded-2xl p-8">
-          <p class="text-white/60 text-xs uppercase tracking-widest font-sans mb-3">One page web</p>
-          <h3 class="font-serif font-light text-3xl text-white mb-2">One page</h3>
-          <p class="font-serif italic text-white/70 text-xl mb-4">od 11 000 Kč</p>
-          <p class="text-white/60 font-sans text-sm leading-relaxed">
-            Kompletní prezentace firmy na jedné stránce. Všechny klíčové sekce, výzva k akci, kontaktní formulář.
-          </p>
-        </div>
+        {homepage.servicesCards2.map((card, i) => (
+          <div class={i === 0 ? "bg-vh-bronze rounded-2xl p-8" : "bg-vh-sage/80 rounded-2xl p-8"}>
+            <p class="text-white/60 text-xs uppercase tracking-widest font-sans mb-3">{card.label}</p>
+            <h3 class="font-serif font-light text-3xl text-white mb-2">{card.title}</h3>
+            <p class="font-serif italic text-white/70 text-xl mb-4">{card.price}</p>
+            <p class="text-white/60 font-sans text-sm leading-relaxed">
+              {card.text}
+            </p>
+          </div>
+        ))}
       </div>
 
       <!-- 3 bílé karty -->
       <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
-        {[
-          { name: "UX Audit", price: "od 8 000 Kč", desc: "Odhalím, kde váš web ztrácí zákazníky, a dostanete konkrétní doporučení pro zlepšení." },
-          { name: "SEO & obsahová strategie", price: "od 15 000 Kč", desc: "Analýza klíčových slov, obsahový plán a doporučení pro organický růst ve vyhledávačích." },
-          { name: "Copywriting", price: "od 1 000 Kč / ns", desc: "Texty, které prodávají. Píšu s pochopením vaší cílové skupiny a obchodních cílů." },
-        ].map(card => (
+        {homepage.servicesCards3.map(card => (
           <div class="bg-white rounded-2xl p-8 border border-vh-dark/5">
             <h3 class="font-serif font-light text-2xl text-vh-dark mb-2">{card.name}</h3>
             <p class="font-serif italic text-vh-bronze text-lg mb-4">{card.price}</p>
