@@ -227,24 +227,17 @@ import FAQ from '../components/FAQ.tsx';
       <div>
         <div class="flex items-center gap-4 text-vh-bronze mb-6">
           <span class="w-8 h-px bg-vh-bronze"></span>
-          <span class="uppercase tracking-widest text-xs font-medium font-sans">O mně</span>
+          <span class="uppercase tracking-widest text-xs font-medium font-sans">{homepage.aboutKicker}</span>
         </div>
-        <h2 class="font-serif font-light text-5xl text-vh-dark leading-tight mb-3">Vladka Horáková</h2>
-        <p class="font-serif italic text-vh-muted text-xl mb-8">Marketingový stratég & web designér</p>
+        <h2 class="font-serif font-light text-5xl text-vh-dark leading-tight mb-3">{homepage.aboutName}</h2>
+        <p class="font-serif italic text-vh-muted text-xl mb-8">{homepage.aboutSubtitle}</p>
 
         <div class="space-y-4 text-vh-muted font-sans text-sm leading-relaxed">
-          <p>
-            Marketingem se zabývám víc jak 20 let. Řídila jsem marketingová oddělení a zastávala pozici seniorního stratéga v předních reklamních agenturách, navrhovala jsem projekty a kampaně pro české i světové brandy.
-          </p>
-          <p>
-            Dnes se zabývám marketingovými strategiemi a všechny své zkušenosti přenáším do tvorby webů, s plným pochopením toho, co web skutečně potřebuje, aby fungoval. Nejde jen o design — jde o strategii, obsah a uživatelský zážitek.
-          </p>
-          <p>
-            Pracuji zejména s podnikateli, freelancery a malými firmami, kteří chtějí web, který jim skutečně přináší zákazníky. Od one page po složité webové projekty.
-          </p>
-          <p>
-            Každý projekt beru osobně. Nepředávám zakázky dál, nekomunikuji přes prostředníky. Pracujete přímo se mnou.
-          </p>
+          {homepage.aboutParagraphs.map(paragraph => (
+            <p>
+              {paragraph}
+            </p>
+          ))}
         </div>
       </div>
 

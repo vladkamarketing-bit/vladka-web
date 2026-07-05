@@ -50,3 +50,9 @@ collections:
               - { label: "Název", name: "name", widget: "string" }
               - { label: "Cena", name: "price", widget: "string" }
               - { label: "Text", name: "desc", widget: "text" }
+          - { label: "Kicker - O mně", name: "aboutKicker", widget: "string" }
+          - { label: "Jméno - O mně", name: "aboutName", widget: "string" }
+          - { label: "Podtitul - O mně", name: "aboutSubtitle", widget: "string" }
+          - label: "Odstavce - O mně"
+            name: "aboutParagraphs"
+            widget: "list"
