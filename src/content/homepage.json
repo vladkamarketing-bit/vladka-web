@@ -5,7 +5,8 @@
     {
       "tags": "Web, UX, Copywriting",
       "title": "Chovatelský web",
-      "desc": "Kompletní web pro chovatele psů se systémem pro správu vrhů, galerií a kontaktním formulářem."
+      "desc": "Kompletní web pro chovatele psů se systémem pro správu vrhů, galerií a kontaktním formulářem.",
+      "image": "/images/_fim0045.jpg"
     },
     {
       "tags": "UX, Copywriting",
@@ -20,7 +21,7 @@
   ],
   "servicesMainText": "Kompletní web od strategie a designu až po technickou realizaci. Pracuji sama, komunikujete přímo se mnou.",
   "testimonialsTitle": "Co říkají klienti",
-  "aboutPhoto": "/images/vladka-portret.jpg",
+  "aboutPhoto": "/images/cb.jpg",
   "aboutSubtitle": "Marketingový stratég & web designér",
   "testimonialsKicker": "Spokojení klienti",
   "servicesChecklist": [
