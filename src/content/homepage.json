@@ -123,5 +123,29 @@
   "heroTitle": "Vlaďka Horáková ",
   "ctaTitle": "Začneme rozhovorem",
   "ctaText": "Máte projekt, nápad nebo otázku? Napište mi — nezávazně, bez salespitche. Ráda si popovídám o tom, co váš web potřebuje.",
-  "ctaButton": "Pojďme si o vašem projektu promluvit"
+  "ctaButton": "Pojďme si o vašem projektu promluvit",
+  "faqKicker": "FAQ",
+  "faqTitle": "Časté otázky",
+  "faqItems": [
+    {
+      "q": "Jak dlouho trvá realizace webu?",
+      "a": "Délka realizace závisí na rozsahu projektu. Jednoduchý one page web zvládneme za 3–4 týdny, komplexnější projekty obvykle trvají 6–10 týdnů. Na začátku spolupráce si vždy domluvíme realistický harmonogram."
+    },
+    {
+      "q": "Co potřebuji připravit před začátkem spolupráce?",
+      "a": "Stačí mít jasno v tom, co od webu očekáváte a kdo jsou vaši zákazníci. Texty, fotografie a podklady řešíme společně — s copywritingem i výběrem fotek vám pomohu."
+    },
+    {
+      "q": "Jak probíhá komunikace během projektu?",
+      "a": "Pracujete přímo se mnou — žádní prostředníci. Komunikujeme e-mailem, přes Google Meet nebo telefon. Na každý dotaz odpovím do 24 hodin v pracovní dny."
+    },
+    {
+      "q": "Postaráte se o web i po spuštění?",
+      "a": "Ano. Po spuštění nabízím základní správu a údržbu webu, aktualizace obsahu i technickou podporu. Podmínky domluvíme individuálně podle vašich potřeb."
+    },
+    {
+      "q": "Pracujete i se stávajícími weby?",
+      "a": "Samozřejmě. Provádím UX audity, SEO analýzy a redesigny existujících webů. Pokud váš web neplní svůj účel, podíváme se proč a navrhneme konkrétní řešení."
+    }
+  ]
 }

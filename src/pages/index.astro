@@ -375,13 +375,13 @@ import FAQ from '../components/FAQ.tsx';
       <div class="text-center mb-12">
         <div class="flex items-center justify-center gap-4 text-vh-bronze mb-5">
           <span class="w-8 h-px bg-vh-bronze"></span>
-          <span class="uppercase tracking-widest text-xs font-medium font-sans">FAQ</span>
+          <span class="uppercase tracking-widest text-xs font-medium font-sans">{homepage.faqKicker}</span>
           <span class="w-8 h-px bg-vh-bronze"></span>
         </div>
-        <h2 class="font-serif font-light text-5xl text-vh-dark">Časté otázky</h2>
+        <h2 class="font-serif font-light text-5xl text-vh-dark">{homepage.faqTitle}</h2>
       </div>
 
-      <FAQ client:load />
+      <FAQ client:load faqs={homepage.faqItems} />
 
     </div>
   </section>

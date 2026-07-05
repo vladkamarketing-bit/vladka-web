@@ -85,3 +85,11 @@ collections:
           - { label: "Nadpis - CTA", name: "ctaTitle", widget: "string" }
           - { label: "Text - CTA", name: "ctaText", widget: "text" }
           - { label: "Text tlačítka - CTA", name: "ctaButton", widget: "string" }
+          - { label: "Kicker - FAQ", name: "faqKicker", widget: "string" }
+          - { label: "Nadpis - FAQ", name: "faqTitle", widget: "string" }
+          - label: "Otázky a odpovědi - FAQ"
+            name: "faqItems"
+            widget: "list"
+            fields:
+              - { label: "Otázka", name: "q", widget: "string" }
+              - { label: "Odpověď", name: "a", widget: "text" }
