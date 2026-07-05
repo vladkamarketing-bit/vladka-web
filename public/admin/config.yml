@@ -51,6 +51,7 @@ collections:
               - { label: "Cena", name: "price", widget: "string" }
               - { label: "Text", name: "desc", widget: "text" }
           - { label: "Kicker - O mně", name: "aboutKicker", widget: "string" }
+          - { label: "Fotka - O mně", name: "aboutPhoto", widget: "image", required: false }
           - { label: "Jméno - O mně", name: "aboutName", widget: "string" }
           - { label: "Podtitul - O mně", name: "aboutSubtitle", widget: "string" }
           - label: "Odstavce - O mně"
@@ -63,6 +64,16 @@ collections:
             name: "portfolioProjects"
             widget: "list"
             fields:
+              - { label: "Fotka projektu", name: "image", widget: "image", required: false }
               - { label: "Štítky (oddělené čárkou)", name: "tags", widget: "string" }
               - { label: "Název projektu", name: "title", widget: "string" }
               - { label: "Popis", name: "desc", widget: "text" }
+          - { label: "Kicker - Reference", name: "testimonialsKicker", widget: "string" }
+          - { label: "Nadpis - Reference", name: "testimonialsTitle", widget: "string" }
+          - label: "Reference - citace klientů"
+            name: "testimonials"
+            widget: "list"
+            fields:
+              - { label: "Citace", name: "quote", widget: "text" }
+              - { label: "Jméno", name: "name", widget: "string" }
+              - { label: "Firma / role", name: "role", widget: "string" }

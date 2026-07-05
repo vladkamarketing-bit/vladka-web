@@ -98,5 +98,24 @@
       "title": "Advokátní kancelář Pešek",
       "desc": "Profesionální web advokátní kanceláře s důrazem na autoritu, přehlednost a SEO optimalizaci."
     }
+  ],
+  "testimonialsKicker": "Spokojení klienti",
+  "testimonialsTitle": "Co říkají klienti",
+  "testimonials": [
+    {
+      "quote": "Vladka zcela proměnila naše online přítomnost. Díky novému webu a propracované SEO strategii zaznamenáváme výrazný nárůst pacientů. Spolupráce byla profesionální a příjemná od prvního do posledního dne.",
+      "name": "Petra Dragounová",
+      "role": "Stomacentrum Louny s.r.o."
+    },
+    {
+      "quote": "Konečně mám web, na který jsem hrdá. Vladka pochopila, co potřebuji, a výsledek předčil moje očekávání. Investice se vrátila do tří měsíců.",
+      "name": "Petra Novotná",
+      "role": "Majitelka Studio Petra"
+    },
+    {
+      "quote": "Profesionální přístup, rychlá komunikace a krásný výsledek. Web funguje skvěle a zákazníci se na mě obracejí přes kontaktní formulář daleko více než dříve.",
+      "name": "Kristýna Strnadová",
+      "role": "Výcviková škola Segugi di Bosco"
+    }
   ]
 }
