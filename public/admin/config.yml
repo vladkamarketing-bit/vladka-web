@@ -56,3 +56,13 @@ collections:
           - label: "Odstavce - O mně"
             name: "aboutParagraphs"
             widget: "list"
+          - { label: "Kicker - Portfolio", name: "portfolioKicker", widget: "string" }
+          - { label: "Nadpis - Portfolio", name: "portfolioTitle", widget: "string" }
+          - { label: "Popis - Portfolio", name: "portfolioText", widget: "text" }
+          - label: "Projekty - Portfolio"
+            name: "portfolioProjects"
+            widget: "list"
+            fields:
+              - { label: "Štítky (oddělené čárkou)", name: "tags", widget: "string" }
+              - { label: "Název projektu", name: "title", widget: "string" }
+              - { label: "Popis", name: "desc", widget: "text" }

@@ -256,83 +256,43 @@ import FAQ from '../components/FAQ.tsx';
         <div>
           <div class="flex items-center gap-4 text-vh-bronze mb-5">
             <span class="w-8 h-px bg-vh-bronze"></span>
-            <span class="uppercase tracking-widest text-xs font-medium font-sans">Moje práce</span>
+            <span class="uppercase tracking-widest text-xs font-medium font-sans">{homepage.portfolioKicker}</span>
           </div>
-          <h2 class="font-serif font-light text-5xl text-vh-dark leading-tight">Vybrané projekty</h2>
+          <h2 class="font-serif font-light text-5xl text-vh-dark leading-tight">{homepage.portfolioTitle}</h2>
         </div>
         <p class="text-vh-muted leading-relaxed max-w-sm font-sans text-sm md:text-right">
-          Každý projekt je jedinečný. Zde jsou vybrané ukázky mé práce.
+          {homepage.portfolioText}
         </p>
       </div>
 
       <!-- Karty projektů -->
       <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
 
-        <!-- Chovatelský web -->
-        <div class="group bg-white rounded-2xl overflow-hidden border border-vh-dark/5 hover:shadow-lg transition-shadow">
-          <div class="aspect-[4/3] bg-vh-sage-light/30 flex items-center justify-center">
-            <svg class="w-14 h-14 text-vh-muted/30" viewBox="0 0 56 56" fill="none">
-              <rect x="2" y="2" width="52" height="52" rx="4" stroke="currentColor" strokeWidth="1.5"/>
-              <path d="M2 36l14-12 10 10 8-8 20 16" stroke="currentColor" strokeWidth="1.5" strokeLinejoin="round"/>
-              <circle cx="40" cy="18" r="6" stroke="currentColor" strokeWidth="1.5"/>
-            </svg>
-          </div>
-          <div class="p-6">
-            <div class="flex gap-2 mb-3 flex-wrap">
-              {["Web", "UX", "Copywriting"].map(tag => (
-                <span class="text-xs px-2.5 py-1 bg-vh-ivory text-vh-muted rounded-full font-sans">{tag}</span>
-              ))}
+        {["bg-vh-sage-light/30", "bg-vh-bronze/10", "bg-vh-dark/5"].map((bg, i) => {
+          const project = homepage.portfolioProjects[i];
+          return (
+            <div class="group bg-white rounded-2xl overflow-hidden border border-vh-dark/5 hover:shadow-lg transition-shadow">
+              <div class={`aspect-[4/3] ${bg} flex items-center justify-center`}>
+                <svg class="w-14 h-14 text-vh-muted/30" viewBox="0 0 56 56" fill="none">
+                  <rect x="2" y="2" width="52" height="52" rx="4" stroke="currentColor" strokeWidth="1.5"/>
+                  <path d="M2 36l14-12 10 10 8-8 20 16" stroke="currentColor" strokeWidth="1.5" strokeLinejoin="round"/>
+                  <circle cx="40" cy="18" r="6" stroke="currentColor" strokeWidth="1.5"/>
+                </svg>
+              </div>
+              <div class="p-6">
+                <div class="flex gap-2 mb-3 flex-wrap">
+                  {project.tags.split(",").map(tag => (
+                    <span class="text-xs px-2.5 py-1 bg-vh-ivory text-vh-muted rounded-full font-sans">{tag.trim()}</span>
+                  ))}
+                </div>
+                <h3 class="font-serif text-xl text-vh-dark mb-2">{project.title}</h3>
+                <p class="text-vh-muted font-sans text-sm leading-relaxed">
+                  {project.desc}
+                </p>
+              </div>
             </div>
-            <h3 class="font-serif text-xl text-vh-dark mb-2">Chovatelský web</h3>
-            <p class="text-vh-muted font-sans text-sm leading-relaxed">
-              Kompletní web pro chovatele psů se systémem pro správu vrhů, galerií a kontaktním formulářem.
-            </p>
-          </div>
-        </div>
-
-        <!-- Stomacentrum Dragoun -->
-        <div class="group bg-white rounded-2xl overflow-hidden border border-vh-dark/5 hover:shadow-lg transition-shadow">
-          <div class="aspect-[4/3] bg-vh-bronze/10 flex items-center justify-center">
-            <svg class="w-14 h-14 text-vh-muted/30" viewBox="0 0 56 56" fill="none">
-              <rect x="2" y="2" width="52" height="52" rx="4" stroke="currentColor" strokeWidth="1.5"/>
-              <path d="M2 36l14-12 10 10 8-8 20 16" stroke="currentColor" strokeWidth="1.5" strokeLinejoin="round"/>
-              <circle cx="40" cy="18" r="6" stroke="currentColor" strokeWidth="1.5"/>
-            </svg>
-          </div>
-          <div class="p-6">
-            <div class="flex gap-2 mb-3 flex-wrap">
-              {["UX", "Copywriting"].map(tag => (
-                <span class="text-xs px-2.5 py-1 bg-vh-ivory text-vh-muted rounded-full font-sans">{tag}</span>
-              ))}
-            </div>
-            <h3 class="font-serif text-xl text-vh-dark mb-2">Stomacentrum Dragoun</h3>
-            <p class="text-vh-muted font-sans text-sm leading-relaxed">
-              Redesign webu zdravotnického zařízení se zaměřením na přístupnost, přehlednost a důvěryhodnost.
-            </p>
-          </div>
-        </div>
-
-        <!-- Advokátní kancelář Pešek -->
-        <div class="group bg-white rounded-2xl overflow-hidden border border-vh-dark/5 hover:shadow-lg transition-shadow">
-          <div class="aspect-[4/3] bg-vh-dark/5 flex items-center justify-center">
-            <svg class="w-14 h-14 text-vh-muted/30" viewBox="0 0 56 56" fill="none">
-              <rect x="2" y="2" width="52" height="52" rx="4" stroke="currentColor" strokeWidth="1.5"/>
-              <path d="M2 36l14-12 10 10 8-8 20 16" stroke="currentColor" strokeWidth="1.5" strokeLinejoin="round"/>
-              <circle cx="40" cy="18" r="6" stroke="currentColor" strokeWidth="1.5"/>
-            </svg>
-          </div>
-          <div class="p-6">
-            <div class="flex gap-2 mb-3 flex-wrap">
-              {["Web", "SEO"].map(tag => (
-                <span class="text-xs px-2.5 py-1 bg-vh-ivory text-vh-muted rounded-full font-sans">{tag}</span>
-              ))}
-            </div>
-            <h3 class="font-serif text-xl text-vh-dark mb-2">Advokátní kancelář Pešek</h3>
-            <p class="text-vh-muted font-sans text-sm leading-relaxed">
-              Profesionální web advokátní kanceláře s důrazem na autoritu, přehlednost a SEO optimalizaci.
-            </p>
-          </div>
-        </div>
+          );
+        })}
 
       </div>
     </div>

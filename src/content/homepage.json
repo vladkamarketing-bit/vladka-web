@@ -78,5 +78,25 @@
     "Dnes se zabývám marketingovými strategiemi a všechny své zkušenosti přenáším do tvorby webů, s plným pochopením toho, co web skutečně potřebuje, aby fungoval. Nejde jen o design — jde o strategii, obsah a uživatelský zážitek.",
     "Pracuji zejména s podnikateli, freelancery a malými firmami, kteří chtějí web, který jim skutečně přináší zákazníky. Od one page po složité webové projekty.",
     "Každý projekt beru osobně. Nepředávám zakázky dál, nekomunikuji přes prostředníky. Pracujete přímo se mnou."
+  ],
+  "portfolioKicker": "Moje práce",
+  "portfolioTitle": "Vybrané projekty",
+  "portfolioText": "Každý projekt je jedinečný. Zde jsou vybrané ukázky mé práce.",
+  "portfolioProjects": [
+    {
+      "tags": "Web, UX, Copywriting",
+      "title": "Chovatelský web",
+      "desc": "Kompletní web pro chovatele psů se systémem pro správu vrhů, galerií a kontaktním formulářem."
+    },
+    {
+      "tags": "UX, Copywriting",
+      "title": "Stomacentrum Dragoun",
+      "desc": "Redesign webu zdravotnického zařízení se zaměřením na přístupnost, přehlednost a důvěryhodnost."
+    },
+    {
+      "tags": "Web, SEO",
+      "title": "Advokátní kancelář Pešek",
+      "desc": "Profesionální web advokátní kanceláře s důrazem na autoritu, přehlednost a SEO optimalizaci."
+    }
   ]
 }
