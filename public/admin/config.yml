@@ -93,3 +93,6 @@ collections:
             fields:
               - { label: "Otázka", name: "q", widget: "string" }
               - { label: "Odpověď", name: "a", widget: "text" }
+          - { label: "Kicker - Kontakt", name: "contactKicker", widget: "string" }
+          - { label: "Nadpis - Kontakt", name: "contactTitle", widget: "string" }
+          - { label: "Text - Kontakt", name: "contactText", widget: "text" }
