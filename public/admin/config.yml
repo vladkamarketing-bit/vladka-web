@@ -7,11 +7,20 @@ public_folder: /images
 
 collections:
   - name: "pages"
-    label: "Str�nky"
+    label: "Stránky"
     files:
       - name: "homepage"
-        label: "Hlavn� str�nka"
+        label: "Hlavní stránka"
         file: "src/content/homepage.json"
         fields:
           - { label: "Nadpis hero", name: "heroTitle", widget: "string" }
           - { label: "Popis hero", name: "heroSubtitle", widget: "text" }
+          - { label: "Kicker - Můj přístup", name: "approachKicker", widget: "string" }
+          - { label: "Nadpis - Můj přístup", name: "approachTitle", widget: "string" }
+          - { label: "Popis - Můj přístup", name: "approachText", widget: "text" }
+          - label: "Karty - Můj přístup"
+            name: "approachCards"
+            widget: "list"
+            fields:
+              - { label: "Název karty", name: "title", widget: "string" }
+              - { label: "Text karty", name: "text", widget: "text" }

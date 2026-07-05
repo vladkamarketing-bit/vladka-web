@@ -1,4 +1,25 @@
 {
   "heroTitle": "Vlaďka Horáková ",
-  "heroSubtitle": "Tvorba webu pro malé firmy a živnostníky "
+  "heroSubtitle": "Tvorba webu pro malé firmy a živnostníky ",
+  "approachKicker": "Můj přístup",
+  "approachTitle": "Dostanete víc než web",
+  "approachText": "Každý web je pro mě marketingový projekt. Proto přemýšlím nad strategií, obsahem i uživatelským zážitkem dřív, než navrhnu první pixel.",
+  "approachCards": [
+    {
+      "title": "Realizace webu",
+      "text": "Komplexní realizace od strategie přes design až po technické spuštění. Vše pod jednou střechou."
+    },
+    {
+      "title": "UX & Použitelnost",
+      "text": "Design, ve kterém se návštěvník zorientuje. Intuitivní struktura, rychlé načítání, mobilní optimalizace."
+    },
+    {
+      "title": "SEO od základu",
+      "text": "Web navržený s ohledem na vyhledávače od prvního dne. Správná struktura, meta data, rychlost načítání."
+    },
+    {
+      "title": "Copywriting",
+      "text": "Texty, které osloví a přesvědčí. Píšu s pochopením vaší cílové skupiny a obchodních cílů."
+    }
+  ]
 }
