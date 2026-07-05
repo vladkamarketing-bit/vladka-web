@@ -82,3 +82,6 @@ collections:
               - { label: "Citace", name: "quote", widget: "text" }
               - { label: "Jméno", name: "name", widget: "string" }
               - { label: "Firma / role", name: "role", widget: "string" }
+          - { label: "Nadpis - CTA", name: "ctaTitle", widget: "string" }
+          - { label: "Text - CTA", name: "ctaText", widget: "text" }
+          - { label: "Text tlačítka - CTA", name: "ctaButton", widget: "string" }
