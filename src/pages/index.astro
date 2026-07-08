@@ -410,7 +410,7 @@ import FAQ from '../components/FAQ.tsx';
             <svg class="w-5 h-5 text-vh-sage flex-shrink-0" viewBox="0 0 20 20" fill="none">
               <path d="M2 6l8 5 8-5M2 6v10a1 1 0 001 1h14a1 1 0 001-1V6a1 1 0 00-1-1H3a1 1 0 00-1 1z" stroke="currentColor" strokeWidth="1.2" strokeLinejoin="round"/>
             </svg>
-            <a href="mailto:vladka.marketing@gmail.com" class="hover:text-vh-sage transition-colors">vladka.marketing@gmail.com</a>
+            <a href={`mailto:${homepage.contactEmail}`} class="hover:text-vh-sage transition-colors">{homepage.contactEmail}</a>
           </div>
         </div>
       </div>

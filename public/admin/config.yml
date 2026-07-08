@@ -97,3 +97,4 @@ collections:
           - { label: "Kicker - Kontakt", name: "contactKicker", widget: "string" }
           - { label: "Nadpis - Kontakt", name: "contactTitle", widget: "string" }
           - { label: "Text - Kontakt", name: "contactText", widget: "text" }
+          - { label: "E-mail - Kontakt", name: "contactEmail", widget: "string" }
