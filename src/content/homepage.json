@@ -1,6 +1,8 @@
 {
   "aboutKicker": "O mně",
   "servicesMainTitle": "Webové stránky",
+  "faqTitle": "Časté otázky",
+  "ctaButton": "Pojďme si o vašem projektu promluvit",
   "portfolioProjects": [
     {
       "tags": "Web, UX, Copywriting",
@@ -25,6 +27,7 @@
   "aboutPhoto": "/images/cb.jpg",
   "aboutSubtitle": "Marketingový stratég & web designér",
   "testimonialsKicker": "Spokojení klienti",
+  "ctaTitle": "Začneme rozhovorem",
   "servicesChecklist": [
     "Analýza potřeb a cílové skupiny",
     "Návrh struktury a wireframy",
@@ -34,8 +37,32 @@
     "Technická realizace a spuštění",
     "Základní školení správy webu"
   ],
+  "faqKicker": "FAQ",
   "servicesMainButton": "Nezávazná konzultace",
+  "faqItems": [
+    {
+      "q": "Jak dlouho trvá realizace webu?",
+      "a": "Délka realizace závisí na rozsahu projektu. Jednoduchý one page web zvládneme za 3–4 týdny, komplexnější projekty obvykle trvají 6–10 týdnů. Na začátku spolupráce si vždy domluvíme realistický harmonogram."
+    },
+    {
+      "q": "Co potřebuji připravit před začátkem spolupráce?",
+      "a": "Stačí mít jasno v tom, co od webu očekáváte a kdo jsou vaši zákazníci. Texty, fotografie a podklady řešíme společně — s copywritingem i výběrem fotek vám pomohu."
+    },
+    {
+      "q": "Jak probíhá komunikace během projektu?",
+      "a": "Pracujete přímo se mnou — žádní prostředníci. Komunikujeme e-mailem, přes Google Meet nebo telefon. Na každý dotaz odpovím do 24 hodin v pracovní dny."
+    },
+    {
+      "q": "Postaráte se o web i po spuštění?",
+      "a": "Ano. Po spuštění nabízím základní správu a údržbu webu, aktualizace obsahu i technickou podporu. Podmínky domluvíme individuálně podle vašich potřeb."
+    },
+    {
+      "q": "Pracujete i se stávajícími weby?",
+      "a": "Samozřejmě. Provádím UX audity, SEO analýzy a redesigny existujících webů. Pokud váš web neplní svůj účel, podíváme se proč a navrhneme konkrétní řešení."
+    }
+  ],
   "servicesText": "Každý projekt začínám strategií. Výsledkem není jen hezký web — je to nástroj, který pracuje pro vás.",
+  "contactText": "Napište mi, zavolejte nebo vyplňte formulář. Ozvu se do 24 hodin v pracovní dny. První konzultace je zdarma.",
   "servicesCards2": [
     {
       "label": "Online vizitka",
@@ -78,6 +105,7 @@
   ],
   "servicesMainPrice": "Cena od 45 000 Kč",
   "heroSubtitle": "Tvorba webu pro malé firmy a živnostníky ",
+  "contactKicker": "Kontakt",
   "testimonials": [
     {
       "quote": "Vladka zcela proměnila naše online přítomnost. Díky novému webu a propracované SEO strategii zaznamenáváme výrazný nárůst pacientů. Spolupráce byla profesionální a příjemná od prvního do posledního dne.",
@@ -97,6 +125,7 @@
   ],
   "approachText": "Každý web je pro mě marketingový projekt. Proto přemýšlím nad strategií, obsahem i uživatelským zážitkem dřív, než navrhnu první pixel.",
   "portfolioText": "Každý projekt je jedinečný. Zde jsou vybrané ukázky mé práce.",
+  "contactTitle": "Pojďme spolupracovat",
   "aboutName": "Vladka Horáková",
   "servicesTitle": "Jak mohu pomoci",
   "approachCards": [
@@ -120,35 +149,6 @@
   "portfolioKicker": "Moje práce",
   "approachKicker": "Můj přístup",
   "servicesMainLabel": "— Stěžejní služba",
-  "heroTitle": "Vlaďka Horáková ",
-  "ctaTitle": "Začneme rozhovorem",
   "ctaText": "Máte projekt, nápad nebo otázku? Napište mi — nezávazně, bez salespitche. Ráda si popovídám o tom, co váš web potřebuje.",
-  "ctaButton": "Pojďme si o vašem projektu promluvit",
-  "faqKicker": "FAQ",
-  "faqTitle": "Časté otázky",
-  "faqItems": [
-    {
-      "q": "Jak dlouho trvá realizace webu?",
-      "a": "Délka realizace závisí na rozsahu projektu. Jednoduchý one page web zvládneme za 3–4 týdny, komplexnější projekty obvykle trvají 6–10 týdnů. Na začátku spolupráce si vždy domluvíme realistický harmonogram."
-    },
-    {
-      "q": "Co potřebuji připravit před začátkem spolupráce?",
-      "a": "Stačí mít jasno v tom, co od webu očekáváte a kdo jsou vaši zákazníci. Texty, fotografie a podklady řešíme společně — s copywritingem i výběrem fotek vám pomohu."
-    },
-    {
-      "q": "Jak probíhá komunikace během projektu?",
-      "a": "Pracujete přímo se mnou — žádní prostředníci. Komunikujeme e-mailem, přes Google Meet nebo telefon. Na každý dotaz odpovím do 24 hodin v pracovní dny."
-    },
-    {
-      "q": "Postaráte se o web i po spuštění?",
-      "a": "Ano. Po spuštění nabízím základní správu a údržbu webu, aktualizace obsahu i technickou podporu. Podmínky domluvíme individuálně podle vašich potřeb."
-    },
-    {
-      "q": "Pracujete i se stávajícími weby?",
-      "a": "Samozřejmě. Provádím UX audity, SEO analýzy a redesigny existujících webů. Pokud váš web neplní svůj účel, podíváme se proč a navrhneme konkrétní řešení."
-    }
-  ],
-  "contactKicker": "Kontakt",
-  "contactTitle": "Pojďme spolupracovat",
-  "contactText": "Napište mi, zavolejte nebo vyplňte formulář. Ozvu se do 24 hodin v pracovní dny. První konzultace je zdarma."
+  "heroTitle": "Tvořím weby "
 }
