@@ -1,6 +1,10 @@
 backend:
-  name: git-gateway
+  name: github
   branch: master
+  repo: vladkamarketing-bit/vladka-web
+  site_domain: vladka-web.vercel.app
+  base_url: https://vladka-web.vercel.app
+  auth_endpoint: oauth
 
 media_folder: public/images
 public_folder: /images
