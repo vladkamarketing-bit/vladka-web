@@ -19,6 +19,7 @@ collections:
         file: "src/content/homepage.json"
         fields:
           - { label: "Nadpis hero", name: "heroTitle", widget: "string" }
+          - { label: "Nadpis hero - 2. řádek (kurzíva)", name: "heroTitleLine2", widget: "string" }
           - { label: "Popis hero", name: "heroSubtitle", widget: "text" }
           - { label: "Kicker - Můj přístup", name: "approachKicker", widget: "string" }
           - { label: "Nadpis - Můj přístup", name: "approachTitle", widget: "string" }
