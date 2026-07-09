@@ -1,4 +1,5 @@
 {
+  "heroTitleLine2": "Postavený na 20 letech zkušeností v marketingu.",
   "aboutKicker": "O mně",
   "servicesMainTitle": "Webové stránky",
   "faqTitle": "Časté otázky",
@@ -104,9 +105,8 @@
     "Každý projekt beru osobně. Nepředávám zakázky dál, nekomunikuji přes prostředníky. Pracujete přímo se mnou."
   ],
   "servicesMainPrice": "Cena od 45 000 Kč",
-  "heroSubtitle": "Tvorba webu pro malé firmy a živnostníky ",
+  "heroSubtitle": "Tvorba webu pro malé firmy a živnostníky.",
   "contactKicker": "Kontakt",
-  "contactEmail": "vladka.marketing@gmail.com",
   "testimonials": [
     {
       "quote": "Vladka zcela proměnila naše online přítomnost. Díky novému webu a propracované SEO strategii zaznamenáváme výrazný nárůst pacientů. Spolupráce byla profesionální a příjemná od prvního do posledního dne.",
@@ -149,8 +149,8 @@
   ],
   "portfolioKicker": "Moje práce",
   "approachKicker": "Můj přístup",
+  "contactEmail": "vladka.marketing@gmail.com",
   "servicesMainLabel": "— Stěžejní služba",
   "ctaText": "Máte projekt, nápad nebo otázku? Napište mi — nezávazně, bez salespitche. Ráda si popovídám o tom, co váš web potřebuje.",
-  "heroTitle": "Web, který prodává. ",
-  "heroTitleLine2": "Postavený na 20 letech zkušeností v marketingu."
+  "heroTitle": "Web, který prodává. "
 }
