@@ -4,7 +4,7 @@ export const prerender = false;
 
 export const GET: APIRoute = ({ redirect }) => {
   const params = new URLSearchParams({
-    client_id: process.env.OAUTH_GITHUB_CLIENT_ID ?? "",
+    client_id: process.env.GITHUB_CLIENT_ID ?? "",
     scope: "repo,user",
   });
 

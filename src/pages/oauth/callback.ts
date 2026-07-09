@@ -14,8 +14,8 @@ export const GET: APIRoute = async ({ url, redirect }) => {
       },
       body: JSON.stringify({
         code,
-        client_id: process.env.OAUTH_GITHUB_CLIENT_ID,
-        client_secret: process.env.OAUTH_GITHUB_CLIENT_SECRET,
+        client_id: process.env.GITHUB_CLIENT_ID,
+        client_secret: process.env.GITHUB_CLIENT_SECRET,
       }),
     });
 
