@@ -12,15 +12,16 @@
       "image": "/images/_fim0045.jpg"
     },
     {
-      "tags": "UX, Copywriting",
-      "title": "Stomacentrum Dragoun",
-      "desc": "Redesign webu zdravotnického zařízení se zaměřením na přístupnost, přehlednost a důvěryhodnost.",
+      "tags": "Web, UX, Copywriting, SEO",
+      "title": "Lovecká škola ",
+      "desc": "Kompletní návrh webu pro výcvikovou školu lovecké kynologie. ",
       "image": "/images/lovecka_skola.png"
     },
     {
       "tags": "Web, SEO",
-      "title": "Advokátní kancelář Pešek",
-      "desc": "Profesionální web advokátní kanceláře s důrazem na autoritu, přehlednost a SEO optimalizaci."
+      "title": "Stomacentrum Dragoun ",
+      "desc": "Kompletní tvorba webu a obsahu pro soukromou dentální ordinaci. ",
+      "image": "https://www.zubnilekar-louny.cz/"
     }
   ],
   "servicesMainText": "Kompletní web od strategie a designu až po technickou realizaci. Pracuji sama, komunikujete přímo se mnou.",
