@@ -9,19 +9,19 @@
       "tags": "Web, UX, Copywriting",
       "title": "Chovatelský web",
       "desc": "Kompletní web pro chovatele psů a koček, galerií, výsledky zkoušek a kontaktním formulářem.",
-      "image": ""
+      "image": "/images/chovatel.png"
     },
     {
       "tags": "Web, UX, Copywriting, SEO",
       "title": "Lovecká škola ",
       "desc": "Kompletní návrh webu pro výcvikovou školu lovecké kynologie. ",
-      "image": "https://www.loveckaskola.cz/"
+      "image": "/images/lovecka_skola_.png"
     },
     {
       "tags": "Web, SEO",
       "title": "Stomacentrum Dragoun ",
       "desc": "Kompletní tvorba webu a obsahu pro soukromou dentální ordinaci. ",
-      "image": "/images/stoma.png"
+      "image": "/images/stomacentrum_dragoun.png"
     }
   ],
   "servicesMainText": "Kompletní web od strategie a designu až po technickou realizaci. Pracuji sama, komunikujete přímo se mnou.",
