@@ -278,9 +278,9 @@ import FAQ from '../components/FAQ.tsx';
           const project = homepage.portfolioProjects[i];
           return (
             <div class="group bg-white rounded-2xl overflow-hidden border border-vh-dark/5 hover:shadow-lg transition-shadow">
-              <div class={`aspect-[4/3] ${bg} flex items-center justify-center overflow-hidden`}>
+              <div class={`aspect-[16/10] ${bg} flex items-center justify-center overflow-hidden`}>
                 {project.image ? (
-                  <img src={project.image} alt={project.title} class="w-full h-full object-cover" />
+                  <img src={project.image} alt={project.title} class="w-full h-full object-cover object-top" />
                 ) : (
                   <svg class="w-14 h-14 text-vh-muted/30" viewBox="0 0 56 56" fill="none">
                     <rect x="2" y="2" width="52" height="52" rx="4" stroke="currentColor" strokeWidth="1.5"/>
@@ -359,7 +359,7 @@ import FAQ from '../components/FAQ.tsx';
         {homepage.ctaText}
       </p>
       <a
-        href="mailto:info@vladkahorakova.cz"
+        href={`mailto:${homepage.contactEmail}`}
         class="w-full px-10 py-5 bg-vh-sage text-white text-base font-medium font-sans rounded-lg hover:bg-vh-sage/85 transition-colors"
       >
         {homepage.ctaButton}
@@ -418,31 +418,43 @@ import FAQ from '../components/FAQ.tsx';
       </div>
 
       <!-- Formulář -->
-      <form class="space-y-5">
+      <form
+        id="contact-form"
+        action={`https://formsubmit.co/${homepage.contactEmail}`}
+        method="POST"
+        class="space-y-5"
+      >
+        <!-- Nastavení FormSubmit -->
+        <input type="hidden" name="_subject" value="Nová zpráva z webu" />
+        <input type="hidden" name="_template" value="table" />
+        <input type="hidden" name="_captcha" value="false" />
+        <input type="text" name="_honey" tabindex="-1" autocomplete="off" class="hidden" aria-hidden="true" />
+
         <div class="grid grid-cols-2 gap-4">
           <div>
-            <label class="block text-xs font-medium text-vh-muted uppercase tracking-wider mb-1.5 font-sans">Jméno</label>
-            <input type="text" placeholder="Vaše jméno" class="w-full px-4 py-3 rounded-lg border border-vh-dark/15 bg-white text-vh-dark placeholder:text-vh-muted/50 text-sm font-sans focus:outline-none focus:border-vh-sage transition-colors" />
+            <label for="contact-name" class="block text-xs font-medium text-vh-muted uppercase tracking-wider mb-1.5 font-sans">Jméno</label>
+            <input id="contact-name" name="Jméno" type="text" required placeholder="Vaše jméno" class="w-full px-4 py-3 rounded-lg border border-vh-dark/15 bg-white text-vh-dark placeholder:text-vh-muted/50 text-sm font-sans focus:outline-none focus:border-vh-sage transition-colors" />
           </div>
           <div>
-            <label class="block text-xs font-medium text-vh-muted uppercase tracking-wider mb-1.5 font-sans">Firma</label>
-            <input type="text" placeholder="Název firmy" class="w-full px-4 py-3 rounded-lg border border-vh-dark/15 bg-white text-vh-dark placeholder:text-vh-muted/50 text-sm font-sans focus:outline-none focus:border-vh-sage transition-colors" />
+            <label for="contact-company" class="block text-xs font-medium text-vh-muted uppercase tracking-wider mb-1.5 font-sans">Firma</label>
+            <input id="contact-company" name="Firma" type="text" placeholder="Název firmy" class="w-full px-4 py-3 rounded-lg border border-vh-dark/15 bg-white text-vh-dark placeholder:text-vh-muted/50 text-sm font-sans focus:outline-none focus:border-vh-sage transition-colors" />
           </div>
         </div>
         <div>
-          <label class="block text-xs font-medium text-vh-muted uppercase tracking-wider mb-1.5 font-sans">E-mail</label>
-          <input type="email" placeholder="vas@email.cz" class="w-full px-4 py-3 rounded-lg border border-vh-dark/15 bg-white text-vh-dark placeholder:text-vh-muted/50 text-sm font-sans focus:outline-none focus:border-vh-sage transition-colors" />
+          <label for="contact-email" class="block text-xs font-medium text-vh-muted uppercase tracking-wider mb-1.5 font-sans">E-mail</label>
+          <input id="contact-email" name="email" type="email" required placeholder="vas@email.cz" class="w-full px-4 py-3 rounded-lg border border-vh-dark/15 bg-white text-vh-dark placeholder:text-vh-muted/50 text-sm font-sans focus:outline-none focus:border-vh-sage transition-colors" />
         </div>
         <div>
-          <label class="block text-xs font-medium text-vh-muted uppercase tracking-wider mb-1.5 font-sans">Zpráva</label>
-          <textarea rows="5" placeholder="Popis projektu, otázky..." class="w-full px-4 py-3 rounded-lg border border-vh-dark/15 bg-white text-vh-dark placeholder:text-vh-muted/50 text-sm font-sans focus:outline-none focus:border-vh-sage transition-colors resize-none"></textarea>
+          <label for="contact-message" class="block text-xs font-medium text-vh-muted uppercase tracking-wider mb-1.5 font-sans">Zpráva</label>
+          <textarea id="contact-message" name="Zpráva" rows="5" required placeholder="Popis projektu, otázky..." class="w-full px-4 py-3 rounded-lg border border-vh-dark/15 bg-white text-vh-dark placeholder:text-vh-muted/50 text-sm font-sans focus:outline-none focus:border-vh-sage transition-colors resize-none"></textarea>
         </div>
         <button
           type="submit"
-          class="w-full py-4 bg-vh-sage text-white rounded-full text-sm font-medium hover:bg-vh-sage/80 transition-colors font-sans"
+          class="w-full py-4 bg-vh-sage text-white rounded-full text-sm font-medium hover:bg-vh-sage/80 transition-colors font-sans disabled:opacity-60 disabled:cursor-wait"
         >
           Odeslat zprávu
         </button>
+        <p id="contact-status" class="hidden text-sm font-sans text-center" role="status"></p>
       </form>
 
     </div>
@@ -450,3 +462,37 @@ import FAQ from '../components/FAQ.tsx';
 
 </Layout>
 
+<script>
+  // Odeslání formuláře na pozadí, aby návštěvník zůstal na webu.
+  // Bez JavaScriptu formulář funguje i klasicky přes atribut action.
+  const form = document.getElementById('contact-form') as HTMLFormElement | null;
+  const status = document.getElementById('contact-status');
+
+  form?.addEventListener('submit', async (event) => {
+    event.preventDefault();
+    const button = form.querySelector('button[type="submit"]') as HTMLButtonElement;
+    button.disabled = true;
+    status?.classList.add('hidden');
+
+    try {
+      const response = await fetch(form.action.replace('formsubmit.co/', 'formsubmit.co/ajax/'), {
+        method: 'POST',
+        headers: { Accept: 'application/json' },
+        body: new FormData(form),
+      });
+      if (!response.ok) throw new Error(String(response.status));
+      form.reset();
+      if (status) {
+        status.textContent = 'Děkuji, zpráva byla odeslána. Ozvu se vám do 24 hodin v pracovní dny.';
+        status.className = 'text-sm font-sans text-center text-vh-sage';
+      }
+    } catch {
+      if (status) {
+        status.textContent = 'Zprávu se nepodařilo odeslat. Zkuste to prosím znovu, nebo mi napište přímo na e-mail.';
+        status.className = 'text-sm font-sans text-center text-red-700';
+      }
+    } finally {
+      button.disabled = false;
+    }
+  });
+</script>
