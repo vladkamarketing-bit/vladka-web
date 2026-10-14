@@ -1,5 +1,6 @@
 ---
 import '../styles/global.css';
+import CookieConsent from '../components/CookieConsent.astro';
 
 interface Props {
   title?: string;
@@ -98,6 +99,7 @@ const {
             <li><a href="/#about" class="hover:text-white transition-colors">O mně</a></li>
             <li><a href="/#contact" class="hover:text-white transition-colors">Kontakt</a></li>
             <li><a href="/ochrana-osobnich-udaju" class="hover:text-white transition-colors">Ochrana osobních údajů</a></li>
+            <li><button type="button" data-cc="show-preferencesModal" class="hover:text-white transition-colors cursor-pointer">Nastavení cookies</button></li>
           </ul>
         </div>
         <div class="pt-6 flex flex-col sm:flex-row justify-between gap-2">
@@ -115,6 +117,8 @@ const {
         link.addEventListener('click', () => menu?.classList.add('hidden'));
       });
     </script>
+
+    <CookieConsent />
 
   </body>
 </html>
