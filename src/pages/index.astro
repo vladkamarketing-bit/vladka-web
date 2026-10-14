@@ -180,8 +180,17 @@ import FAQ from '../components/FAQ.tsx';
 
       <!-- 2 barevné karty -->
       <div class="grid grid-cols-1 sm:grid-cols-2 gap-5 mb-5">
-        {homepage.servicesCards2.map((card, i) => (
-          <div class={i === 0 ? "bg-vh-bronze rounded-2xl p-8" : "bg-vh-sage/80 rounded-2xl p-8"}>
+        {homepage.servicesCards2.map((card, i) => {
+          // Hnědá a zelená se střídají: na mobilu (1 sloupec) jedna po druhé,
+          // od 2 sloupců jako šachovnice, aby hnědé boxy byly úhlopříčně.
+          const mobileBronze = i % 2 === 0;
+          const gridBronze = (Math.floor(i / 2) + i) % 2 === 0;
+          const bg = [
+            mobileBronze ? "bg-vh-bronze" : "bg-vh-sage/80",
+            gridBronze ? "sm:bg-vh-bronze" : "sm:bg-vh-sage/80",
+          ].join(" ");
+          return (
+          <div class={`${bg} rounded-2xl p-8`}>
             <p class="text-white/60 text-xs uppercase tracking-widest font-sans mb-3">{card.label}</p>
             <h3 class="font-serif font-light text-3xl text-white mb-2">{card.title}</h3>
             <p class="font-serif italic text-white/70 text-xl mb-4">{card.price}</p>
@@ -189,7 +198,8 @@ import FAQ from '../components/FAQ.tsx';
               {card.text}
             </p>
           </div>
-        ))}
+          );
+        })}
       </div>
 
       <!-- 3 bílé karty -->
