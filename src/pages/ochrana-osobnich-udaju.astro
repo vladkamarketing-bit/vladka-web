@@ -1,0 +1,175 @@
+---
+export const prerender = true;
+
+import Layout from '../layouts/Layout.astro';
+import homepage from '../content/homepage.json';
+
+const controller = {
+  name: 'Vlaďka Horáková',
+  ico: '73582964',
+  address: 'Vatra 776, 252 81 Petrov',
+  email: homepage.contactEmail,
+};
+const effectiveDate = '14. 10. 2026';
+---
+
+<Layout
+  title="Ochrana osobních údajů — Vladka Horáková"
+  description="Zásady zpracování osobních údajů a používání cookies na webu Vladky Horákové."
+>
+  <section class="bg-vh-ivory pt-36 pb-24">
+    <div class="max-w-3xl mx-auto px-6">
+
+      <div class="flex items-center gap-4 text-vh-bronze mb-6">
+        <span class="w-8 h-px bg-vh-bronze"></span>
+        <span class="uppercase tracking-widest text-xs font-medium font-sans">GDPR</span>
+      </div>
+      <h1 class="font-serif font-light text-5xl text-vh-dark leading-tight mb-6">Ochrana osobních údajů</h1>
+      <p class="text-vh-muted font-sans text-sm leading-relaxed mb-14">
+        Vážím si vaší důvěry, a proto s vašimi osobními údaji zacházím pečlivě a jen v nezbytném rozsahu.
+        Na této stránce najdete, jaké údaje zpracovávám, proč, jak dlouho a jaká máte práva.
+      </p>
+
+      <div class="legal space-y-12 font-sans text-sm leading-relaxed text-vh-muted">
+
+        <section>
+          <h2>1. Kdo vaše údaje zpracovává</h2>
+          <p>Správcem osobních údajů je:</p>
+          <p class="text-vh-dark">
+            {controller.name}<br />
+            IČO: {controller.ico}<br />
+            {controller.address}<br />
+            E-mail: <a href={`mailto:${controller.email}`}>{controller.email}</a>
+          </p>
+          <p>S jakýmkoli dotazem k ochraně osobních údajů se na mě můžete obrátit na uvedeném e-mailu.</p>
+        </section>
+
+        <section>
+          <h2>2. Jaké údaje zpracovávám a proč</h2>
+
+          <h3>Kontaktní formulář a e-mail</h3>
+          <p>
+            Když mi napíšete přes formulář nebo e-mail, zpracovávám vaše jméno, název firmy (pokud jej uvedete),
+            e-mailovou adresu a obsah zprávy. Údaje používám jen k tomu, abych vám odpověděla a případně připravila nabídku.
+          </p>
+          <p>
+            Právním základem je jednání o smlouvě na vaši žádost (čl. 6 odst. 1 písm. b) GDPR)
+            a můj oprávněný zájem odpovídat na dotazy (čl. 6 odst. 1 písm. f) GDPR).
+            Údaje uchovávám po dobu komunikace a nejdéle 1 rok od jejího ukončení, pokud mezi námi nevznikne spolupráce.
+          </p>
+
+          <h3>Spolupráce a fakturace</h3>
+          <p>
+            Pokud spolu uzavřeme smlouvu, zpracovávám identifikační a kontaktní údaje a údaje potřebné pro fakturaci.
+            Právním základem je plnění smlouvy (čl. 6 odst. 1 písm. b) GDPR) a plnění zákonných povinností,
+            zejména daňových a účetních (čl. 6 odst. 1 písm. c) GDPR). Účetní a daňové doklady uchovávám po dobu
+            stanovenou zákonem, zpravidla 10 let.
+          </p>
+
+          <h3>Analytické a marketingové cookies</h3>
+          <p>
+            Pokud k tomu dáte souhlas, používám nástroj Google Analytics k měření návštěvnosti a Meta Pixel
+            (Facebook) k měření a cílení reklamy. Tyto nástroje ukládají do vašeho prohlížeče cookies a zpracovávají
+            údaje o vašem chování na webu, například navštívené stránky, typ zařízení nebo přibližnou polohu.
+          </p>
+          <p>
+            Právním základem je váš souhlas (čl. 6 odst. 1 písm. a) GDPR). Bez souhlasu se tyto cookies nespouštějí.
+            Souhlas můžete kdykoli odvolat nebo změnit v nastavení cookies na webu nebo smazáním cookies v prohlížeči.
+            Údaje se uchovávají nejdéle 14 měsíců.
+          </p>
+          <p>
+            Technicky nezbytné cookies, které zajišťují základní fungování webu, souhlas nevyžadují.
+          </p>
+        </section>
+
+        <section>
+          <h2>3. Komu údaje předávám</h2>
+          <p>Vaše údaje neprodávám. Ke zpracování využívám tyto důvěryhodné dodavatele (zpracovatele):</p>
+          <ul>
+            <li><strong>Vercel Inc.</strong> – hosting webu</li>
+            <li><strong>FormSubmit</strong> – doručení zpráv z kontaktního formuláře na můj e-mail</li>
+            <li><strong>Google LLC</strong> – e-mailová schránka (Gmail) a měření návštěvnosti (Google Analytics)</li>
+            <li><strong>Meta Platforms Ireland Ltd.</strong> – měření a cílení reklamy (Meta Pixel)</li>
+            <li>účetní a daňový poradce, pokud jej využívám, a orgány veřejné moci, pokud to vyžaduje zákon</li>
+          </ul>
+          <p>
+            Někteří z těchto dodavatelů sídlí nebo zpracovávají údaje mimo Evropskou unii, zejména v USA.
+            Předání probíhá na základě rozhodnutí Evropské komise o odpovídající ochraně (EU-U.S. Data Privacy Framework)
+            nebo standardních smluvních doložek schválených Evropskou komisí.
+          </p>
+        </section>
+
+        <section>
+          <h2>4. Vaše práva</h2>
+          <p>V souvislosti se zpracováním osobních údajů máte právo:</p>
+          <ul>
+            <li>požadovat přístup ke svým osobním údajům,</li>
+            <li>požadovat opravu nepřesných údajů,</li>
+            <li>požadovat výmaz údajů, pokud již není důvod je zpracovávat,</li>
+            <li>požadovat omezení zpracování,</li>
+            <li>na přenositelnost údajů,</li>
+            <li>vznést námitku proti zpracování založenému na oprávněném zájmu,</li>
+            <li>kdykoli odvolat souhlas, pokud je zpracování na souhlasu založeno.</li>
+          </ul>
+          <p>
+            Svá práva můžete uplatnit e-mailem na <a href={`mailto:${controller.email}`}>{controller.email}</a>.
+            Odpovím bez zbytečného odkladu, nejpozději do jednoho měsíce.
+          </p>
+          <p>
+            Pokud se domníváte, že s vašimi údaji nezacházím v souladu s právními předpisy, můžete podat stížnost
+            u Úřadu pro ochranu osobních údajů, Pplk. Sochora 27, 170 00 Praha 7,{' '}
+            <a href="https://uoou.gov.cz" target="_blank" rel="noopener">uoou.gov.cz</a>.
+          </p>
+        </section>
+
+        <section>
+          <h2>5. Zabezpečení</h2>
+          <p>
+            Přijala jsem technická a organizační opatření, která chrání vaše údaje před neoprávněným přístupem,
+            ztrátou nebo zneužitím. Web je šifrován protokolem HTTPS a k údajům mám přístup pouze já.
+          </p>
+        </section>
+
+        <p class="pt-6 border-t border-vh-dark/10 text-xs">Tyto zásady jsou účinné od {effectiveDate}.</p>
+      </div>
+
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .legal :global(h2) {
+    font-family: var(--font-serif);
+    font-weight: 300;
+    font-size: 1.75rem;
+    line-height: 1.2;
+    color: var(--color-vh-dark);
+    margin-bottom: 1rem;
+  }
+  .legal :global(h3) {
+    font-family: var(--font-sans);
+    font-weight: 500;
+    color: var(--color-vh-dark);
+    margin-top: 1.5rem;
+    margin-bottom: 0.5rem;
+  }
+  .legal :global(p) + :global(p) {
+    margin-top: 0.75rem;
+  }
+  .legal :global(ul) {
+    list-style: disc;
+    padding-left: 1.25rem;
+    margin: 0.75rem 0;
+  }
+  .legal :global(li) + :global(li) {
+    margin-top: 0.35rem;
+  }
+  .legal :global(a) {
+    color: var(--color-vh-sage);
+    text-decoration: underline;
+  }
+  .legal :global(strong) {
+    color: var(--color-vh-dark);
+    font-weight: 500;
+  }
+</style>
