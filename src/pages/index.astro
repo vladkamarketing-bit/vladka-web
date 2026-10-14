@@ -278,17 +278,32 @@ import FAQ from '../components/FAQ.tsx';
           const project = homepage.portfolioProjects[i];
           return (
             <div class="group bg-white rounded-2xl overflow-hidden border border-vh-dark/5 hover:shadow-lg transition-shadow">
-              <div class={`aspect-video ${bg} flex items-center justify-center overflow-hidden`}>
-                {project.image ? (
-                  <img src={project.image} alt={project.title} class="w-full h-full object-cover object-top" />
-                ) : (
-                  <svg class="w-14 h-14 text-vh-muted/30" viewBox="0 0 56 56" fill="none">
-                    <rect x="2" y="2" width="52" height="52" rx="4" stroke="currentColor" strokeWidth="1.5"/>
-                    <path d="M2 36l14-12 10 10 8-8 20 16" stroke="currentColor" strokeWidth="1.5" strokeLinejoin="round"/>
-                    <circle cx="40" cy="18" r="6" stroke="currentColor" strokeWidth="1.5"/>
-                  </svg>
-                )}
-              </div>
+              {project.url ? (
+                <a
+                  href={project.url}
+                  target="_blank"
+                  rel="noopener"
+                  aria-label={`Otevřít web projektu ${project.title} v novém okně`}
+                  class={`relative block aspect-video ${bg} overflow-hidden`}
+                >
+                  <img src={project.image} alt={project.title} class="w-full h-full object-cover object-top group-hover:scale-[1.03] transition-transform duration-500" />
+                  <span class="absolute bottom-3 right-3 px-3 py-1.5 bg-white/90 text-vh-dark text-xs font-medium font-sans rounded-full shadow-sm opacity-0 group-hover:opacity-100 transition-opacity">
+                    Zobrazit web ↗
+                  </span>
+                </a>
+              ) : (
+                <div class={`aspect-video ${bg} flex items-center justify-center overflow-hidden`}>
+                  {project.image ? (
+                    <img src={project.image} alt={project.title} class="w-full h-full object-cover object-top" />
+                  ) : (
+                    <svg class="w-14 h-14 text-vh-muted/30" viewBox="0 0 56 56" fill="none">
+                      <rect x="2" y="2" width="52" height="52" rx="4" stroke="currentColor" strokeWidth="1.5"/>
+                      <path d="M2 36l14-12 10 10 8-8 20 16" stroke="currentColor" strokeWidth="1.5" strokeLinejoin="round"/>
+                      <circle cx="40" cy="18" r="6" stroke="currentColor" strokeWidth="1.5"/>
+                    </svg>
+                  )}
+                </div>
+              )}
               <div class="p-6">
                 <div class="flex gap-2 mb-3 flex-wrap">
                   {project.tags.split(",").map(tag => (
@@ -299,6 +314,11 @@ import FAQ from '../components/FAQ.tsx';
                 <p class="text-vh-muted font-sans text-sm leading-relaxed">
                   {project.desc}
                 </p>
+                {project.url && (
+                  <a href={project.url} target="_blank" rel="noopener" class="inline-flex items-center gap-1 mt-4 text-sm font-medium font-sans text-vh-sage hover:text-vh-dark transition-colors">
+                    Zobrazit web <span aria-hidden="true">↗</span>
+                  </a>
+                )}
               </div>
             </div>
           );
