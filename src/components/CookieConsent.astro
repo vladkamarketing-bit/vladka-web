@@ -1,0 +1,110 @@
+---
+// Cookie lišta (vanilla-cookieconsent) a Google Analytics.
+// GA se načte až po souhlasu s analytickými cookies; bez souhlasu
+// se na Google nic neposílá.
+---
+
+<script>
+  import 'vanilla-cookieconsent/dist/cookieconsent.css';
+  import * as CookieConsent from 'vanilla-cookieconsent';
+
+  const GA_ID = 'G-B0HQG6ZR0X';
+
+  const w = window as any;
+  w.dataLayer = w.dataLayer || [];
+  function gtag(..._args: unknown[]) {
+    // gtag vyžaduje objekt arguments, ne pole
+    // eslint-disable-next-line prefer-rest-params
+    w.dataLayer.push(arguments);
+  }
+
+  // Google Consent Mode v2: výchozí stav je vše zamítnuto
+  gtag('consent', 'default', {
+    ad_storage: 'denied',
+    ad_user_data: 'denied',
+    ad_personalization: 'denied',
+    analytics_storage: 'denied',
+  });
+
+  let gaLoaded = false;
+  function loadGoogleAnalytics() {
+    if (gaLoaded) return;
+    gaLoaded = true;
+    const script = document.createElement('script');
+    script.async = true;
+    script.src = `https://www.googletagmanager.com/gtag/js?id=${GA_ID}`;
+    document.head.appendChild(script);
+    gtag('js', new Date());
+    gtag('config', GA_ID);
+  }
+
+  function applyConsent() {
+    const analytics = CookieConsent.acceptedCategory('analytics');
+    gtag('consent', 'update', { analytics_storage: analytics ? 'granted' : 'denied' });
+    if (analytics) loadGoogleAnalytics();
+  }
+
+  CookieConsent.run({
+    // Při změně textů nebo kategorií zvyšte číslo, lišta se pak všem zobrazí znovu.
+    revision: 1,
+    guiOptions: {
+      consentModal: { layout: 'box', position: 'bottom left', equalWeightButtons: true },
+      preferencesModal: { layout: 'box', equalWeightButtons: true },
+    },
+    categories: {
+      necessary: { enabled: true, readOnly: true },
+      analytics: {
+        autoClear: {
+          cookies: [{ name: /^_ga/ }, { name: '_gid' }],
+          reloadPage: true,
+        },
+      },
+    },
+    onConsent: applyConsent,
+    onChange: applyConsent,
+    language: {
+      default: 'cs',
+      translations: {
+        cs: {
+          consentModal: {
+            title: 'Používám cookies',
+            description:
+              'Nezbytné cookies zajišťují fungování webu. Se souhlasem používám i analytické cookies, které mi pomáhají zjistit, jak web používáte, a zlepšovat ho.',
+            acceptAllBtn: 'Přijmout vše',
+            acceptNecessaryBtn: 'Odmítnout',
+            showPreferencesBtn: 'Nastavení',
+            footer: '<a href="/ochrana-osobnich-udaju">Ochrana osobních údajů</a>',
+          },
+          preferencesModal: {
+            title: 'Nastavení cookies',
+            acceptAllBtn: 'Přijmout vše',
+            acceptNecessaryBtn: 'Odmítnout vše',
+            savePreferencesBtn: 'Uložit nastavení',
+            closeIconLabel: 'Zavřít',
+            sections: [
+              {
+                description:
+                  'Zde si můžete vybrat, které cookies povolíte. Souhlas můžete kdykoli změnit přes odkaz „Nastavení cookies“ v patičce webu.',
+              },
+              {
+                title: 'Nezbytné cookies',
+                description: 'Zajišťují základní fungování webu a uložení vašeho nastavení cookies. Nelze je vypnout.',
+                linkedCategory: 'necessary',
+              },
+              {
+                title: 'Analytické cookies',
+                description:
+                  'Google Analytics mi pomáhá měřit návštěvnost a zjistit, které části webu jsou užitečné. Údaje jsou souhrnné a uchovávají se nejdéle 14 měsíců.',
+                linkedCategory: 'analytics',
+              },
+              {
+                title: 'Více informací',
+                description: 'Podrobnosti najdete v <a href="/ochrana-osobnich-udaju">zásadách ochrany osobních údajů</a>.',
+              },
+            ],
+          },
+        },
+      },
+    },
+  });
+</script>
