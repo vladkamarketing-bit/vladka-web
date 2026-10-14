@@ -281,13 +281,14 @@ import FAQ from '../components/FAQ.tsx';
         </p>
       </div>
 
-      <!-- Karty projektů -->
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <!-- Karty projektů — karusel, viditelné 3, další se posouvají šipkami -->
+      <div data-carousel>
+      <div data-carousel-track class="flex gap-6 overflow-x-auto snap-x snap-mandatory scroll-smooth no-scrollbar">
 
-        {["bg-vh-sage-light/30", "bg-vh-bronze/10", "bg-vh-dark/5"].map((bg, i) => {
-          const project = homepage.portfolioProjects[i];
+        {homepage.portfolioProjects.map((project, i) => {
+          const bg = ["bg-vh-sage-light/30", "bg-vh-bronze/10", "bg-vh-dark/5"][i % 3];
           return (
-            <div class="group bg-white rounded-2xl overflow-hidden border border-vh-dark/5 hover:shadow-lg transition-shadow">
+            <div class="shrink-0 snap-start w-full md:w-[calc((100%-3rem)/3)] group bg-white rounded-2xl overflow-hidden border border-vh-dark/5 hover:shadow-lg transition-shadow">
               {project.url ? (
                 <a
                   href={project.url}
@@ -335,6 +336,17 @@ import FAQ from '../components/FAQ.tsx';
         })}
 
       </div>
+      <div data-carousel-nav class="hidden mt-8">
+        <div class="flex items-center justify-end gap-3">
+        <button type="button" data-carousel-prev aria-label="Předchozí" class="w-11 h-11 rounded-full border border-vh-dark/20 text-vh-dark flex items-center justify-center hover:bg-vh-dark hover:text-white hover:border-vh-dark transition-colors disabled:opacity-30 disabled:pointer-events-none">
+          <svg class="w-4 h-4" viewBox="0 0 16 16" fill="none"><path d="M10 3L5 8l5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <button type="button" data-carousel-next aria-label="Další" class="w-11 h-11 rounded-full border border-vh-dark/20 text-vh-dark flex items-center justify-center hover:bg-vh-dark hover:text-white hover:border-vh-dark transition-colors disabled:opacity-30 disabled:pointer-events-none">
+          <svg class="w-4 h-4" viewBox="0 0 16 16" fill="none"><path d="M6 3l5 5-5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        </div>
+      </div>
+      </div>
     </div>
   </section>
 
@@ -355,11 +367,12 @@ import FAQ from '../components/FAQ.tsx';
         <h2 class="font-serif font-light text-5xl text-white">{homepage.testimonialsTitle}</h2>
       </div>
 
-      <!-- Karty -->
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <!-- Karty — karusel, viditelné 3, další se posouvají šipkami -->
+      <div data-carousel>
+      <div data-carousel-track class="flex gap-6 overflow-x-auto snap-x snap-mandatory scroll-smooth no-scrollbar">
 
         {homepage.testimonials.map(testimonial => (
-          <div class="bg-vh-dark/20 rounded-2xl p-8">
+          <div class="shrink-0 snap-start w-full md:w-[calc((100%-3rem)/3)] bg-vh-dark/20 rounded-2xl p-8">
             <p class="font-serif text-3xl text-white/30 leading-none mb-4">"</p>
             <p class="text-white/80 font-sans text-sm leading-relaxed mb-8">
               {testimonial.quote}
@@ -374,6 +387,17 @@ import FAQ from '../components/FAQ.tsx';
           </div>
         ))}
 
+      </div>
+      <div data-carousel-nav class="hidden mt-8">
+        <div class="flex items-center justify-center gap-3">
+        <button type="button" data-carousel-prev aria-label="Předchozí" class="w-11 h-11 rounded-full border border-white/30 text-white flex items-center justify-center hover:bg-white hover:text-vh-sage hover:border-white transition-colors disabled:opacity-30 disabled:pointer-events-none">
+          <svg class="w-4 h-4" viewBox="0 0 16 16" fill="none"><path d="M10 3L5 8l5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <button type="button" data-carousel-next aria-label="Další" class="w-11 h-11 rounded-full border border-white/30 text-white flex items-center justify-center hover:bg-white hover:text-vh-sage hover:border-white transition-colors disabled:opacity-30 disabled:pointer-events-none">
+          <svg class="w-4 h-4" viewBox="0 0 16 16" fill="none"><path d="M6 3l5 5-5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        </div>
+      </div>
       </div>
     </div>
   </section>
@@ -528,5 +552,37 @@ import FAQ from '../components/FAQ.tsx';
     } finally {
       button.disabled = false;
     }
+  });
+</script>
+
+<script>
+  // Karusely (portfolio, reference): šipky posouvají o jednu kartu,
+  // na mobilu jde posouvat i prstem. Šipky se ukážou jen tehdy,
+  // když se všechny karty nevejdou najednou.
+  document.querySelectorAll<HTMLElement>('[data-carousel]').forEach((carousel) => {
+    const track = carousel.querySelector<HTMLElement>('[data-carousel-track]');
+    const nav = carousel.querySelector<HTMLElement>('[data-carousel-nav]');
+    const prev = carousel.querySelector<HTMLButtonElement>('[data-carousel-prev]');
+    const next = carousel.querySelector<HTMLButtonElement>('[data-carousel-next]');
+    if (!track || !nav || !prev || !next) return;
+
+    const step = () => {
+      const first = track.children[0] as HTMLElement | undefined;
+      const gap = parseFloat(getComputedStyle(track).columnGap) || 0;
+      return first ? first.offsetWidth + gap : track.clientWidth;
+    };
+
+    const update = () => {
+      const max = track.scrollWidth - track.clientWidth;
+      nav.classList.toggle('hidden', max <= 1);
+      prev.disabled = track.scrollLeft <= 1;
+      next.disabled = track.scrollLeft >= max - 1;
+    };
+
+    prev.addEventListener('click', () => track.scrollBy({ left: -step(), behavior: 'smooth' }));
+    next.addEventListener('click', () => track.scrollBy({ left: step(), behavior: 'smooth' }));
+    track.addEventListener('scroll', update, { passive: true });
+    window.addEventListener('resize', update);
+    update();
   });
 </script>
