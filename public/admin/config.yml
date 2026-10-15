@@ -53,6 +53,8 @@ collections:
               - { label: "Název", name: "title", widget: "string" }
               - { label: "Cena", name: "price", widget: "string" }
               - { label: "Text", name: "text", widget: "text" }
+              - { label: "Odkaz (nepovinné)", name: "link", widget: "string", required: false, hint: "Např. /chovatel. Prázdné = karta bez odkazu." }
+              - { label: "Text odkazu (nepovinné)", name: "linkLabel", widget: "string", required: false }
           - label: "Služby - 3 bílé karty"
             name: "servicesCards3"
             widget: "list"
