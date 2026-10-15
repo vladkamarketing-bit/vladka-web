@@ -26,6 +26,12 @@ const dogFeatures = [
   'Galerie a kontakt na majitele',
 ];
 
+const dogHighlights = [
+  { title: 'Tituly a výstavy', text: 'Šampionáty, čekatelství a výsledky z výstav přehledně v kartách, doplněné fotkami z kruhu.', img: '/images/chovatel/pes-mobil-vystavy.webp' },
+  { title: 'Zkoušky z výkonu', text: 'Každá zkouška s cenou a body. U společenských plemen se sekce jednoduše vypne.', img: '/images/chovatel/pes-mobil-zkousky.webp' },
+  { title: 'Exteriér a zdraví', text: 'Výška, barva, chrup, DKK, genetické testy i rodokmen do 4. generace.', img: '/images/chovatel/pes-mobil-o-psovi.webp' },
+];
+
 const kennelPages = [
   { name: 'Úvod', text: 'Představení stanice, aktuální vrh, chovní psi a novinky.' },
   { name: 'O nás', text: 'Váš příběh, na čem si v chovu zakládáte, fotky ze života.' },
@@ -171,6 +177,19 @@ const labelClass = 'block text-xs font-medium text-vh-muted uppercase tracking-w
           </div>
         </div>
       ))}
+
+      <!-- Ukázky v mobilu -->
+      <div class="grid md:grid-cols-3 gap-10 mt-20">
+        {dogHighlights.map((h) => (
+          <div>
+            <div class="mx-auto w-[70%] max-w-[230px] rounded-[30px] bg-[#141517] p-2 shadow-[0_30px_60px_rgba(40,30,20,0.22)] mb-8">
+              <img src={h.img} alt={h.title} class="block w-full rounded-[24px]" width="420" height="909" loading="lazy" />
+            </div>
+            <h3 class="font-serif text-2xl text-vh-dark mb-2 text-center">{h.title}</h3>
+            <p class="text-vh-muted text-sm font-sans leading-relaxed text-center">{h.text}</p>
+          </div>
+        ))}
+      </div>
 
       <div class="text-center mt-14">
         <a href="#poptavka" data-zajem="Web pro chovného psa / fenu" class="inline-block px-8 py-4 bg-vh-sage text-white rounded-full text-sm font-medium hover:bg-vh-sage/80 transition-colors font-sans">
