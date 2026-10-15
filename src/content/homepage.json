@@ -91,7 +91,9 @@
       "label": "Webová vizitka pro chovatele ",
       "title": "Webová prezentace chovatelské stanice ",
       "price": "od 5 000 Kč ",
-      "text": "Jste chovatelem psa nebo kočky? Nepotřebujete rozsáhlou webovou prezentaci o několika stránkách, ale chcete jednoduše prezentovat své chovné jedince. Jejich fotogalerii, výčet výstavních a pracovních úspěchů a rodokmen. "
+      "text": "Jste chovatelem psa nebo kočky? Nepotřebujete rozsáhlou webovou prezentaci o několika stránkách, ale chcete jednoduše prezentovat své chovné jedince. Jejich fotogalerii, výčet výstavních a pracovních úspěchů a rodokmen. ",
+      "link": "/chovatel",
+      "linkLabel": "Prohlédnout šablony pro chovatele"
     }
   ],
   "servicesCards3": [

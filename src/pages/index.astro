@@ -197,6 +197,12 @@ import FAQ from '../components/FAQ.tsx';
             <p class="text-white/60 font-sans text-sm leading-relaxed">
               {card.text}
             </p>
+            {card.link && (
+              <a href={card.link} class="group inline-flex items-center gap-1.5 mt-5 text-white/80 hover:text-white text-sm font-sans no-underline border-b border-white/30 hover:border-white pb-0.5 transition-colors">
+                {card.linkLabel || 'Více informací'}
+                <span class="inline-block group-hover:translate-x-1 transition-transform">→</span>
+              </a>
+            )}
           </div>
           );
         })}
