@@ -1,0 +1,447 @@
+---
+// Skrytá stránka pro kampaň na sociálních sítích: nabídka šablon pro chovatele.
+// Není v menu ani v patičce a vyhledávače ji neindexují.
+export const prerender = true;
+
+import Layout from '../layouts/Layout.astro';
+import homepage from '../content/homepage.json';
+
+const dogDesigns = [
+  { group: 'Pro lovecká a pracovní plemena', items: [
+    { name: 'Lesní', text: 'Tmavě zelený a slavnostní. Pes s odstraněným pozadím vynikne jako na výstavní fotce.', img: '/images/chovatel/pes-lesni.webp' },
+    { name: 'Stříbrný', text: 'Světlý, s velkou fotkou přes celou šířku a pruhem rychlých údajů.', img: '/images/chovatel/pes-stribrny.webp' },
+  ]},
+  { group: 'Pro společenská plemena', items: [
+    { name: 'Perlový', text: 'Světlý a vzdušný, smetanová a jemné zlato, fotky v obloucích.', img: '/images/chovatel/pes-perlovy.webp' },
+    { name: 'Noir', text: 'Tmavý a luxusní, černá a šampaňské zlato, fotka přes celou šířku.', img: '/images/chovatel/pes-noir.webp' },
+  ]},
+];
+
+const dogFeatures = [
+  'Úvod s fotkou, jménem a hlavními tituly',
+  'Šampionáty a výsledky z výstav',
+  'Zkoušky z výkonu (u společenských plemen se vypnou)',
+  'Exteriér, zdraví a genetické testy',
+  'Rodokmen do 4. generace',
+  'Galerie a kontakt na majitele',
+];
+
+const dogHighlights = [
+  { title: 'Tituly a výstavy', text: 'Šampionáty, čekatelství a výsledky z výstav přehledně v kartách, doplněné fotkami z kruhu.', img: '/images/chovatel/pes-mobil-vystavy.webp' },
+  { title: 'Zkoušky z výkonu', text: 'Každá zkouška s cenou a body. U společenských plemen se sekce jednoduše vypne.', img: '/images/chovatel/pes-mobil-zkousky.webp' },
+  { title: 'Exteriér a zdraví', text: 'Výška, barva, chrup, DKK, genetické testy i rodokmen do 4. generace.', img: '/images/chovatel/pes-mobil-o-psovi.webp' },
+];
+
+const kennelPages = [
+  { name: 'Úvod', text: 'Představení stanice, aktuální vrh, chovní psi a novinky.' },
+  { name: 'O nás', text: 'Váš příběh, na čem si v chovu zakládáte, fotky ze života.' },
+  { name: 'Naši psi', text: 'Každý pes má svou stránku s výstavami, zdravím a rodokmenem.' },
+  { name: 'Vrhy a štěňata', text: 'Aktuální, plánované i odchované vrhy přehledně.' },
+  { name: 'Aktuality', text: 'Výsledky z výstav a soutěží, narození štěňat.' },
+  { name: 'Kontakt', text: 'Kontakty a formulář pro zájemce o štěně.' },
+];
+
+const kennelHighlights = [
+  { title: 'Štěňata se stavem', text: 'U každého štěněte přepnete volné, rezervace nebo prodané. Zájemci hned vidí, co je k mání.', img: '/images/chovatel/stanice-mobil-vrh.webp' },
+  { title: 'Rodiče a rodokmen vrhu', text: 'Otec a matka s fotkou v postoji, tituly a zdravím. Rodokmen vrhu se u vlastních psů doplní sám.', img: '/images/chovatel/stanice-mobil-rodice.webp' },
+  { title: 'Vrh na úvodu, jen když ho máte', text: 'Nemáte letos štěňata? Sekci vypnete a web dál působí upraveně, bez prázdných míst.', img: '/images/chovatel/stanice-mobil.webp' },
+];
+
+const colors = [
+  { name: 'Lesní', hex: '#2F4A3A' },
+  { name: 'Bordó', hex: '#6B2733' },
+  { name: 'Námořní', hex: '#22364E' },
+  { name: 'Terakota', hex: '#A4553A' },
+];
+
+const steps = [
+  { title: 'Vyberete šablonu', text: 'Web pro psa nebo pro celou stanici a vzhled, který vám sedí.' },
+  { title: 'Pošlete podklady', text: 'Fotky a údaje. Dostanete ode mě přehledný seznam, co připravit.' },
+  { title: 'Web nastavím a spustím', text: 'Na vaší doméně a hostingu, včetně zabezpečení a nastavení e-mailu z formuláře.' },
+  { title: 'Upravujete sami', text: 'Nové výstavy, vrhy i aktuality doplníte v přehledné administraci. Bez programování.' },
+];
+
+const inputClass = 'w-full px-4 py-3 rounded-lg border border-vh-dark/15 bg-white text-vh-dark placeholder:text-vh-muted/50 text-sm font-sans focus:outline-none focus:border-vh-sage transition-colors';
+const labelClass = 'block text-xs font-medium text-vh-muted uppercase tracking-wider mb-1.5 font-sans';
+---
+
+<Layout
+  title="Weby pro chovatele — Vladka Horáková"
+  description="Hotové webové šablony pro chovatele: jednostránkový web pro chovného psa nebo fenu a vícestránkový web chovatelské stanice."
+  noindex={true}
+  ctaHref="#poptavka"
+  ctaLabel="Poptat web"
+>
+
+  <!-- ═══ ÚVOD ═══ -->
+  <section class="relative bg-vh-ivory overflow-hidden">
+    <div class="absolute right-0 top-1/2 -translate-y-1/2 w-[640px] h-[640px] rounded-full bg-vh-muted opacity-[0.07] pointer-events-none translate-x-1/3"></div>
+    <div class="relative max-w-6xl mx-auto px-6 pt-36 pb-20 grid lg:grid-cols-[1fr_1.05fr] gap-14 items-center">
+      <div>
+        <div class="flex items-center gap-4 text-vh-bronze mb-8">
+          <span class="w-8 h-px bg-vh-bronze"></span>
+          <span class="uppercase tracking-widest text-xs font-medium font-sans">Weby pro chovatele</span>
+        </div>
+        <h1 class="font-serif leading-[1.08] text-vh-dark mb-7" style="font-size: clamp(2.6rem, 5vw, 4rem); font-weight: 400;">
+          Web pro vašeho&nbsp;psa<br/>
+          <span class="italic text-vh-sage">i celou chovatelskou stanici</span>
+        </h1>
+        <p class="text-vh-muted text-lg leading-relaxed mb-9 max-w-lg font-sans">
+          Hotové šablony navržené přímo pro chovatele. Vy dodáte fotky a výsledky, já web nastavím a spustím.
+          Pak si ho snadno upravujete sami.
+        </p>
+        <div class="flex flex-wrap items-center gap-6 mb-10">
+          <a href="#poptavka" class="px-8 py-4 bg-vh-sage text-white rounded-full text-sm font-medium hover:bg-vh-sage/80 transition-colors font-sans">
+            Chci nezávaznou nabídku
+          </a>
+          <a href="#sablony" class="text-vh-dark text-sm font-medium hover:text-vh-sage transition-colors font-sans group flex items-center gap-1">
+            Prohlédnout šablony
+            <span class="inline-block group-hover:translate-y-0.5 transition-transform">↓</span>
+          </a>
+        </div>
+        <ul class="flex flex-wrap gap-x-7 gap-y-3 text-sm text-vh-dark font-sans">
+          <li class="flex items-center gap-2"><span class="text-vh-sage">✓</span> Bez měsíčních poplatků</li>
+          <li class="flex items-center gap-2"><span class="text-vh-sage">✓</span> Obsah upravujete sami</li>
+          <li class="flex items-center gap-2"><span class="text-vh-sage">✓</span> Na mobilu i počítači</li>
+        </ul>
+      </div>
+
+      <!-- Notebook a telefon -->
+      <div class="relative pb-10 lg:pb-0">
+        <div class="rounded-[18px] bg-[#1D1F22] p-3 pb-4 shadow-[0_40px_80px_rgba(40,30,20,0.22)]">
+          <img src="/images/chovatel/stanice-klasicky.webp" alt="Ukázka webu chovatelské stanice" class="block w-full rounded aspect-[16/10] object-cover object-top" width="1200" height="750" />
+        </div>
+        <div class="h-3 -mx-8 rounded-b-2xl bg-gradient-to-b from-[#D9D6D1] to-[#B9B5AE] shadow-[0_18px_30px_rgba(40,30,20,0.16)]"></div>
+        <div class="absolute -right-2 sm:right-2 -bottom-2 lg:-bottom-12 w-[34%] max-w-[190px] rounded-[30px] bg-[#141517] p-2 shadow-[0_30px_60px_rgba(40,30,20,0.3)]">
+          <img src="/images/chovatel/pes-mobil.webp" alt="Ukázka webu chovného psa na mobilu" class="block w-full rounded-[24px]" width="420" height="908" loading="lazy" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ ROZCESTNÍK ═══ -->
+  <section id="sablony" class="bg-vh-ivory pt-6 pb-20 scroll-mt-20">
+    <div class="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-6">
+      <a href="#chovny-jedinec" class="group block bg-white rounded-2xl p-8 no-underline border border-vh-dark/5 hover:border-vh-sage/40 transition-colors">
+        <span class="uppercase tracking-widest text-xs font-medium text-vh-bronze font-sans">Jednostránkový web</span>
+        <h2 class="font-serif text-3xl text-vh-dark mt-3 mb-3">Web pro chovného psa nebo fenu</h2>
+        <p class="text-vh-muted text-sm leading-relaxed font-sans mb-5">Prezentace jednoho psa: tituly, výstavy, zkoušky, zdraví a rodokmen. Ideální pro krycí psy a úspěšné feny.</p>
+        <span class="text-sm font-medium text-vh-sage font-sans">4 vzhledy <span class="inline-block group-hover:translate-y-0.5 transition-transform">↓</span></span>
+      </a>
+      <a href="#chovatelska-stanice" class="group block bg-white rounded-2xl p-8 no-underline border border-vh-dark/5 hover:border-vh-sage/40 transition-colors">
+        <span class="uppercase tracking-widest text-xs font-medium text-vh-bronze font-sans">Vícestránkový web</span>
+        <h2 class="font-serif text-3xl text-vh-dark mt-3 mb-3">Web chovatelské stanice</h2>
+        <p class="text-vh-muted text-sm leading-relaxed font-sans mb-5">Celá stanice na jednom místě: chovní psi, vrhy a štěňata, aktuality a kontakt pro zájemce.</p>
+        <span class="text-sm font-medium text-vh-sage font-sans">2 designy × 4 barvy <span class="inline-block group-hover:translate-y-0.5 transition-transform">↓</span></span>
+      </a>
+    </div>
+  </section>
+
+  <!-- ═══ WEB PRO CHOVNÉHO JEDINCE ═══ -->
+  <section id="chovny-jedinec" class="bg-white/50 py-24 scroll-mt-16">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="grid lg:grid-cols-[1fr_1fr] gap-14 items-end mb-16">
+        <div>
+          <div class="flex items-center gap-4 text-vh-bronze mb-5">
+            <span class="w-8 h-px bg-vh-bronze"></span>
+            <span class="uppercase tracking-widest text-xs font-medium font-sans">Web pro chovného jedince</span>
+          </div>
+          <h2 class="font-serif font-light text-5xl text-vh-dark leading-tight mb-6">Jedna stránka,<br/><span class="italic">všechny úspěchy</span></h2>
+          <p class="text-vh-muted font-sans leading-relaxed">
+            Elegantní jednostránkový web pro vašeho psa nebo fenu. Majitelé fen i chovatelé z ciziny na něm najdou
+            vše podstatné na jednom místě a hned vás mohou kontaktovat.
+          </p>
+        </div>
+        <ul class="grid sm:grid-cols-2 gap-x-6 gap-y-3 font-sans text-sm text-vh-dark">
+          {dogFeatures.map((f) => (
+            <li class="flex gap-3"><span class="text-vh-sage mt-0.5">✓</span><span>{f}</span></li>
+          ))}
+        </ul>
+      </div>
+
+      {dogDesigns.map((g) => (
+        <div class="mb-14 last:mb-0">
+          <p class="uppercase tracking-widest text-xs font-medium text-vh-muted font-sans mb-6">{g.group}</p>
+          <div class="grid md:grid-cols-2 gap-8">
+            {g.items.map((d) => (
+              <figure>
+                <div class="rounded-xl overflow-hidden shadow-[0_18px_40px_rgba(40,30,20,0.14)] bg-white">
+                  <img src={d.img} alt={`Vzhled ${d.name}`} class="block w-full aspect-[16/10] object-cover object-top" width="1200" height="750" loading="lazy" />
+                </div>
+                <figcaption class="mt-5">
+                  <h3 class="font-serif text-3xl text-vh-dark">{d.name}</h3>
+                  <p class="text-vh-muted text-sm font-sans mt-1 leading-relaxed">{d.text}</p>
+                </figcaption>
+              </figure>
+            ))}
+          </div>
+        </div>
+      ))}
+
+      <!-- Ukázky v mobilu -->
+      <div class="grid md:grid-cols-3 gap-10 mt-20">
+        {dogHighlights.map((h) => (
+          <div>
+            <div class="mx-auto w-[70%] max-w-[230px] rounded-[30px] bg-[#141517] p-2 shadow-[0_30px_60px_rgba(40,30,20,0.22)] mb-8">
+              <img src={h.img} alt={h.title} class="block w-full rounded-[24px]" width="420" height="909" loading="lazy" />
+            </div>
+            <h3 class="font-serif text-2xl text-vh-dark mb-2 text-center">{h.title}</h3>
+            <p class="text-vh-muted text-sm font-sans leading-relaxed text-center">{h.text}</p>
+          </div>
+        ))}
+      </div>
+
+      <div class="text-center mt-14">
+        <a href="#poptavka" data-zajem="Web pro chovného psa / fenu" class="inline-block px-8 py-4 bg-vh-sage text-white rounded-full text-sm font-medium hover:bg-vh-sage/80 transition-colors font-sans">
+          Chci web pro svého psa
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ WEB CHOVATELSKÉ STANICE ═══ -->
+  <section id="chovatelska-stanice" class="bg-vh-ivory py-24 scroll-mt-16">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="max-w-2xl mb-14">
+        <div class="flex items-center gap-4 text-vh-bronze mb-5">
+          <span class="w-8 h-px bg-vh-bronze"></span>
+          <span class="uppercase tracking-widest text-xs font-medium font-sans">Web chovatelské stanice</span>
+        </div>
+        <h2 class="font-serif font-light text-5xl text-vh-dark leading-tight mb-6">Celá stanice<br/><span class="italic">přehledně na jednom webu</span></h2>
+        <p class="text-vh-muted font-sans leading-relaxed">
+          Vícestránkový web, na kterém zájemci o štěně najdou vaše psy, aktuální i plánované vrhy a novinky ze stanice.
+          Vše si doplňujete sami: nového psa, vrh nebo výsledek z výstavy přidáte v administraci za pár minut.
+        </p>
+      </div>
+
+      <!-- Stránky webu -->
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-20">
+        {kennelPages.map((p) => (
+          <div class="bg-white rounded-xl p-6 border border-vh-dark/5">
+            <h3 class="font-serif text-2xl text-vh-dark mb-1">{p.name}</h3>
+            <p class="text-vh-muted text-sm font-sans leading-relaxed">{p.text}</p>
+          </div>
+        ))}
+      </div>
+
+      <!-- Co web umí -->
+      <div class="grid md:grid-cols-3 gap-10 mb-24">
+        {kennelHighlights.map((h) => (
+          <div>
+            <div class="mx-auto w-[70%] max-w-[230px] rounded-[30px] bg-[#141517] p-2 shadow-[0_30px_60px_rgba(40,30,20,0.22)] mb-8">
+              <img src={h.img} alt={h.title} class="block w-full rounded-[24px]" width="420" height="908" loading="lazy" />
+            </div>
+            <h3 class="font-serif text-2xl text-vh-dark mb-2 text-center">{h.title}</h3>
+            <p class="text-vh-muted text-sm font-sans leading-relaxed text-center">{h.text}</p>
+          </div>
+        ))}
+      </div>
+
+      <!-- Designy a barvy -->
+      <div class="text-center mb-10">
+        <p class="uppercase tracking-widest text-xs font-medium text-vh-muted font-sans mb-3">Vzhled</p>
+        <h3 class="font-serif font-light text-4xl text-vh-dark">2 designy <span class="italic">×</span> 4 barevné varianty</h3>
+      </div>
+      <div class="grid md:grid-cols-2 gap-8 mb-10">
+        <figure>
+          <div class="rounded-xl overflow-hidden shadow-[0_18px_40px_rgba(40,30,20,0.14)] bg-white">
+            <img src="/images/chovatel/stanice-klasicky.webp" alt="Design Klasický" class="block w-full aspect-[16/10] object-cover object-top" width="1200" height="750" loading="lazy" />
+          </div>
+          <figcaption class="mt-5">
+            <h4 class="font-serif text-3xl text-vh-dark">Klasický</h4>
+            <p class="text-vh-muted text-sm font-sans mt-1">Patkové písmo, menu uprostřed pod logem, jemné ornamenty.</p>
+          </figcaption>
+        </figure>
+        <figure>
+          <div class="rounded-xl overflow-hidden shadow-[0_18px_40px_rgba(40,30,20,0.14)] bg-white">
+            <img src="/images/chovatel/stanice-moderni.webp" alt="Design Moderní" class="block w-full aspect-[16/10] object-cover object-top" width="1200" height="750" loading="lazy" />
+          </div>
+          <figcaption class="mt-5">
+            <h4 class="font-serif text-3xl text-vh-dark">Moderní</h4>
+            <p class="text-vh-muted text-sm font-sans mt-1">Čisté bezpatkové písmo, zaoblené karty, menu stále po ruce.</p>
+          </figcaption>
+        </figure>
+      </div>
+      <div class="flex flex-wrap justify-center gap-x-8 gap-y-3 mb-6 font-sans text-sm text-vh-dark">
+        {colors.map((c) => (
+          <span class="flex items-center gap-2"><span class="w-5 h-5 rounded-full border-2 border-white shadow" style={`background:${c.hex}`}></span>{c.name}</span>
+        ))}
+      </div>
+      <p class="text-center text-vh-muted text-sm font-sans mb-14">Design i barvu můžete kdykoli změnit jedním výběrem, obsah zůstane stejný.</p>
+
+      <div class="text-center">
+        <a href="#poptavka" data-zajem="Web chovatelské stanice" class="inline-block px-8 py-4 bg-vh-sage text-white rounded-full text-sm font-medium hover:bg-vh-sage/80 transition-colors font-sans">
+          Chci web pro stanici
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ JAK TO PROBÍHÁ ═══ -->
+  <section class="bg-vh-dark text-white py-24">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="text-center mb-14">
+        <div class="flex items-center justify-center gap-4 text-vh-sage-light mb-5">
+          <span class="w-8 h-px bg-vh-sage-light"></span>
+          <span class="uppercase tracking-widest text-xs font-medium font-sans">Jak to probíhá</span>
+          <span class="w-8 h-px bg-vh-sage-light"></span>
+        </div>
+        <h2 class="font-serif font-light text-5xl">Od výběru ke spuštění</h2>
+      </div>
+      <ol class="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
+        {steps.map((s, i) => (
+          <li class="border-t border-white/15 pt-6">
+            <span class="font-serif italic text-4xl text-vh-sage-light">{i + 1}.</span>
+            <h3 class="font-serif text-2xl mt-3 mb-2">{s.title}</h3>
+            <p class="text-white/60 text-sm font-sans leading-relaxed">{s.text}</p>
+          </li>
+        ))}
+      </ol>
+      <p class="mt-14 text-center text-white/60 text-sm font-sans max-w-2xl mx-auto leading-relaxed">
+        Doménu a hosting (například u Active24) platíte přímo poskytovateli. Mně neplatíte žádné měsíční poplatky
+        a web je celý váš.
+      </p>
+    </div>
+  </section>
+
+  <!-- ═══ POPTÁVKA ═══ -->
+  <section id="poptavka" class="bg-white/50 py-24 scroll-mt-16">
+    <div class="max-w-6xl mx-auto px-6 grid md:grid-cols-[0.9fr_1.1fr] gap-16 items-start">
+      <div>
+        <div class="flex items-center gap-4 text-vh-bronze mb-6">
+          <span class="w-8 h-px bg-vh-bronze"></span>
+          <span class="uppercase tracking-widest text-xs font-medium font-sans">Poptávka</span>
+        </div>
+        <h2 class="font-serif font-light text-5xl text-vh-dark leading-tight mb-6">Napište mi,<br/><span class="italic">jaký web chcete</span></h2>
+        <p class="text-vh-muted font-sans text-sm leading-relaxed mb-8">
+          Stačí pár údajů. Ozvu se vám, doporučím vhodnou šablonu a pošlu nezávaznou nabídku.
+          Když si nejste jistí, nevadí, rádi to probereme.
+        </p>
+        <div class="flex items-center gap-3 text-vh-dark font-sans text-sm">
+          <svg class="w-5 h-5 text-vh-sage flex-shrink-0" viewBox="0 0 20 20" fill="none">
+            <path d="M2 6l8 5 8-5M2 6v10a1 1 0 001 1h14a1 1 0 001-1V6a1 1 0 00-1-1H3a1 1 0 00-1 1z" stroke="currentColor" stroke-width="1.2" stroke-linejoin="round"/>
+          </svg>
+          <a href={`mailto:${homepage.contactEmail}`} class="hover:text-vh-sage transition-colors">{homepage.contactEmail}</a>
+        </div>
+      </div>
+
+      <form id="poptavka-form" action={`https://formsubmit.co/${homepage.contactEmail}`} method="POST" class="space-y-5">
+        <input type="hidden" name="_subject" value="Poptávka: web pro chovatele" />
+        <input type="hidden" name="_template" value="table" />
+        <input type="hidden" name="_captcha" value="false" />
+        <input type="text" name="_honey" tabindex="-1" autocomplete="off" class="hidden" aria-hidden="true" />
+
+        <div class="grid sm:grid-cols-2 gap-4">
+          <div>
+            <label for="p-name" class={labelClass}>Jméno</label>
+            <input id="p-name" name="Jméno" type="text" required autocomplete="name" placeholder="Vaše jméno" class={inputClass} />
+          </div>
+          <div>
+            <label for="p-email" class={labelClass}>E-mail</label>
+            <input id="p-email" name="email" type="email" required autocomplete="email" placeholder="vas@email.cz" class={inputClass} />
+          </div>
+        </div>
+        <div class="grid sm:grid-cols-2 gap-4">
+          <div>
+            <label for="p-phone" class={labelClass}>Telefon <span class="normal-case tracking-normal">(nepovinné)</span></label>
+            <input id="p-phone" name="Telefon" type="tel" autocomplete="tel" placeholder="+420" class={inputClass} />
+          </div>
+          <div>
+            <label for="p-breed" class={labelClass}>Plemeno</label>
+            <input id="p-breed" name="Plemeno" type="text" placeholder="např. irský setr" class={inputClass} />
+          </div>
+        </div>
+        <div>
+          <label for="p-zajem" class={labelClass}>Mám zájem o</label>
+          <select id="p-zajem" name="Zájem o" required class={inputClass}>
+            <option>Web pro chovného psa / fenu</option>
+            <option>Web chovatelské stanice</option>
+            <option>Zatím nevím, poraďte mi</option>
+          </select>
+        </div>
+        <div class="grid sm:grid-cols-2 gap-4">
+          <div>
+            <label for="p-vzhled" class={labelClass}>Líbí se mi vzhled</label>
+            <select id="p-vzhled" name="Vzhled" class={inputClass}>
+              <option>Ještě nevím</option>
+              <optgroup label="Web pro psa / fenu">
+                <option>Lesní</option>
+                <option>Stříbrný</option>
+                <option>Perlový</option>
+                <option>Noir</option>
+              </optgroup>
+              <optgroup label="Web stanice">
+                <option>Klasický</option>
+                <option>Moderní</option>
+              </optgroup>
+            </select>
+          </div>
+          <div>
+            <label for="p-domena" class={labelClass}>Máte doménu?</label>
+            <select id="p-domena" name="Doména" class={inputClass}>
+              <option>Ještě ne</option>
+              <option>Ano, mám</option>
+              <option>Nevím, co to je</option>
+            </select>
+          </div>
+        </div>
+        <div>
+          <label for="p-message" class={labelClass}>Zpráva</label>
+          <textarea id="p-message" name="Zpráva" rows="4" placeholder="Jméno psa nebo stanice, co by web měl umět, termín…" class={`${inputClass} resize-none`}></textarea>
+        </div>
+        <button type="submit" class="w-full py-4 bg-vh-sage text-white rounded-full text-sm font-medium hover:bg-vh-sage/80 transition-colors font-sans disabled:opacity-60 disabled:cursor-wait">
+          Odeslat poptávku
+        </button>
+        <p class="text-xs text-vh-muted font-sans text-center leading-relaxed">
+          Odesláním formuláře berete na vědomí, že vaše údaje zpracuji za účelem odpovědi na poptávku.
+          Více v <a href="/ochrana-osobnich-udaju" class="underline hover:text-vh-sage transition-colors">zásadách ochrany osobních údajů</a>.
+        </p>
+        <p id="poptavka-status" class="hidden text-sm font-sans text-center" role="status"></p>
+      </form>
+    </div>
+  </section>
+
+</Layout>
+
+<script>
+  // Tlačítka „Chci web…“ předvyplní, o jaký web jde.
+  const select = document.getElementById('p-zajem') as HTMLSelectElement | null;
+  document.querySelectorAll<HTMLAnchorElement>('[data-zajem]').forEach((link) => {
+    link.addEventListener('click', () => {
+      if (select) select.value = link.dataset.zajem ?? select.value;
+    });
+  });
+
+  // Odeslání na pozadí, aby návštěvník zůstal na stránce.
+  // Bez JavaScriptu formulář funguje i klasicky přes atribut action.
+  const form = document.getElementById('poptavka-form') as HTMLFormElement | null;
+  const status = document.getElementById('poptavka-status');
+
+  form?.addEventListener('submit', async (event) => {
+    event.preventDefault();
+    const button = form.querySelector('button[type="submit"]') as HTMLButtonElement;
+    button.disabled = true;
+    status?.classList.add('hidden');
+
+    try {
+      const response = await fetch(form.action.replace('formsubmit.co/', 'formsubmit.co/ajax/'), {
+        method: 'POST',
+        headers: { Accept: 'application/json' },
+        body: new FormData(form),
+      });
+      if (!response.ok) throw new Error(String(response.status));
+      form.reset();
+      if (status) {
+        status.textContent = 'Děkuji, poptávka byla odeslána. Ozvu se vám do 24 hodin v pracovní dny.';
+        status.className = 'text-sm font-sans text-center text-vh-sage';
+      }
+    } catch {
+      if (status) {
+        status.textContent = 'Poptávku se nepodařilo odeslat. Zkuste to prosím znovu, nebo mi napište přímo na e-mail.';
+        status.className = 'text-sm font-sans text-center text-red-700';
+      }
+    } finally {
+      button.disabled = false;
+    }
+  });
+</script>
