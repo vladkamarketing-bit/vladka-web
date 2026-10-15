@@ -1,6 +1,6 @@
 ---
-// Skrytá stránka pro kampaň na sociálních sítích: nabídka šablon pro chovatele.
-// Není v menu ani v patičce a vyhledávače ji neindexují.
+// Stránka pro kampaň na sociálních sítích: nabídka šablon pro chovatele.
+// Není v horním menu, odkaz je jen v patičce.
 export const prerender = true;
 
 import Layout from '../layouts/Layout.astro';
@@ -68,7 +68,6 @@ const labelClass = 'block text-xs font-medium text-vh-muted uppercase tracking-w
 <Layout
   title="Weby pro chovatele — Vladka Horáková"
   description="Hotové webové šablony pro chovatele: jednostránkový web pro chovného psa nebo fenu a vícestránkový web chovatelské stanice."
-  noindex={true}
   ctaHref="#poptavka"
   ctaLabel="Poptat web"
 >
