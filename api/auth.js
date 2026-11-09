@@ -34,7 +34,11 @@ export default async function handler(req, res) {
   var data = JSON.stringify({ token: token, provider: "github" });
   var msg = "authorization:github:success:" + data;
   if (window.opener) {
-    window.opener.postMessage(msg, "https://vladka-web.vercel.app");
+    // Administrace mù¾é být otevøená na vercel.app i na vlastní doménì.
+    // Zpráva se doruèí jen tomu oknu, jeho¾ pùvod odpovídá - ostatní ji prohlí¾eè zahodí.
+    ["https://vladka-web.vercel.app", "https://www.vladkahorakova-weby.cz", "https://vladkahorakova-weby.cz"].forEach(function (origin) {
+      try { window.opener.postMessage(msg, origin); } catch (e) {}
+    });
     document.querySelector("p").innerText = "Hotovo! Toto okno se zavøe.";
     setTimeout(function() { window.close(); }, 2000);
   } else {
