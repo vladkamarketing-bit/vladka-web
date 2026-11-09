@@ -86,7 +86,7 @@
   "heroButton": "Chci nezávaznou nabídku",
   "heroKicker": "Weby pro chovatele",
   "dogButton": "Chci web pro svého psa",
-  "kennelText": "Vícestránkový web, na kterém zájemci o štěně najdou vaše psy, aktuální i plánované vrhy a novinky ze stanice. Vše si doplňujete sami: nového psa, vrh nebo výsledek z výstavy přidáte v administraci za pár minut.",
+  "kennelText": "Obsáhlejší vícestránkový web, na kterém zájemci o štěně najdou vaše psy, aktuální i plánované vrhy a novinky ze stanice. Web obdržíte naplněný obsahem který dodáte. Další si v průběhu času dle potřeby doplňujete sami: nového psa, nové vrhy nebo výsledky z výstavy jednoduše přidáte v administraci za pár minut. ",
   "dogKicker": "Web pro chovného jedince",
   "colors": [
     {
@@ -108,7 +108,7 @@
   ],
   "formText": "Stačí pár údajů. Ozvu se vám, doporučím vhodnou šablonu a pošlu nezávaznou nabídku. Když si nejste jistí, nevadí, rádi to probereme.",
   "stepsTitle": "Od výběru ke spuštění",
-  "kennelButton": "Chci web pro stanici",
+  "kennelButton": "Chci web pro chovatelskou stanici",
   "kennelDesigns": [
     {
       "name": "Klasický",
@@ -125,7 +125,7 @@
   "kennelKicker": "Web chovatelské stanice",
   "formTitle": "Napište mi,",
   "formButton": "Odeslat poptávku",
-  "kennelTitle": "Celá stanice",
+  "kennelTitle": "Chovatelská stanice",
   "formKicker": "Poptávka",
   "dogFeatures": [
     "Úvod s fotkou, jménem a hlavními tituly",
@@ -188,7 +188,7 @@
     }
   ],
   "dogTitle": "Jedna stránka,",
-  "kennelCardText": "Celá stanice na jednom místě: chovní psi, vrhy a štěňata, aktuality a kontakt pro zájemce.",
+  "kennelCardText": "Úspěšný chovatel staví na profesionální prezentaci svých chovných jedinců. Jejich prezentace se všemi úspěchy na poli práce i výstav. Webové stránky pro chovatele jsou postavené na hlavních potřebách. Prezentují fotografie, šampionáty, rodokmeny ale také minulé, plánované nebo aktuální vrhy včetně kompletních rodokmenů rodičů a rezervačního systému štěňat. ",
   "heroTitle": "Web pro vašeho psa",
   "formSuccess": "Děkuji, poptávka byla odeslána. Ozvu se vám do 24 hodin v pracovní dny."
 }
