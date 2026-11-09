@@ -291,8 +291,8 @@ import FAQ from '../components/FAQ.tsx';
       </div>
 
       <!-- Karty projektů — karusel, viditelné 3, další se posouvají šipkami -->
-      <div data-carousel>
-      <div data-carousel-track class="flex gap-6 overflow-x-auto snap-x snap-mandatory scroll-smooth no-scrollbar">
+      <div data-carousel class="md:flex md:items-center md:gap-6">
+      <div data-carousel-track class="flex gap-6 overflow-x-auto snap-x snap-mandatory scroll-smooth no-scrollbar md:flex-1 md:min-w-0">
 
         {homepage.portfolioProjects.map((project, i) => {
           const bg = ["bg-vh-sage-light/30", "bg-vh-bronze/10", "bg-vh-dark/5"][i % 3];
@@ -326,7 +326,7 @@ import FAQ from '../components/FAQ.tsx';
               )}
               <div class="p-6">
                 <div class="flex gap-2 mb-3 flex-wrap">
-                  {project.tags.split(",").map(tag => (
+                  {(project.tags || "").split(",").filter(tag => tag.trim()).map(tag => (
                     <span class="text-xs px-2.5 py-1 bg-vh-ivory text-vh-muted rounded-full font-sans">{tag.trim()}</span>
                   ))}
                 </div>
@@ -345,8 +345,9 @@ import FAQ from '../components/FAQ.tsx';
         })}
 
       </div>
-      <div data-carousel-nav class="hidden mt-8">
-        <div class="flex items-center justify-end gap-3">
+      <!-- Šipky: na mobilu pod kartami, na větší obrazovce vpravo vedle karet uprostřed výšky -->
+      <div data-carousel-nav class="hidden mt-8 md:mt-0 md:shrink-0">
+        <div class="flex items-center justify-end gap-3 md:flex-col">
         <button type="button" data-carousel-prev aria-label="Předchozí" class="w-11 h-11 rounded-full border border-vh-dark/20 text-vh-dark flex items-center justify-center hover:bg-vh-dark hover:text-white hover:border-vh-dark transition-colors disabled:opacity-30 disabled:pointer-events-none">
           <svg class="w-4 h-4" viewBox="0 0 16 16" fill="none"><path d="M10 3L5 8l5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </button>
@@ -377,8 +378,8 @@ import FAQ from '../components/FAQ.tsx';
       </div>
 
       <!-- Karty — karusel, viditelné 3, další se posouvají šipkami -->
-      <div data-carousel>
-      <div data-carousel-track class="flex gap-6 overflow-x-auto snap-x snap-mandatory scroll-smooth no-scrollbar">
+      <div data-carousel class="md:flex md:items-center md:gap-6">
+      <div data-carousel-track class="flex gap-6 overflow-x-auto snap-x snap-mandatory scroll-smooth no-scrollbar md:flex-1 md:min-w-0">
 
         {homepage.testimonials.map(testimonial => (
           <div class="shrink-0 snap-start w-full md:w-[calc((100%-3rem)/3)] bg-vh-dark/20 rounded-2xl p-8">
@@ -397,8 +398,9 @@ import FAQ from '../components/FAQ.tsx';
         ))}
 
       </div>
-      <div data-carousel-nav class="hidden mt-8">
-        <div class="flex items-center justify-center gap-3">
+      <!-- Šipky: na mobilu pod kartami, na větší obrazovce vpravo vedle karet uprostřed výšky -->
+      <div data-carousel-nav class="hidden mt-8 md:mt-0 md:shrink-0">
+        <div class="flex items-center justify-center gap-3 md:flex-col">
         <button type="button" data-carousel-prev aria-label="Předchozí" class="w-11 h-11 rounded-full border border-white/30 text-white flex items-center justify-center hover:bg-white hover:text-vh-sage hover:border-white transition-colors disabled:opacity-30 disabled:pointer-events-none">
           <svg class="w-4 h-4" viewBox="0 0 16 16" fill="none"><path d="M10 3L5 8l5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </button>
