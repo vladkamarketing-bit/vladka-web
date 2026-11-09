@@ -6,6 +6,8 @@ backend:
   base_url: https://vladka-web.vercel.app
   auth_endpoint: oauth
 
+locale: "cs"
+
 media_folder: public/images
 public_folder: /images
 
@@ -78,9 +80,9 @@ collections:
             fields:
               - { label: "Fotka projektu", name: "image", widget: "image", required: false }
               - { label: "Odkaz na web (např. https://www.loveckaskola.cz)", name: "url", widget: "string", required: false, hint: "Po kliknutí na obrázek se web otevře v novém okně. Nechte prázdné, pokud web nemá být proklikávací." }
-              - { label: "Štítky (oddělené čárkou)", name: "tags", widget: "string" }
-              - { label: "Název projektu", name: "title", widget: "string" }
-              - { label: "Popis", name: "desc", widget: "text" }
+              - { label: "Štítky (oddělené čárkou)", name: "tags", widget: "string", required: false, hint: "Např. Web, UX, SEO. Může zůstat prázdné." }
+              - { label: "Název projektu", name: "title", widget: "string", hint: "Povinné - bez názvu nejde uložit." }
+              - { label: "Popis", name: "desc", widget: "text", required: false }
           - { label: "Kicker - Reference", name: "testimonialsKicker", widget: "string" }
           - { label: "Nadpis - Reference", name: "testimonialsTitle", widget: "string" }
           - label: "Reference - citace klientů"

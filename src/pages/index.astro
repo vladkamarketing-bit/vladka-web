@@ -326,7 +326,7 @@ import FAQ from '../components/FAQ.tsx';
               )}
               <div class="p-6">
                 <div class="flex gap-2 mb-3 flex-wrap">
-                  {project.tags.split(",").map(tag => (
+                  {(project.tags || "").split(",").filter(tag => tag.trim()).map(tag => (
                     <span class="text-xs px-2.5 py-1 bg-vh-ivory text-vh-muted rounded-full font-sans">{tag.trim()}</span>
                   ))}
                 </div>
