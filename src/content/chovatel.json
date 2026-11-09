@@ -172,19 +172,19 @@
   "stepsKicker": "Jak to probíhá",
   "dogHighlights": [
     {
-      "title": "Tituly a výstavy",
-      "text": "Šampionáty, čekatelství a výsledky z výstav přehledně v kartách, doplněné fotkami z kruhu.",
-      "img": "/images/chovatel/pes-mobil-vystavy.webp"
-    },
-    {
-      "title": "Zkoušky z výkonu",
-      "text": "Každá zkouška s cenou a body. U společenských plemen se sekce jednoduše vypne.",
-      "img": "/images/chovatel/pes-mobil-zkousky.webp"
-    },
-    {
       "title": "Exteriér a zdraví",
       "text": "Výška, barva, chrup, DKK, genetické testy i rodokmen do 4. generace.",
       "img": "/images/chovatel/pes-mobil-o-psovi.webp"
+    },
+    {
+      "title": "Galerie",
+      "text": "Fotky z lovu, výcviku i výstav. Ukážou povahu vašeho psa líp než jakákoli čísla.",
+      "img": "/images/chovatel/pes-mobil-galerie.webp"
+    },
+    {
+      "title": "Tituly a výstavy",
+      "text": "Šampionáty, čekatelství a výsledky z výstav přehledně v kartách, doplněné fotkami z kruhu.",
+      "img": "/images/chovatel/pes-mobil-vystavy.webp"
     }
   ],
   "dogTitle": "Jedna stránka,",
