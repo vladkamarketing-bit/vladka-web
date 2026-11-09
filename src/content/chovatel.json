@@ -1,29 +1,132 @@
 {
-  "heroKicker": "Weby pro chovatele",
-  "heroTitle": "Web pro vašeho psa",
   "heroTitleLine2": "i celou chovatelskou stanici",
-  "heroText": "Hotové šablony navržené přímo pro chovatele. Vy dodáte fotky a výsledky, já web nastavím a spustím. Pak si ho snadno upravujete sami.",
-  "heroButton": "Chci nezávaznou nabídku",
-  "heroLink": "Prohlédnout šablony",
+  "kennelHighlights": [
+    {
+      "title": "Štěňata se stavem",
+      "text": "U každého štěněte přepnete volné, rezervace nebo prodané. Zájemci hned vidí, co je k mání.",
+      "img": "/images/chovatel/stanice-mobil-vrh.webp"
+    },
+    {
+      "title": "Rodiče a rodokmen vrhu",
+      "text": "Otec a matka s fotkou v postoji, tituly a zdravím. Rodokmen vrhu se u vlastních psů doplní sám.",
+      "img": "/images/chovatel/stanice-mobil-rodice.webp"
+    },
+    {
+      "title": "Vrh na úvodu, jen když ho máte",
+      "text": "Nemáte letos štěňata? Sekci vypnete a web dál působí upraveně, bez prázdných míst.",
+      "img": "/images/chovatel/stanice-mobil.webp"
+    }
+  ],
+  "heroImage": "/images/chovatel/stanice-klasicky.webp",
+  "colorsNote": "Design i barvu můžete kdykoli změnit jedním výběrem, obsah zůstane stejný.",
+  "dogTitleLine2": "všechny úspěchy",
+  "kennelCardLabel": "Vícestránkový web",
+  "designsTitle": "2 designy × 4 barevné varianty",
+  "kennelPages": [
+    {
+      "name": "Úvod",
+      "text": "Představení stanice, aktuální vrh, chovní psi a novinky."
+    },
+    {
+      "name": "O nás",
+      "text": "Váš příběh, na čem si v chovu zakládáte, fotky ze života."
+    },
+    {
+      "name": "Naši psi",
+      "text": "Každý pes má svou stránku s výstavami, zdravím a rodokmenem."
+    },
+    {
+      "name": "Vrhy a štěňata",
+      "text": "Aktuální, plánované i odchované vrhy přehledně."
+    },
+    {
+      "name": "Aktuality",
+      "text": "Výsledky z výstav a soutěží, narození štěňat."
+    },
+    {
+      "name": "Kontakt",
+      "text": "Kontakty a formulář pro zájemce o štěně."
+    }
+  ],
+  "formError": "Poptávku se nepodařilo odeslat. Zkuste to prosím znovu, nebo mi napište přímo na e-mail.",
   "heroChecks": [
     "Bez měsíčních poplatků",
     "Obsah upravujete sami",
     "Na mobilu i počítači"
   ],
-  "heroImage": "/images/chovatel/stanice-klasicky.webp",
-  "heroPhoneImage": "/images/chovatel/pes-mobil.webp",
-  "dogCardLabel": "Jednostránkový web",
-  "dogCardTitle": "Web pro chovného psa nebo fenu",
-  "dogCardText": "Prezentace jednoho psa: tituly, výstavy, zkoušky, zdraví a rodokmen. Ideální pro krycí psy a úspěšné feny.",
   "dogCardLink": "4 vzhledy",
-  "kennelCardLabel": "Vícestránkový web",
+  "heroPhoneImage": "/images/chovatel/pes-mobil.webp",
+  "heroText": "Weby na míru nebo výběr z hotové šablony navržené přímo pro chovatele. Vy dodáte fotky a výsledky z výstav a zkoušek a já web připravím a spustím. Pak si ho snadno upravujete sami bez dalších finančních nákladů. ",
+  "kennelTitleLine2": "přehledně na jednom webu",
+  "steps": [
+    {
+      "title": "Vyberete šablonu",
+      "text": "Web pro psa nebo pro celou stanici a vzhled, který vám sedí."
+    },
+    {
+      "title": "Pošlete podklady",
+      "text": "Fotky a údaje. Dostanete ode mě přehledný seznam, co připravit."
+    },
+    {
+      "title": "Web nastavím a spustím",
+      "text": "Na vaší doméně a hostingu, včetně zabezpečení a nastavení e-mailu z formuláře."
+    },
+    {
+      "title": "Upravujete sami",
+      "text": "Nové výstavy, vrhy i aktuality doplníte v přehledné administraci. Bez programování."
+    }
+  ],
   "kennelCardTitle": "Web chovatelské stanice",
-  "kennelCardText": "Celá stanice na jednom místě: chovní psi, vrhy a štěňata, aktuality a kontakt pro zájemce.",
-  "kennelCardLink": "2 designy × 4 barvy",
-  "dogKicker": "Web pro chovného jedince",
-  "dogTitle": "Jedna stránka,",
-  "dogTitleLine2": "všechny úspěchy",
+  "designsKicker": "Vzhled",
+  "dogCardLabel": "Jednostránkový web",
   "dogText": "Elegantní jednostránkový web pro vašeho psa nebo fenu. Majitelé fen i chovatelé z ciziny na něm najdou vše podstatné na jednom místě a hned vás mohou kontaktovat.",
+  "formTitleLine2": "jaký web chcete",
+  "kennelCardLink": "2 designy × 4 barvy",
+  "dogCardTitle": "Web pro chovného psa nebo fenu",
+  "heroButton": "Chci nezávaznou nabídku",
+  "heroKicker": "Weby pro chovatele",
+  "dogButton": "Chci web pro svého psa",
+  "kennelText": "Vícestránkový web, na kterém zájemci o štěně najdou vaše psy, aktuální i plánované vrhy a novinky ze stanice. Vše si doplňujete sami: nového psa, vrh nebo výsledek z výstavy přidáte v administraci za pár minut.",
+  "dogKicker": "Web pro chovného jedince",
+  "colors": [
+    {
+      "name": "Lesní",
+      "hex": "#2F4A3A"
+    },
+    {
+      "name": "Bordó",
+      "hex": "#6B2733"
+    },
+    {
+      "name": "Námořní",
+      "hex": "#22364E"
+    },
+    {
+      "name": "Terakota",
+      "hex": "#A4553A"
+    }
+  ],
+  "formText": "Stačí pár údajů. Ozvu se vám, doporučím vhodnou šablonu a pošlu nezávaznou nabídku. Když si nejste jistí, nevadí, rádi to probereme.",
+  "stepsTitle": "Od výběru ke spuštění",
+  "kennelButton": "Chci web pro stanici",
+  "kennelDesigns": [
+    {
+      "name": "Klasický",
+      "text": "Patkové písmo, menu uprostřed pod logem, jemné ornamenty.",
+      "img": "/images/chovatel/stanice-klasicky.webp"
+    },
+    {
+      "name": "Moderní",
+      "text": "Čisté bezpatkové písmo, zaoblené karty, menu stále po ruce.",
+      "img": "/images/chovatel/stanice-moderni.webp"
+    }
+  ],
+  "heroLink": "Prohlédnout šablony",
+  "kennelKicker": "Web chovatelské stanice",
+  "formTitle": "Napište mi,",
+  "formButton": "Odeslat poptávku",
+  "kennelTitle": "Celá stanice",
+  "formKicker": "Poptávka",
   "dogFeatures": [
     "Úvod s fotkou, jménem a hlavními tituly",
     "Šampionáty a výsledky z výstav",
@@ -64,6 +167,9 @@
       ]
     }
   ],
+  "dogCardText": "Web pro jednoho chovného jedince je ideální cestou jak získat nové zájemce o krytí. Jednoduše oslovíte chovatele u nás i v zahraničí, na webu najde vše co potřebuje o vašem psovi vědět. Pracovní i výstavní tituly, výstavy, zkoušky, zdraví a rodokmen. Ideální pro chovné psy. ",
+  "stepsNote": "Doménu a hosting (například u Active24) platíte přímo poskytovateli. Mně neplatíte žádné měsíční poplatky a web je celý váš.",
+  "stepsKicker": "Jak to probíhá",
   "dogHighlights": [
     {
       "title": "Tituly a výstavy",
@@ -81,114 +187,8 @@
       "img": "/images/chovatel/pes-mobil-o-psovi.webp"
     }
   ],
-  "dogButton": "Chci web pro svého psa",
-  "kennelKicker": "Web chovatelské stanice",
-  "kennelTitle": "Celá stanice",
-  "kennelTitleLine2": "přehledně na jednom webu",
-  "kennelText": "Vícestránkový web, na kterém zájemci o štěně najdou vaše psy, aktuální i plánované vrhy a novinky ze stanice. Vše si doplňujete sami: nového psa, vrh nebo výsledek z výstavy přidáte v administraci za pár minut.",
-  "kennelPages": [
-    {
-      "name": "Úvod",
-      "text": "Představení stanice, aktuální vrh, chovní psi a novinky."
-    },
-    {
-      "name": "O nás",
-      "text": "Váš příběh, na čem si v chovu zakládáte, fotky ze života."
-    },
-    {
-      "name": "Naši psi",
-      "text": "Každý pes má svou stránku s výstavami, zdravím a rodokmenem."
-    },
-    {
-      "name": "Vrhy a štěňata",
-      "text": "Aktuální, plánované i odchované vrhy přehledně."
-    },
-    {
-      "name": "Aktuality",
-      "text": "Výsledky z výstav a soutěží, narození štěňat."
-    },
-    {
-      "name": "Kontakt",
-      "text": "Kontakty a formulář pro zájemce o štěně."
-    }
-  ],
-  "kennelHighlights": [
-    {
-      "title": "Štěňata se stavem",
-      "text": "U každého štěněte přepnete volné, rezervace nebo prodané. Zájemci hned vidí, co je k mání.",
-      "img": "/images/chovatel/stanice-mobil-vrh.webp"
-    },
-    {
-      "title": "Rodiče a rodokmen vrhu",
-      "text": "Otec a matka s fotkou v postoji, tituly a zdravím. Rodokmen vrhu se u vlastních psů doplní sám.",
-      "img": "/images/chovatel/stanice-mobil-rodice.webp"
-    },
-    {
-      "title": "Vrh na úvodu, jen když ho máte",
-      "text": "Nemáte letos štěňata? Sekci vypnete a web dál působí upraveně, bez prázdných míst.",
-      "img": "/images/chovatel/stanice-mobil.webp"
-    }
-  ],
-  "designsKicker": "Vzhled",
-  "designsTitle": "2 designy × 4 barevné varianty",
-  "kennelDesigns": [
-    {
-      "name": "Klasický",
-      "text": "Patkové písmo, menu uprostřed pod logem, jemné ornamenty.",
-      "img": "/images/chovatel/stanice-klasicky.webp"
-    },
-    {
-      "name": "Moderní",
-      "text": "Čisté bezpatkové písmo, zaoblené karty, menu stále po ruce.",
-      "img": "/images/chovatel/stanice-moderni.webp"
-    }
-  ],
-  "colors": [
-    {
-      "name": "Lesní",
-      "hex": "#2F4A3A"
-    },
-    {
-      "name": "Bordó",
-      "hex": "#6B2733"
-    },
-    {
-      "name": "Námořní",
-      "hex": "#22364E"
-    },
-    {
-      "name": "Terakota",
-      "hex": "#A4553A"
-    }
-  ],
-  "colorsNote": "Design i barvu můžete kdykoli změnit jedním výběrem, obsah zůstane stejný.",
-  "kennelButton": "Chci web pro stanici",
-  "stepsKicker": "Jak to probíhá",
-  "stepsTitle": "Od výběru ke spuštění",
-  "steps": [
-    {
-      "title": "Vyberete šablonu",
-      "text": "Web pro psa nebo pro celou stanici a vzhled, který vám sedí."
-    },
-    {
-      "title": "Pošlete podklady",
-      "text": "Fotky a údaje. Dostanete ode mě přehledný seznam, co připravit."
-    },
-    {
-      "title": "Web nastavím a spustím",
-      "text": "Na vaší doméně a hostingu, včetně zabezpečení a nastavení e-mailu z formuláře."
-    },
-    {
-      "title": "Upravujete sami",
-      "text": "Nové výstavy, vrhy i aktuality doplníte v přehledné administraci. Bez programování."
-    }
-  ],
-  "stepsNote": "Doménu a hosting (například u Active24) platíte přímo poskytovateli. Mně neplatíte žádné měsíční poplatky a web je celý váš.",
-  "formKicker": "Poptávka",
-  "formTitle": "Napište mi,",
-  "formTitleLine2": "jaký web chcete",
-  "formText": "Stačí pár údajů. Ozvu se vám, doporučím vhodnou šablonu a pošlu nezávaznou nabídku. Když si nejste jistí, nevadí, rádi to probereme.",
-  "formButton": "Odeslat poptávku",
-  "formSuccess": "Děkuji, poptávka byla odeslána. Ozvu se vám do 24 hodin v pracovní dny.",
-  "formError": "Poptávku se nepodařilo odeslat. Zkuste to prosím znovu, nebo mi napište přímo na e-mail."
+  "dogTitle": "Jedna stránka,",
+  "kennelCardText": "Celá stanice na jednom místě: chovní psi, vrhy a štěňata, aktuality a kontakt pro zájemce.",
+  "heroTitle": "Web pro vašeho psa",
+  "formSuccess": "Děkuji, poptávka byla odeslána. Ozvu se vám do 24 hodin v pracovní dny."
 }
