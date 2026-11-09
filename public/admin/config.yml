@@ -107,3 +107,99 @@ collections:
           - { label: "Nadpis - Kontakt", name: "contactTitle", widget: "string" }
           - { label: "Text - Kontakt", name: "contactText", widget: "text" }
           - { label: "E-mail - Kontakt", name: "contactEmail", widget: "string" }
+      - name: "chovatel"
+        label: "Stránka pro chovatele (/chovatel)"
+        file: "src/content/chovatel.json"
+        fields:
+          - { label: "Úvod - kicker", name: "heroKicker", widget: "string" }
+          - { label: "Úvod - nadpis", name: "heroTitle", widget: "string" }
+          - { label: "Úvod - nadpis 2. řádek (kurzíva)", name: "heroTitleLine2", widget: "string" }
+          - { label: "Úvod - text", name: "heroText", widget: "text" }
+          - { label: "Úvod - tlačítko", name: "heroButton", widget: "string" }
+          - { label: "Úvod - odkaz na šablony", name: "heroLink", widget: "string" }
+          - { label: "Úvod - výhody s fajfkou", name: "heroChecks", widget: "list" }
+          - { label: "Úvod - obrázek v notebooku", name: "heroImage", widget: "image" }
+          - { label: "Úvod - obrázek v telefonu", name: "heroPhoneImage", widget: "image" }
+          - { label: "Rozcestník: web pro psa - popisek", name: "dogCardLabel", widget: "string" }
+          - { label: "Rozcestník: web pro psa - nadpis", name: "dogCardTitle", widget: "string" }
+          - { label: "Rozcestník: web pro psa - text", name: "dogCardText", widget: "text" }
+          - { label: "Rozcestník: web pro psa - odkaz", name: "dogCardLink", widget: "string" }
+          - { label: "Rozcestník: web stanice - popisek", name: "kennelCardLabel", widget: "string" }
+          - { label: "Rozcestník: web stanice - nadpis", name: "kennelCardTitle", widget: "string" }
+          - { label: "Rozcestník: web stanice - text", name: "kennelCardText", widget: "text" }
+          - { label: "Rozcestník: web stanice - odkaz", name: "kennelCardLink", widget: "string" }
+          - { label: "Web pro psa - kicker", name: "dogKicker", widget: "string" }
+          - { label: "Web pro psa - nadpis", name: "dogTitle", widget: "string" }
+          - { label: "Web pro psa - nadpis 2. řádek (kurzíva)", name: "dogTitleLine2", widget: "string" }
+          - { label: "Web pro psa - text", name: "dogText", widget: "text" }
+          - { label: "Web pro psa - co web obsahuje", name: "dogFeatures", widget: "list" }
+          - label: "Web pro psa - vzhledy"
+            name: "dogDesigns"
+            widget: "list"
+            fields:
+              - { label: "Skupina", name: "group", widget: "string" }
+              - label: "Vzhledy"
+                name: "items"
+                widget: "list"
+                fields:
+                  - { label: "Název", name: "name", widget: "string", hint: "Název se objeví i ve formuláři poptávky." }
+                  - { label: "Text", name: "text", widget: "text" }
+                  - { label: "Obrázek", name: "img", widget: "image" }
+          - label: "Web pro psa - ukázky v mobilu"
+            name: "dogHighlights"
+            widget: "list"
+            fields:
+              - { label: "Nadpis", name: "title", widget: "string" }
+              - { label: "Text", name: "text", widget: "text" }
+              - { label: "Obrázek", name: "img", widget: "image" }
+          - { label: "Web pro psa - tlačítko", name: "dogButton", widget: "string" }
+          - { label: "Web stanice - kicker", name: "kennelKicker", widget: "string" }
+          - { label: "Web stanice - nadpis", name: "kennelTitle", widget: "string" }
+          - { label: "Web stanice - nadpis 2. řádek (kurzíva)", name: "kennelTitleLine2", widget: "string" }
+          - { label: "Web stanice - text", name: "kennelText", widget: "text" }
+          - label: "Web stanice - stránky webu"
+            name: "kennelPages"
+            widget: "list"
+            fields:
+              - { label: "Název", name: "name", widget: "string" }
+              - { label: "Text", name: "text", widget: "text" }
+          - label: "Web stanice - ukázky v mobilu"
+            name: "kennelHighlights"
+            widget: "list"
+            fields:
+              - { label: "Nadpis", name: "title", widget: "string" }
+              - { label: "Text", name: "text", widget: "text" }
+              - { label: "Obrázek", name: "img", widget: "image" }
+          - { label: "Vzhled - kicker", name: "designsKicker", widget: "string" }
+          - { label: "Vzhled - nadpis", name: "designsTitle", widget: "string" }
+          - label: "Web stanice - designy"
+            name: "kennelDesigns"
+            widget: "list"
+            fields:
+              - { label: "Název", name: "name", widget: "string", hint: "Název se objeví i ve formuláři poptávky." }
+              - { label: "Text", name: "text", widget: "text" }
+              - { label: "Obrázek", name: "img", widget: "image" }
+          - label: "Barevné varianty"
+            name: "colors"
+            widget: "list"
+            fields:
+              - { label: "Název", name: "name", widget: "string" }
+              - { label: "Barva", name: "hex", widget: "color" }
+          - { label: "Barevné varianty - poznámka", name: "colorsNote", widget: "string" }
+          - { label: "Web stanice - tlačítko", name: "kennelButton", widget: "string" }
+          - { label: "Jak to probíhá - kicker", name: "stepsKicker", widget: "string" }
+          - { label: "Jak to probíhá - nadpis", name: "stepsTitle", widget: "string" }
+          - label: "Jak to probíhá - kroky"
+            name: "steps"
+            widget: "list"
+            fields:
+              - { label: "Nadpis", name: "title", widget: "string" }
+              - { label: "Text", name: "text", widget: "text" }
+          - { label: "Jak to probíhá - poznámka", name: "stepsNote", widget: "text" }
+          - { label: "Poptávka - kicker", name: "formKicker", widget: "string" }
+          - { label: "Poptávka - nadpis", name: "formTitle", widget: "string" }
+          - { label: "Poptávka - nadpis 2. řádek (kurzíva)", name: "formTitleLine2", widget: "string" }
+          - { label: "Poptávka - text", name: "formText", widget: "text" }
+          - { label: "Poptávka - tlačítko odeslat", name: "formButton", widget: "string" }
+          - { label: "Poptávka - zpráva po odeslání", name: "formSuccess", widget: "text" }
+          - { label: "Poptávka - zpráva při chybě", name: "formError", widget: "text" }
