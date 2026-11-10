@@ -11,13 +11,14 @@
   .text{padding:var(--pad);display:flex;flex-direction:column;justify-content:center;position:relative;z-index:2}
   .kicker{font-size:calc(var(--s)*15px);letter-spacing:.22em;text-transform:uppercase;font-weight:600;color:var(--bronze);display:flex;align-items:center;gap:12px}
   .kicker::before{content:"";width:34px;height:2px;background:var(--bronze)}
-  h1{font-family:"Cormorant Garamond",serif;font-weight:700;font-size:calc(var(--s)*68px);line-height:.98;margin:calc(var(--s)*14px) 0 calc(var(--s)*12px);color:var(--sage)}
+  h1{font-family:"Cormorant Garamond",serif;font-weight:700;font-size:calc(var(--s)*62px);line-height:1;margin:0 0 calc(var(--s)*22px);color:var(--sage)}
   h1 em{font-style:italic;color:var(--bronze);font-weight:600}
-  .lead{font-size:calc(var(--s)*18px);line-height:1.45;color:#3a3a3a;max-width:34em}
+  .lead{font-size:calc(var(--s)*20px);line-height:1.5;color:#3a3a3a;max-width:30em}
+  .lead+.lead{margin-top:calc(var(--s)*14px)}
   .list{list-style:none;margin-top:calc(var(--s)*20px);display:grid;gap:calc(var(--s)*10px)}
   .list li{display:flex;align-items:center;gap:12px;font-size:calc(var(--s)*17px);font-weight:500}
   .list li span.i{flex:none;width:calc(var(--s)*30px);height:calc(var(--s)*30px);border-radius:50%;background:var(--sage);color:var(--ivory);display:grid;place-items:center;font-size:calc(var(--s)*15px)}
-  .cta{margin-top:calc(var(--s)*24px);display:flex;gap:12px;align-items:center;flex-wrap:wrap}
+  .cta{margin-top:calc(var(--s)*30px);display:flex;gap:12px;align-items:center;flex-wrap:wrap}
   .btn{background:var(--bronze);color:#fff;font-weight:600;font-size:calc(var(--s)*17px);padding:calc(var(--s)*13px) calc(var(--s)*24px);border-radius:999px}
   .tag{font-size:calc(var(--s)*15px);color:var(--sage);font-weight:600;border:2px solid var(--sage);padding:calc(var(--s)*11px) calc(var(--s)*18px);border-radius:999px}
   .photos{position:relative;display:grid;grid-template-columns:1.25fr 1fr;grid-template-rows:1fr 1fr;gap:var(--gap);padding:var(--gap) var(--gap) var(--gap) 0}
@@ -32,19 +33,13 @@
 <body>
 <div class="wrap">
   <div class="text">
-    <div class="kicker">Hlídání psů</div>
-    <h1>Váš pes v&nbsp;dobrých <em>rukou</em></h1>
-    <p class="lead">Postarám se o vašeho psa, když nemůžete vy – s láskou, pohybem a pravidelnou péčí.</p>
-    <ul class="list">
-      <li><span class="i">⌂</span>Ubytování doma i ve venkovním kotci</li>
-      <li><span class="i">✓</span>Možnost výcviku poslušnosti</li>
-      <li><span class="i">➶</span>Příprava na lovecké zkoušky</li>
-      <li><span class="i">◷</span>Nárazově i na více dní</li>
-    </ul>
-    <div class="cta"><span class="btn">Napište mi zprávu</span><span class="tag">Volné termíny</span></div>
+    <h1>Odjíždíte a&nbsp;potřebujete <em>pohlídat?</em></h1>
+    <p class="lead">Váš pejsek bude ubytovaný doma na gauči nebo ve venkovním kotci se zateplenou boudou, podle toho, jak je zvyklý.</p>
+    <p class="lead">Hlídání můžeme kombinovat i s potřebným výcvikem. Zaměříme se na poslušnost, nebo pomohu s přípravou na pracovní zkoušku.</p>
+    <div class="cta"><span class="btn">Napište mi zprávu</span></div>
   </div>
   <div class="photos">
-    <div class="p1"><span>Výcvik &amp; lovecké zkoušky</span></div>
+    <div class="p1"><span>Výcvik &amp; pracovní zkoušky</span></div>
     <div class="p2"><span>Ubytování doma</span></div>
     <div class="p3"><span>Venkovní kotec</span></div>
   </div>
