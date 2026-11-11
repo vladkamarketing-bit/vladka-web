@@ -64,6 +64,8 @@ h1,h2,h3{text-wrap:balance;margin:0}
 .photos{display:grid;grid-template-columns:1.15fr 1fr 1fr;grid-template-rows:180px 180px;gap:10px}
 .ph{position:relative;border-radius:var(--ph-r);overflow:hidden;display:flex;align-items:flex-end;padding:12px;min-width:0}
 .ph:first-child{grid-row:1/3}
+.ph.real::before{display:none}
+.hero .ph.real{height:260px}
 .ph::before{content:"";position:absolute;inset:0;opacity:.18;background-image:repeating-linear-gradient(135deg,currentColor 0 1px,transparent 1px 11px)}
 .ph span{position:relative;font-family:var(--ui);font-size:12px;line-height:1.35;background:rgba(255,255,255,.9);color:#1d1d1b;padding:6px 10px;border-radius:8px;max-width:100%}
 .ph span b{display:block;font-size:10px;letter-spacing:.14em;text-transform:uppercase;opacity:.6}
@@ -159,7 +161,6 @@ h1,h2,h3{text-wrap:balance;margin:0}
 <div class="wrap">
   <header class="intro">
     <div>
-      <div class="eyebrow">Pomůcka pro první schůzku s klientem</div>
       <h1>Katalog stylů a barevných palet pro weby</h1>
       <p>Dvanáct hotových vizuálních směrů napříč obory. Každý má vlastní paletu, dvojici písem, tvar tlačítek, náhled webu a popis fotek, které ke stylu patří. Klient ukáže, co se mu líbí, a návrh začíná ze správného místa.</p>
     </div>
@@ -177,7 +178,7 @@ h1,h2,h3{text-wrap:balance;margin:0}
 
 <script>
 const S=[
-{id:"zeme-a-les",name:"Země a les",cat:"Přírodní a organický",
+{id:"zeme-a-les",img:{main:"foto/zeme-a-les.jpg",web:"foto/zeme-a-les.jpg",pos:"50% 50%"},name:"Země a les",cat:"Přírodní a organický",
  mood:"Teplé zemité tóny, lněné textury a měkké denní světlo. Působí poctivě a klidně, jako by značka vyrostla venku. Vhodné všude, kde jde o původ, ruční práci a vztah k přírodě.",
  fits:["eko farmy","bio potraviny","zahradnictví","wellness","outdoor","lesní školky"],
  colors:[["Jehličí","#2F3A27","text, patička"],["Mech","#4F5D3A","hlavní"],["Šalvěj","#A3AE8C","plochy"],["Mlha","#D9DCCF","pozadí sekcí"],["Len","#EFE9DC","pozadí"],["Kůra","#6B4F3A","doplňková"],["Hlína","#9A5B3B","akcent"],["Med","#D4A24C","zvýraznění"]],
@@ -281,7 +282,7 @@ const S=[
  tags:["něha","romantika","ženskost","elegance","emoce"],
  do:["oblouky a jemné linky","kurzíva v nadpisech","světlé vzdušné fotky"],dont:["černé plochy","ostré geometrické tvary","křiklavé akční barvy"]},
 
-{id:"sedmdesatky",name:"Sedmdesátky",cat:"Retro a vintage",
+{id:"sedmdesatky",img:{main:"foto/sedmdesatky.jpg",web:"foto/sedmdesatky.jpg",pos:"40% 50%"},name:"Sedmdesátky",cat:"Retro a vintage",
  mood:"Hořčice, pálený pomeranč a petrolej na krémovém papíře. Kulaté tučné písmo a pruhy jako ze starého plakátu. Nostalgie s úsměvem a s osobností.",
  fits:["bistra a foodtrucky","kavárny","vinylové obchody","barbershopy","festivaly","second handy"],
  colors:[["Kakao","#4A2E1F","text"],["Petrolej","#1F6F6B","hlavní"],["Olivová","#8C8A3A","doplňková"],["Hořčice","#E0A526","akcent"],["Pálený pomeranč","#D9622B","akcent"],["Rajče","#B8392B","doplňková"],["Broskev","#F2B48A","plochy"],["Krém","#F4E7CF","pozadí"]],
@@ -294,7 +295,7 @@ const S=[
  tags:["nostalgie","pohoda","originalita","charakter","chuť"],
  do:["pruhy, oblouky, zaoblená písma","teplé filmové fotky","vtipné texty s nadsázkou"],dont:["studená modrá a šedá","tenké moderní bezpatky","přísná korporátní mřížka"]},
 
-{id:"hlasite",name:"Hlasitě",cat:"Odvážný kontrast",
+{id:"hlasite",img:{main:"foto/hlasite.jpg",web:"foto/hlasite.jpg",pos:"50% 20%"},name:"Hlasitě",cat:"Odvážný kontrast",
  mood:"Černá, bílá a signální červená. Obří úzké verzálky, ostré hrany a žádné kompromisy. Styl pro značky, které chtějí být vidět a slyšet.",
  fits:["fitness a gymy","sportovní kluby","kapely a DJs","módní značky","kampaně","eventy"],
  colors:[["Černá","#0A0A0A","pozadí"],["Asfalt","#2A2A2A","plochy"],["Šedá","#BDBDBD","popisky"],["Světlá","#EFEFEF","plochy"],["Bílá","#FFFFFF","text"],["Signální červená","#FF3B1F","hlavní"],["Kobalt","#2340FF","doplňková"],["Žlutá","#FFD400","zvýraznění"]],
@@ -307,7 +308,7 @@ const S=[
  tags:["energie","sebevědomí","výkon","odvaha","komunita"],
  do:["obří nadpisy přes celou šířku","černobílé fotky s červeným akcentem","krátké úderné věty"],dont:["pastelové tóny","kurzíva a ornamenty","dlouhé texty bez členění"]},
 
-{id:"seversky-klid",name:"Severský klid",cat:"Skandinávský a útulný",
+{id:"seversky-klid",img:{main:"foto/seversky-vyska.jpg",web:"foto/seversky-web.jpg",pos:"50% 50%"},name:"Severský klid",cat:"Skandinávský a útulný",
  mood:"Teplá bílá, ovesná béžová a mlžná modrá. Světlé dřevo, len a hodně denního světla. Jednoduché, útulné a funkční, jako dobře zařízený domov.",
  fits:["interiérová studia","nábytek a design","kavárny","keramika","rodinné firmy","ubytování"],
  colors:[["Uhel","#2E3236","text"],["Fjord","#4A6572","hlavní"],["Mlžná modrá","#A9BCC6","doplňková"],["Borovice","#3E5A4C","doplňková"],["Jíl","#C08A6B","akcent"],["Bříza","#D9CFC0","linky"],["Ovesná","#E8E0D2","plochy"],["Teplá bílá","#F7F4EE","pozadí"]],
@@ -320,7 +321,7 @@ const S=[
  tags:["útulnost","jednoduchost","kvalita","klid","funkčnost"],
  do:["světlé dřevo, len a vlna","hodně světla a volného místa","jednoduché tvary, málo barev"],dont:["lesklé materiály a zlato","křiklavé barvy","přeplněné kompozice"]},
 
-{id:"stredomori",name:"Středomoří",cat:"Středomořský a slunečný",
+{id:"stredomori",img:{main:"foto/stredomori.jpg",web:"foto/stredomori.jpg",pos:"50% 60%"},name:"Středomoří",cat:"Středomořský a slunečný",
  mood:"Egejská modrá, terakota, olivy a citrony na bílém vápenci. Oblouky, slunce a pohostinnost. Styl, ze kterého je cítit dovolená a dobré jídlo.",
  fits:["restaurace a vinárny","cestovní kanceláře","ubytování u moře","delikatesy","olivové oleje","jazykové školy"],
  colors:[["Námořní","#13304A","text"],["Egejská","#1E4E79","hlavní"],["Nebe","#A9C7DE","doplňková"],["Olivovník","#7A8450","doplňková"],["Terakota","#C4633F","akcent"],["Citron","#EBC440","zvýraznění"],["Písek","#E9D8BE","plochy"],["Vápenec","#F8F4EC","pozadí"]],
@@ -349,7 +350,9 @@ function vars(s){const t=s.t;return [
  `--hero-btn:${t.heroBtn?t.heroBtn[0]:t.primary}`,`--hero-btn-ink:${t.heroBtn?t.heroBtn[1]:t.onP}`,`--d1:${t.d[0]}`,`--d2:${t.d[1]||t.d[0]}`,`--d3:${t.d[2]||t.d[0]}`
 ].join(';')}
 
-function photo(p,col,i){return `<div class="ph" style="background:linear-gradient(160deg,${col},${col}cc);color:${on(col)}"><span><b>Foto ${i+1} · ${esc(p[0])}</b>${esc(p[1])}</span></div>`}
+function photo(p,col,i,src,pos){
+ if(src)return `<div class="ph real" role="img" aria-label="${esc(p[1])}" style="background:${col} url('${src}') ${pos||'50% 50%'}/cover no-repeat"></div>`;
+ return `<div class="ph" style="background:linear-gradient(160deg,${col},${col}cc);color:${on(col)}"><span><b>Foto ${i+1} · ${esc(p[0])}</b>${esc(p[1])}</span></div>`}
 
 $('#overview').innerHTML=S.map((s,i)=>`
  <a class="ov" href="#${s.id}" style="${vars(s)}">
@@ -377,7 +380,7 @@ $('#boards').innerHTML=S.map((s,i)=>{const t=s.t;
   </div>
 
   <div class="sec"><div class="sec-t">Fotografie</div>
-   <div class="photos">${s.photos.map((p,j)=>photo(p,s.ph[j],j)).join('')}</div>
+   <div class="photos">${s.photos.map((p,j)=>photo(p,s.ph[j],j,j===0&&s.img?s.img.main:null,s.img&&s.img.pos)).join('')}</div>
   </div>
 
   <div class="sec"><div class="sec-t">Barevná paleta</div>
@@ -417,7 +420,7 @@ $('#boards').innerHTML=S.map((s,i)=>{const t=s.t;
      <span class="deco ${t.deco}" aria-hidden="true"></span>
      <div><div class="k">${esc(s.fits[0])}</div><h3>${esc(s.head)}</h3><p>${esc(s.body)}</p>
       <div class="btns"><span class="btn ${t.grad?'g':'h'}">Objednat termín</span></div></div>
-     ${photo(s.photos[0],s.ph[2],0).replace('class="ph"','class="ph" aria-hidden="true"')}
+     ${photo(s.photos[0],s.ph[2],0,s.img?s.img.web:null,s.img&&s.img.pos).replace('class="ph','aria-hidden="true" class="ph')}
     </div>
    </div>
   </div>
