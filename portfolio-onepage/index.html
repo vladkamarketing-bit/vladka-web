@@ -1,0 +1,1187 @@
+<!doctype html>
+<html lang="cs">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#0C0C0F">
+<title>Vlaďka Horáková · webdesignérka · Praha</title>
+<meta name="description" content="Weby s rezervačním systémem pro kavárny, studia a ordinace. Zatímco pracujete, kalendář se plní.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Inter+Tight:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&display=swap" rel="stylesheet">
+<style>
+/* =====================================================================
+   DATA · TOKENS  (barvy, rozestupy, písma – upravujte jen tady)
+   ===================================================================== */
+:root{
+  --bg:#0C0C0F; --surface:#141418; --ink:#EEEDF3; --ink-2:#B6B4C0; --ink-3:#787684;
+  --line:rgba(238,237,243,.1); --grid:rgba(238,237,243,.08);
+  --accent:#9B85FF; --accent-rgb:155,133,255; --star:#F5C451;
+  --g1:#1D1740; --g2:#7C5CFF; --g3:#0C0C0F;
+  --r:14px; --pad:clamp(20px,4vw,56px); --maxw:1360px; --ease:cubic-bezier(.22,1,.36,1);
+  --space-section:clamp(96px,11vw,160px);
+  --space-head:clamp(40px,5vw,72px);
+  --space-card:clamp(24px,2.8vw,40px);
+  --gap:16px;
+  --gap-card:clamp(28px,3.4vw,48px);
+  --edge:max(var(--pad),calc(50% - var(--maxw)/2 + var(--pad)));
+  --serif:'Newsreader',Georgia,serif; --sans:'Inter Tight',system-ui,sans-serif; --mono:'IBM Plex Mono',ui-monospace,monospace;
+  --btn-ink:#0C0C0F;
+}
+.light{
+  --bg:#EEEEF0; --surface:#F7F7F8; --ink:#0C0C0F; --ink-2:#3F3E4A; --ink-3:#6B6A76;
+  --line:rgba(12,12,15,.12); --accent:#6B48F0; --accent-rgb:107,72,240; --btn-ink:#fff;
+  background:var(--bg); color:var(--ink); position:relative; z-index:2;
+}
+/* ===================================================================== */
+
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+html.lenis,html.lenis body{height:auto}
+.lenis.lenis-smooth{scroll-behavior:auto!important}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 18px/1.6 var(--sans);-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;overflow-x:hidden;text-rendering:optimizeLegibility}
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+button,input{font:inherit;color:inherit}
+h1,h2,h3,p,dl,dd,blockquote,figure{margin:0}
+em{font-style:italic}
+::selection{background:var(--accent);color:#0C0C0F}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 var(--pad);position:relative;z-index:2}
+.eyebrow{font:400 12px/1.4 var(--mono);text-transform:uppercase;letter-spacing:.12em;color:var(--ink-3)}
+.mono-s{font:400 12px/1.4 var(--mono);text-transform:uppercase;letter-spacing:.08em;color:var(--ink-3)}
+.stars{color:var(--star);letter-spacing:.1em}
+section{position:relative;border-top:1px solid var(--line);padding:var(--space-section) 0}
+
+/* ---------- gridlines ---------- */
+.gl{position:fixed;top:0;bottom:0;width:1px;background:var(--grid);z-index:1;pointer-events:none}
+.gl-l{left:var(--edge)} .gl-r{right:var(--edge)}
+
+/* ---------- headings ---------- */
+.h2{font:400 clamp(40px,6vw,96px)/1.02 var(--serif);letter-spacing:-.025em;max-width:13em}
+.h1 em,.h2 em,.fin-h em,.mid-t em{color:var(--accent);font-style:italic}
+.sh{display:flex;justify-content:space-between;align-items:flex-end;gap:var(--space-card);margin-bottom:var(--space-head)}
+.sh .eyebrow{flex:none;text-align:right;padding-bottom:.6em}
+.w{display:inline-block;vertical-align:top;overflow:hidden;padding:.16em .14em .14em 0;margin:-.16em -.14em -.14em 0}
+.w>span{display:inline-block;will-change:transform}
+.anim .split .w>span{transform:translateY(120%)}
+.anim .rv{opacity:0;transform:translateY(32px)}
+
+/* ---------- cursor ---------- */
+.cur{position:fixed;left:0;top:0;z-index:100;pointer-events:none;display:none;opacity:0;transition:opacity .3s}
+.cur.live{opacity:1}
+@media (hover:hover) and (pointer:fine){.cur.on{display:block}}
+.cur>*{position:absolute;left:0;top:0;border-radius:50%;transition:transform .45s var(--ease),opacity .3s}
+.c-dot{width:10px;height:10px;margin:-5px 0 0 -5px;background:#9B85FF}
+.c-ring{width:40px;height:40px;margin:-20px 0 0 -20px;border:1px solid #9B85FF;opacity:0;transform:scale(.3)}
+.c-big{width:76px;height:76px;margin:-38px 0 0 -38px;background:#9B85FF;color:#0C0C0F;display:grid;place-items:center;font:500 11px/1 var(--mono);text-transform:uppercase;letter-spacing:.08em;opacity:0;transform:scale(.2)}
+.cur.ring .c-dot,.cur.big .c-dot{opacity:0;transform:scale(0)}
+.cur.ring .c-ring{opacity:1;transform:none}
+.cur.big .c-big{opacity:1;transform:none}
+
+/* ---------- nav ---------- */
+.nav{position:fixed;top:16px;left:50%;transform:translateX(-50%);z-index:80;padding:6px;background:#141418;border:1px solid rgba(238,237,243,.1);border-radius:999px;transition:transform .6s var(--ease),border-radius .4s;width:max-content;max-width:calc(100% - 32px);color:#EEEDF3}
+.nav.hide{transform:translate(-50%,-150%)}
+.nav-row{display:flex;align-items:center;gap:8px}
+.brand{display:flex;align-items:center;gap:10px;padding-right:10px;font-size:15px;font-weight:500;white-space:nowrap}
+.brand img{width:34px;height:34px;border-radius:50%;object-fit:cover;object-position:57% 30%}
+.nav-links{position:relative;display:flex}
+.nav-links a{position:relative;z-index:1;padding:8px 14px;font-size:15px;color:#B6B4C0;border-radius:999px;transition:color .3s}
+.nav-links a:hover,.nav-links a.on{color:#EEEDF3}
+.ind{position:absolute;left:0;top:0;height:100%;width:0;border-radius:999px;background:rgba(238,237,243,.08);opacity:0;transition:transform .5s var(--ease),width .5s var(--ease),opacity .3s}
+.nav-cta{display:inline-flex;align-items:center;height:40px;padding:0 18px;border-radius:999px;background:#EEEDF3;color:#0C0C0F;font-weight:600;font-size:15px;white-space:nowrap;transition:background .3s}
+.nav-cta:hover{background:#9B85FF}
+.burger{display:none;flex:none;width:40px;height:40px;border-radius:50%;border:1px solid rgba(238,237,243,.14);background:transparent;position:relative;cursor:pointer;padding:0}
+.burger span{position:absolute;left:12px;width:16px;height:1.5px;background:#EEEDF3;transition:transform .4s var(--ease)}
+.burger span:first-child{top:16px}.burger span:last-child{top:22px}
+.nav.open .burger span:first-child{transform:translateY(3px) rotate(45deg)}
+.nav.open .burger span:last-child{transform:translateY(-3px) rotate(-45deg)}
+.nav-menu{display:none}
+@media (max-width:980px){
+  .nav{left:16px;right:16px;transform:none;width:auto;max-width:none;border-radius:24px}
+  .nav.hide{transform:translateY(-150%)}
+  .nav-links{display:none}
+  .nav-cta{margin-left:auto}
+  .burger{display:block}
+  .nav-menu{display:block;max-height:0;overflow:hidden;transition:max-height .6s var(--ease)}
+  .nav.open .nav-menu{max-height:440px}
+  .nav-menu nav{padding:8px 10px 10px}
+  .nav-menu a{display:block;font:400 30px/1.2 var(--serif);padding:12px 4px;border-top:1px solid rgba(238,237,243,.1)}
+}
+@media (max-width:440px){.brand .ln{display:none}.nav-cta{font-size:14px;padding:0 14px}}
+
+/* ---------- buttons / CTA block ---------- */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;height:58px;padding:0 28px;border-radius:999px;font:600 16px/1 var(--sans);white-space:nowrap;cursor:pointer;border:0;transition:background .3s,color .3s,border-color .3s}
+.btn-primary{background:var(--accent);color:var(--btn-ink)}
+.btn-primary:hover{background:var(--ink);color:var(--bg)}
+.btn-ghost{background:transparent;color:var(--ink);border:1px solid rgba(238,237,243,.32)}
+.btn-ghost:hover{border-color:var(--accent)}
+.arr{display:inline-block;transition:transform .45s var(--ease)}
+.btn:hover .arr{transform:rotate(-45deg)}
+.cta{display:flex;flex-wrap:wrap;align-items:center;gap:var(--space-card) calc(var(--space-card)*1.5);margin-top:var(--space-card)}
+.cta-note{margin-top:12px;font-size:14px;line-height:1.4;color:var(--ink-3)}
+.cta-note a{color:var(--ink-2);text-decoration:underline;text-underline-offset:3px;text-decoration-color:rgba(var(--accent-rgb),.6)}
+.cta-note a:hover{color:var(--accent)}
+.proof{display:flex;align-items:center;gap:14px;font-size:15px;line-height:1.4;color:var(--ink-2)}
+.avs{display:flex;flex:none}
+.avs img{width:38px;height:38px;border-radius:50%;border:2px solid var(--bg);object-fit:cover;margin-left:-10px}
+.avs img:first-child{margin-left:0}
+.proof b{color:var(--ink);font-weight:600}
+
+/* ---------- hero ---------- */
+.hero{border-top:0;padding:clamp(96px,11vh,120px) 0 calc(var(--space-card)*1.5);overflow:hidden}
+.hero-gl{position:absolute;inset:0;width:100%;height:100%;z-index:0;opacity:.7}
+.hero-fade{position:absolute;inset:0;z-index:0;background:linear-gradient(to top,var(--bg) 0%,rgba(12,12,15,0) 50%)}
+.cells{position:absolute;inset:0;width:100%;height:100%;z-index:1;pointer-events:none}
+.hero .cells{-webkit-mask-image:linear-gradient(to bottom,#000 45%,transparent 92%);mask-image:linear-gradient(to bottom,#000 45%,transparent 92%)}
+.hero-label .dot{color:var(--accent)}
+.h1{margin-top:calc(var(--space-card)*.75);font:400 clamp(46px,7.6vw,118px)/1 var(--serif);letter-spacing:-.035em;max-width:11em}
+.hero-sub{margin-top:var(--space-card);max-width:900px;font-size:clamp(18px,1.5vw,21px);line-height:1.5;color:var(--ink-2)}
+
+/* ---------- impact ---------- */
+.impact{padding:var(--space-card) 0 calc(var(--space-card)*1.5)}
+.imp{display:grid;grid-template-columns:repeat(3,1fr);column-gap:0}
+.imp-c{padding-right:var(--space-card)}
+.imp-line{position:relative;height:1px;background:var(--accent);transform-origin:left;margin-bottom:var(--space-card)}
+.imp-line::before{content:"";position:absolute;left:0;top:-3px;width:1px;height:7px;background:var(--accent)}
+.imp-n{display:block;font:400 clamp(40px,5.2vw,80px)/1 var(--serif);letter-spacing:-.03em}
+.imp-c:first-child .imp-n{color:var(--accent)}
+.imp-cap{margin-top:12px;font-size:15px;line-height:1.4;color:var(--ink-2)}
+.imp-who{margin-top:8px}
+@media (max-width:700px){
+  .imp{grid-template-columns:1fr;row-gap:var(--space-card)}
+  .imp-c{display:grid;grid-template-columns:auto 1fr;column-gap:var(--space-card);align-items:center;padding-right:0}
+  .imp-line{grid-column:1/-1;margin-bottom:calc(var(--space-card)*.75)}
+  .imp-cap{margin-top:0}
+}
+
+/* ---------- logos ---------- */
+.logos{padding:var(--space-card) 0}
+.logos-label{position:relative;z-index:2;text-align:center;margin-bottom:var(--space-card)}
+.logos-label span{display:inline-block;background:var(--bg);padding:6px 14px;border-radius:999px}
+.mq{position:relative;z-index:2;overflow:hidden;border-top:1px solid var(--line);border-bottom:1px solid var(--line);-webkit-mask-image:linear-gradient(90deg,transparent,#000 12%,#000 88%,transparent);mask-image:linear-gradient(90deg,transparent,#000 12%,#000 88%,transparent)}
+.mq-track{display:flex;width:max-content;animation:mq 48s linear infinite}
+.mq:hover .mq-track{animation-play-state:paused}
+.mq-g{display:flex;flex:none}
+.lg{height:92px;display:flex;align-items:center;padding:0 clamp(28px,3.6vw,56px);color:var(--ink-3);white-space:nowrap;font-size:22px;line-height:1;transition:color .3s}
+.lg:hover{color:var(--ink)}
+.lg0{font-family:var(--sans);font-weight:600;letter-spacing:.22em;font-size:19px}
+.lg1{font-family:var(--serif);font-style:italic;font-size:26px}
+.lg2{font-family:var(--mono);font-size:18px}
+.lg3{font-family:var(--serif);font-size:25px}
+.lg4{font-family:var(--sans);font-weight:600;letter-spacing:-.04em;font-size:26px}
+.lg5{font-family:var(--sans);font-weight:500;letter-spacing:.04em;font-size:19px}
+.lg6{font-family:var(--serif);font-style:italic;font-weight:500;font-size:24px;letter-spacing:-.02em}
+.lg7{font-family:var(--mono);font-weight:500;letter-spacing:.06em;font-size:17px}
+.lg8{font-family:var(--serif);font-weight:500;font-size:23px;letter-spacing:.02em}
+.lg9{font-family:var(--sans);font-weight:400;letter-spacing:.3em;font-size:16px}
+@keyframes mq{to{transform:translateX(-50%)}}
+
+/* ---------- pains ---------- */
+.pains{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border:1px solid var(--line)}
+.pain{background:var(--bg);padding:var(--space-card);display:flex;flex-direction:column;gap:calc(var(--space-card)/2);min-height:clamp(240px,22vw,320px)}
+.pain h3{margin-top:auto;font:400 clamp(26px,2.3vw,34px)/1.1 var(--serif);letter-spacing:-.015em}
+.pain p{color:var(--ink-2);font-size:17px;line-height:1.5}
+@media (max-width:860px){.pains{grid-template-columns:1fr 1fr}}
+@media (max-width:520px){.pains{grid-template-columns:1fr}.pain{min-height:0}}
+
+/* ---------- outcomes ---------- */
+.outs{border-top:1px solid var(--line)}
+.out{display:grid;grid-template-columns:80px minmax(0,1.1fr) minmax(0,1fr);gap:var(--space-card);align-items:baseline;padding:var(--space-card) 0;border-bottom:1px solid var(--line);background:var(--bg)}
+.out h3{font:400 clamp(26px,2.5vw,38px)/1.1 var(--serif);letter-spacing:-.015em}
+.out p{color:var(--ink-2);max-width:520px}
+.sec-cta{margin-top:var(--space-head)}
+@media (max-width:860px){.out{grid-template-columns:1fr;gap:10px}}
+
+/* ---------- work / cases ---------- */
+.cases{display:flex;flex-direction:column;gap:var(--gap-card)}
+.case{position:sticky;top:11vh;min-height:min(690px,86vh);display:grid;grid-template-columns:1.05fr 1fr;background:var(--surface);border:1px solid var(--line);border-radius:var(--r);overflow:hidden;transform-origin:50% 0;will-change:transform}
+.case-shade{position:absolute;inset:0;z-index:6;background:#000;opacity:0;pointer-events:none}
+.case-l{position:relative;z-index:2;padding:var(--space-card);display:flex;flex-direction:column;gap:calc(var(--space-card)/2)}
+.case-t{margin-top:8px;font:400 clamp(32px,3vw,46px)/1.05 var(--serif);letter-spacing:-.02em}
+.metric{display:grid;grid-template-columns:minmax(0,1fr) 128px;gap:var(--space-card);align-items:end}
+.m-mask{overflow:hidden;padding:.16em .14em .14em 0;margin:-.16em -.14em -.14em 0}
+.m-n{display:inline-block;font:400 clamp(52px,5.6vw,88px)/1 var(--serif);letter-spacing:-.035em;color:var(--accent);white-space:nowrap}
+.m-cap{margin-top:10px;font-size:16px;line-height:1.35;color:var(--ink)}
+.m-per{margin-top:6px}
+.bars-box{position:relative;height:104px;display:flex;align-items:flex-end;gap:16px;padding:0 10px;border-bottom:1px solid var(--line)}
+.bar{position:relative;flex:1;height:100%}
+.bar i{position:absolute;left:0;right:0;bottom:0;height:calc(var(--h)*78%);background:rgba(238,237,243,.22);border-radius:3px 3px 0 0;transform-origin:50% 100%}
+.bar.po i{background:var(--accent)}
+.bar b{position:absolute;left:50%;transform:translateX(-50%);bottom:calc(var(--h)*78% + 6px);font:500 12px/1 var(--mono);color:var(--ink-3);white-space:nowrap}
+.bar.po b{color:var(--accent)}
+.bars-lab{display:flex;gap:16px;padding:8px 10px 0;font:400 11px/1 var(--mono);letter-spacing:.1em;color:var(--ink-3)}
+.bars-lab span{flex:1;text-align:center}
+.sec{display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 14px;border-top:1px solid var(--line);padding-top:calc(var(--space-card)/2)}
+.sec-n{font:400 clamp(26px,2.2vw,32px)/1 var(--serif);letter-spacing:-.02em}
+.sec-cap{font-size:15px;color:var(--ink-2)}
+.story{border-top:1px solid var(--line)}
+.story>div{display:grid;grid-template-columns:96px 1fr;gap:12px;padding:12px 0}
+.story>div+div{border-top:1px solid var(--line)}
+.story dt{font:400 12px/1.9 var(--mono);text-transform:uppercase;letter-spacing:.1em;color:var(--ink-3)}
+.story dd{font-size:16px;line-height:1.5;color:var(--ink-2)}
+.story dd.sol{color:var(--ink)}
+.cq{margin-top:auto;border-top:1px solid var(--line);padding-top:calc(var(--space-card)/2)}
+.cq .stars{font-size:13px}
+.cq p{margin-top:8px;font:400 clamp(18px,1.45vw,21px)/1.35 var(--serif)}
+.cq cite{display:block;margin-top:10px;font:normal 400 12px/1.4 var(--mono);color:var(--ink-3);letter-spacing:.04em}
+.case-r{position:relative;z-index:2;padding:var(--space-card);display:flex;align-items:center;justify-content:center;background:radial-gradient(60% 55% at 55% 50%,rgba(var(--accent-rgb),.2),rgba(var(--accent-rgb),0) 72%)}
+.mock{position:relative;width:100%;border-radius:12px;border:1px solid var(--line);background:#0C0C0F}
+.mock-bar{display:flex;align-items:center;gap:6px;height:38px;padding:0 12px;border-bottom:1px solid var(--line)}
+.mock-bar i{width:9px;height:9px;border-radius:50%;background:rgba(238,237,243,.18)}
+.url{margin:0 auto;transform:translateX(-14px);font:400 11px/1 var(--mono);color:var(--ink-3);background:rgba(238,237,243,.06);padding:6px 14px;border-radius:999px}
+.mock-view{position:relative;height:clamp(300px,33vw,460px);overflow:hidden;border-radius:0 0 12px 12px}
+.mock-view img{width:100%;height:115%;object-fit:cover;filter:saturate(.85)}
+.phone{position:absolute;right:-8px;bottom:-22px;width:25%;min-width:84px;aspect-ratio:9/19;border:4px solid #0C0C0F;border-radius:20px;overflow:hidden;background:#000;box-shadow:0 24px 48px rgba(0,0,0,.45)}
+.phone img{width:100%;height:100%;object-fit:cover;filter:saturate(.85)}
+@media (max-width:980px){
+  .case{position:relative;top:auto;min-height:0;grid-template-columns:1fr}
+  .case-r{padding-top:0;padding-bottom:calc(var(--space-card) + 22px)}
+  .mock-view{height:min(80vw,480px)}
+}
+@media (max-width:520px){
+  .story>div{grid-template-columns:1fr;gap:2px}
+  .metric{grid-template-columns:minmax(0,1fr) 104px;gap:16px}
+}
+
+/* ---------- reference ---------- */
+.score{display:flex;align-items:center;gap:14px;flex:none}
+.score-n{font:400 clamp(48px,5vw,72px)/1 var(--serif);letter-spacing:-.03em}
+.score p{font-size:14px;line-height:1.4;color:var(--ink-3)}
+.quotes{display:grid;grid-template-columns:1fr 1fr;gap:var(--gap)}
+.q{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:var(--space-card);display:flex;flex-direction:column;gap:calc(var(--space-card)/2)}
+.q blockquote{font:400 clamp(21px,1.9vw,27px)/1.3 var(--serif);letter-spacing:-.01em}
+.q-who{margin-top:auto;display:flex;align-items:center;gap:12px;font-size:15px;line-height:1.35}
+.q-who img{width:44px;height:44px;border-radius:50%;object-fit:cover;filter:grayscale(1)}
+.q-who span{display:block;color:var(--ink-3);font-size:14px}
+.mid{margin-top:var(--gap-card);background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:var(--space-card);display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);gap:var(--space-card);align-items:center}
+.mid-t{font:400 clamp(26px,2.6vw,40px)/1.15 var(--serif);letter-spacing:-.02em}
+.mid-s{margin-top:14px;color:var(--ink-2);font-size:16px}
+.mid .cta{margin-top:0}
+@media (max-width:860px){.quotes,.mid{grid-template-columns:1fr}}
+
+/* ---------- call ---------- */
+.steps{display:grid;grid-template-columns:repeat(3,1fr);background:var(--bg);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.step{padding:var(--space-card);display:flex;flex-direction:column;gap:calc(var(--space-card)/2)}
+.step:first-child{padding-left:0}
+.step+.step{border-left:1px solid var(--line)}
+.step h3{font:400 clamp(26px,2.4vw,36px)/1.1 var(--serif);letter-spacing:-.015em}
+.step p{color:var(--ink-2);font-size:17px}
+.call-note{margin-top:var(--space-head);font:400 clamp(26px,2.6vw,40px)/1.15 var(--serif);letter-spacing:-.02em}
+@media (max-width:860px){
+  .steps{grid-template-columns:1fr}
+  .step{padding:var(--space-card) 0}
+  .step+.step{border-left:0;border-top:1px solid var(--line)}
+}
+
+/* ---------- before / after ---------- */
+.ba-row{display:grid;grid-template-columns:200px minmax(0,1fr) minmax(0,1fr);gap:var(--space-card);padding:var(--space-card) 0;border-top:1px solid var(--line)}
+.ba-row:last-child{border-bottom:1px solid var(--line)}
+.ba-col .mono-s{display:block;margin-bottom:12px}
+.ba-txt{font:400 clamp(24px,2.3vw,34px)/1.2 var(--serif);letter-spacing:-.015em}
+.ba-old{color:var(--ink-3)}
+.strike{background-image:linear-gradient(var(--accent),var(--accent));background-repeat:no-repeat;background-position:0 58%;background-size:100% 2px;-webkit-box-decoration-break:clone;box-decoration-break:clone}
+.anim .strike{background-size:0% 2px;transition:background-size 1.2s var(--ease)}
+.anim .ba-row.on .strike{background-size:100% 2px}
+@media (max-width:860px){.ba-row{grid-template-columns:1fr;gap:16px}}
+
+/* ---------- about ---------- */
+.about{display:grid;grid-template-columns:5fr 7fr;gap:var(--gap-card);align-items:stretch}
+.ph{position:sticky;top:12vh;height:100%;max-height:86vh;min-height:520px;border-radius:var(--r);overflow:hidden;background:var(--surface)}
+.ph img{width:100%;height:116%;object-fit:cover;object-position:57% 35%}
+.ph figcaption{position:absolute;left:16px;bottom:16px;background:#141418;color:#EEEDF3;border:1px solid rgba(238,237,243,.1);padding:7px 14px;border-radius:999px;font:400 12px/1 var(--mono);letter-spacing:.08em;text-transform:uppercase}
+.about-p{margin-top:var(--space-card);font:400 clamp(28px,3.2vw,50px)/1.18 var(--serif);letter-spacing:-.02em}
+.about-p em{color:var(--accent)}
+.anim .about-p .aw{opacity:.22}
+.stats{margin-top:var(--space-head);display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.stat{padding:var(--space-card) var(--space-card) var(--space-card) 0}
+.stat+.stat{border-left:1px solid var(--line);padding-left:var(--space-card)}
+.stat-n{display:block;font:400 clamp(40px,4.4vw,68px)/1 var(--serif);letter-spacing:-.03em}
+.stat p{margin-top:10px;font-size:15px;line-height:1.4;color:var(--ink-2)}
+@media (max-width:860px){
+  .about{grid-template-columns:1fr}
+  .ph{position:relative;top:auto;height:auto;min-height:0;max-height:none;aspect-ratio:3/4;max-width:420px;width:100%}
+  .ph img{height:116%}
+}
+@media (max-width:560px){
+  .stats{grid-template-columns:1fr}
+  .stat{padding:var(--space-card) 0}
+  .stat+.stat{border-left:0;border-top:1px solid var(--line);padding-left:0}
+}
+
+/* ---------- services ---------- */
+.svc{position:relative;border-top:1px solid var(--line)}
+.svc-row{position:relative;display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr) 17vw auto;gap:var(--space-card);align-items:center;padding:var(--space-card) 0;border-bottom:1px solid var(--line)}
+.svc-row>*{position:relative;z-index:2}
+.svc-row::after{content:"";position:absolute;left:0;right:0;bottom:-1px;height:1px;background:var(--ink);transform:scaleX(0);transform-origin:left;transition:transform .7s var(--ease);z-index:2}
+.svc-title .mono-s{display:block;margin-bottom:10px}
+.svc-title h3{font:400 clamp(30px,3vw,44px)/1.05 var(--serif);letter-spacing:-.02em;transition:transform .6s var(--ease)}
+.svc-desc{max-width:440px;font-size:17px;line-height:1.5;color:var(--ink-2);transition:transform .6s var(--ease)}
+.svc-price{display:flex;align-items:center;gap:18px;justify-self:end;white-space:nowrap}
+.svc-price strong{font:400 clamp(20px,1.8vw,26px)/1 var(--serif)}
+.svc-arr{width:52px;height:52px;flex:none;border-radius:50%;border:1px solid var(--line);display:grid;place-items:center;transition:transform .5s var(--ease),background .3s,border-color .3s,color .3s}
+.svc-prev{position:absolute;left:0;top:0;z-index:1;width:17vw;aspect-ratio:4/5;border-radius:var(--r);overflow:hidden;opacity:0;pointer-events:none;background:var(--surface)}
+.svc-prev img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity .4s}
+.svc-prev img.on{opacity:1}
+@media (hover:hover) and (pointer:fine) and (min-width:861px){
+  .svc-row:hover h3{transform:translateX(18px)}
+  .svc-row:hover .svc-desc{transform:translateX(10px)}
+  .svc-row:hover .svc-arr{transform:rotate(-45deg);background:var(--accent);border-color:var(--accent);color:#fff}
+  .svc-row:hover::after{transform:scaleX(1)}
+}
+@media (max-width:860px){
+  .svc-row{grid-template-columns:1fr;gap:14px}
+  .svc-band,.svc-prev{display:none}
+  .svc-price{justify-self:start}
+}
+
+/* ---------- FAQ ---------- */
+.faq{display:grid;grid-template-columns:5fr 7fr;gap:var(--gap-card);align-items:start}
+.faq-h{position:sticky;top:14vh}
+.faq-h .h2{margin-bottom:var(--space-card)}
+.faq details{background:var(--bg);border-top:1px solid var(--line)}
+.faq details:last-child{border-bottom:1px solid var(--line)}
+.faq summary{list-style:none;display:flex;justify-content:space-between;align-items:center;gap:var(--space-card);padding:var(--space-card) 0;cursor:pointer;font:400 clamp(24px,2.4vw,34px)/1.15 var(--serif);letter-spacing:-.015em}
+.faq summary::-webkit-details-marker{display:none}
+.plus{position:relative;flex:none;width:36px;height:36px;border-radius:50%;border:1px solid var(--line);transition:transform .45s var(--ease),border-color .3s}
+.plus::before,.plus::after{content:"";position:absolute;left:50%;top:50%;width:12px;height:1px;margin:-.5px 0 0 -6px;background:var(--ink)}
+.plus::after{transform:rotate(90deg)}
+details[open] .plus{transform:rotate(45deg);border-color:var(--accent)}
+.faq details p{max-width:720px;padding:0 60px var(--space-card) 0;color:var(--ink-2)}
+@media (max-width:860px){.faq{grid-template-columns:1fr}.faq-h{position:relative;top:auto}.faq details p{padding-right:0}}
+
+/* ---------- finale ---------- */
+.fin{padding-bottom:0;overflow:hidden}
+.fin .cells{opacity:.7;-webkit-mask-image:linear-gradient(to bottom,#000 0%,transparent 70%);mask-image:linear-gradient(to bottom,#000 0%,transparent 70%)}
+.fin-h{margin-top:var(--space-card);font:400 clamp(52px,10.4vw,168px)/.98 var(--serif);letter-spacing:-.04em}
+.fl{display:block;overflow:hidden;padding:.16em .14em .14em 0;margin:-.16em -.14em -.14em 0}
+.fl>span{display:block}
+.anim .fl>span{transform:translateY(120%)}
+.fin-grid{margin-top:var(--space-head);display:grid;grid-template-columns:1fr 1fr;gap:var(--gap);align-items:stretch}
+.box{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:var(--space-card);display:flex;flex-direction:column}
+.box h3{font:400 clamp(28px,2.6vw,40px)/1.1 var(--serif);letter-spacing:-.02em}
+.box-s{margin-top:12px;color:var(--ink-2);font-size:17px;max-width:480px}
+.box .cta{margin-top:var(--space-card)}
+.me{margin-top:auto;padding-top:var(--space-card);display:flex;align-items:center;gap:14px;font-size:15px;line-height:1.4;border-top:1px solid var(--line)}
+.box .me{margin-top:var(--space-card)}
+.me img{width:48px;height:48px;border-radius:50%;object-fit:cover;object-position:57% 30%}
+.me span{display:block;color:var(--ink-3);font-size:14px}
+.form{margin-top:var(--space-card);display:grid;gap:14px}
+.field{display:grid;gap:8px}
+.field label{font:400 12px/1 var(--mono);text-transform:uppercase;letter-spacing:.1em;color:var(--ink-3)}
+.field input{height:52px;padding:0 16px;background:var(--bg);border:1px solid var(--line);border-radius:10px;color:var(--ink);font-size:16px;outline:0;transition:border-color .3s;width:100%}
+.field input:focus{border-color:var(--accent)}
+.form .btn{justify-self:start;margin-top:6px}
+.form-note{font-size:14px;color:var(--ink-3)}
+.form-status{min-height:1.4em;font-size:15px;color:var(--accent)}
+.foot{position:relative;z-index:2;margin-top:var(--space-section);padding:var(--space-card) 0;border-top:1px solid var(--line);display:flex;flex-wrap:wrap;gap:12px 28px;justify-content:space-between;font:400 12px/1.5 var(--mono);letter-spacing:.06em;color:var(--ink-3)}
+.foot nav{display:flex;gap:20px}
+.foot a:hover{color:var(--ink)}
+@media (max-width:860px){.fin-grid{grid-template-columns:1fr}}
+
+/* ---------- mobile bar ---------- */
+.mbar{display:none}
+@media (max-width:860px){
+  body{padding-bottom:calc(76px + env(safe-area-inset-bottom))}
+  .mbar{display:flex;align-items:center;justify-content:space-between;gap:12px;position:fixed;left:0;right:0;bottom:0;z-index:70;background:#141418;color:#EEEDF3;border-top:1px solid rgba(238,237,243,.1);padding:12px 16px calc(12px + env(safe-area-inset-bottom));transform:translateY(110%);transition:transform .5s var(--ease)}
+  .mbar.show{transform:none}
+  .mbar b{display:block;font-size:15px;line-height:1.3}
+  .mbar span{display:block;font-size:13px;line-height:1.3;color:#B6B4C0}
+  .mbar a{flex:none;height:44px;padding:0 18px;border-radius:999px;background:#9B85FF;color:#0C0C0F;font-weight:600;font-size:15px;display:inline-flex;align-items:center}
+}
+@media (max-width:700px){
+  .sh{flex-direction:column;align-items:flex-start}
+  .sh .eyebrow{text-align:left;padding-bottom:0}
+  .cta,.cta-main{width:100%}
+  .cta .btn{width:100%}
+}
+
+/* ---------- reduced motion ---------- */
+@media (prefers-reduced-motion:reduce){
+  .mq{-webkit-mask-image:none;mask-image:none}
+  .mq-track{animation:none;width:auto;flex-wrap:wrap;justify-content:center}
+  .mq-g{flex-wrap:wrap;justify-content:center}
+  .mq-g[aria-hidden]{display:none}
+  *{transition-duration:.01ms!important}
+}
+</style>
+</head>
+<body>
+<noscript><p style="padding:120px 24px;text-align:center">Pro zobrazení stránky zapněte JavaScript.</p></noscript>
+<div class="gl gl-l" aria-hidden="true"></div>
+<div class="gl gl-r" aria-hidden="true"></div>
+<div class="cur" aria-hidden="true"><div class="c-dot"></div><div class="c-ring"></div><div class="c-big">Zobrazit</div></div>
+<header class="nav" id="nav"></header>
+<main id="app"></main>
+<div class="mbar" id="mbar"></div>
+
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
+<script>
+(() => {
+/* =====================================================================
+   DATA · TEXTY A ODKAZY
+   Všechna jména, čísla, citace a recenze níže jsou PŘÍKLADY.
+   Před spuštěním je nahraďte skutečnými údaji svých klientů.
+   *hvězdičky* = kurzíva v akcentní barvě.
+   ===================================================================== */
+const U = (id, w = 1200) => `https://images.unsplash.com/${id}?w=${w}&q=72&auto=format&fit=crop`;
+const DATA = {
+  name: 'Vlaďka Horáková',
+  first: 'Vlaďka',
+  last: 'Horáková',
+  role: 'webdesignérka',
+  city: 'Praha',
+  cal: 'https://cal.com/klara-vesela/15min',
+  email: 'klara@vesela.cz',
+  ico: '12345678', // příklad, doplňte své IČ
+  social: { Instagram: '#', LinkedIn: '#', Dribbble: '#' },
+  photo: 'https://images.unsplash.com/photo-1598257006458-087169a1f08d',
+  rating: { score: '4,9', count: 31, source: 'na Googlu' },
+  avatars: [12, 32, 47, 5].map(n => `https://i.pravatar.cc/80?img=${n}`),
+  promise: ['Zatímco pracujete,', 'kalendář se plní.'],
+  sub: 'Žádné nezvednuté telefony, prázdná okna ani večery nad zprávami. Navrhuji weby s rezervačním systémem pro kavárny, studia a ordinace.',
+  guarantee: 'Prvních 60 dní po spuštění web ladím zdarma podle toho, co ukáží čísla.',
+
+  impact: [
+    { pre: '+', n: 38, suf: ' %', cap: 'rezervací za 2 měsíce', who: 'Kavárna Lísek' },
+    { pre: '', n: 64, suf: ' %', cap: 'objednávek online', who: 'Fyzio Pohyb' },
+    { pre: '−', n: 12, suf: ' h', cap: 'práce recepce týdně', who: 'Fyzio Pohyb' }
+  ],
+  logos: ['LÍSEK', 'Studio Forma', 'fyzio/pohyb', 'Malá květiny', 'kolo.', 'ATELIER 9', 'dobrá jóga', 'ORDINACE+', 'Pekárna Haná', 'STUDIO 12'],
+
+  pains: {
+    title: 'Zní vám to *povědomě?*', eyebrow: 'Co slýchám nejčastěji',
+    items: [
+      { t: 'Nezvednutý telefon', q: '„Když zrovna obsluhuji, zákazník to vzdá.“' },
+      { t: 'Večery nad zprávami', q: '„Rezervace vyřizuji až o půlnoci.“' },
+      { t: 'Prázdná okna', q: '„Když se termín zruší, nikdo ho nezaplní.“' },
+      { t: 'Nepřijdou', q: '„Objedná se a pak se neukáže.“' }
+    ]
+  },
+  outcomes: {
+    title: 'Co *dostanete*', eyebrow: 'Výsledek, ne práci',
+    items: [
+      { t: 'Z nezvednutých telefonů jsou rezervace', d: 'Web, který prodává za vás. Kdo se nedovolá, zarezervuje si termín online během pár vteřin.' },
+      { t: 'Termín si zákazník vybere sám, i v neděli večer', d: 'Rezervace běží nonstop, zrušený termín se hned nabídne dalším a připomínka den předem hlídá, aby zákazník opravdu přišel.' },
+      { t: 'Za 3 týdny máte hotovo', d: 'Od prvního hovoru po spuštěný web. Datum spuštění znáte předem.' },
+      { t: 'Nic nemusíte psát ani fotit', d: 'Texty i fotky zařídím já. Vy jen schválíte výsledek.' },
+      { t: '60 dní ladění zdarma', d: 'Prvních 60 dní po spuštění web ladím zdarma podle toho, co ukáží čísla.' }
+    ]
+  },
+  work: {
+    title: 'Méně telefonů. *Víc zákazníků.*', eyebrow: '3 projekty · 2024 — 2026',
+    cases: [
+      {
+        label: '01 / Kavárna', name: 'Kavárna Lísek', domain: 'kavarnalisek.cz',
+        img: 'photo-1554118811-1e0d58224f24',
+        main: { pre: '+', n: 38, suf: ' %', cap: 'rezervací za 2 měsíce', per: '2025 · po spuštění webu' },
+        bars: [{ v: '100 %', h: .72 }, { v: '138 %', h: 1 }],
+        sec: { n: 7, suf: ' z 10', cap: 'rezervací přichází přes web', per: '2025' },
+        problem: 'Ve špičce nikdo nestihl zvednout telefon a zákazník šel o dům dál.',
+        solution: 'Postavila jsem systém, který přijímá rezervace stolů online a sám je potvrdí.',
+        quote: '„Ve špičce už telefon neřeším. Stoly se plní přes web, i když zrovna obsluhuji.“',
+        who: 'Jana Lísková · majitelka, Kavárna Lísek'
+      },
+      {
+        label: '02 / Studio', name: 'Studio Forma', domain: 'studioforma.cz',
+        img: 'photo-1497366216548-37526070297c',
+        main: { pre: '', n: 3, suf: '×', cap: 'víc poptávek za 3 měsíce', per: '3 měsíce po spuštění webu' },
+        bars: [{ v: '4', h: .31 }, { v: '13', h: 1 }],
+        sec: { n: 1, suf: '', cap: 'schůzka místo tří, zbytek vyřeší formulář předem', per: 'na zakázku' },
+        problem: 'Poptávky chodily do tří různých schránek a část se ztratila.',
+        solution: 'Postavila jsem systém, který sbírá poptávky do jednoho formuláře a rovnou nabídne termín schůzky.',
+        quote: '„Poptávek je třikrát víc a na schůzku chodí lidé, kteří už vědí, co chtějí.“',
+        who: 'Petr Kolář · zakladatel, Studio Forma'
+      },
+      {
+        label: '03 / Fyzioterapie', name: 'Fyzio Pohyb', domain: 'fyziopohyb.cz',
+        img: 'photo-1519823551278-64ac92734fb1',
+        main: { pre: '−', n: 12, suf: ' h', cap: 'práce recepce týdně', per: 'týdně · po spuštění webu' },
+        bars: [{ v: '20 h', h: 1 }, { v: '8 h', h: .4 }],
+        sec: { n: 64, suf: ' %', cap: 'objednávek online', per: 'po spuštění webu' },
+        problem: 'Recepce trávila půl dne u telefonu přesouváním termínů.',
+        solution: 'Postavila jsem systém, ve kterém si klienti termín vyberou, přesunou i zruší sami.',
+        quote: '„Recepce má o 12 hodin týdně víc na klienty, kteří stojí přímo před ní.“',
+        who: 'Mgr. Eva Dvořáková · vedoucí, Fyzio Pohyb'
+      }
+    ]
+  },
+  reference: {
+    title: 'Co říkají *klienti*',
+    quotes: [
+      { q: '„Za dva měsíce o 38 % víc rezervací. Telefon ve špičce už nikdo nehoní.“', n: 'Jana Lísková', c: 'Kavárna Lísek', a: 'https://i.pravatar.cc/88?img=47' },
+      { q: '„Poptávek máme třikrát víc a místo tří schůzek stačí jedna.“', n: 'Petr Kolář', c: 'Studio Forma', a: 'https://i.pravatar.cc/88?img=12' },
+      { q: '„Recepce ušetří 12 hodin týdně. Většina klientů se objedná online sama.“', n: 'Mgr. Eva Dvořáková', c: 'Fyzio Pohyb', a: 'https://i.pravatar.cc/88?img=32' },
+      { q: '„Přihlášky na lekce chodí na jedno místo. Zprávy po desáté večer už nevyřizuji.“', n: 'Lucie Malá', c: 'dobrá jóga', a: 'https://i.pravatar.cc/88?img=5' }
+    ],
+    mid: 'Chcete stejné výsledky? Za 15 minut vám ukážu *3 místa*, kde vám web teď bere rezervace.',
+    midSub: 'Hovor přes Google Meet, s vaším webem na obrazovce.'
+  },
+  call: {
+    title: 'Co se stane *na hovoru*', eyebrow: '15 minut · zdarma · bez závazku',
+    steps: [
+      { m: '01 / 5 minut', t: 'Projdeme váš web', d: 'Podíváme se na něj očima zákazníka, který chce právě teď rezervovat.' },
+      { m: '02 / 5 minut', t: '3 místa, kde utíkají rezervace', d: 'Tohle si odnesete, i když spolu nebudeme spolupracovat.' },
+      { m: '03 / 5 minut', t: 'Cena a termín', d: 'Řeknu vám pevnou cenu a datum spuštění. Nic nepodepisujete.' }
+    ],
+    note: 'Nejbližší volný termín bývá do 3 dnů.'
+  },
+  ba: {
+    title: 'Stejná firma, *jiný web.*', eyebrow: 'Hlavní nadpis webu',
+    rows: [
+      { l: 'Kavárna', o: 'Vítejte na stránkách naší kavárny. Těšíme se na vaši návštěvu.', n: 'Snídaně do 14:00 a stůl rezervovaný za 20 vteřin. Hned u Náměstí Míru.' },
+      { l: 'Fyzioterapie', o: 'Nabízíme komplexní péči o vaše zdraví a pohybový aparát.', n: 'Bolí vás záda od sezení? Objednejte se online, první termín máme do 3 dnů.' }
+    ]
+  },
+  about: {
+    title: 'O *mně*', eyebrow: 'Proč dělám weby, které plní kalendář',
+    text: 'Než jsem začala dělat weby, pět let jsem stála za barem. Viděla jsem, kolik stolů zůstane prázdných jen proto, že se lidé nedovolali. Proto každý web začínám otázkou, *co má přinést*, a teprve pak řeším, jak bude vypadat.',
+    stats: [
+      { n: 24, suf: '', cap: 'spuštěných webů' },
+      { n: 21, suf: ' dní', cap: 'průměrně od zadání po spuštění' },
+      { n: 9, suf: ' z 10', cap: 'klientů zůstává na péči' }
+    ]
+  },
+  services: {
+    title: 'S čím vám *pomůžu*', eyebrow: 'Orientační ceny bez DPH',
+    items: [
+      { t: 'Systém, který plní kalendář', time: '3 týdny', d: 'Web, rezervace a připomínky v jednom celku. Zákazník si termín vybere sám, i v neděli večer.', p: 'od 49 000 Kč', img: 'photo-1554118811-1e0d58224f24' },
+      { t: 'Landing page', time: '1 týden', d: 'Jedna stránka pro jednu akci: nové menu, kurz, otevření pobočky.', p: 'od 19 000 Kč', img: 'photo-1497366216548-37526070297c' },
+      { t: 'Texty a fotky', time: 'v ceně webu', d: 'Nemusíte nic chystat. Texty napíšu, fotky vyberu nebo zařídím focení.', p: '0 Kč navíc', img: 'photo-1516035069371-29a1b244cc32' },
+      { t: 'Péče po spuštění', time: 'měsíčně', d: 'Úpravy do druhého dne, nová sezónní nabídka a jednou měsíčně přehled, kolik rezervací web přinesl.', p: 'od 1 900 Kč', img: 'photo-1519823551278-64ac92734fb1' }
+    ]
+  },
+  faq: {
+    title: 'Na co se *ptáte*',
+    items: [
+      { q: 'Co se na hovoru stane?', a: '15 minut přes Google Meet. Projdeme váš web, ukážu vám 3 konkrétní místa, kde ztrácíte rezervace, a řeknu jasnou cenu a termín. Nic nepodepisujete.' },
+      { q: 'Kolik to stojí?', a: 'Web s rezervačním systémem od 49 000 Kč, landing page od 19 000 Kč. Přesnou cenu uslyšíte na hovoru a potom už se nemění.' },
+      { q: 'Musím dodat texty a fotky?', a: 'Ne. Texty napíšu, fotky vyberu nebo zařídím focení. Je to v ceně webu.' },
+      { q: 'Co když rezervace nepřibudou?', a: 'Prvních 60 dní po spuštění web ladím zdarma podle toho, co ukáží čísla.' },
+      { q: 'Co když se mi návrh nebude líbit?', a: 'První návrh máte do 7 dnů. Dvě kola úprav jsou v ceně, takže spouštíme, až když se vám web líbí.' },
+      { q: 'Kolik času mi to zabere?', a: 'Asi 3 hodiny celkem: úvodní hovor, schválení návrhu a krátké předání. Zbytek je na mně.' }
+    ]
+  }
+};
+/* ===================== konec DATA ===================== */
+
+const $ = (s, r = document) => r.querySelector(s);
+const $$ = (s, r = document) => [...r.querySelectorAll(s)];
+const em = s => s.replace(/\*(.+?)\*/g, '<em>$1</em>');
+const fmt = (v, d = 0) => v.toFixed(d).replace('.', ',');
+const R = DATA.rating;
+const photo = w => `${DATA.photo}?w=${w}&q=75&auto=format&fit=crop`;
+const STARS = '<span class="stars" aria-label="Hodnocení 5 z 5">★★★★★</span>';
+const num = (o, cls = '') => `<span class="${cls}" data-count="${o.n}" data-pre="${o.pre || ''}" data-suf="${o.suf || ''}">${(o.pre || '') + fmt(o.n) + (o.suf || '')}</span>`;
+const sh = (title, right) => `<div class="sh"><h2 class="h2 split">${em(title)}</h2>${right ? (right.startsWith('<') ? right : `<p class="eyebrow">${right}</p>`) : ''}</div>`;
+const cta = (rozbor = true, proof = true) => `
+<div class="cta">
+  <div class="cta-main">
+    <a class="btn btn-primary mag" href="${DATA.cal}" target="_blank" rel="noopener">Rezervovat 15min hovor <span class="arr" aria-hidden="true">→</span></a>
+    <p class="cta-note">Zdarma a nezávazně.${rozbor ? ` <a href="#rozbor">nebo chci rozbor webu zdarma</a>` : ''}</p>
+  </div>
+  ${proof ? `<div class="proof">
+    <div class="avs">${DATA.avatars.map(a => `<img src="${a}" alt="" width="38" height="38" loading="lazy">`).join('')}</div>
+    <p>${STARS} <b>${R.score} z 5</b> · ${R.count} recenzí</p>
+  </div>` : ''}
+</div>`;
+
+/* ---------- nav ---------- */
+const NAV = [['Výsledky', 'vysledky'], ['Reference', 'reference'], ['Hovor', 'hovor'], ['O mně', 'o-mne'], ['Služby', 'sluzby']];
+$('#nav').innerHTML = `
+<div class="nav-row">
+  <a class="brand" href="#top"><img src="${photo(120)}" alt="" width="34" height="34"><span>${DATA.first} <span class="ln">${DATA.last}</span></span></a>
+  <nav class="nav-links" aria-label="Hlavní navigace"><span class="ind" aria-hidden="true"></span>${NAV.map(([t, id]) => `<a href="#${id}" data-sec="${id}">${t}</a>`).join('')}</nav>
+  <a class="nav-cta mag" href="${DATA.cal}" target="_blank" rel="noopener">Rezervovat hovor</a>
+  <button class="burger" type="button" aria-label="Otevřít menu" aria-expanded="false"><span></span><span></span></button>
+</div>
+<div class="nav-menu"><nav aria-label="Mobilní navigace">${NAV.map(([t, id]) => `<a href="#${id}">${t}</a>`).join('')}</nav></div>`;
+
+$('#mbar').innerHTML = `<div><b>15min hovor zdarma</b><span>Termín vyberete sami</span></div><a href="${DATA.cal}" target="_blank" rel="noopener">Rezervovat hovor</a>`;
+
+/* ---------- page ---------- */
+const W = DATA.work, RF = DATA.reference, C = DATA.call, A = DATA.about, S = DATA.services, F = DATA.faq;
+$('#app').innerHTML = `
+<section class="hero" id="top">
+  <canvas class="hero-gl" aria-hidden="true"></canvas>
+  <div class="hero-fade" aria-hidden="true"></div>
+  <canvas class="cells" data-density=".3" aria-hidden="true"></canvas>
+  <div class="wrap">
+    <p class="eyebrow hero-label"><span class="dot">●</span> ${DATA.name} · ${DATA.role} · ${DATA.city} a online</p>
+    <h1 class="h1 split">${DATA.promise[0]} <em>${DATA.promise[1]}</em></h1>
+    <p class="hero-sub">${DATA.sub}</p>
+    ${cta()}
+  </div>
+</section>
+
+<section class="light impact" aria-label="Výsledky klientů">
+  <div class="wrap imp">
+    ${DATA.impact.map(o => `<div class="imp-c"><div class="imp-line"></div>${num(o, 'imp-n')}<div><p class="imp-cap">${o.cap}</p><p class="mono-s imp-who">${o.who}</p></div></div>`).join('')}
+  </div>
+</section>
+
+<section class="logos" aria-label="Klienti">
+  <p class="logos-label"><span class="eyebrow">Weby pro firmy jako</span></p>
+  <div class="mq"><div class="mq-track"><div class="mq-g">${DATA.logos.map((l, i) => `<span class="lg lg${i % 10}">${l}</span>`).join('')}</div></div></div>
+</section>
+
+<section id="bolesti">
+  <div class="wrap">
+    ${sh(DATA.pains.title, DATA.pains.eyebrow)}
+    <div class="pains">${DATA.pains.items.map((p, i) => `<article class="pain rv"><span class="eyebrow">0${i + 1}</span><h3>${p.t}</h3><p>${p.q}</p></article>`).join('')}</div>
+  </div>
+</section>
+
+<section id="dostanete">
+  <div class="wrap">
+    ${sh(DATA.outcomes.title, DATA.outcomes.eyebrow)}
+    <div class="outs">${DATA.outcomes.items.map((o, i) => `<div class="out rv"><span class="eyebrow">0${i + 1}</span><h3>${o.t}</h3><p>${o.d}</p></div>`).join('')}</div>
+    <div class="sec-cta">${cta()}</div>
+  </div>
+</section>
+
+<section id="vysledky">
+  <div class="wrap">
+    ${sh(W.title, W.eyebrow)}
+    <div class="cases">${W.cases.map(c => `
+      <article class="case">
+        <div class="case-shade" aria-hidden="true"></div>
+        <div class="case-l">
+          <div><p class="eyebrow">${c.label}</p><h3 class="case-t">${c.name}</h3></div>
+          <div class="metric">
+            <div>
+              <div class="m-mask">${num(c.main, 'm-n')}</div>
+              <p class="m-cap">${c.main.cap}</p>
+              <p class="mono-s m-per">${c.main.per}</p>
+            </div>
+            <div class="bars" aria-label="Před ${c.bars[0].v}, po ${c.bars[1].v}">
+              <div class="bars-box">
+                <div class="bar" style="--h:${c.bars[0].h}"><b>${c.bars[0].v}</b><i></i></div>
+                <div class="bar po" style="--h:${c.bars[1].h}"><b>${c.bars[1].v}</b><i></i></div>
+              </div>
+              <div class="bars-lab"><span>PŘED</span><span>PO</span></div>
+            </div>
+          </div>
+          <div class="sec">${num(c.sec, 'sec-n')}<span class="sec-cap">${c.sec.cap}</span><span class="mono-s">${c.sec.per}</span></div>
+          <dl class="story"><div><dt>Problém</dt><dd>${c.problem}</dd></div><div><dt>Řešení</dt><dd class="sol">${c.solution}</dd></div></dl>
+          <blockquote class="cq">${STARS}<p>${c.quote}</p><cite>${c.who}</cite></blockquote>
+        </div>
+        <div class="case-r">
+          <div class="mock">
+            <div class="mock-bar"><i></i><i></i><i></i><span class="url">${c.domain}</span></div>
+            <div class="mock-view"><img src="${U(c.img, 1200)}" alt="Web ${c.name}" loading="lazy"></div>
+            <div class="phone"><img src="${U(c.img, 360)}" alt="" loading="lazy"></div>
+          </div>
+        </div>
+      </article>`).join('')}
+    </div>
+  </div>
+</section>
+
+<section class="light" id="reference">
+  <div class="wrap">
+    ${sh(RF.title, `<div class="score"><span class="score-n">${R.score}</span><div>${STARS}<p>${R.count} recenzí ${R.source}</p></div></div>`)}
+    <div class="quotes">${RF.quotes.map(q => `<figure class="q rv">${STARS}<blockquote>${q.q}</blockquote><figcaption class="q-who"><img src="${q.a}" alt="" width="44" height="44" loading="lazy"><div>${q.n}<span>${q.c}</span></div></figcaption></figure>`).join('')}</div>
+    <div class="mid rv">
+      <div><p class="mid-t">${em(RF.mid)}</p><p class="mid-s">${RF.midSub}</p></div>
+      ${cta()}
+    </div>
+  </div>
+</section>
+
+<section id="hovor">
+  <div class="wrap">
+    ${sh(C.title, C.eyebrow)}
+    <div class="steps">${C.steps.map(s => `<div class="step rv"><span class="eyebrow">${s.m}</span><h3>${s.t}</h3><p>${s.d}</p></div>`).join('')}</div>
+    <p class="call-note rv">${C.note}</p>
+    ${cta()}
+  </div>
+</section>
+
+<section class="light" id="pred-po">
+  <div class="wrap">
+    ${sh(DATA.ba.title, DATA.ba.eyebrow)}
+    <div class="ba">${DATA.ba.rows.map(r => `
+      <div class="ba-row">
+        <span class="eyebrow">${r.l}</span>
+        <div class="ba-col"><span class="mono-s">Předtím</span><p class="ba-txt ba-old"><span class="strike">${r.o}</span></p></div>
+        <div class="ba-col"><span class="mono-s">Potom</span><p class="ba-txt">${r.n}</p></div>
+      </div>`).join('')}
+    </div>
+  </div>
+</section>
+
+<section id="o-mne">
+  <div class="wrap">
+    ${sh(A.title, `${DATA.name} · ${DATA.city}`)}
+    <div class="about">
+      <div><figure class="ph"><img src="${photo(1000)}" alt="${DATA.name}"><figcaption>${DATA.first} · ${DATA.city}</figcaption></figure></div>
+      <div>
+        <p class="eyebrow">${A.eyebrow}</p>
+        <p class="about-p">${em(A.text)}</p>
+        <div class="stats">${A.stats.map(s => `<div class="stat">${num(s, 'stat-n')}<p>${s.cap}</p></div>`).join('')}</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="light" id="sluzby">
+  <div class="wrap">
+    ${sh(S.title, S.eyebrow)}
+    <div class="svc">
+      <div class="svc-prev" aria-hidden="true">${S.items.map(s => `<img src="${U(s.img, 700)}" alt="">`).join('')}</div>
+      ${S.items.map((s, i) => `
+      <a class="svc-row" href="${DATA.cal}" target="_blank" rel="noopener">
+        <div class="svc-title"><span class="mono-s">0${i + 1} · ${s.time}</span><h3>${s.t}</h3></div>
+        <p class="svc-desc">${s.d}</p>
+        <span class="svc-band" aria-hidden="true"></span>
+        <div class="svc-price"><strong>${s.p}</strong><span class="svc-arr" aria-hidden="true">→</span></div>
+      </a>`).join('')}
+    </div>
+  </div>
+</section>
+
+<section id="faq">
+  <div class="wrap faq">
+    <div class="faq-h"><h2 class="h2 split">${em(F.title)}</h2><p class="eyebrow">Nenašli jste odpověď? Zeptejte se na hovoru.</p></div>
+    <div>${F.items.map((f, i) => `<details${i === 0 ? ' open' : ''}><summary>${f.q}<span class="plus" aria-hidden="true"></span></summary><p>${f.a}</p></details>`).join('')}</div>
+  </div>
+</section>
+
+<section class="fin" id="kontakt">
+  <canvas class="cells" data-density=".2" aria-hidden="true"></canvas>
+  <div class="wrap">
+    <p class="eyebrow">Poslední krok</p>
+    <h2 class="fin-h"><span class="fl"><span>${DATA.promise[0]}</span></span><span class="fl"><span><em>${DATA.promise[1]}</em></span></span></h2>
+    <div class="fin-grid">
+      <div class="box rv">
+        <h3>Projdeme váš web spolu</h3>
+        <p class="box-s">Za 15 minut uvidíte, kde vám web bere rezervace, a odnesete si pevnou cenu i termín.</p>
+        ${cta(false, false)}
+        <div class="me"><img src="${photo(120)}" alt="" width="48" height="48"><div>Volám osobně, ne obchodník<span>${STARS} ${R.score} z 5 od ${R.count} klientů</span></div></div>
+      </div>
+      <div class="box rv" id="rozbor">
+        <h3>Raději písemně?</h3>
+        <p class="box-s">Do 48 hodin vám zdarma pošlu 3 věci, které bych na webu změnila.</p>
+        <!-- Formulář nemá backend: po odeslání otevře e-mail (mailto).
+             Skutečnou službu (např. Formspree, Basin, Netlify Forms) napojte přes atribut action
+             a v JS nahraďte blok "mailto" voláním fetch(). -->
+        <form class="form" novalidate>
+          <div class="field"><label for="f-name">Jméno</label><input id="f-name" name="name" autocomplete="name" required></div>
+          <div class="field"><label for="f-mail">E-mail</label><input id="f-mail" name="email" type="email" autocomplete="email" required></div>
+          <div class="field"><label for="f-web">Odkaz na váš web (nepovinné)</label><input id="f-web" name="web" type="url" inputmode="url" placeholder="https://"></div>
+          <button class="btn btn-ghost mag" type="submit">Pošlete web k rozboru <span class="arr" aria-hidden="true">→</span></button>
+          <p class="form-note">Odpovídám osobně do 48 hodin.</p>
+          <p class="form-status" role="status" aria-live="polite"></p>
+        </form>
+      </div>
+    </div>
+    <footer class="foot">
+      <span>© 2026 ${DATA.name} · IČ ${DATA.ico}</span>
+      <a href="mailto:${DATA.email}">${DATA.email}</a>
+      <nav aria-label="Sociální sítě">${Object.entries(DATA.social).map(([k, v]) => `<a href="${v}" target="_blank" rel="noopener">${k}</a>`).join('')}</nav>
+    </footer>
+  </div>
+</section>`;
+
+/* ---------- typografie: nezlomitelná mezera po jednopísmenných předložkách ---------- */
+(function nbsp(root) {
+  const re = /(^|[\s(„])([ksvzouaiKSVZOUAI]) (?=\S)/g;
+  const tw = document.createTreeWalker(root, NodeFilter.SHOW_TEXT);
+  let n;
+  while ((n = tw.nextNode())) {
+    const p = n.parentNode.nodeName;
+    if (p === 'SCRIPT' || p === 'STYLE') continue;
+    let t = n.nodeValue, o;
+    do { o = t; t = t.replace(re, '$1$2 '); } while (t !== o);
+    if (t !== n.nodeValue) n.nodeValue = t;
+  }
+})(document.body);
+
+/* ---------- prostředí ---------- */
+const root = document.documentElement;
+const RM = matchMedia('(prefers-reduced-motion: reduce)').matches;
+const FINE = matchMedia('(hover: hover) and (pointer: fine)').matches;
+const HAS_GSAP = !!(window.gsap && window.ScrollTrigger);
+const ANIM = HAS_GSAP && !RM;
+if (ANIM) root.classList.add('anim');
+if (HAS_GSAP) gsap.registerPlugin(ScrollTrigger);
+
+/* ---------- split headings into words ---------- */
+function splitWords(el) {
+  const walk = node => {
+    [...node.childNodes].forEach(ch => {
+      if (ch.nodeType === 3) {
+        const f = document.createDocumentFragment();
+        ch.nodeValue.split(/([ \n\t]+)/).forEach(part => {
+          if (!part) return;
+          if (/^[ \n\t]+$/.test(part)) { f.appendChild(document.createTextNode(' ')); return; }
+          const w = document.createElement('span'); w.className = 'w';
+          const i = document.createElement('span'); i.textContent = part;
+          w.appendChild(i); f.appendChild(w);
+        });
+        ch.replaceWith(f);
+      } else if (ch.nodeType === 1 && ch.tagName !== 'BR') walk(ch);
+    });
+  };
+  walk(el);
+  return $$('.w>span', el);
+}
+const splits = $$('.split').map(el => ({ el, words: splitWords(el) }));
+
+/* ---------- marquee ---------- */
+(function marquee() {
+  const track = $('.mq-track'), g = $('.mq-g', track);
+  const items = [...g.children];
+  let guard = 0;
+  while (g.scrollWidth < innerWidth * 1.1 && guard++ < 10) items.forEach(it => g.appendChild(it.cloneNode(true)));
+  const c = g.cloneNode(true); c.setAttribute('aria-hidden', 'true'); track.appendChild(c);
+})();
+
+/* ---------- Lenis ---------- */
+let lenis = null;
+if (ANIM && window.Lenis) {
+  lenis = new Lenis({ lerp: .09 });
+  lenis.on('scroll', ScrollTrigger.update);
+  gsap.ticker.add(t => lenis.raf(t * 1000));
+  gsap.ticker.lagSmoothing(0);
+}
+
+/* ---------- nav: menu, kotvy, skrývání ---------- */
+const nav = $('#nav'), burger = $('.burger', nav);
+const setMenu = open => { nav.classList.toggle('open', open); burger.setAttribute('aria-expanded', open); burger.setAttribute('aria-label', open ? 'Zavřít menu' : 'Otevřít menu'); };
+burger.addEventListener('click', () => setMenu(!nav.classList.contains('open')));
+document.addEventListener('click', e => {
+  const a = e.target.closest('a[href^="#"]');
+  if (!a) return;
+  const id = a.getAttribute('href');
+  const t = id === '#top' ? document.body : $(id);
+  if (!t) return;
+  e.preventDefault();
+  setMenu(false);
+  if (lenis) lenis.scrollTo(id === '#top' ? 0 : t, { offset: -90, duration: 1.4 });
+  else window.scrollTo({ top: id === '#top' ? 0 : t.getBoundingClientRect().top + scrollY - 90, behavior: RM ? 'auto' : 'smooth' });
+});
+let lastY = scrollY;
+addEventListener('scroll', () => {
+  const y = scrollY;
+  if (!nav.classList.contains('open')) {
+    if (y > innerHeight * .6 && y > lastY + 2) nav.classList.add('hide');
+    else if (y < lastY - 2 || y < innerHeight * .6) nav.classList.remove('hide');
+  }
+  lastY = y;
+}, { passive: true });
+
+/* nav indicator */
+const ind = $('.ind', nav), links = $$('.nav-links a', nav);
+function moveInd(a) {
+  links.forEach(l => l.classList.toggle('on', l === a));
+  if (!a) { ind.style.opacity = 0; return; }
+  ind.style.opacity = 1;
+  ind.style.width = a.offsetWidth + 'px';
+  ind.style.transform = `translateX(${a.offsetLeft}px)`;
+}
+if (HAS_GSAP) {
+  const active = new Set();
+  links.forEach(a => {
+    const sec = $('#' + a.dataset.sec);
+    if (!sec) return;
+    ScrollTrigger.create({
+      trigger: sec, start: 'top 45%', end: 'bottom 45%',
+      onToggle: self => { self.isActive ? active.add(a) : active.delete(a); moveInd([...links].reverse().find(l => active.has(l)) || null); }
+    });
+  });
+
+  /* mobilní lišta */
+  const bar = $('#mbar'); let past = false, fin = false;
+  const upd = () => bar.classList.toggle('show', past && !fin);
+  ScrollTrigger.create({ trigger: '.hero', start: 'bottom 15%', onEnter: () => { past = true; upd(); }, onLeaveBack: () => { past = false; upd(); } });
+  ScrollTrigger.create({ trigger: '#kontakt', start: 'top 75%', onEnter: () => { fin = true; upd(); }, onLeaveBack: () => { fin = false; upd(); } });
+}
+
+/* ---------- cursor + magnetic ---------- */
+if (FINE && HAS_GSAP) {
+  const cur = $('.cur'); cur.classList.add('on');
+  const qx = gsap.quickTo(cur, 'x', { duration: .45, ease: 'power3' });
+  const qy = gsap.quickTo(cur, 'y', { duration: .45, ease: 'power3' });
+  addEventListener('mousemove', e => { qx(e.clientX); qy(e.clientY); cur.classList.add('live'); }, { passive: true });
+  document.addEventListener('mouseover', e => {
+    const t = e.target;
+    const big = !!t.closest('.case');
+    const ring = !big && !!t.closest('a,button,summary');
+    cur.classList.toggle('big', big);
+    cur.classList.toggle('ring', ring);
+  });
+  document.addEventListener('mouseleave', () => cur.classList.remove('big', 'ring', 'live'));
+  $$('.mag').forEach(el => {
+    const mx = gsap.quickTo(el, 'x', { duration: .6, ease: 'power3' });
+    const my = gsap.quickTo(el, 'y', { duration: .6, ease: 'power3' });
+    el.addEventListener('mousemove', e => { const b = el.getBoundingClientRect(); mx((e.clientX - b.left - b.width / 2) * .3); my((e.clientY - b.top - b.height / 2) * .3); });
+    el.addEventListener('mouseleave', () => { mx(0); my(0); });
+  });
+}
+
+/* ---------- hero WebGL gradient ---------- */
+(function heroGL() {
+  const cv = $('.hero-gl'), sec = $('.hero');
+  const gl = cv.getContext('webgl', { antialias: false, alpha: false });
+  if (!gl) return;
+  const vs = 'attribute vec2 p;void main(){gl_Position=vec4(p,0.,1.);}';
+  const fs = `precision mediump float;
+uniform vec2 r;uniform float t;uniform vec2 m;uniform vec3 c1;uniform vec3 c2;uniform vec3 c3;
+void main(){
+  vec2 uv=gl_FragCoord.xy/r;
+  vec2 p=(gl_FragCoord.xy-.5*r)/r.y*2.;
+  p+=m*.35;
+  float tt=t*.1;
+  for(int i=1;i<5;i++){
+    float f=float(i);
+    p+=vec2(.7/f*sin(f*1.3*p.y+tt+.3*f),.6/f*cos(f*1.1*p.x+tt*1.2+.5*f));
+  }
+  float v=.5+.5*sin(p.x*1.2+p.y*.8);
+  float w=.5+.5*sin(p.x*.6-p.y*1.4+tt);
+  vec3 col=mix(c3,c1,smoothstep(.05,.95,v));
+  col=mix(col,c2,.32*w*v);
+  float s=1.-smoothstep(0.,.8,distance(uv,vec2(.84,.88)));
+  col+=c2*s*.2;
+  gl_FragColor=vec4(col,1.);
+}`;
+  const sh = (type, src) => { const s = gl.createShader(type); gl.shaderSource(s, src); gl.compileShader(s); return s; };
+  const pr = gl.createProgram();
+  gl.attachShader(pr, sh(gl.VERTEX_SHADER, vs)); gl.attachShader(pr, sh(gl.FRAGMENT_SHADER, fs));
+  gl.linkProgram(pr);
+  if (!gl.getProgramParameter(pr, gl.LINK_STATUS)) return;
+  gl.useProgram(pr);
+  const buf = gl.createBuffer(); gl.bindBuffer(gl.ARRAY_BUFFER, buf);
+  gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([-1, -1, 1, -1, -1, 1, 1, 1]), gl.STATIC_DRAW);
+  const loc = gl.getAttribLocation(pr, 'p'); gl.enableVertexAttribArray(loc); gl.vertexAttribPointer(loc, 2, gl.FLOAT, false, 0, 0);
+  const u = n => gl.getUniformLocation(pr, n);
+  const cs = getComputedStyle(root);
+  const hex = n => { const h = cs.getPropertyValue(n).trim().replace('#', ''); return [0, 2, 4].map(i => parseInt(h.substr(i, 2), 16) / 255); };
+  gl.uniform3fv(u('c1'), hex('--g1')); gl.uniform3fv(u('c2'), hex('--g2')); gl.uniform3fv(u('c3'), hex('--g3'));
+  const uR = u('r'), uT = u('t'), uM = u('m');
+  let tm = [0, 0], mm = [0, 0], vis = true, raf = 0;
+  const resize = () => {
+    const s = Math.min(devicePixelRatio || 1, 1.5) * .5;
+    cv.width = Math.max(1, Math.round(sec.clientWidth * s)); cv.height = Math.max(1, Math.round(sec.clientHeight * s));
+    gl.viewport(0, 0, cv.width, cv.height); gl.uniform2f(uR, cv.width, cv.height);
+    if (RM) frame(0);
+  };
+  const frame = now => {
+    mm[0] += (tm[0] - mm[0]) * .05; mm[1] += (tm[1] - mm[1]) * .05;
+    gl.uniform1f(uT, now / 1000); gl.uniform2f(uM, mm[0], mm[1]);
+    gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
+  };
+  const loop = now => { frame(now); raf = vis ? requestAnimationFrame(loop) : 0; };
+  sec.addEventListener('mousemove', e => { const b = sec.getBoundingClientRect(); tm = [(e.clientX - b.left) / b.width - .5, .5 - (e.clientY - b.top) / b.height]; });
+  let to; addEventListener('resize', () => { clearTimeout(to); to = setTimeout(resize, 150); });
+  resize();
+  if (RM) return;
+  new IntersectionObserver(([en]) => { vis = en.isIntersecting; if (vis && !raf) raf = requestAnimationFrame(loop); }).observe(sec);
+})();
+
+/* ---------- cell grid (hero + kontakt) ---------- */
+function cellGrid(cv) {
+  const sec = cv.parentElement, ctx = cv.getContext('2d'), glL = $('.gl-l');
+  const density = parseFloat(cv.dataset.density) || .3;
+  let W = 0, H = 0, S = 48, x0 = 0, cols = 0, rows = 0, acc = '155,133,255', vis = false, raf = 0;
+  let list = [], set = new Map(), glow = new Map();
+  const colAt = x => Math.floor((x - x0) / S);
+  const rect = (c, r) => { const a = Math.round(x0 + c * S), b = Math.round(x0 + (c + 1) * S), y = Math.round(r * S), y2 = Math.round((r + 1) * S); return [a, y, b - a, y2 - y]; };
+  const fade = c => .35 + .65 * Math.min(1, Math.abs(x0 + (c + .5) * S - W / 2) / (W / 2));
+  const add = (c, r) => {
+    if (c < 0 || r < 0 || c >= cols || r >= rows) return;
+    const k = c + ',' + r; if (set.has(k)) return;
+    const q = Math.random(), o = { c, r, fill: q < .08, acc: q > .98 };
+    set.set(k, o); list.push(o);
+  };
+  function build() {
+    const dpr = Math.min(devicePixelRatio || 1, 2);
+    W = sec.clientWidth; H = sec.clientHeight;
+    cv.width = Math.round(W * dpr); cv.height = Math.round(H * dpr);
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    const ex = glL.getBoundingClientRect().left;
+    const span = W - 2 * ex, base = W < 700 ? 34 : 48;
+    const n = Math.max(2, 2 * Math.round(span / 2 / base));
+    S = span / n;
+    x0 = ex - Math.ceil(ex / S) * S;
+    cols = Math.ceil((W - x0) / S); rows = Math.ceil(H / S);
+    acc = getComputedStyle(sec).getPropertyValue('--accent-rgb').trim() || acc;
+    list = []; set.clear(); glow.clear();
+    const seeds = Math.round(cols * rows / 46 * density);
+    for (let s = 0; s < seeds; s++) {
+      const q = Math.random();
+      let c = q < .44 ? colAt(Math.random() * W * .26) : q < .88 ? colAt(W * .74 + Math.random() * W * .26) : Math.floor(Math.random() * cols);
+      let r = Math.floor(Math.random() * rows);
+      const len = 3 + Math.floor(Math.random() * 9), dx = Math.random() < .5 ? 1 : -1, dy = Math.random() < .5 ? 1 : -1;
+      let h = Math.random() < .5;
+      for (let k = 0; k < len; k++) { add(c, r); if (Math.random() < .42) h = !h; h ? (c += dx) : (r += dy); }
+    }
+    draw();
+  }
+  function draw() {
+    ctx.clearRect(0, 0, W, H); ctx.lineWidth = 1;
+    for (const o of list) {
+      const [x, y, w, h] = rect(o.c, o.r), f = fade(o.c);
+      if (o.acc) { ctx.fillStyle = `rgba(${acc},${.08 + .4 * f})`; ctx.fillRect(x, y, w, h); }
+      else if (o.fill) { ctx.fillStyle = 'rgba(238,237,243,.035)'; ctx.fillRect(x, y, w, h); }
+      ctx.strokeStyle = `rgba(238,237,243,${.07 * f})`; ctx.strokeRect(x + .5, y + .5, w - 1, h - 1);
+    }
+    glow.forEach((v, k) => {
+      const [c, r] = k.split(',').map(Number), m = set.has(k) ? 1 : .45, [x, y, w, h] = rect(c, r);
+      ctx.fillStyle = `rgba(${acc},${.16 * v * m})`; ctx.fillRect(x, y, w, h);
+      ctx.strokeStyle = `rgba(${acc},${.7 * v * m})`; ctx.strokeRect(x + .5, y + .5, w - 1, h - 1);
+    });
+  }
+  function tick() {
+    raf = 0;
+    glow.forEach((v, k) => { v -= .022; v <= 0 ? glow.delete(k) : glow.set(k, v); });
+    draw();
+    if (vis && glow.size) raf = requestAnimationFrame(tick);
+  }
+  const kick = () => { if (!raf && vis && glow.size) raf = requestAnimationFrame(tick); };
+  sec.addEventListener('mousemove', e => {
+    const b = cv.getBoundingClientRect(), c = colAt(e.clientX - b.left), r = Math.floor((e.clientY - b.top) / S);
+    if (c < 0 || r < 0 || c >= cols || r >= rows) return;
+    glow.set(c + ',' + r, 1); kick();
+  });
+  if (!RM) setInterval(() => { if (!vis || !list.length) return; const o = list[Math.floor(Math.random() * list.length)]; glow.set(o.c + ',' + o.r, 1); kick(); }, 900);
+  new IntersectionObserver(([en]) => { vis = en.isIntersecting; kick(); }).observe(sec);
+  let to; addEventListener('resize', () => { clearTimeout(to); to = setTimeout(build, 150); });
+  addEventListener('load', build);
+  build();
+}
+$$('canvas.cells').forEach(cellGrid);
+
+/* ---------- formulář ---------- */
+(function form() {
+  const f = $('.form'), st = $('.form-status', f);
+  f.addEventListener('submit', e => {
+    e.preventDefault();
+    const n = f.name.value.trim(), m = f.email.value.trim(), w = f.web.value.trim();
+    if (!n) { st.textContent = 'Napište prosím své jméno.'; f.name.focus(); return; }
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(m)) { st.textContent = 'Zkontrolujte prosím e-mail.'; f.email.focus(); return; }
+    /* Sem napojte skutečnou službu (fetch na Formspree apod.) místo mailto. */
+    const subject = encodeURIComponent(`Rozbor webu zdarma: ${n}`);
+    const body = encodeURIComponent(`Jméno: ${n}\nE-mail: ${m}\nWeb: ${w || '-'}`);
+    location.href = `mailto:${DATA.email}?subject=${subject}&body=${body}`;
+    st.textContent = 'Děkuji! Otevřel se vám e-mail, stačí zprávu odeslat. Odpovím do 48 hodin.';
+  });
+})();
+
+/* ---------- služby: náhled ---------- */
+(function servicePreview() {
+  if (!FINE || !HAS_GSAP) return;
+  const list = $('.svc'), prev = $('.svc-prev', list), imgs = $$('img', prev), rows = $$('.svc-row', list);
+  let shown = false;
+  rows.forEach((row, i) => row.addEventListener('mouseenter', () => {
+    if (innerWidth <= 860) return;
+    const band = $('.svc-band', row);
+    const x = row.offsetLeft + band.offsetLeft;
+    const y = row.offsetTop + row.offsetHeight / 2 - prev.offsetHeight / 2;
+    imgs.forEach((im, j) => im.classList.toggle('on', j === i));
+    if (!shown) { gsap.set(prev, { x, y, scale: .92 }); shown = true; }
+    gsap.to(prev, { x, y, opacity: 1, scale: 1, duration: .7, ease: 'expo.out', overwrite: 'auto' });
+  }));
+  list.addEventListener('mouseleave', () => { shown = false; gsap.to(prev, { opacity: 0, scale: .92, duration: .4, ease: 'power2.out', overwrite: 'auto' }); });
+})();
+
+/* ---------- about: slova ---------- */
+const aboutP = $('.about-p');
+(function splitAbout() {
+  const walk = node => [...node.childNodes].forEach(ch => {
+    if (ch.nodeType === 3) {
+      const f = document.createDocumentFragment();
+      ch.nodeValue.split(/([ \n\t]+)/).forEach(p => {
+        if (!p) return;
+        if (/^[ \n\t]+$/.test(p)) { f.appendChild(document.createTextNode(' ')); return; }
+        const s = document.createElement('span'); s.className = 'aw'; s.textContent = p; f.appendChild(s);
+      });
+      ch.replaceWith(f);
+    } else if (ch.nodeType === 1) walk(ch);
+  });
+  walk(aboutP);
+})();
+
+/* ---------- reduced motion / bez GSAP: vše viditelné ---------- */
+if (!ANIM) {
+  if (HAS_GSAP) $$('.ba-row').forEach(r => r.classList.add('on'));
+  return;
+}
+
+/* =====================================================================
+   POHYB
+   ===================================================================== */
+const E = 'expo.out';
+
+/* hero H1 */
+const heroWords = splits.find(s => s.el.classList.contains('h1')).words;
+gsap.fromTo(heroWords, { y: 0, yPercent: 120 }, { yPercent: 0, duration: 1.3, ease: E, stagger: .09, delay: .15 });
+
+/* ostatní nadpisy */
+splits.filter(s => !s.el.classList.contains('h1')).forEach(({ el, words }) => {
+  gsap.set(words, { y: 0, yPercent: 120 });
+  ScrollTrigger.create({ trigger: el, start: 'top 85%', once: true, onEnter: () => gsap.to(words, { yPercent: 0, duration: 1.2, ease: E, stagger: .06 }) });
+});
+
+/* .rv */
+gsap.set('.rv', { opacity: 0, y: 32 });
+ScrollTrigger.batch('.rv', { start: 'top 88%', once: true, onEnter: b => gsap.to(b, { opacity: 1, y: 0, duration: 1.1, ease: E, stagger: .08, overwrite: true }) });
+
+/* count-up */
+$$('[data-count]').forEach(el => {
+  const end = parseFloat(el.dataset.count), pre = el.dataset.pre || '', suf = el.dataset.suf || '';
+  const set = v => { el.textContent = pre + fmt(v) + suf; };
+  set(0);
+  ScrollTrigger.create({
+    trigger: el, start: 'top 92%', once: true,
+    onEnter: () => { const o = { v: 0 }; gsap.to(o, { v: end, duration: 1.8, ease: 'power3.out', onUpdate: () => set(Math.round(o.v)), onComplete: () => set(end) }); }
+  });
+});
+
+/* impact lines */
+gsap.fromTo('.imp-line', { scaleX: 0 }, { scaleX: 1, duration: 1.4, ease: E, stagger: .12, delay: .4 });
+
+/* cases */
+const cases = $$('.case');
+cases.forEach(c => {
+  const n = $('.m-n', c), bars = $$('.bar i', c), img = $('.mock-view img', c);
+  gsap.set(n, { yPercent: 100 }); gsap.set(bars, { scaleY: 0 });
+  ScrollTrigger.create({
+    trigger: c, start: 'top 75%', once: true,
+    onEnter: () => { gsap.to(n, { yPercent: 0, duration: 1.2, ease: E }); gsap.to(bars, { scaleY: 1, duration: 1.3, ease: E, stagger: .14, delay: .15 }); }
+  });
+  gsap.fromTo(img, { yPercent: -8 }, { yPercent: 0, ease: 'none', scrollTrigger: { trigger: c, start: 'top bottom', end: 'bottom top', scrub: true } });
+});
+const mm = gsap.matchMedia();
+mm.add('(min-width: 981px)', () => {
+  cases.forEach((c, i) => {
+    const next = cases[i + 1]; if (!next) return;
+    const st = { trigger: next, start: 'top 80%', end: 'top 12%', scrub: .3 };
+    gsap.to(c, { scale: .95, force3D: true, ease: 'none', scrollTrigger: st });
+    gsap.to($('.case-shade', c), { opacity: .35, ease: 'none', scrollTrigger: { ...st } });
+  });
+});
+
+/* before / after */
+$$('.ba-row').forEach(r => ScrollTrigger.create({ trigger: r, start: 'top 70%', once: true, onEnter: () => r.classList.add('on') }));
+
+/* about */
+const ph = $('.ph'), phImg = $('.ph img');
+gsap.set(ph, { clipPath: 'inset(18% 0% 0% 0%)' });
+ScrollTrigger.create({ trigger: ph, start: 'top 85%', once: true, onEnter: () => gsap.to(ph, { clipPath: 'inset(0% 0% 0% 0%)', duration: 1.4, ease: E }) });
+gsap.fromTo(phImg, { yPercent: -8 }, { yPercent: 0, ease: 'none', scrollTrigger: { trigger: '#o-mne', start: 'top bottom', end: 'bottom top', scrub: true } });
+gsap.fromTo($$('.aw', aboutP), { opacity: .22 }, { opacity: 1, stagger: .1, ease: 'none', scrollTrigger: { trigger: aboutP, start: 'top 75%', end: 'bottom 50%', scrub: true } });
+
+/* finale */
+const fl = $$('.fl>span');
+gsap.set(fl, { y: 0, yPercent: 120 });
+ScrollTrigger.create({ trigger: '.fin-h', start: 'top 85%', once: true, onEnter: () => gsap.to(fl, { yPercent: 0, duration: 1.4, ease: E, stagger: .12 }) });
+
+addEventListener('load', () => ScrollTrigger.refresh());
+})();
+</script>
+</body>
+</html>
