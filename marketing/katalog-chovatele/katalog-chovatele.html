@@ -1,0 +1,416 @@
+<title>Katalog stylů pro chovatele</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&family=Noto+Serif+Display:wght@500;600&family=Noto+Sans:wght@400;500;600&family=Libre+Baskerville:wght@400;700&family=Lato:wght@400;700&family=Comfortaa:wght@500;700&family=Nunito+Sans:wght@400;600;700&family=Cinzel:wght@500;600;700&family=Lora:wght@400;500;600&family=Crimson+Pro:wght@500;600;700&family=Source+Sans+3:wght@400;600&family=Bodoni+Moda:wght@500;600&family=Montserrat:wght@400;500;600&family=Big+Shoulders+Display:wght@700;800&family=Work+Sans:wght@400;500;700&family=Bitter:wght@500;700&family=PT+Sans:wght@400;700&family=Barlow+Condensed:wght@500;600;700&family=Barlow:wght@400;500&display=swap">
+<style>
+/* Layout: katalog — nahoře přehled 10 stylů, pod ním 10 plnohodnotných moodboardů, každý ve vlastní barevné a typografické identitě */
+:root{
+  --page:#F3F2EF; --panel:#FFFFFF; --ink:#1D1D1B; --soft:#5F5E59; --line:#DEDCD6; --focus:#2F5BFF;
+  --ui:"Inter",system-ui,-apple-system,"Segoe UI",sans-serif;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--page:#161615;--panel:#1F1F1D;--ink:#EDEBE6;--soft:#A5A39C;--line:#34332F;--focus:#8FA6FF;color-scheme:dark}}
+:root[data-theme="dark"]{--page:#161615;--panel:#1F1F1D;--ink:#EDEBE6;--soft:#A5A39C;--line:#34332F;--focus:#8FA6FF;color-scheme:dark}
+
+*{box-sizing:border-box}
+body{background:var(--page);color:var(--ink);font-family:var(--ui);font-size:15px;line-height:1.55;-webkit-font-smoothing:antialiased}
+.wrap{max-width:1240px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--focus);outline-offset:2px}
+h1,h2,h3{text-wrap:balance;margin:0}
+
+/* ---------- úvod ---------- */
+.intro{padding-block:56px 28px;display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);gap:40px;align-items:end}
+.intro .eyebrow{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--soft);font-weight:600}
+.intro h1{font-family:"Fraunces",Georgia,serif;font-weight:600;font-size:clamp(34px,5vw,56px);line-height:1.04;margin-top:10px;letter-spacing:-.01em}
+.intro p{color:var(--soft);max-width:60ch;margin:14px 0 0}
+.steps{list-style:none;margin:0;padding:0;display:grid;gap:10px;counter-reset:s}
+.steps li{display:grid;grid-template-columns:28px 1fr;gap:10px;align-items:start;font-size:14px}
+.steps li::before{counter-increment:s;content:counter(s);width:28px;height:28px;border-radius:50%;border:1px solid var(--line);display:grid;place-items:center;font-size:12px;font-weight:600;background:var(--panel)}
+
+/* ---------- přehled ---------- */
+.overview{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;padding-block:8px 48px}
+.ov{display:flex;flex-direction:column;text-decoration:none;border-radius:12px;overflow:hidden;border:1px solid var(--line);background:var(--panel);transition:transform .2s ease,box-shadow .2s ease}
+.ov:hover{transform:translateY(-3px);box-shadow:0 10px 24px rgba(0,0,0,.10)}
+.ov .face{height:96px;padding:14px;display:flex;flex-direction:column;justify-content:space-between}
+.ov .face .aa{font-size:40px;line-height:1}
+.ov .face .n{font-size:11px;letter-spacing:.12em;text-transform:uppercase;opacity:.75;font-family:var(--ui);font-weight:600}
+.ov .strip{display:flex;height:14px}
+.ov .strip i{flex:1}
+.ov .meta{padding:10px 12px 12px}
+.ov .meta b{display:block;font-size:14px}
+.ov .meta span{font-size:12px;color:var(--soft)}
+
+/* ---------- moodboard ---------- */
+.mb{margin-block:0 56px;border-radius:18px;overflow:hidden;background:var(--bg);color:var(--ink2);font-family:var(--fb);scroll-margin-top:16px;box-shadow:0 1px 0 var(--line)}
+.mb-in{padding:clamp(18px,3vw,36px)}
+.mb-head{display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:18px;align-items:center;padding-bottom:22px;border-bottom:1px solid var(--rule)}
+.mb-logo{width:64px;height:64px;border-radius:var(--logo-r);background:var(--primary);color:var(--on-primary);display:grid;place-items:center;font-family:var(--fh);font-weight:var(--hw);font-style:var(--hs);font-size:26px;text-transform:var(--hc)}
+.mb-head h2{font-family:var(--fh);font-weight:var(--hw);font-style:var(--hs);text-transform:var(--hc);letter-spacing:var(--ht);font-size:clamp(28px,3.4vw,42px);line-height:1.05;color:var(--title)}
+.mb-head .cat{font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent-text);font-weight:600;margin-top:6px}
+.mb-head .no{font-family:var(--ui);font-size:12px;color:var(--muted);text-align:right;white-space:nowrap}
+.mood{display:grid;grid-template-columns:minmax(0,1.4fr) minmax(0,1fr);gap:28px;padding-block:20px 6px}
+.mood p{margin:0;font-size:16px;max-width:62ch}
+.fits{display:flex;flex-wrap:wrap;gap:6px;align-content:flex-start}
+.fits .lbl{width:100%;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);font-weight:600;font-family:var(--ui)}
+.fits span{font-size:13px;padding:4px 10px;border-radius:999px;border:1px solid var(--rule);font-family:var(--ui)}
+.fits span.lbl{border:0;padding:0;border-radius:0;font-size:11px}
+
+.sec{margin-top:30px}
+.sec-t{font-family:var(--ui);font-size:12px;letter-spacing:.16em;text-transform:uppercase;font-weight:700;color:var(--muted);display:flex;align-items:center;gap:10px;margin-bottom:14px}
+.sec-t::after{content:"";height:1px;flex:1;background:var(--rule)}
+
+/* fotky */
+.photos{display:grid;grid-template-columns:1.15fr 1fr 1fr;grid-template-rows:180px 180px;gap:10px}
+.ph{position:relative;border-radius:var(--ph-r);overflow:hidden;display:flex;align-items:flex-end;padding:12px;min-width:0}
+.ph:first-child{grid-row:1/3}
+.ph.real::before{display:none}
+.hero .ph.real{height:260px}
+.ph::before{content:"";position:absolute;inset:0;opacity:.18;background-image:repeating-linear-gradient(135deg,currentColor 0 1px,transparent 1px 11px)}
+.ph span{position:relative;font-family:var(--ui);font-size:12px;line-height:1.35;background:rgba(255,255,255,.9);color:#1d1d1b;padding:6px 10px;border-radius:8px;max-width:100%}
+.ph span b{display:block;font-size:10px;letter-spacing:.14em;text-transform:uppercase;opacity:.6}
+.shape-arch .ph{border-radius:200px 200px var(--ph-r) var(--ph-r)}
+.shape-arch .ph:first-child{border-radius:400px 400px 18px 18px}
+.shape-arch .sw em{align-self:center;margin-top:16px}
+
+/* paleta */
+.pal{display:grid;grid-template-columns:repeat(8,minmax(0,1fr));gap:8px}
+.sw{border:0;cursor:pointer;text-align:left;font:inherit;border-radius:var(--sw-r);height:118px;padding:10px;display:flex;flex-direction:column;justify-content:flex-end;box-shadow:inset 0 0 0 1px rgba(0,0,0,.08);transition:transform .15s ease}
+.sw:hover{transform:translateY(-2px)}
+.sw b{font-family:var(--ui);font-size:12px;font-weight:600;line-height:1.2}
+.sw code{font-family:"IBM Plex Mono",ui-monospace,monospace;font-size:11px;opacity:.8}
+.sw em{font-style:normal;font-family:var(--ui);font-size:10px;letter-spacing:.08em;text-transform:uppercase;opacity:.7;margin-bottom:auto}
+.ratio{display:flex;height:10px;border-radius:99px;overflow:hidden;margin-top:12px;box-shadow:inset 0 0 0 1px rgba(0,0,0,.14)}
+.ratio-l{display:flex;justify-content:space-between;font-family:var(--ui);font-size:12px;color:var(--muted);margin-top:6px;flex-wrap:wrap;gap:8px}
+
+/* typografie */
+.type{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);gap:12px}
+.card{background:var(--surface);border-radius:var(--r);padding:20px;border:var(--bw) solid var(--card-line);min-width:0}
+.card .k{font-family:var(--ui);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent-text);font-weight:700}
+.card .spec{font-family:var(--ui);font-size:12px;color:var(--muted);margin-top:10px}
+.t-h{font-family:var(--fh);font-weight:var(--hw);font-style:var(--hs);text-transform:var(--hc);letter-spacing:var(--ht);font-size:clamp(28px,3vw,40px);line-height:1.08;margin-top:10px;color:var(--title)}
+.t-b{font-family:var(--fb);font-size:17px;line-height:1.6;margin-top:10px}
+.alpha{font-family:var(--fh);font-weight:var(--hw);font-style:var(--hs);font-size:18px;margin-top:10px;color:var(--muted);word-break:break-word}
+
+/* UI */
+.btns{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+.btn{font-family:var(--fbtn);font-weight:var(--btn-w);text-transform:var(--btn-c);letter-spacing:var(--btn-t);font-size:14px;padding:13px 22px;border-radius:var(--btn-r);border:var(--bw) solid transparent;cursor:default;line-height:1.1}
+.btn.p{background:var(--primary);color:var(--on-primary);box-shadow:var(--btn-sh)}
+.btn.s{background:transparent;color:var(--title);border-color:var(--title)}
+.btn.a{background:var(--accent);color:var(--on-accent);box-shadow:var(--btn-sh)}
+.btn.h{background:var(--hero-btn);color:var(--hero-btn-ink);box-shadow:var(--btn-sh)}
+.btn.g{background:var(--btn-grad);color:#fff}
+.field{font-family:var(--fb);font-size:14px;padding:12px 14px;border-radius:var(--btn-r);border:var(--bw) solid var(--card-line);background:var(--surface);color:var(--muted);min-width:200px}
+
+/* náhled webu */
+.site{border-radius:var(--r);overflow:hidden;border:var(--bw) solid var(--card-line)}
+.nav{display:flex;align-items:center;gap:16px;padding:14px 20px;background:var(--surface)}
+.nav .brand{display:flex;align-items:center;gap:10px;font-family:var(--fh);font-weight:var(--hw);font-style:var(--hs);text-transform:var(--hc);font-size:18px;color:var(--title)}
+.nav .brand i{width:28px;height:28px;border-radius:var(--logo-r);background:var(--primary)}
+.nav .links{display:flex;gap:18px;margin-left:auto;font-size:13px;font-family:var(--fb)}
+.nav .btn{padding:9px 16px;font-size:12px}
+.hero{position:relative;overflow:hidden;background:var(--hero-bg);color:var(--hero-ink);padding:clamp(26px,4vw,48px);display:grid;grid-template-columns:minmax(0,1.4fr) minmax(0,1fr);gap:24px;align-items:center}
+.hero .k{font-family:var(--ui);font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--hero-accent);font-weight:600}
+.hero h3{font-family:var(--fh);font-weight:var(--hw);font-style:var(--hs);text-transform:var(--hc);letter-spacing:var(--ht);font-size:clamp(30px,4vw,50px);line-height:1.02;margin-top:10px}
+.hero p{font-size:15px;opacity:.85;margin:12px 0 18px;max-width:46ch}
+.hero .ph{height:200px;grid-row:auto!important}
+.hero > *{position:relative}
+.deco{position:absolute!important;pointer-events:none}
+.deco.stripes{right:-40px;top:-30px;width:260px;height:260px;border-radius:50%;background:repeating-radial-gradient(circle at 50% 50%,var(--d1) 0 18px,var(--d2) 18px 36px,var(--d3) 36px 54px,transparent 54px 64px);opacity:.9}
+.deco.glow{right:-80px;top:-120px;width:420px;height:420px;border-radius:50%;background:radial-gradient(circle,var(--d1),transparent 65%);opacity:.55}
+.deco.blob{right:-30px;bottom:-60px;width:220px;height:220px;border-radius:40% 60% 55% 45%/50% 45% 55% 50%;background:var(--d1);opacity:.9}
+.deco.bar{left:0;top:0;bottom:0;width:10px;background:var(--d1)}
+.deco.ring{right:24px;top:24px;width:120px;height:120px;border-radius:50%;border:1px solid var(--d1)}
+
+/* charakter */
+.tags{display:flex;flex-wrap:wrap;gap:8px}
+.tag{font-family:var(--fbtn);font-weight:var(--btn-w);text-transform:var(--btn-c);letter-spacing:var(--btn-t);font-size:13px;padding:8px 14px;border-radius:var(--btn-r)}
+.tag:nth-child(3n+1){background:var(--primary);color:var(--on-primary)}
+.tag:nth-child(3n+2){background:var(--accent);color:var(--on-accent)}
+.tag:nth-child(3n){background:transparent;color:var(--title);box-shadow:inset 0 0 0 var(--bw2) var(--title)}
+.dd{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:12px}
+.dd ul{margin:6px 0 0;padding-left:18px;font-size:14px}
+.dd .card{padding:16px}
+
+.pup{margin-top:14px;max-width:520px;background:var(--surface);border:var(--bw) solid var(--card-line);border-radius:var(--r);padding:16px 18px;font-family:var(--fb)}
+.pup-h{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:8px}
+.pup .k{font-family:var(--ui);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent-text);font-weight:700}
+.chip{font-family:var(--fbtn);font-size:12px;font-weight:var(--btn-w);padding:5px 10px;border-radius:var(--btn-r);background:var(--accent);color:var(--on-accent)}
+.pup-r{display:grid;grid-template-columns:70px minmax(0,1fr);gap:10px;padding:7px 0;border-top:1px solid var(--rule);font-size:14px}
+.pup-r span{color:var(--muted);font-family:var(--ui);font-size:12px}
+.pup-r b{font-weight:600}
+.foot{padding-block:8px 48px;color:var(--soft);font-size:13px;text-align:center}
+.toast{position:fixed;left:50%;bottom:calc(20px + env(safe-area-inset-bottom,0px));transform:translate(-50%,20px);background:var(--ink);color:var(--page);padding:10px 16px;border-radius:999px;font-size:13px;opacity:0;transition:.25s;pointer-events:none;z-index:20}
+.toast.on{opacity:1;transform:translate(-50%,0)}
+
+@media (max-width:980px){
+  .overview{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .intro{grid-template-columns:1fr}
+  .pal{grid-template-columns:repeat(4,minmax(0,1fr))}
+  .mood,.type,.hero{grid-template-columns:1fr}
+}
+@media (max-width:640px){
+  .overview{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .photos{grid-template-columns:1fr 1fr;grid-template-rows:220px 140px 140px}
+  .ph:first-child{grid-column:1/3;grid-row:1}
+  .mb-head{grid-template-columns:auto minmax(0,1fr)}
+  .mb-head .no{grid-column:1/3;text-align:left}
+  .nav .links{display:none}
+  .nav .btn{margin-left:auto}
+  .dd{grid-template-columns:1fr}
+  .pal .sw{height:96px}
+  .field{min-width:0;width:100%}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+
+<div class="wrap">
+  <header class="intro">
+    <div>
+      <h1>Katalog stylů webů pro chovatelské stanice</h1>
+      <p>Devět vizuálních směrů pro weby chovatelů. Každý styl vychází z barev srsti, prostředí a povahy psů, pro které se hodí. Má vlastní paletu, písma, tlačítka, kartu vrhu, náhled webu stanice a popis fotek, které ke stylu patří.</p>
+    </div>
+    <ol class="steps">
+      <li>Projděte s chovatelem přehled a nechte ho vybrat 2–3 styly, které sedí jeho psům.</li>
+      <li>V detailu doladíte barvy a písma. Kliknutím na barvu zkopírujete její kód.</li>
+      <li>Vybraný styl doplňte fotkami psů, štěňat a zázemí stanice podle popisů v sekci Fotografie.</li>
+    </ol>
+  </header>
+  <nav class="overview" id="overview" aria-label="Přehled stylů"></nav>
+  <main id="boards"></main>
+  <p class="foot">Písma jsou z Google Fonts, všechna podporují češtinu a lze je zdarma použít na webu.</p>
+</div>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script>
+const S=[
+{id:"zenova-zahrada",img:{main:"foto/zenova-zahrada-hlavni.jpg",mpos:"62% 50%",web:"foto/zenova-zahrada-web.jpg",wpos:"40% 45%"},name:"Zenová zahrada",cat:"Japonský minimalismus",
+ mood:"Rýžový papír, tuš a teplá rezavá barva lišky. Hodně prázdného místa, tenké linky a červená pečeť jako podpis. Klidná síla a důstojnost.",
+ fits:["japonská plemena","špicovitá plemena","severská plemena","malé prestižní chovy","jeden vrh ročně"],
+ colors:[["Tuš","#1A1A1A","text, tlačítka"],["Břidlice","#4A4A48","doplňková"],["Kámen","#A8A39A","popisky"],["Rýžový papír","#F4F0E8","pozadí"],["Sníh","#FFFFFF","karty"],["Rezavá liška","#C8743A","hlavní akcent"],["Pečeť","#B3261E","zvýraznění"],["Bambus","#6F7D4E","doplňková"]],
+ ratio:[[3,60],[0,25],[5,15]],
+ fh:"'Noto Serif Display', Georgia, serif",hw:500,fb:"'Noto Sans', system-ui, sans-serif",fhN:"Noto Serif Display",fbN:"Noto Sans",
+ head:"Věrnost, která se nemusí dokazovat.",body:"Chováme v malém, jeden vrh ročně. Štěňata vyrůstají v rodině, po testovaných rodičích a s průkazem původu ČMKU.",
+ t:{bg:"#F4F0E8",surface:"#FFFFFF",ink2:"#1A1A1A",title:"#1A1A1A",muted:"#77736B",rule:"#DED8CC",primary:"#1A1A1A",onP:"#F4F0E8",accent:"#C8743A",onA:"#FFFFFF",accText:"#B3261E",heroBg:"#FFFFFF",heroInk:"#1A1A1A",heroAcc:"#B3261E",r:"2px",btnR:"0px",phR:"0px",logoR:"0",swR:"0",bw:"1px",cardLine:"#DED8CC",btnC:"none",btnT:".04em",btnW:500,btnF:"'Noto Sans', sans-serif",btnSh:"none",deco:"ring",d:["#B3261E"]},
+ photos:[["Hlavní","Portrét psa zblízka, klidný pohled"],["Štěňata","Štěňata na bílé dece nebo v trávě"],["Rodiče","Chovní psi v postoji, celá postava"],["Příroda","Pes ve sněhu nebo v podzimním lese"],["Zázemí","Chovatel se psem, klidná společná chvíle"]],
+ ph:["#C8743A","#D9D2C4","#4A4A48","#A8A39A","#6F7D4E"],
+ tags:["důstojnost","věrnost","klid","rovnováha","tradice"],
+ do:["hodně prázdného místa","jedna akcentní barva jako razítko","tenké linky a jednoduché tvary"],dont:["hravé ilustrace a kulaté tvary","mnoho barev najednou","přeplněné galerie"]},
+
+{id:"venkovsky-akvarel",img:{main:"foto/venkovsky-akvarel-hlavni.jpg",mpos:"50% 50%",web:"foto/venkovsky-akvarel-web.jpg",wpos:"40% 50%"},name:"Venkovský akvarel",cat:"Anglický venkov",
+ mood:"Mléčně bílá s jemnými skvrnami, šedomodrá, oranžová a zeleň louky. Lehké, vzdušné a přátelské, jako akvarel z anglického venkova.",
+ fits:["setři a ohaři","španělé a retrívři","rodinné chovy","plemena s jemnou povahou","chovy na venkově"],
+ colors:[["Grafit","#2F3440","text"],["Belton","#5E6B7D","hlavní"],["Holubí","#A9B4C2","doplňková"],["Mech","#4F6B3A","doplňková"],["Louka","#7FA35B","plochy"],["Oranžová skvrna","#D9914A","akcent"],["Kopretina","#F1ECDD","plochy"],["Mléko","#FBFAF6","pozadí"]],
+ ratio:[[7,60],[6,25],[1,15]],
+ fh:"'Libre Baskerville', Georgia, serif",hw:400,fb:"'Lato', system-ui, sans-serif",fhN:"Libre Baskerville",fbN:"Lato",
+ head:"Štěňata z luk a lásky.",body:"Chovatelská stanice v podhůří Šumavy. Pracovní i rodinné linie, štěňata zvyklá na děti, kočky i drůbež.",
+ t:{bg:"#FBFAF6",surface:"#FFFFFF",ink2:"#2F3440",title:"#2F3440",muted:"#7A8290",rule:"#E6E2D6",primary:"#5E6B7D",onP:"#FFFFFF",accent:"#D9914A",onA:"#FFFFFF",accText:"#B8732F",heroBg:"#F1ECDD",heroInk:"#2F3440",heroAcc:"#4F6B3A",r:"12px",btnR:"6px",phR:"12px",logoR:"50%",swR:"12px",bw:"1px",cardLine:"#E6E2D6",btnC:"none",btnT:".02em",btnW:700,btnF:"'Lato', sans-serif",btnSh:"none",deco:"blob",d:["#C9D8B4"]},
+ photos:[["Hlavní","Pes na louce s květy, měkké denní světlo"],["Štěňata","Štěňata v trávě nebo v proutěném koši"],["Rodiče","Fena a pes v postoji na louce"],["Pohyb","Pes v běhu nebo při vystavování zvěře"],["Zázemí","Zahrada, výběh, chovatel se psy"]],
+ ph:["#7FA35B","#D9914A","#A9B4C2","#4F6B3A","#E3DCC6"],
+ tags:["laskavost","přirozenost","rodina","elegance","venkov"],
+ do:["jemné akvarelové barvy","fotky na louce a v zahradě","klasické patkové písmo"],dont:["tmavé pozadí","agresivní kontrasty","studiové stockové fotky"]},
+
+{id:"oblacek",img:{main:"foto/oblacek-hlavni.jpg",mpos:"50% 50%",web:"foto/oblacek-web.jpg",wpos:"50% 40%"},name:"Obláček",cat:"Hravý a něžný",
+ mood:"Bílá jako vata, máslově žlutá a broskvová. Kulaté písmo a měkké tvary. Něžný a hravý styl pro malá společenská plemena.",
+ fits:["malá společenská plemena","kudrnatá plemena","toy plemena","rodinné chovy","chov v bytě"],
+ colors:[["Kakao","#4A3B36","text"],["Karamel","#A8724A","hlavní"],["Pampeliška","#EFB93A","doplňková"],["Máslo","#F6D56B","akcent"],["Broskev","#F8CDB4","plochy"],["Máta","#BFE3D0","doplňková"],["Krajka","#F3EEE6","plochy"],["Vata","#FFFDF8","pozadí"]],
+ ratio:[[7,60],[4,25],[3,15]],
+ fh:"'Comfortaa', 'Nunito', sans-serif",hw:700,fb:"'Nunito Sans', system-ui, sans-serif",fhN:"Comfortaa",fbN:"Nunito Sans",
+ head:"Malí parťáci s velkým srdcem.",body:"Štěňata u nás vyrůstají v obýváku, zvyklá na děti, vysavač i cestování autem. Pomůžeme vám i po odběru.",
+ t:{bg:"#FFFDF8",surface:"#FFFFFF",ink2:"#4A3B36",title:"#4A3B36",muted:"#8C7C74",rule:"#F0E6D8",primary:"#A8724A",onP:"#FFFFFF",accent:"#F6D56B",onA:"#4A3B36",accText:"#A8724A",heroBg:"#FDF1CF",heroInk:"#4A3B36",heroAcc:"#A8724A",r:"22px",btnR:"999px",phR:"26px",logoR:"50%",swR:"22px",bw:"1px",cardLine:"#F0E6D8",btnC:"none",btnT:"0",btnW:700,btnF:"'Comfortaa', sans-serif",btnSh:"0 6px 14px rgba(168,114,74,.18)",deco:"blob",d:["#F8CDB4"]},
+ photos:[["Hlavní","Psík v trávě nebo v květinách, jasné světlo"],["Štěňata","Štěňata v pelíšku, na dece, s hračkou"],["Péče","Česání, koupání, úprava srsti"],["Domov","Pes na gauči, s dětmi, doma"],["Zázemí","Chovatelka s pejsky v náruči"]],
+ ph:["#F6D56B","#F8CDB4","#BFE3D0","#EFB93A","#F3EEE6"],
+ tags:["něha","hravost","péče","domov","radost"],
+ do:["kulaté tvary a jemné stíny","pastelové barvy a hodně bílé","domácí atmosféra na fotkách"],dont:["ostré hrany a verzálky","tmavé tóny","lovecká a drsná témata"]},
+
+{id:"skotsky-erb",img:{main:"foto/skotsky-erb-hlavni.jpg",mpos:"45% 50%",web:"foto/skotsky-erb-web.jpg",wpos:"40% 50%",extra:{1:["foto/skotsky-erb-vystava.jpg","45% 50%"]}},name:"Skotský erb",cat:"Tradice a dědictví",
+ mood:"Hluboká černá, tříslová, lesní zelená a zlatý detail. Erbové písmo a pevná symetrie. Pro chovy s dlouhou historií a výstavními úspěchy.",
+ fits:["chovy s dlouhou tradicí","výstavní linie","britská plemena","stanice s tituly","pracovní šampioni"],
+ colors:[["Uhel","#141414","pozadí"],["Rašelina","#232320","plochy"],["Lesní","#2F4A35","hlavní plochy"],["Tříslová","#A0582F","doplňková"],["Pálená","#C27A3E","doplňková"],["Zlatý list","#C9A45C","akcent"],["Bříza","#EDEAE2","text"],["Kouř","#8E8A80","popisky"]],
+ ratio:[[0,55],[2,30],[5,15]],
+ fh:"'Cinzel', 'Trajan Pro', serif",hw:600,fb:"'Lora', Georgia, serif",fhN:"Cinzel",fbN:"Lora",
+ head:"Tradice, která má rodokmen.",body:"Chováme od roku 1996. Šampioni krásy i pracovních zkoušek, zdravotně testovaní rodiče a štěňata s průkazem původu.",
+ t:{bg:"#141414",surface:"#1E1E1B",ink2:"#EDEAE2",title:"#F3EFE6",muted:"#8E8A80",rule:"#2E2E2A",primary:"#C9A45C",onP:"#141414",accent:"#A0582F",onA:"#FFFFFF",accText:"#C9A45C",heroBg:"#2F4A35",heroInk:"#EDEAE2",heroAcc:"#C9A45C",r:"4px",btnR:"2px",phR:"4px",logoR:"8px 8px 32px 32px",swR:"4px",bw:"1px",cardLine:"#34342F",btnC:"uppercase",btnT:".12em",btnW:600,btnF:"'Cinzel', serif",btnSh:"none",deco:"ring",d:["#C9A45C"]},
+ photos:[["Hlavní","Pes v lese nebo ve vřesovišti, hluboké stíny"],["Výstava","Pes ve výstavním postoji"],["Rodokmen","Portréty předků, staré fotky, diplomy"],["Štěňata","Štěňata na tmavé dece nebo v dřevěné bedně"],["Zázemí","Chovatel se psem v krajině"]],
+ ph:["#2F4A35","#A0582F","#3A3833","#C27A3E","#232320"],
+ tags:["tradice","hrdost","rodokmen","kvalita","elegance"],
+ do:["symetrie a erb v logu","zlaté linky na tmavém pozadí","fotky s hlubokými stíny"],dont:["pastelové barvy","hravé ilustrace","levné stockové fotky"]},
+
+{id:"podzimni-plamen",img:{main:"foto/podzimni-plamen-hlavni.jpg",mpos:"50% 40%",web:"foto/podzimni-plamen-web.jpg",wpos:"75% 50%"},name:"Podzimní plamen",cat:"Teplý a vášnivý",
+ mood:"Mahagonová, kaštanová a zlato podzimního listí s mořskou mlhou. Bohaté teplé tóny a výrazné patkové písmo. Energie a vřelost v jednom.",
+ fits:["dlouhosrstá plemena","setři a retrívři","aktivní rodinné chovy","pracovní linie","chovy s výstavami"],
+ colors:[["Mahagon","#6E2A14","nadpisy"],["Plamen","#A8441F","hlavní"],["Kaštan","#C8642F","doplňková"],["Zlaté listí","#E2A23B","akcent"],["Med","#F1C978","zvýraznění"],["Mořská mlha","#A9BDC1","doplňková"],["Mech","#5B6B3A","doplňková"],["Krém","#FBF3E6","pozadí"]],
+ ratio:[[7,55],[0,30],[3,15]],
+ fh:"'Crimson Pro', Georgia, serif",hw:600,fb:"'Source Sans 3', system-ui, sans-serif",fhN:"Crimson Pro",fbN:"Source Sans 3",
+ head:"Rudá srst, zlaté srdce.",body:"Štěňata z pracovních i výstavních linií. Pravidelně trénujeme, jezdíme na výstavy a rádi vám poradíme s výchovou.",
+ t:{bg:"#FBF3E6",surface:"#FFFFFF",ink2:"#4A2214",title:"#6E2A14",muted:"#8E6A58",rule:"#EDDCC4",primary:"#A8441F",onP:"#FFF6EA",accent:"#E2A23B",onA:"#4A2214",accText:"#A8441F",heroBg:"#6E2A14",heroInk:"#FBF3E6",heroAcc:"#F1C978",heroBtn:["#E2A23B","#4A2214"],r:"14px",btnR:"999px",phR:"14px",logoR:"50%",swR:"14px",bw:"1px",cardLine:"#EDDCC4",btnC:"none",btnT:".01em",btnW:600,btnF:"'Source Sans 3', sans-serif",btnSh:"none",deco:"stripes",d:["#E2A23B","#C8642F","#A8441F"]},
+ photos:[["Hlavní","Pes v podzimním listí, zlaté protisvětlo"],["Pohyb","Pes v běhu po louce nebo na pláži"],["Štěňata","Štěňata v listí nebo v trávě"],["Detail","Lesk srsti, uši ve větru"],["Zázemí","Chovatel se psy na procházce"]],
+ ph:["#C8642F","#E2A23B","#A9BDC1","#A8441F","#5B6B3A"],
+ tags:["vřelost","energie","vášeň","věrnost","radost ze života"],
+ do:["teplé podzimní barvy","fotky v pohybu a v protisvětle","výrazné patkové nadpisy"],dont:["studené šedé tóny","sterilní studiové fotky","neonové barvy"]},
+
+{id:"salon",img:{main:"foto/salon-hlavni.jpg",mpos:"50% 60%",web:"foto/salon-web.jpg",wpos:"55% 40%"},name:"Salon",cat:"Výstavní luxus",
+ mood:"Ocelově modrá, stříbrná a zlatavá s rubínovou mašlí na perleťové bílé. Kontrastní patkové písmo a jemné linky. Styl pro chovy, které sbírají tituly.",
+ fits:["výstavní chovy","toy plemena","malá dlouhosrstá plemena","prémiové chovy","chovy s mezinárodními tituly"],
+ colors:[["Grafit","#26282E","text, tlačítka"],["Ocelová","#5F6C7C","hlavní"],["Stříbro","#B9C2CC","doplňková"],["Perla","#F7F5F2","pozadí"],["Šampaň","#EADCC3","plochy"],["Zlatá srst","#C89B5C","akcent"],["Rubín","#A3213A","zvýraznění"],["Mašle","#E7B7BE","doplňková"]],
+ ratio:[[3,60],[0,25],[6,15]],
+ fh:"'Bodoni Moda', Didot, serif",hw:500,fb:"'Montserrat', system-ui, sans-serif",fhN:"Bodoni Moda",fbN:"Montserrat",
+ head:"Krása, která sbírá tituly.",body:"Výstavní chov s mezinárodními úspěchy. Štěňata po šampionech, péče o srst od prvních týdnů a pomoc s vystavováním.",
+ t:{bg:"#F7F5F2",surface:"#FFFFFF",ink2:"#26282E",title:"#26282E",muted:"#7F858F",rule:"#E3DFD8",primary:"#26282E",onP:"#F7F5F2",accent:"#A3213A",onA:"#FFFFFF",accText:"#A3213A",heroBg:"#26282E",heroInk:"#F7F5F2",heroAcc:"#C89B5C",heroBtn:["#C89B5C","#26282E"],r:"0px",btnR:"0px",phR:"0px",logoR:"50%",swR:"0",bw:"1px",cardLine:"#E3DFD8",btnC:"uppercase",btnT:".16em",btnW:500,btnF:"'Montserrat', sans-serif",btnSh:"none",deco:"ring",d:["#C89B5C"]},
+ photos:[["Hlavní","Pes na podstavci nebo ve výstavním postoji"],["Detail","Mašle, lesk srsti, česání"],["Tituly","Poháry, rozety, diplomy"],["Štěňata","Štěňata na saténu nebo v náruči"],["Výstava","Výstavní kruh, rozhodčí"]],
+ ph:["#B9C2CC","#E7B7BE","#C89B5C","#EADCC3","#5F6C7C"],
+ tags:["elegance","preciznost","prestiž","péče","krása"],
+ do:["kontrastní patkové nadpisy","jedna rubínová barva pro akce","čisté studiové fotky"],dont:["venkovské a lovecké motivy","hravá písma","přeplněné stránky"]},
+
+{id:"sportovni-srdce",img:{main:"foto/sportovni-srdce-hlavni.jpg",mpos:"50% 45%",web:"foto/sportovni-srdce-web.jpg",wpos:"50% 50%"},name:"Sportovní srdce",cat:"Energie a síla",
+ mood:"Žíhaná hnědá, plavá a oranžová podzimního listí. Úzké tučné nadpisy a dynamické tvary. Pro plemena plná síly, sportu a hravosti.",
+ fits:["molosoidní plemena","sportovní kynologie","agility a canicross","aktivní rodiny","pracovní chovy"],
+ colors:[["Žíhaná","#3E2A1C","text, plochy"],["Čokoláda","#5A3A24","doplňková"],["Plavá","#C08850","doplňková"],["Oranžové listí","#E07B2A","hlavní"],["Lesní","#2E4636","doplňková"],["Šedá","#8B8178","popisky"],["Bílý odznak","#FFFFFF","karty"],["Smetana","#FAF4EA","pozadí"]],
+ ratio:[[7,55],[0,30],[3,15]],
+ fh:"'Big Shoulders Display', 'Arial Narrow', sans-serif",hw:800,fb:"'Work Sans', system-ui, sans-serif",fhN:"Big Shoulders Display",fbN:"Work Sans",
+ head:"Plný energie. Věrný do morku kostí.",body:"Chováme sportovní psy se zdravou psychikou. Trénujeme poslušnost i agility a štěně vám pomůžeme vybrat podle vašeho života.",
+ t:{bg:"#FAF4EA",surface:"#FFFFFF",ink2:"#3E2A1C",title:"#3E2A1C",muted:"#8B8178",rule:"#E8DCC8",primary:"#E07B2A",onP:"#1F140C",accent:"#3E2A1C",onA:"#FAF4EA",accText:"#C8601A",heroBg:"#3E2A1C",heroInk:"#FAF4EA",heroAcc:"#E07B2A",r:"6px",btnR:"4px",phR:"6px",logoR:"6px",swR:"6px",bw:"2px",cardLine:"#3E2A1C",btnC:"uppercase",btnT:".06em",btnW:700,btnF:"'Work Sans', sans-serif",btnSh:"4px 4px 0 #3E2A1C",deco:"bar",d:["#E07B2A"],hc:"uppercase"},
+ photos:[["Hlavní","Pes v postoji, silná silueta, podzimní les"],["Akce","Skok, aport, trénink, agility"],["Štěňata","Štěňata při hře a přetahování"],["Portrét","Výraz hlavy, pohled do objektivu"],["Rodina","Pes s dětmi, procházka, sport"]],
+ ph:["#5A3A24","#E07B2A","#C08850","#2E4636","#8B8178"],
+ tags:["síla","energie","věrnost","hravost","odvaha"],
+ do:["úzké tučné nadpisy","fotky v pohybu","výrazný oranžový akcent"],dont:["pastelové barvy","tenká elegantní písma","statické fotky bez života"]},
+
+{id:"lovecka-stezka",img:{main:"foto/lovecka-stezka-hlavni.jpg",mpos:"72% 50%",web:"foto/lovecka-stezka-web.jpg",wpos:"40% 50%"},name:"Lovecká stezka",cat:"Myslivecký a rustikální",
+ mood:"Hnědá barva jater a bělouše, kapradí, dubové dřevo a signální oranžová z lovecké vesty. Pevné písmo jako z mysliveckých cedulí. Pro chovy, kde je pes hlavně parťák do revíru.",
+ fits:["ohaři a slídiči","lovecká plemena","pracovní linie","chovatelé myslivci","psi s loveckými zkouškami"],
+ colors:[["Smrk","#24372A","nadpisy, plochy"],["Játrová","#3E2620","text"],["Kůra","#6B4A3A","doplňková"],["Bělouš","#8A7F7A","popisky"],["Kapradí","#4E6B3A","hlavní"],["Dub","#C9B28A","plochy"],["Signální oranžová","#E06A1B","akcent"],["Lněná","#F2EDE3","pozadí"]],
+ ratio:[[7,55],[0,30],[6,15]],
+ fh:"'Bitter', Georgia, serif",hw:700,fb:"'PT Sans', system-ui, sans-serif",fhN:"Bitter",fbN:"PT Sans",
+ head:"Spolehlivý parťák do revíru.",body:"Chováme pro práci. Rodiče s loveckými zkouškami, štěňata od malička v kontaktu se zvěří, vodou i výstřelem.",
+ t:{bg:"#F2EDE3",surface:"#FAF7F1",ink2:"#3E2620",title:"#24372A",muted:"#7E7268",rule:"#DCD2C0",primary:"#4E6B3A",onP:"#FFFFFF",accent:"#E06A1B",onA:"#FFFFFF",accText:"#C0561A",heroBg:"#24372A",heroInk:"#F2EDE3",heroAcc:"#E06A1B",heroBtn:["#E06A1B","#FFFFFF"],r:"6px",btnR:"4px",phR:"6px",logoR:"50%",swR:"6px",bw:"1px",cardLine:"#DCD2C0",btnC:"none",btnT:".02em",btnW:700,btnF:"'PT Sans', sans-serif",btnSh:"none",deco:"bar",d:["#E06A1B"]},
+ photos:[["Hlavní","Pes v zeleni nebo na kameni, pozorný postoj"],["Práce","Vystavování, aport, práce ve vodě"],["Zkoušky","Diplomy, myslivci, společný hon"],["Štěňata","Štěňata ve výběhu, první setkání se zvěří"],["Zázemí","Chovatel v revíru, kotec, výběh"]],
+ ph:["#4E6B3A","#6B4A3A","#C9B28A","#8A7F7A","#24372A"],
+ tags:["spolehlivost","vytrvalost","příroda","tradice","partnerství"],
+ do:["zemité barvy a oranžový signál","reálné fotky z revíru","pevné patkové nadpisy"],dont:["pastelové a růžové tóny","luxusní zlato","studiové fotky"]},
+
+{id:"pevny-charakter",img:{main:"foto/pevny-charakter-hlavni.jpg",mpos:"45% 50%",web:"foto/pevny-charakter-web.jpg",wpos:"30% 55%"},name:"Pevný charakter",cat:"Spolehlivý a profesionální",
+ mood:"Černé sedlo, tříslová a písková s nebeskou modrou. Úzké pevné písmo a jasná struktura. Působí rozhodně, spolehlivě a profesionálně.",
+ fits:["služební plemena","pastevecká plemena","sportovní kynologie","výcvikové chovy","psi pro ochranu"],
+ colors:[["Černé sedlo","#1C1C1C","text, tlačítka"],["Ocel","#3F4752","doplňková"],["Nebe","#8CB3D6","doplňková"],["Obloha","#DCE8F2","plochy"],["Tříslová","#B07A3E","akcent"],["Duna","#C9B28F","doplňková"],["Písek","#E8D6B5","plochy"],["Bílá","#FAFAF7","pozadí"]],
+ ratio:[[7,55],[3,30],[4,15]],
+ fh:"'Barlow Condensed', 'Arial Narrow', sans-serif",hw:700,fb:"'Barlow', system-ui, sans-serif",fhN:"Barlow Condensed",fbN:"Barlow",
+ head:"Inteligence, věrnost, spolehlivost.",body:"Chováme pracovní i výstavní linie. Rodiče s RTG kyčlí a loktů, zkouškami z výkonu a povahy. Štěňata předáváme s plánem výcviku.",
+ t:{bg:"#FAFAF7",surface:"#FFFFFF",ink2:"#1C1C1C",title:"#1C1C1C",muted:"#6E737A",rule:"#E2E2DC",primary:"#1C1C1C",onP:"#FFFFFF",accent:"#B07A3E",onA:"#FFFFFF",accText:"#9A6630",heroBg:"#DCE8F2",heroInk:"#1C1C1C",heroAcc:"#3F4752",r:"4px",btnR:"4px",phR:"4px",logoR:"4px",swR:"4px",bw:"1px",cardLine:"#E2E2DC",btnC:"uppercase",btnT:".08em",btnW:600,btnF:"'Barlow Condensed', sans-serif",btnSh:"none",deco:"bar",d:["#B07A3E"],hc:"uppercase"},
+ photos:[["Hlavní","Pes v postoji proti obloze, silná silueta"],["Výcvik","Poslušnost, stopa, obrana"],["Rodiče","Chovní psi s výsledky zkoušek"],["Štěňata","Štěňata ve výběhu, první výcvik"],["Zázemí","Cvičák, chovatel s týmem"]],
+ ph:["#8CB3D6","#3F4752","#B07A3E","#E8D6B5","#C9B28F"],
+ tags:["spolehlivost","inteligence","věrnost","disciplína","výkon"],
+ do:["jasná struktura a mřížka","čísla, zkoušky a výsledky","verzálky v nadpisech"],dont:["hravé ilustrace","pastelové růžové tóny","neformální texty"]}
+];
+
+const $=s=>document.querySelector(s);
+const lum=h=>{const c=h.replace('#','');const [r,g,b]=[0,2,4].map(i=>{let v=parseInt(c.substr(i,2),16)/255;return v<=.03928?v/12.92:Math.pow((v+.055)/1.055,2.4)});return .2126*r+.7152*g+.0722*b};
+const on=h=>lum(h)>.38?'#1b1b1b':'#ffffff';
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+
+function vars(s){const t=s.t;return [
+ `--bg:${t.bg}`,`--surface:${t.surface}`,`--ink2:${t.ink2}`,`--title:${t.title}`,`--muted:${t.muted}`,`--rule:${t.rule}`,
+ `--primary:${t.primary}`,`--on-primary:${t.onP}`,`--accent:${t.accent}`,`--on-accent:${t.onA}`,`--accent-text:${t.accText}`,
+ `--hero-bg:${t.heroBg}`,`--hero-ink:${t.heroInk}`,`--hero-accent:${t.heroAcc}`,
+ `--r:${t.r}`,`--btn-r:${t.btnR}`,`--ph-r:${t.phR}`,`--logo-r:${t.logoR}`,`--sw-r:${t.swR}`,`--bw:${t.bw}`,`--bw2:${t.bw}`,`--card-line:${t.cardLine}`,
+ `--btn-c:${t.btnC}`,`--btn-t:${t.btnT}`,`--btn-w:${t.btnW}`,`--fbtn:${t.btnF}`,`--btn-sh:${t.btnSh}`,`--btn-grad:${t.grad||t.primary}`,
+ `--fh:${s.fh}`,`--fb:${s.fb}`,`--hw:${s.hw}`,`--hs:${s.hs||'normal'}`,`--hc:${t.hc||'none'}`,`--ht:${t.ht||'0'}`,
+ `--hero-btn:${t.heroBtn?t.heroBtn[0]:t.primary}`,`--hero-btn-ink:${t.heroBtn?t.heroBtn[1]:t.onP}`,`--d1:${t.d[0]}`,`--d2:${t.d[1]||t.d[0]}`,`--d3:${t.d[2]||t.d[0]}`
+].join(';')}
+
+function photo(p,col,i,src,pos){
+ if(src)return `<div class="ph real" role="img" aria-label="${esc(p[1])}" style="background:${col} url('${src}') ${pos||'50% 50%'}/cover no-repeat"></div>`;
+ return `<div class="ph" style="background:linear-gradient(160deg,${col},${col}cc);color:${on(col)}"><span><b>Foto ${i+1} · ${esc(p[0])}</b>${esc(p[1])}</span></div>`}
+
+$('#overview').innerHTML=S.map((s,i)=>`
+ <a class="ov" href="#${s.id}" style="${vars(s)}">
+  <div class="face" style="background:${s.t.bg};color:${s.t.title}">
+   <span class="n">Styl ${i+1}</span>
+   <span class="aa" style="font-family:${s.fh};font-weight:${s.hw};font-style:${s.hs||'normal'}">Aa</span>
+  </div>
+  <div class="strip">${s.colors.map(c=>`<i style="background:${c[1]}"></i>`).join('')}</div>
+  <div class="meta"><b>${esc(s.name)}</b><span>${esc(s.cat)}</span></div>
+ </a>`).join('');
+
+$('#boards').innerHTML=S.map((s,i)=>{const t=s.t;
+ const total=s.ratio.reduce((a,r)=>a+r[1],0);
+ return `
+<section class="mb${t.shape==='arch'?' shape-arch':''}" id="${s.id}" style="${vars(s)}" aria-labelledby="${s.id}-h">
+ <div class="mb-in">
+  <div class="mb-head">
+   <div class="mb-logo" aria-hidden="true">${esc(s.name.charAt(0))}</div>
+   <div><h2 id="${s.id}-h">${esc(s.name)}</h2><div class="cat">${esc(s.cat)}</div></div>
+   <div class="no">Styl ${i+1} z ${S.length} · <a href="#overview">přehled</a></div>
+  </div>
+  <div class="mood">
+   <p>${esc(s.mood)}</p>
+   <div class="fits"><span class="lbl">Hodí se pro</span>${s.fits.map(f=>`<span>${esc(f)}</span>`).join('')}</div>
+  </div>
+
+  <div class="sec"><div class="sec-t">Fotografie</div>
+   <div class="photos">${s.photos.map((p,j)=>photo(p,s.ph[j],j,j===0?s.img.main:(s.img.extra&&s.img.extra[j]?s.img.extra[j][0]:null),j===0?s.img.mpos:(s.img.extra&&s.img.extra[j]?s.img.extra[j][1]:null))).join('')}</div>
+  </div>
+
+  <div class="sec"><div class="sec-t">Barevná paleta</div>
+   <div class="pal">${s.colors.map(c=>`<button class="sw" type="button" data-hex="${c[1]}" style="background:${c[1]};color:${on(c[1])}" aria-label="${esc(c[0])} ${c[1]}, zkopírovat"><em>${esc(c[2])}</em><b>${esc(c[0])}</b><code>${c[1]}</code></button>`).join('')}</div>
+   <div class="ratio" aria-hidden="true">${s.ratio.map(r=>`<i style="flex:${r[1]};background:${s.colors[r[0]][1]}"></i>`).join('')}</div>
+   <div class="ratio-l"><span>Poměr použití barev na webu</span><span>${s.ratio.map(r=>`${esc(s.colors[r[0]][0])} ${Math.round(r[1]/total*100)} %`).join(' · ')}</span></div>
+  </div>
+
+  <div class="sec"><div class="sec-t">Typografie</div>
+   <div class="type">
+    <div class="card"><div class="k">Nadpisy · ${esc(s.fhN)}</div>
+     <div class="t-h">${esc(s.head)}</div>
+     <div class="alpha">Aa Bb Čč Ďď Ěě Řř Šš Žž Ůů 0123456789</div>
+     <div class="spec">Řez ${s.hw}${s.hs?' kurzíva':''}${t.hc==='uppercase'?' · verzálky':''} · velikost 40–64 px · řádkování 1,05</div>
+    </div>
+    <div class="card"><div class="k">Text · ${esc(s.fbN)}</div>
+     <div class="t-b">${esc(s.body)}</div>
+     <div class="spec">${s.t.mono||s.t.mono2?`<span style="font-family:${s.t.mono?"'IBM Plex Mono'":"'JetBrains Mono'"},monospace">POPISKY · 12 PX · MONO</span><br>`:''}Řez 400 · velikost 16–18 px · řádkování 1,6</div>
+    </div>
+   </div>
+  </div>
+
+  <div class="sec"><div class="sec-t">Tlačítka a prvky</div>
+   <div class="btns">
+    <span class="btn p">Volná štěňata</span>
+    <span class="btn s">Naši psi</span>
+    <span class="btn a">Rezervovat štěně</span>
+    <span class="field">Váš e-mail</span>
+   </div>
+   <div class="pup">
+    <div class="pup-h"><span class="k">Vrh B · narozen 4. 10. 2026</span><span class="chip">3 volná štěňata</span></div>
+    <div class="pup-r"><span>Otec</span><b>CH Ares od Tří dubů</b></div>
+    <div class="pup-r"><span>Matka</span><b>Bára z Lesní stezky</b></div>
+    <div class="pup-r"><span>Zdraví</span><b>DKK A/A · DLK 0/0 · oči bez nálezu</b></div>
+    <div class="pup-r"><span>Odběr</span><b>od 29. 11. 2026, s průkazem původu ČMKU</b></div>
+   </div>
+  </div>
+
+  <div class="sec"><div class="sec-t">Náhled webu</div>
+   <div class="site">
+    <div class="nav"><span class="brand"><i></i>${esc(s.name)}</span><span class="links"><span>O nás</span><span>Naši psi</span><span>Štěňata</span><span>Kontakt</span></span><span class="btn p">Štěňata</span></div>
+    <div class="hero">
+     <span class="deco ${t.deco}" aria-hidden="true"></span>
+     <div><div class="k">Chovatelská stanice</div><h3>${esc(s.head)}</h3><p>${esc(s.body)}</p>
+      <div class="btns"><span class="btn h">Volná štěňata</span></div></div>
+     ${photo(s.photos[0],s.ph[2],0,s.img?s.img.web:null,s.img&&s.img.wpos).replace('class="ph','aria-hidden="true" class="ph')}
+    </div>
+   </div>
+  </div>
+
+  <div class="sec"><div class="sec-t">Charakter značky</div>
+   <div class="tags">${s.tags.map(x=>`<span class="tag">${esc(x)}</span>`).join('')}</div>
+   <div class="dd">
+    <div class="card"><div class="k">Sedí ke stylu</div><ul>${s.do.map(x=>`<li>${esc(x)}</li>`).join('')}</ul></div>
+    <div class="card"><div class="k">Do stylu nepatří</div><ul>${s.dont.map(x=>`<li>${esc(x)}</li>`).join('')}</ul></div>
+   </div>
+  </div>
+ </div>
+</section>`}).join('');
+
+const toast=$('#toast');let tt;
+function say(m){toast.textContent=m;toast.classList.add('on');clearTimeout(tt);tt=setTimeout(()=>toast.classList.remove('on'),1600)}
+document.addEventListener('click',e=>{const b=e.target.closest('.sw');if(!b)return;const h=b.dataset.hex;
+ const fallback=()=>{const r=document.createRange();r.selectNodeContents(b.querySelector('code'));const s=getSelection();s.removeAllRanges();s.addRange(r);say('Kód '+h+' je označený, zkopírujte ho');};
+ try{navigator.clipboard.writeText(h).then(()=>say('Zkopírováno '+h),fallback)}catch(err){fallback()}});
+</script>
