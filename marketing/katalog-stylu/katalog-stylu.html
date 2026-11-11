@@ -1,0 +1,411 @@
+<title>Katalog stylů a palet</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Nunito+Sans:wght@400;600;700&family=Cormorant+Garamond:wght@500;600&family=Jost:wght@300;400;500&family=Manrope:wght@400;600;700;800&family=IBM+Plex+Mono:wght@400;500&family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700&family=Lexend:wght@400;500;600&family=Source+Sans+3:wght@400;600&family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&family=Oswald:wght@500;600;700&family=Barlow:wght@400;500;600&family=Playfair+Display:ital,wght@0,500;1,500;1,600&family=Mulish:wght@400;600&family=Shrikhand&family=Rubik:wght@400;500;600&family=Anton&family=Archivo:wght@400;600;800&display=swap">
+<style>
+/* Layout: katalog — nahoře přehled 10 stylů, pod ním 10 plnohodnotných moodboardů, každý ve vlastní barevné a typografické identitě */
+:root{
+  --page:#F3F2EF; --panel:#FFFFFF; --ink:#1D1D1B; --soft:#5F5E59; --line:#DEDCD6; --focus:#2F5BFF;
+  --ui:"Inter",system-ui,-apple-system,"Segoe UI",sans-serif;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--page:#161615;--panel:#1F1F1D;--ink:#EDEBE6;--soft:#A5A39C;--line:#34332F;--focus:#8FA6FF;color-scheme:dark}}
+:root[data-theme="dark"]{--page:#161615;--panel:#1F1F1D;--ink:#EDEBE6;--soft:#A5A39C;--line:#34332F;--focus:#8FA6FF;color-scheme:dark}
+
+*{box-sizing:border-box}
+body{background:var(--page);color:var(--ink);font-family:var(--ui);font-size:15px;line-height:1.55;-webkit-font-smoothing:antialiased}
+.wrap{max-width:1240px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--focus);outline-offset:2px}
+h1,h2,h3{text-wrap:balance;margin:0}
+
+/* ---------- úvod ---------- */
+.intro{padding-block:56px 28px;display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);gap:40px;align-items:end}
+.intro .eyebrow{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--soft);font-weight:600}
+.intro h1{font-family:"Fraunces",Georgia,serif;font-weight:600;font-size:clamp(34px,5vw,56px);line-height:1.04;margin-top:10px;letter-spacing:-.01em}
+.intro p{color:var(--soft);max-width:60ch;margin:14px 0 0}
+.steps{list-style:none;margin:0;padding:0;display:grid;gap:10px;counter-reset:s}
+.steps li{display:grid;grid-template-columns:28px 1fr;gap:10px;align-items:start;font-size:14px}
+.steps li::before{counter-increment:s;content:counter(s);width:28px;height:28px;border-radius:50%;border:1px solid var(--line);display:grid;place-items:center;font-size:12px;font-weight:600;background:var(--panel)}
+
+/* ---------- přehled ---------- */
+.overview{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:12px;padding-block:8px 48px}
+.ov{display:flex;flex-direction:column;text-decoration:none;border-radius:12px;overflow:hidden;border:1px solid var(--line);background:var(--panel);transition:transform .2s ease,box-shadow .2s ease}
+.ov:hover{transform:translateY(-3px);box-shadow:0 10px 24px rgba(0,0,0,.10)}
+.ov .face{height:112px;padding:14px;display:flex;flex-direction:column;justify-content:space-between}
+.ov .face .aa{font-size:40px;line-height:1}
+.ov .face .n{font-size:11px;letter-spacing:.12em;text-transform:uppercase;opacity:.75;font-family:var(--ui);font-weight:600}
+.ov .strip{display:flex;height:14px}
+.ov .strip i{flex:1}
+.ov .meta{padding:10px 12px 12px}
+.ov .meta b{display:block;font-size:14px}
+.ov .meta span{font-size:12px;color:var(--soft)}
+
+/* ---------- moodboard ---------- */
+.mb{margin-block:0 56px;border-radius:18px;overflow:hidden;background:var(--bg);color:var(--ink2);font-family:var(--fb);scroll-margin-top:16px;box-shadow:0 1px 0 var(--line)}
+.mb-in{padding:clamp(18px,3vw,36px)}
+.mb-head{display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:18px;align-items:center;padding-bottom:22px;border-bottom:1px solid var(--rule)}
+.mb-logo{width:64px;height:64px;border-radius:var(--logo-r);background:var(--primary);color:var(--on-primary);display:grid;place-items:center;font-family:var(--fh);font-weight:var(--hw);font-style:var(--hs);font-size:26px;text-transform:var(--hc)}
+.mb-head h2{font-family:var(--fh);font-weight:var(--hw);font-style:var(--hs);text-transform:var(--hc);letter-spacing:var(--ht);font-size:clamp(28px,3.4vw,42px);line-height:1.05;color:var(--title)}
+.mb-head .cat{font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent-text);font-weight:600;margin-top:6px}
+.mb-head .no{font-family:var(--ui);font-size:12px;color:var(--muted);text-align:right;white-space:nowrap}
+.mood{display:grid;grid-template-columns:minmax(0,1.4fr) minmax(0,1fr);gap:28px;padding-block:20px 6px}
+.mood p{margin:0;font-size:16px;max-width:62ch}
+.fits{display:flex;flex-wrap:wrap;gap:6px;align-content:flex-start}
+.fits .lbl{width:100%;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);font-weight:600;font-family:var(--ui)}
+.fits span{font-size:13px;padding:4px 10px;border-radius:999px;border:1px solid var(--rule);font-family:var(--ui)}
+.fits span.lbl{border:0;padding:0;border-radius:0;font-size:11px}
+
+.sec{margin-top:30px}
+.sec-t{font-family:var(--ui);font-size:12px;letter-spacing:.16em;text-transform:uppercase;font-weight:700;color:var(--muted);display:flex;align-items:center;gap:10px;margin-bottom:14px}
+.sec-t::after{content:"";height:1px;flex:1;background:var(--rule)}
+
+/* fotky */
+.photos{display:grid;grid-template-columns:1.15fr 1fr 1fr;grid-template-rows:180px 180px;gap:10px}
+.ph{position:relative;border-radius:var(--ph-r);overflow:hidden;display:flex;align-items:flex-end;padding:12px;min-width:0}
+.ph:first-child{grid-row:1/3}
+.ph::before{content:"";position:absolute;inset:0;opacity:.18;background-image:repeating-linear-gradient(135deg,currentColor 0 1px,transparent 1px 11px)}
+.ph span{position:relative;font-family:var(--ui);font-size:12px;line-height:1.35;background:rgba(255,255,255,.9);color:#1d1d1b;padding:6px 10px;border-radius:8px;max-width:100%}
+.ph span b{display:block;font-size:10px;letter-spacing:.14em;text-transform:uppercase;opacity:.6}
+.shape-arch .ph{border-radius:200px 200px var(--ph-r) var(--ph-r)}
+.shape-arch .ph:first-child{border-radius:400px 400px 18px 18px}
+
+/* paleta */
+.pal{display:grid;grid-template-columns:repeat(8,minmax(0,1fr));gap:8px}
+.sw{border:0;cursor:pointer;text-align:left;font:inherit;border-radius:var(--sw-r);height:118px;padding:10px;display:flex;flex-direction:column;justify-content:flex-end;box-shadow:inset 0 0 0 1px rgba(0,0,0,.08);transition:transform .15s ease}
+.sw:hover{transform:translateY(-2px)}
+.sw b{font-family:var(--ui);font-size:12px;font-weight:600;line-height:1.2}
+.sw code{font-family:"IBM Plex Mono",ui-monospace,monospace;font-size:11px;opacity:.8}
+.sw em{font-style:normal;font-family:var(--ui);font-size:10px;letter-spacing:.08em;text-transform:uppercase;opacity:.7;margin-bottom:auto}
+.ratio{display:flex;height:10px;border-radius:99px;overflow:hidden;margin-top:12px;box-shadow:inset 0 0 0 1px rgba(0,0,0,.14)}
+.ratio-l{display:flex;justify-content:space-between;font-family:var(--ui);font-size:12px;color:var(--muted);margin-top:6px;flex-wrap:wrap;gap:8px}
+
+/* typografie */
+.type{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);gap:12px}
+.card{background:var(--surface);border-radius:var(--r);padding:20px;border:var(--bw) solid var(--card-line);min-width:0}
+.card .k{font-family:var(--ui);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent-text);font-weight:700}
+.card .spec{font-family:var(--ui);font-size:12px;color:var(--muted);margin-top:10px}
+.t-h{font-family:var(--fh);font-weight:var(--hw);font-style:var(--hs);text-transform:var(--hc);letter-spacing:var(--ht);font-size:clamp(28px,3vw,40px);line-height:1.08;margin-top:10px;color:var(--title)}
+.t-b{font-family:var(--fb);font-size:17px;line-height:1.6;margin-top:10px}
+.alpha{font-family:var(--fh);font-weight:var(--hw);font-style:var(--hs);font-size:18px;margin-top:10px;color:var(--muted);word-break:break-word}
+
+/* UI */
+.btns{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+.btn{font-family:var(--fbtn);font-weight:var(--btn-w);text-transform:var(--btn-c);letter-spacing:var(--btn-t);font-size:14px;padding:13px 22px;border-radius:var(--btn-r);border:var(--bw) solid transparent;cursor:default;line-height:1.1}
+.btn.p{background:var(--primary);color:var(--on-primary);box-shadow:var(--btn-sh)}
+.btn.s{background:transparent;color:var(--title);border-color:var(--title)}
+.btn.a{background:var(--accent);color:var(--on-accent);box-shadow:var(--btn-sh)}
+.btn.h{background:var(--hero-btn);color:var(--hero-btn-ink);box-shadow:var(--btn-sh)}
+.btn.g{background:var(--btn-grad);color:#fff}
+.field{font-family:var(--fb);font-size:14px;padding:12px 14px;border-radius:var(--btn-r);border:var(--bw) solid var(--card-line);background:var(--surface);color:var(--muted);min-width:200px}
+
+/* náhled webu */
+.site{border-radius:var(--r);overflow:hidden;border:var(--bw) solid var(--card-line)}
+.nav{display:flex;align-items:center;gap:16px;padding:14px 20px;background:var(--surface)}
+.nav .brand{display:flex;align-items:center;gap:10px;font-family:var(--fh);font-weight:var(--hw);font-style:var(--hs);text-transform:var(--hc);font-size:18px;color:var(--title)}
+.nav .brand i{width:28px;height:28px;border-radius:var(--logo-r);background:var(--primary)}
+.nav .links{display:flex;gap:18px;margin-left:auto;font-size:13px;font-family:var(--fb)}
+.nav .btn{padding:9px 16px;font-size:12px}
+.hero{position:relative;overflow:hidden;background:var(--hero-bg);color:var(--hero-ink);padding:clamp(26px,4vw,48px);display:grid;grid-template-columns:minmax(0,1.4fr) minmax(0,1fr);gap:24px;align-items:center}
+.hero .k{font-family:var(--ui);font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--hero-accent);font-weight:600}
+.hero h3{font-family:var(--fh);font-weight:var(--hw);font-style:var(--hs);text-transform:var(--hc);letter-spacing:var(--ht);font-size:clamp(30px,4vw,50px);line-height:1.02;margin-top:10px}
+.hero p{font-size:15px;opacity:.85;margin:12px 0 18px;max-width:46ch}
+.hero .ph{height:200px;grid-row:auto!important}
+.hero > *{position:relative}
+.deco{position:absolute!important;pointer-events:none}
+.deco.stripes{right:-40px;top:-30px;width:260px;height:260px;border-radius:50%;background:repeating-radial-gradient(circle at 50% 50%,var(--d1) 0 18px,var(--d2) 18px 36px,var(--d3) 36px 54px,transparent 54px 64px);opacity:.9}
+.deco.glow{right:-80px;top:-120px;width:420px;height:420px;border-radius:50%;background:radial-gradient(circle,var(--d1),transparent 65%);opacity:.55}
+.deco.blob{right:-30px;bottom:-60px;width:220px;height:220px;border-radius:40% 60% 55% 45%/50% 45% 55% 50%;background:var(--d1);opacity:.9}
+.deco.bar{left:0;top:0;bottom:0;width:10px;background:var(--d1)}
+.deco.ring{right:24px;top:24px;width:120px;height:120px;border-radius:50%;border:1px solid var(--d1)}
+
+/* charakter */
+.tags{display:flex;flex-wrap:wrap;gap:8px}
+.tag{font-family:var(--fbtn);font-weight:var(--btn-w);text-transform:var(--btn-c);letter-spacing:var(--btn-t);font-size:13px;padding:8px 14px;border-radius:var(--btn-r)}
+.tag:nth-child(3n+1){background:var(--primary);color:var(--on-primary)}
+.tag:nth-child(3n+2){background:var(--accent);color:var(--on-accent)}
+.tag:nth-child(3n){background:transparent;color:var(--title);box-shadow:inset 0 0 0 var(--bw2) var(--title)}
+.dd{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:12px}
+.dd ul{margin:6px 0 0;padding-left:18px;font-size:14px}
+.dd .card{padding:16px}
+
+.foot{padding-block:8px 48px;color:var(--soft);font-size:13px;text-align:center}
+.toast{position:fixed;left:50%;bottom:calc(20px + env(safe-area-inset-bottom,0px));transform:translate(-50%,20px);background:var(--ink);color:var(--page);padding:10px 16px;border-radius:999px;font-size:13px;opacity:0;transition:.25s;pointer-events:none;z-index:20}
+.toast.on{opacity:1;transform:translate(-50%,0)}
+
+@media (max-width:980px){
+  .overview{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .intro{grid-template-columns:1fr}
+  .pal{grid-template-columns:repeat(4,minmax(0,1fr))}
+  .mood,.type,.hero{grid-template-columns:1fr}
+}
+@media (max-width:640px){
+  .photos{grid-template-columns:1fr 1fr;grid-template-rows:220px 140px 140px}
+  .ph:first-child{grid-column:1/3;grid-row:1}
+  .mb-head{grid-template-columns:auto minmax(0,1fr)}
+  .mb-head .no{grid-column:1/3;text-align:left}
+  .nav .links{display:none}
+  .nav .btn{margin-left:auto}
+  .dd{grid-template-columns:1fr}
+  .pal .sw{height:96px}
+  .field{min-width:0;width:100%}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+
+<div class="wrap">
+  <header class="intro">
+    <div>
+      <div class="eyebrow">Pomůcka pro první schůzku s klientem</div>
+      <h1>Katalog stylů a barevných palet pro weby</h1>
+      <p>Deset hotových vizuálních směrů napříč obory. Každý má vlastní paletu, dvojici písem, tvar tlačítek, náhled webu a popis fotek, které ke stylu patří. Klient ukáže, co se mu líbí, a návrh začíná ze správného místa.</p>
+    </div>
+    <ol class="steps">
+      <li>Projděte s klientem přehled a nechte ho vybrat 2–3 styly, které mu sedí.</li>
+      <li>V detailu doladíte barvy a písma. Kliknutím na barvu zkopírujete její kód.</li>
+      <li>Vybraný styl doplňte fotkami klienta podle popisů v sekci Fotografie.</li>
+    </ol>
+  </header>
+  <nav class="overview" id="overview" aria-label="Přehled stylů"></nav>
+  <main id="boards"></main>
+  <p class="foot">Písma jsou z Google Fonts, všechna podporují češtinu a lze je zdarma použít na webu.</p>
+</div>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script>
+const S=[
+{id:"zeme-a-les",name:"Země a les",cat:"Přírodní a organický",
+ mood:"Teplé zemité tóny, lněné textury a měkké denní světlo. Působí poctivě a klidně, jako by značka vyrostla venku. Vhodné všude, kde jde o původ, ruční práci a vztah k přírodě.",
+ fits:["eko farmy","bio potraviny","zahradnictví","wellness","outdoor","lesní školky"],
+ colors:[["Jehličí","#2F3A27","text, patička"],["Mech","#4F5D3A","hlavní"],["Šalvěj","#A3AE8C","plochy"],["Mlha","#D9DCCF","pozadí sekcí"],["Len","#EFE9DC","pozadí"],["Kůra","#6B4F3A","doplňková"],["Hlína","#9A5B3B","akcent"],["Med","#D4A24C","zvýraznění"]],
+ ratio:[[4,60],[1,30],[6,10]],
+ fh:"'Fraunces', Georgia, serif",hw:600,fb:"'Nunito Sans', system-ui, sans-serif",fhN:"Fraunces",fbN:"Nunito Sans",
+ head:"Z přírody, s péčí.",body:"Pěstujeme bez chemie a s respektem k půdě. Každá bedýnka má svůj příběh a jméno farmáře, který ji připravil.",
+ t:{bg:"#EFE9DC",surface:"#F8F4EC",ink2:"#2F3A27",title:"#2F3A27",muted:"#6E7262",rule:"#D3CCBB",primary:"#4F5D3A",onP:"#F8F4EC",accent:"#9A5B3B",onA:"#FFF8EE",accText:"#9A5B3B",heroBg:"#4F5D3A",heroInk:"#F3EEE2",heroAcc:"#D4A24C",heroBtn:["#D4A24C","#2F3A27"],r:"14px",btnR:"999px",phR:"14px",logoR:"50%",swR:"12px",bw:"1px",cardLine:"#DDD5C3",btnC:"none",btnT:"0",btnW:700,btnF:"'Nunito Sans', sans-serif",btnSh:"none",deco:"blob",d:["#6B7A4E"]},
+ photos:[["Hlavní","Krajina nebo pole v ranní mlze, teplé světlo"],["Detail","Ruce v hlíně, sázení, sklizeň"],["Textura","Dřevo, len, listy zblízka"],["Lidé","Rodina nebo tým venku, nenucené"],["Produkt","Výrobek na dřevěném stole, přírodní pozadí"]],
+ ph:["#7A8660","#B48A5E","#A3AE8C","#6B4F3A","#C9B48A"],
+ tags:["přirozenost","poctivost","klid","udržitelnost","řemeslo","tradice"],
+ do:["přírodní materiály, papír, dřevo","zaoblené tvary, volný prostor","fotky s denním světlem"],dont:["neonové barvy","studené modré tóny","stockové fotky s bílým pozadím"]},
+
+{id:"cerna-a-sampan",name:"Černá & šampaň",cat:"Luxus a elegance",
+ mood:"Hluboká černá, šampaňské zlato a hodně vzduchu. Klasické patkové písmo s jemnými verzálkami. Méně prvků, víc detailu. Styl, který si řekne o vyšší cenu.",
+ fits:["kosmetické salony","šperkařství","prémiové reality","hotely","vinařství","svatební agentury"],
+ colors:[["Onyx","#141414","pozadí, text"],["Grafit","#2B2A28","plochy"],["Kouř","#8A857C","popisky"],["Perla","#E9E4DA","plochy"],["Slonová kost","#F6F1E7","pozadí"],["Zlatý písek","#E6D3A8","jemný akcent"],["Šampaň","#C9A96E","hlavní akcent"],["Bordó","#5E1F2B","doplňková"]],
+ ratio:[[0,60],[4,30],[6,10]],
+ fh:"'Cormorant Garamond', Garamond, serif",hw:500,fb:"'Jost', system-ui, sans-serif",fhN:"Cormorant Garamond",fbN:"Jost",
+ head:"Elegance, která nepotřebuje slova.",body:"Každý šperk vzniká ručně v naší pražské dílně. Na objednávku, v jediném kusu, s certifikátem původu kamene.",
+ t:{bg:"#141414",surface:"#1E1D1B",ink2:"#E9E4DA",title:"#F6F1E7",muted:"#8A857C",rule:"#34322E",primary:"#C9A96E",onP:"#141414",accent:"#F6F1E7",onA:"#141414",accText:"#C9A96E",heroBg:"#F6F1E7",heroInk:"#141414",heroAcc:"#8F7444",r:"0px",btnR:"0px",phR:"0px",logoR:"0",swR:"0",bw:"1px",cardLine:"#34322E",btnC:"uppercase",btnT:".2em",btnW:400,btnF:"'Jost', sans-serif",btnSh:"none",deco:"ring",d:["#C9A96E"]},
+ photos:[["Hlavní","Portrét v černobílé nebo tlumených barvách, silný kontrast"],["Detail","Šperk, textura látky, kapka parfému"],["Prostor","Interiér s mramorem, mosazí, sametem"],["Atmosféra","Svíčka, sklenka, večerní světlo"],["Produkt","Produkt na tmavém pozadí s jedním světlem"]],
+ ph:["#2B2A28","#C9A96E","#5E1F2B","#8A857C","#3A372F"],
+ tags:["exkluzivita","detail","diskrétnost","nadčasovost","kvalita"],
+ do:["hodně volného místa","tenké linky, verzálky s prostrkáním","málo barev, silný kontrast"],dont:["zaoblená tlačítka a hravé ikony","víc než jeden akcent","přeplněné stránky a slevové bannery"]},
+
+{id:"cista-linie",name:"Čistá linie",cat:"Moderní minimalismus",
+ mood:"Bílá, beton a grafit s jediným signálním akcentem. Přesná mřížka, geometrické písmo a technické popisky. Působí profesionálně, věcně a bez zbytečností.",
+ fits:["architekti","advokáti","účetní","konzultanti","IT služby","design studia"],
+ colors:[["Inkoust","#111111","nadpisy"],["Grafit","#2E2E2E","text"],["Šedá","#8C8C88","popisky"],["Beton","#D6D6D2","linky"],["Papír","#F4F4F2","pozadí sekcí"],["Bílá","#FFFFFF","pozadí"],["Signální modrá","#2F5BFF","akcent"],["Ledová","#E5EBFF","zvýraznění"]],
+ ratio:[[5,60],[1,30],[6,10]],
+ fh:"'Manrope', system-ui, sans-serif",hw:800,fb:"'Manrope', system-ui, sans-serif",fhN:"Manrope",fbN:"Manrope + IBM Plex Mono",
+ head:"Méně, ale lépe.",body:"Navrhujeme domy, které stárnou s grácií. Jasný postup, pevný rozpočet a jeden architekt od první skici po kolaudaci.",
+ t:{bg:"#FFFFFF",surface:"#F4F4F2",ink2:"#2E2E2E",title:"#111111",muted:"#8C8C88",rule:"#E2E2DE",primary:"#111111",onP:"#FFFFFF",accent:"#2F5BFF",onA:"#FFFFFF",accText:"#2F5BFF",heroBg:"#F4F4F2",heroInk:"#111111",heroAcc:"#2F5BFF",r:"4px",btnR:"4px",phR:"2px",logoR:"4px",swR:"2px",bw:"1px",cardLine:"#E2E2DE",btnC:"none",btnT:"0",btnW:600,btnF:"'Manrope', sans-serif",btnSh:"none",deco:"bar",d:["#2F5BFF"],mono:true},
+ photos:[["Hlavní","Architektura, čisté linie, hodně oblohy nebo bílé stěny"],["Detail","Materiál, spoj, světlo na hraně"],["Lidé","Portrét na neutrálním pozadí"],["Práce","Pracovní stůl, plány, skici"],["Prostor","Interiér s minimem předmětů"]],
+ ph:["#D6D6D2","#8C8C88","#E5EBFF","#2E2E2E","#BFC3CC"],
+ tags:["přehlednost","preciznost","profesionalita","důvěra","řád"],
+ do:["přísná mřížka a zarovnání","jedna akcentní barva pro akce","technické popisky, čísla"],dont:["dekorace a ornamenty","víc písem","stíny a přechody"]},
+
+{id:"cukrarna",name:"Cukrárna",cat:"Hravý a barevný",
+ mood:"Šťavnaté barvy, kulaté tvary a tlačítka, na která chcete kliknout. Zábavné, přátelské a plné energie. Vhodné pro značky, které mají rozesmát.",
+ fits:["dětské kroužky","kavárny a cukrárny","školky","eventy","hračky","kreativní dílny"],
+ colors:[["Švestka","#3B2A4A","text"],["Korál","#FF6B5B","hlavní"],["Slunečnice","#FFC93C","akcent"],["Máta","#4ECDB4","doplňková"],["Nebe","#5AB0FF","doplňková"],["Šeřík","#A78BFA","doplňková"],["Růžová","#FFC2D1","plochy"],["Smetana","#FFF7EC","pozadí"]],
+ ratio:[[7,60],[1,25],[2,15]],
+ fh:"'Fredoka', 'Nunito', sans-serif",hw:700,fb:"'Nunito', system-ui, sans-serif",fhN:"Fredoka",fbN:"Nunito",
+ head:"Radost na každém kroku!",body:"Malujeme, tvoříme, pečeme a hlavně se smějeme. Kroužky pro děti od 4 let každé odpoledne a o víkendu dílny pro celou rodinu.",
+ t:{bg:"#FFF7EC",surface:"#FFFFFF",ink2:"#3B2A4A",title:"#3B2A4A",muted:"#7A6B86",rule:"#F2DCCB",primary:"#FF6B5B",onP:"#FFFFFF",accent:"#FFC93C",onA:"#3B2A4A",accText:"#E0503F",heroBg:"#4ECDB4",heroInk:"#22303A",heroAcc:"#3B2A4A",r:"24px",btnR:"999px",phR:"28px",logoR:"22px",swR:"20px",bw:"2px",cardLine:"#3B2A4A",btnC:"none",btnT:"0",btnW:700,btnF:"'Fredoka', sans-serif",btnSh:"4px 4px 0 #3B2A4A",deco:"blob",d:["#FFC93C"]},
+ photos:[["Hlavní","Děti nebo lidé při tvoření, smích, pohyb"],["Detail","Barevné pastelky, dorty, konfety"],["Produkt","Výrobek na pastelovém pozadí shora"],["Prostor","Barevný interiér, hřiště, dílna"],["Akce","Oslava, workshop, skupinová fotka"]],
+ ph:["#FF6B5B","#FFC93C","#4ECDB4","#A78BFA","#5AB0FF"],
+ tags:["radost","energie","přátelskost","kreativita","hravost","rodina"],
+ do:["výrazné kontury a plné stíny","kulaté tvary, ilustrace","krátké veselé texty"],dont:["tmavé pozadí","tenká elegantní písma","dlouhé formální odstavce"]},
+
+{id:"klidna-pece",name:"Klidná péče",cat:"Zdraví a wellbeing",
+ mood:"Svěží tyrkysová, čistá bílá a teplý písek. Měkké tvary a dobře čitelné písmo budí důvěru a klid ještě před první návštěvou.",
+ fits:["fyzioterapie","zubní ordinace","psychologové","kliniky","lékárny","jóga a masáže"],
+ colors:[["Hluboká tyrkys","#0F4C5C","nadpisy"],["Mořská","#1F7A7A","hlavní"],["Aqua","#7FC8C2","doplňková"],["Pára","#E6F4F2","plochy"],["Bílá","#FBFDFC","pozadí"],["Písek","#F1E6D6","teplé plochy"],["Meruňka","#F2A97E","akcent"],["Břidlice","#50606A","text"]],
+ ratio:[[4,60],[1,30],[6,10]],
+ fh:"'Lexend', system-ui, sans-serif",hw:500,fb:"'Source Sans 3', system-ui, sans-serif",fhN:"Lexend",fbN:"Source Sans 3",
+ head:"Péče, které můžete věřit.",body:"Fyzioterapie pro celou rodinu. Objednání online do 48 hodin, individuální plán a terapeut, který si na vás udělá čas.",
+ t:{bg:"#FBFDFC",surface:"#E6F4F2",ink2:"#50606A",title:"#0F4C5C",muted:"#6F8088",rule:"#D7E8E5",primary:"#1F7A7A",onP:"#FFFFFF",accent:"#F2A97E",onA:"#3D2618",accText:"#1F7A7A",heroBg:"#E6F4F2",heroInk:"#0F4C5C",heroAcc:"#1F7A7A",r:"20px",btnR:"14px",phR:"24px",logoR:"50%",swR:"16px",bw:"1px",cardLine:"#D7E8E5",btnC:"none",btnT:"0",btnW:600,btnF:"'Lexend', sans-serif",btnSh:"0 6px 16px rgba(31,122,122,.22)",deco:"blob",d:["#7FC8C2"]},
+ photos:[["Hlavní","Terapeut s klientem, přirozený úsměv, světlý prostor"],["Prostor","Čistá ordinace nebo studio s rostlinami"],["Detail","Ruce při masáži, voda, ručník"],["Tým","Portréty týmu na světlém pozadí"],["Pohoda","Člověk v klidu, příroda, dech"]],
+ ph:["#7FC8C2","#1F7A7A","#F1E6D6","#F2A97E","#BFE3DE"],
+ tags:["klid","empatie","odbornost","čistota","bezpečí"],
+ do:["velké čitelné písmo, jasné CTA","měkké stíny a zaoblení","skutečné fotky týmu"],dont:["agresivní červená","lékařské stockové fotky","drobné písmo a hustý text"]},
+
+{id:"nocni-kod",name:"Noční kód",cat:"Technologie a startup",
+ mood:"Tmavé půlnoční pozadí, elektrická fialová a azurová záře. Technické písmo, přechody a mřížka. Pro značky, které chtějí působit rychle a inovativně.",
+ fits:["aplikace a SaaS","IT firmy","digitální agentury","gaming","fintech","online kurzy"],
+ colors:[["Půlnoc","#0B1026","pozadí"],["Indigo","#1C2350","plochy"],["Ocel","#6B7299","popisky"],["Mlha","#C9CEE8","text"],["Bílá","#F5F7FF","nadpisy"],["Elektrická fialová","#7C5CFF","hlavní"],["Azur","#22D3EE","akcent"],["Laser","#FF4D9D","zvýraznění"]],
+ ratio:[[0,60],[1,25],[5,15]],
+ fh:"'Space Grotesk', system-ui, sans-serif",hw:600,fb:"'Inter', system-ui, sans-serif",fhN:"Space Grotesk",fbN:"Inter + JetBrains Mono",
+ head:"Budoucnost, která už běží.",body:"Automatizujte fakturaci za 5 minut. Napojení na banku, účetní a e-shop bez jediného řádku kódu.",
+ t:{bg:"#0B1026",surface:"#131A3A",ink2:"#C9CEE8",title:"#F5F7FF",muted:"#8A90B5",rule:"#232B5A",primary:"#7C5CFF",onP:"#FFFFFF",accent:"#22D3EE",onA:"#0B1026",accText:"#22D3EE",heroBg:"#0B1026",heroInk:"#F5F7FF",heroAcc:"#22D3EE",r:"12px",btnR:"10px",phR:"14px",logoR:"14px",swR:"10px",bw:"1px",cardLine:"#262F63",btnC:"none",btnT:"0",btnW:600,btnF:"'Space Grotesk', sans-serif",btnSh:"0 0 24px rgba(124,92,255,.45)",deco:"glow",d:["#7C5CFF"],grad:"linear-gradient(135deg,#7C5CFF,#22D3EE)",mono2:true},
+ photos:[["Hlavní","Produkt na obrazovce, mockup aplikace"],["Lidé","Tým u počítačů, noční světlo monitorů"],["Abstrakt","3D tvary, světelné přechody"],["Detail","Kód, klávesnice, telefon v ruce"],["Data","Grafy, dashboard, čísla"]],
+ ph:["#1C2350","#7C5CFF","#22D3EE","#FF4D9D","#2B3470"],
+ tags:["inovace","rychlost","přesnost","odvaha","budoucnost"],
+ do:["tmavý režim a jemná záře","přechody jen v akcentech","čísla a výsledky v popředí"],dont:["patková písma","teplé zemité barvy","přechody přes celé plochy"]},
+
+{id:"dilna",name:"Dílna",cat:"Industriální a řemeslo",
+ mood:"Uhel, ocel, beton a rez se signální žlutou. Úzké tučné verzálky a pevné rámečky. Styl, který říká: umíme to a vydrží to.",
+ fits:["stavební firmy","truhláři","autoservisy","barbershopy","pivovary","kovovýroba"],
+ colors:[["Uhel","#1E1E1E","pozadí, text"],["Olej","#2A2622","plochy"],["Ocel","#3C4148","doplňková"],["Beton","#A7A39C","popisky"],["Prach","#E4E0D8","pozadí"],["Rez","#B4552D","hlavní"],["Měď","#C07A4F","doplňková"],["Signální žlutá","#F2B705","akcent"]],
+ ratio:[[4,55],[0,35],[7,10]],
+ fh:"'Oswald', 'Arial Narrow', sans-serif",hw:600,fb:"'Barlow', system-ui, sans-serif",fhN:"Oswald",fbN:"Barlow",
+ head:"Poctivá práce. Žádné kompromisy.",body:"Stavíme a rekonstruujeme od roku 1998. Vlastní parta, vlastní technika a záruka 5 let na každou zakázku.",
+ t:{bg:"#E4E0D8",surface:"#F1EEE8",ink2:"#2A2622",title:"#1E1E1E",muted:"#6B665E",rule:"#C9C4BA",primary:"#1E1E1E",onP:"#F2B705",accent:"#B4552D",onA:"#FFFFFF",accText:"#B4552D",heroBg:"#1E1E1E",heroInk:"#E4E0D8",heroAcc:"#F2B705",heroBtn:["#F2B705","#1E1E1E"],r:"2px",btnR:"0px",phR:"0px",logoR:"0",swR:"0",bw:"2px",cardLine:"#1E1E1E",btnC:"uppercase",btnT:".08em",btnW:600,btnF:"'Oswald', sans-serif",btnSh:"none",deco:"bar",d:["#F2B705"],hc:"uppercase"},
+ photos:[["Hlavní","Řemeslník při práci, jiskry, prach v protisvětle"],["Detail","Nástroje, ruce, struktura dřeva a kovu"],["Výsledek","Hotová stavba nebo výrobek"],["Tým","Parta na stavbě, pracovní oblečení"],["Prostor","Dílna, sklad, technika"]],
+ ph:["#3C4148","#B4552D","#A7A39C","#2A2622","#C07A4F"],
+ tags:["síla","spolehlivost","zkušenost","řemeslo","odolnost"],
+ do:["silné rámečky, ostré rohy","verzálky v nadpisech","reálné fotky z práce"],dont:["pastelové barvy","tenká jemná písma","zaoblené bubliny"]},
+
+{id:"pudrova",name:"Pudrová",cat:"Romantický a jemný",
+ mood:"Pudrová růžová, mauve a krém s eukalyptovou zelení. Kurzíva, oblouky a jemné linky. Něžný a ženský styl pro okamžiky, které se mají pamatovat.",
+ fits:["svatby","květinářství","fotografové","kosmetika","butiky","wedding planneři"],
+ colors:[["Švestka","#5A3A4A","text"],["Mauve","#9E6B7B","hlavní"],["Růže","#D99A9E","doplňková"],["Pudr","#F3D9D4","plochy"],["Krém","#FBF5F0","pozadí"],["Mléčná","#FFFFFF","karty"],["Zlatá růže","#C9967A","akcent"],["Eukalyptus","#A8B8A6","doplňková"]],
+ ratio:[[4,60],[3,25],[1,15]],
+ fh:"'Playfair Display', Georgia, serif",hw:500,hs:"italic",fb:"'Mulish', system-ui, sans-serif",fhN:"Playfair Display Italic",fbN:"Mulish",
+ head:"Okamžiky, které chcete zachovat.",body:"Fotím svatby jemně a bez aranžování. Celý den s vámi, galerie do 4 týdnů a album, které vydrží generace.",
+ t:{bg:"#FBF5F0",surface:"#FFFFFF",ink2:"#5A3A4A",title:"#5A3A4A",muted:"#9A8189",rule:"#EBD9D2",primary:"#9E6B7B",onP:"#FFFFFF",accent:"#F3D9D4",onA:"#5A3A4A",accText:"#9E6B7B",heroBg:"#F3D9D4",heroInk:"#5A3A4A",heroAcc:"#9E6B7B",r:"18px",btnR:"999px",phR:"18px",logoR:"50%",swR:"60px 60px 14px 14px",bw:"1px",cardLine:"#EBD9D2",btnC:"none",btnT:".03em",btnW:600,btnF:"'Mulish', sans-serif",btnSh:"none",deco:"ring",d:["#C9967A"],shape:"arch"},
+ photos:[["Hlavní","Pár nebo nevěsta v měkkém protisvětle"],["Detail","Prstýnky, krajka, kytice"],["Květiny","Pivoňky, eukalyptus, sušené květiny"],["Atmosféra","Stůl s dekorací, svíčky"],["Portrét","Jemný ženský portrét, přirozený make-up"]],
+ ph:["#D99A9E","#F3D9D4","#A8B8A6","#C9967A","#9E6B7B"],
+ tags:["něha","romantika","ženskost","elegance","emoce"],
+ do:["oblouky a jemné linky","kurzíva v nadpisech","světlé vzdušné fotky"],dont:["černé plochy","ostré geometrické tvary","křiklavé akční barvy"]},
+
+{id:"sedmdesatky",name:"Sedmdesátky",cat:"Retro a vintage",
+ mood:"Hořčice, pálený pomeranč a petrolej na krémovém papíře. Kulaté tučné písmo a pruhy jako ze starého plakátu. Nostalgie s úsměvem a s osobností.",
+ fits:["bistra a foodtrucky","kavárny","vinylové obchody","barbershopy","festivaly","second handy"],
+ colors:[["Kakao","#4A2E1F","text"],["Petrolej","#1F6F6B","hlavní"],["Olivová","#8C8A3A","doplňková"],["Hořčice","#E0A526","akcent"],["Pálený pomeranč","#D9622B","akcent"],["Rajče","#B8392B","doplňková"],["Broskev","#F2B48A","plochy"],["Krém","#F4E7CF","pozadí"]],
+ ratio:[[7,55],[1,25],[4,20]],
+ fh:"'Shrikhand', 'Georgia', serif",hw:400,fb:"'Rubik', system-ui, sans-serif",fhN:"Shrikhand",fbN:"Rubik",
+ head:"Dobrá nálada od roku 1974.",body:"Smash burgery, domácí limonády a vinyly na gramofonu. Otevřeno každý den od 11 do 22, v pátek až do půlnoci.",
+ t:{bg:"#F4E7CF",surface:"#FBF2E1",ink2:"#4A2E1F",title:"#4A2E1F",muted:"#8A6A55",rule:"#E2CDA9",primary:"#D9622B",onP:"#FFF6E6",accent:"#1F6F6B",onA:"#F4E7CF",accText:"#B8392B",heroBg:"#1F6F6B",heroInk:"#F4E7CF",heroAcc:"#E0A526",r:"16px",btnR:"12px",phR:"16px",logoR:"50%",swR:"14px",bw:"2px",cardLine:"#4A2E1F",btnC:"none",btnT:".01em",btnW:600,btnF:"'Rubik', sans-serif",btnSh:"0 4px 0 #4A2E1F",deco:"stripes",d:["#E0A526","#D9622B","#B8392B"]},
+ photos:[["Hlavní","Jídlo nebo lidé s teplým filmovým nádechem, zrno"],["Detail","Gramofon, neon, retro předměty"],["Produkt","Burger, káva, drink shora na barevném pozadí"],["Prostor","Interiér s dřevem, dlaždicemi, rostlinami"],["Lidé","Obsluha a hosté, spontánní okamžik"]],
+ ph:["#E0A526","#D9622B","#1F6F6B","#8C8A3A","#B8392B"],
+ tags:["nostalgie","pohoda","originalita","charakter","chuť"],
+ do:["pruhy, oblouky, zaoblená písma","teplé filmové fotky","vtipné texty s nadsázkou"],dont:["studená modrá a šedá","tenké moderní bezpatky","přísná korporátní mřížka"]},
+
+{id:"hlasite",name:"Hlasitě",cat:"Odvážný kontrast",
+ mood:"Černá, bílá a signální červená. Obří úzké verzálky, ostré hrany a žádné kompromisy. Styl pro značky, které chtějí být vidět a slyšet.",
+ fits:["fitness a gymy","sportovní kluby","kapely a DJs","módní značky","kampaně","eventy"],
+ colors:[["Černá","#0A0A0A","pozadí"],["Asfalt","#2A2A2A","plochy"],["Šedá","#BDBDBD","popisky"],["Světlá","#EFEFEF","plochy"],["Bílá","#FFFFFF","text"],["Signální červená","#FF3B1F","hlavní"],["Kobalt","#2340FF","doplňková"],["Žlutá","#FFD400","zvýraznění"]],
+ ratio:[[0,55],[4,30],[5,15]],
+ fh:"'Anton', 'Impact', sans-serif",hw:400,fb:"'Archivo', system-ui, sans-serif",fhN:"Anton",fbN:"Archivo",
+ head:"Žádné výmluvy. Jen výsledky.",body:"Funkční tréninky v malých skupinách, 6× týdně. První lekce zdarma a trenér, který tě nenechá vzdát to.",
+ t:{bg:"#0A0A0A",surface:"#161616",ink2:"#EFEFEF",title:"#FFFFFF",muted:"#9A9A9A",rule:"#2A2A2A",primary:"#FF3B1F",onP:"#0A0A0A",accent:"#FFFFFF",onA:"#0A0A0A",accText:"#FF3B1F",heroBg:"#FF3B1F",heroInk:"#0A0A0A",heroAcc:"#0A0A0A",heroBtn:["#0A0A0A","#FFFFFF"],r:"0px",btnR:"0px",phR:"0px",logoR:"0",swR:"0",bw:"2px",cardLine:"#2A2A2A",btnC:"uppercase",btnT:".06em",btnW:800,btnF:"'Archivo', sans-serif",btnSh:"none",deco:"bar",d:["#0A0A0A"],hc:"uppercase",ht:".01em"},
+ photos:[["Hlavní","Sportovec v pohybu, ostré světlo, pot, kontrast"],["Detail","Boty, ruce s křídou, mikrofon"],["Akce","Koncert, závod, trénink ve skupině"],["Portrét","Silný portrét, pohled do kamery"],["Grafika","Velký text přes fotku, černobílé foto"]],
+ ph:["#2A2A2A","#FF3B1F","#2340FF","#BDBDBD","#FFD400"],
+ tags:["energie","sebevědomí","výkon","odvaha","komunita"],
+ do:["obří nadpisy přes celou šířku","černobílé fotky s červeným akcentem","krátké úderné věty"],dont:["pastelové tóny","kurzíva a ornamenty","dlouhé texty bez členění"]}
+];
+
+const $=s=>document.querySelector(s);
+const lum=h=>{const c=h.replace('#','');const [r,g,b]=[0,2,4].map(i=>{let v=parseInt(c.substr(i,2),16)/255;return v<=.03928?v/12.92:Math.pow((v+.055)/1.055,2.4)});return .2126*r+.7152*g+.0722*b};
+const on=h=>lum(h)>.38?'#1b1b1b':'#ffffff';
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+
+function vars(s){const t=s.t;return [
+ `--bg:${t.bg}`,`--surface:${t.surface}`,`--ink2:${t.ink2}`,`--title:${t.title}`,`--muted:${t.muted}`,`--rule:${t.rule}`,
+ `--primary:${t.primary}`,`--on-primary:${t.onP}`,`--accent:${t.accent}`,`--on-accent:${t.onA}`,`--accent-text:${t.accText}`,
+ `--hero-bg:${t.heroBg}`,`--hero-ink:${t.heroInk}`,`--hero-accent:${t.heroAcc}`,
+ `--r:${t.r}`,`--btn-r:${t.btnR}`,`--ph-r:${t.phR}`,`--logo-r:${t.logoR}`,`--sw-r:${t.swR}`,`--bw:${t.bw}`,`--bw2:${t.bw}`,`--card-line:${t.cardLine}`,
+ `--btn-c:${t.btnC}`,`--btn-t:${t.btnT}`,`--btn-w:${t.btnW}`,`--fbtn:${t.btnF}`,`--btn-sh:${t.btnSh}`,`--btn-grad:${t.grad||t.primary}`,
+ `--fh:${s.fh}`,`--fb:${s.fb}`,`--hw:${s.hw}`,`--hs:${s.hs||'normal'}`,`--hc:${t.hc||'none'}`,`--ht:${t.ht||'0'}`,
+ `--hero-btn:${t.heroBtn?t.heroBtn[0]:t.primary}`,`--hero-btn-ink:${t.heroBtn?t.heroBtn[1]:t.onP}`,`--d1:${t.d[0]}`,`--d2:${t.d[1]||t.d[0]}`,`--d3:${t.d[2]||t.d[0]}`
+].join(';')}
+
+function photo(p,col,i){return `<div class="ph" style="background:linear-gradient(160deg,${col},${col}cc);color:${on(col)}"><span><b>Foto ${i+1} · ${esc(p[0])}</b>${esc(p[1])}</span></div>`}
+
+$('#overview').innerHTML=S.map((s,i)=>`
+ <a class="ov" href="#${s.id}" style="${vars(s)}">
+  <div class="face" style="background:${s.t.bg};color:${s.t.title}">
+   <span class="n">Styl ${i+1}</span>
+   <span class="aa" style="font-family:${s.fh};font-weight:${s.hw};font-style:${s.hs||'normal'}">Aa</span>
+  </div>
+  <div class="strip">${s.colors.map(c=>`<i style="background:${c[1]}"></i>`).join('')}</div>
+  <div class="meta"><b>${esc(s.name)}</b><span>${esc(s.cat)}</span></div>
+ </a>`).join('');
+
+$('#boards').innerHTML=S.map((s,i)=>{const t=s.t;
+ const total=s.ratio.reduce((a,r)=>a+r[1],0);
+ return `
+<section class="mb${t.shape==='arch'?' shape-arch':''}" id="${s.id}" style="${vars(s)}" aria-labelledby="${s.id}-h">
+ <div class="mb-in">
+  <div class="mb-head">
+   <div class="mb-logo" aria-hidden="true">${esc(s.name.charAt(0))}</div>
+   <div><h2 id="${s.id}-h">${esc(s.name)}</h2><div class="cat">${esc(s.cat)}</div></div>
+   <div class="no">Styl ${i+1} z ${S.length} · <a href="#overview">přehled</a></div>
+  </div>
+  <div class="mood">
+   <p>${esc(s.mood)}</p>
+   <div class="fits"><span class="lbl">Hodí se pro</span>${s.fits.map(f=>`<span>${esc(f)}</span>`).join('')}</div>
+  </div>
+
+  <div class="sec"><div class="sec-t">Fotografie</div>
+   <div class="photos">${s.photos.map((p,j)=>photo(p,s.ph[j],j)).join('')}</div>
+  </div>
+
+  <div class="sec"><div class="sec-t">Barevná paleta</div>
+   <div class="pal">${s.colors.map(c=>`<button class="sw" type="button" data-hex="${c[1]}" style="background:${c[1]};color:${on(c[1])}" aria-label="${esc(c[0])} ${c[1]}, zkopírovat"><em>${esc(c[2])}</em><b>${esc(c[0])}</b><code>${c[1]}</code></button>`).join('')}</div>
+   <div class="ratio" aria-hidden="true">${s.ratio.map(r=>`<i style="flex:${r[1]};background:${s.colors[r[0]][1]}"></i>`).join('')}</div>
+   <div class="ratio-l"><span>Poměr použití barev na webu</span><span>${s.ratio.map(r=>`${esc(s.colors[r[0]][0])} ${Math.round(r[1]/total*100)} %`).join(' · ')}</span></div>
+  </div>
+
+  <div class="sec"><div class="sec-t">Typografie</div>
+   <div class="type">
+    <div class="card"><div class="k">Nadpisy · ${esc(s.fhN)}</div>
+     <div class="t-h">${esc(s.head)}</div>
+     <div class="alpha">Aa Bb Čč Ďď Ěě Řř Šš Žž Ůů 0123456789</div>
+     <div class="spec">Řez ${s.hw}${s.hs?' kurzíva':''}${t.hc==='uppercase'?' · verzálky':''} · velikost 40–64 px · řádkování 1,05</div>
+    </div>
+    <div class="card"><div class="k">Text · ${esc(s.fbN)}</div>
+     <div class="t-b">${esc(s.body)}</div>
+     <div class="spec">${s.t.mono||s.t.mono2?`<span style="font-family:${s.t.mono?"'IBM Plex Mono'":"'JetBrains Mono'"},monospace">POPISKY · 12 PX · MONO</span><br>`:''}Řez 400 · velikost 16–18 px · řádkování 1,6</div>
+    </div>
+   </div>
+  </div>
+
+  <div class="sec"><div class="sec-t">Tlačítka a prvky</div>
+   <div class="btns">
+    <span class="btn p">Objednat termín</span>
+    <span class="btn s">Zjistit víc</span>
+    <span class="btn a">Napište nám</span>
+    ${t.grad?'<span class="btn g">Vyzkoušet zdarma</span>':''}
+    <span class="field">Váš e-mail</span>
+   </div>
+  </div>
+
+  <div class="sec"><div class="sec-t">Náhled webu</div>
+   <div class="site">
+    <div class="nav"><span class="brand"><i></i>${esc(s.name)}</span><span class="links"><span>O nás</span><span>Služby</span><span>Reference</span><span>Kontakt</span></span><span class="btn p">Kontakt</span></div>
+    <div class="hero">
+     <span class="deco ${t.deco}" aria-hidden="true"></span>
+     <div><div class="k">${esc(s.fits[0])}</div><h3>${esc(s.head)}</h3><p>${esc(s.body)}</p>
+      <div class="btns"><span class="btn ${t.grad?'g':'h'}">Objednat termín</span></div></div>
+     ${photo(s.photos[0],s.ph[2],0).replace('class="ph"','class="ph" aria-hidden="true"')}
+    </div>
+   </div>
+  </div>
+
+  <div class="sec"><div class="sec-t">Charakter značky</div>
+   <div class="tags">${s.tags.map(x=>`<span class="tag">${esc(x)}</span>`).join('')}</div>
+   <div class="dd">
+    <div class="card"><div class="k">Sedí ke stylu</div><ul>${s.do.map(x=>`<li>${esc(x)}</li>`).join('')}</ul></div>
+    <div class="card"><div class="k">Do stylu nepatří</div><ul>${s.dont.map(x=>`<li>${esc(x)}</li>`).join('')}</ul></div>
+   </div>
+  </div>
+ </div>
+</section>`}).join('');
+
+const toast=$('#toast');let tt;
+function say(m){toast.textContent=m;toast.classList.add('on');clearTimeout(tt);tt=setTimeout(()=>toast.classList.remove('on'),1600)}
+document.addEventListener('click',e=>{const b=e.target.closest('.sw');if(!b)return;const h=b.dataset.hex;
+ const fallback=()=>{const r=document.createRange();r.selectNodeContents(b.querySelector('code'));const s=getSelection();s.removeAllRanges();s.addRange(r);say('Kód '+h+' je označený, zkopírujte ho');};
+ try{navigator.clipboard.writeText(h).then(()=>say('Zkopírováno '+h),fallback)}catch(err){fallback()}});
+</script>
