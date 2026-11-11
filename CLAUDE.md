@@ -1,3 +1,15 @@
+## Oddělené projekty – NEMÍCHAT
+
+Tento repozitář (`vladkamarketing-bit/vladka-web`) je **marketingový web Vladky Horákové**.
+
+Existuje ještě druhý, **úplně samostatný projekt**: web Daka (https://dak-web-two.vercel.app/)
+v repozitáři `vladkamarketing-bit/dak-web`. Jsou to dva různé weby a dva různé projekty.
+
+- Před každou prací ověř, ke kterému webu požadavek patří (podle URL, obsahu, názvu sekce).
+- Pracuj **jen** v repozitáři toho webu. Do druhého nezasahuj, nepřenášej mezi nimi
+  soubory, styly, obsah ani nastavení a necommituj do něj.
+- Když není jasné, o který web jde, nejdřív se zeptej.
+
 ## Development
 
 When starting the dev server, use background mode:
