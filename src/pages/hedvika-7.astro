@@ -27,7 +27,11 @@ const marquee = ['Chov', 'Handling', 'Hlídání', 'Bellarmin'];
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@300;400;500;600&display=swap" rel="stylesheet" />
-    <script is:inline>document.documentElement.classList.add('js');</script>
+    <script is:inline>
+      document.documentElement.classList.add('js');
+      // Pojistka: když se hlavní skript nespustí, obsah se i tak zobrazí.
+      setTimeout(() => { if (!window.__bellarminReady) document.documentElement.classList.remove('js'); }, 2500);
+    </script>
   </head>
   <body>
     <div class="grain" aria-hidden="true"></div>
@@ -228,6 +232,7 @@ const marquee = ['Chov', 'Handling', 'Hlídání', 'Bellarmin'];
 
     <script is:inline>
       (() => {
+        window.__bellarminReady = true;
         const root = document.documentElement;
         const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
         const fine = matchMedia('(pointer: fine)').matches;
@@ -423,9 +428,9 @@ const marquee = ['Chov', 'Handling', 'Hlídání', 'Bellarmin'];
       .l2 { right: var(--gutter); bottom: 8vh; color: var(--tone-1); }
       .hero-title .line { opacity: calc(1 - var(--p) * 1.5); transform: translateY(calc(var(--p) * -14vh)); }
       .l2 { transform: translateY(calc(var(--p) * 14vh)); }
-      .js .hero-title .line > span { transform: translateY(105%); transition: transform 1.3s var(--ease); }
-      .js .l2 > span { transition-delay: 0.12s; }
-      .loaded .hero-title .line > span { transform: none; }
+      .hero-title .line > span { animation: lineUp 1.3s var(--ease) both; }
+      .l2 > span { animation-delay: 0.12s; }
+      @keyframes lineUp { from { transform: translateY(105%); } to { transform: none; } }
       .hero-meta {
         position: absolute; z-index: 3; left: var(--gutter); bottom: 9vh; width: min(25rem, 30vw);
         display: grid; gap: 1.4rem; opacity: calc(1 - var(--p) * 3);
@@ -446,8 +451,8 @@ const marquee = ['Chov', 'Handling', 'Hlídání', 'Bellarmin'];
         translate: -50% -50%; border-radius: calc(20px * (1 - var(--p))); overflow: hidden;
         top: calc(52% - 2% * var(--p));
       }
-      .js .hero-media { clip-path: inset(50% 0 50% 0); transition: clip-path 1.4s 0.35s var(--ease); }
-      .loaded .hero-media { clip-path: inset(0 0 0 0); }
+      .hero-media { animation: mediaOpen 1.4s 0.35s var(--ease) both; }
+      @keyframes mediaOpen { from { clip-path: inset(50% 0 50% 0); } to { clip-path: inset(0 0 0 0); } }
       .hero-media img { width: 100%; height: 100%; object-fit: cover; object-position: 62% 50%; scale: calc(1.25 - 0.25 * var(--p)); }
       .hero-caption {
         position: absolute; left: var(--gutter); right: var(--gutter); bottom: 6vh; display: flex; justify-content: space-between; align-items: end;
@@ -614,7 +619,8 @@ const marquee = ['Chov', 'Handling', 'Hlídání', 'Bellarmin'];
         .marquee-track { animation: none; }
         .hero { height: auto; }
         .hero-stage { position: relative; }
-        .js .hero-title .line > span, .js .hero-media, .js [data-reveal] { transition: none; transform: none; opacity: 1; clip-path: none; }
+        .hero-title .line > span, .hero-media { animation: none; }
+        .js [data-reveal] { transition: none; transform: none; opacity: 1; }
         .panel { position: relative; }
       }
     </style>
