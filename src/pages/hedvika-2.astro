@@ -1,0 +1,613 @@
+---
+// Návrh úvodní stránky pro chovatelskou stanici Bellarmin (klientka Hedvika) – varianta 2:
+// místo oranžové tři tóny hnědé (oříšková, světle hnědá, béžová).
+// Samostatná ukázka – nepoužívá layout webu Vladky, neindexuje se.
+const img = '/images/hedvika';
+const nav = [
+  { href: '#chov', label: 'Chov' },
+  { href: '#handling', label: 'Handling' },
+  { href: '#hlidani', label: 'Hlídání' },
+  { href: '#pristup', label: 'O stanici' },
+];
+---
+
+<!doctype html>
+<html lang="cs">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex, nofollow" />
+    <title>Bellarmin — chovatelská stanice</title>
+    <meta name="description" content="Chovatelská stanice Bellarmin: odpovědný chov, profesionální handling na výstavách a hlídání psů v rodinném prostředí." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  </head>
+  <body>
+    <!-- HLAVIČKA -->
+    <header class="top" id="top">
+      <a href="#top" class="brand" aria-label="Bellarmin – úvod">
+        <span class="brand-mark" aria-hidden="true">B</span>
+        <span class="brand-text">
+          <strong>Bellarmin</strong>
+          <small>chovatelská stanice</small>
+        </span>
+      </a>
+      <nav class="nav" aria-label="Hlavní navigace">
+        {nav.map((n) => <a href={n.href}>{n.label}</a>)}
+      </nav>
+      <a href="#kontakt" class="btn btn-sm btn-accent top-cta">Kontakt</a>
+      <button class="burger" aria-label="Otevřít menu" aria-expanded="false" aria-controls="mobile-nav">
+        <span></span><span></span>
+      </button>
+    </header>
+    <nav class="mobile-nav" id="mobile-nav" aria-label="Mobilní navigace">
+      {nav.map((n) => <a href={n.href}>{n.label}</a>)}
+      <a href="#kontakt" class="btn btn-accent">Kontakt</a>
+    </nav>
+
+    <main>
+      <!-- HERO -->
+      <section class="hero">
+        <div class="hero-text">
+          <p class="eyebrow eyebrow-light">Chov · Handling · Hlídání</p>
+          <h1>Přátelský<br /><em>charakter.</em></h1>
+          <p class="lead">
+            Bellarmin je chovatelská stanice, kde se zdraví, povaha a krása
+            berou stejně vážně. Vychováváme štěňata pro život, vodíme psy
+            k úspěchům na výstavách a staráme se o ně, když vy nemůžete.
+          </p>
+          <div class="hero-actions">
+            <a href="#chov" class="btn btn-accent">Plánované vrhy</a>
+            <a href="#sluzby" class="btn btn-ghost">Co nabízíme</a>
+          </div>
+          <div class="tones" aria-hidden="true">
+            <span style="background: var(--brown)"></span><span style="background: var(--tone-1)"></span><span style="background: var(--tone-2)"></span><span style="background: var(--tone-3)"></span>
+          </div>
+        </div>
+        <figure class="hero-photo">
+          <img src={`${img}/hero-setr.webp`} alt="Chovatelka se setrem u vody na podzim" width="828" height="536" fetchpriority="high" />
+          <figcaption>Bellarmin · od štěněte po šampiona</figcaption>
+        </figure>
+      </section>
+
+      <!-- TŘI PILÍŘE -->
+      <section class="pillars" id="sluzby" aria-labelledby="pillars-title">
+        <div class="wrap">
+          <header class="pillars-head">
+            <h2 id="pillars-title">Tři služby, jeden přístup</h2>
+            <p>Chováme, předvádíme i hlídáme se stejnou péčí – zdraví a pohoda psa jsou vždy na prvním místě.</p>
+          </header>
+          <ol class="pillar-list">
+            <li><a href="#chov"><span class="p-title">Chov</span><span class="arrow" aria-hidden="true">→</span></a></li>
+            <li><a href="#handling"><span class="p-title">Handling</span><span class="arrow" aria-hidden="true">→</span></a></li>
+            <li><a href="#hlidani"><span class="p-title">Hlídání</span><span class="arrow" aria-hidden="true">→</span></a></li>
+          </ol>
+        </div>
+      </section>
+
+      <!-- CHOV -->
+      <section class="service service-chov" id="chov" aria-labelledby="chov-title">
+        <div class="wrap service-grid">
+          <figure class="service-photo photo-portrait">
+            <img src={`${img}/chov-svycarsky-pes.webp`} alt="Velký švýcarský salašnický pes s chovatelkou v zimní krajině" width="824" height="984" loading="lazy" />
+          </figure>
+          <div class="service-body">
+            <span class="big-num" aria-hidden="true">01</span>
+            <p class="eyebrow">Chov</p>
+            <h2 id="chov-title">Chováme méně.<br />Zato pořádně.</h2>
+            <p>
+              Každé spojení plánujeme s ohledem na zdraví, povahu a exteriér.
+              Štěňata vyrůstají v rodině, poznávají běžný svět od prvních týdnů
+              a k novým majitelům odcházejí sebevědomá a socializovaná.
+            </p>
+            <ul class="checks">
+              <li><strong>Zdravotně testovaní rodiče</strong> s doloženými výsledky</li>
+              <li><strong>Socializace od narození</strong> – zvuky, lidé, cestování</li>
+              <li><strong>Podpora i po odběru</strong> – jsme tu na telefonu celý psí život</li>
+            </ul>
+            <div class="service-actions">
+              <a href="#kontakt" class="btn btn-dark">Zájem o štěně</a>
+              <a href="#kontakt" class="link">Naši psi a fenky →</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- HANDLING -->
+      <section class="service service-handling" id="handling" aria-labelledby="handling-title">
+        <div class="wrap service-grid reverse">
+          <figure class="service-photo photo-tall">
+            <img src={`${img}/handling-vystava.webp`} alt="Handlerka se setrem a výstavní rozetou před zámkem" width="828" height="1444" loading="lazy" />
+          </figure>
+          <div class="service-body">
+            <span class="big-num" aria-hidden="true">02</span>
+            <p class="eyebrow eyebrow-light">Handling</p>
+            <h2 id="handling-title">V kruhu rozhoduje<br />každá vteřina.</h2>
+            <p>
+              Výstava není jen o krásném psovi. Je o přípravě, kondici, úpravě
+              srsti a klidné ruce, která psa ukáže v nejlepším světle.
+              To vše za vás převezmeme – od tréninku až po kruh.
+            </p>
+            <ol class="steps">
+              <li><span>1</span>Konzultace a posouzení psa</li>
+              <li><span>2</span>Výstavní trénink a úprava srsti</li>
+              <li><span>3</span>Předvedení na výstavě</li>
+            </ol>
+            <div class="service-actions">
+              <a href="#kontakt" class="btn btn-accent">Domluvit handling</a>
+              <a href="#kontakt" class="link link-light">Výstavní kalendář →</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- HLÍDÁNÍ -->
+      <section class="service service-hlidani" id="hlidani" aria-labelledby="hlidani-title">
+        <div class="wrap">
+          <div class="hlidani-head">
+            <div>
+              <span class="big-num" aria-hidden="true">03</span>
+              <p class="eyebrow">Hlídání psů</p>
+              <h2 id="hlidani-title">Odjeďte v klidu.<br />Tady je jako doma.</h2>
+            </div>
+            <p>
+              Hlídáme jen tolik psů, kolik zvládneme opravdu dobře. Mají své
+              pelíšky, společnost a denní program – procházky, hru i odpočinek.
+              A vy dostanete fotku, že je všechno v pořádku.
+            </p>
+          </div>
+          <figure class="wide-photo">
+            <img src={`${img}/hlidani-pelisky.webp`} alt="Psi odpočívají na pelíšcích v místnosti s výstavními trofejemi" width="828" height="563" loading="lazy" />
+          </figure>
+          <ul class="features">
+            <li>
+              <h3>Rodinné prostředí</h3>
+              <p>Žádné kotce ani boxy. Psi bydlí s námi v domě.</p>
+            </li>
+            <li>
+              <h3>Malá skupina</h3>
+              <p>Omezený počet psů, aby se každému dostalo pozornosti.</p>
+            </li>
+            <li>
+              <h3>Zprávy každý den</h3>
+              <p>Fotky a krátká zpráva, jak se váš pes má.</p>
+            </li>
+            <li>
+              <h3>Zkušené ruce</h3>
+              <p>Rozumíme psí řeči, povahám i potřebám různých plemen.</p>
+            </li>
+          </ul>
+          <div class="center">
+            <a href="#kontakt" class="btn btn-dark">Ověřit volný termín</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- PŘÍSTUP / FILOZOFIE -->
+      <section class="manifest" id="pristup" aria-labelledby="manifest-title">
+        <div class="wrap manifest-grid">
+          <p class="eyebrow eyebrow-light">Náš přístup</p>
+          <h2 id="manifest-title">
+            „Pes není výstavní exponát ani projekt.
+            Je to parťák, který si zaslouží to nejlepší –{' '}
+            <em>doma, v kruhu i na cestách.“</em>
+          </h2>
+          <div class="values">
+            <div><strong>Zdraví</strong><span>na prvním místě</span></div>
+            <div><strong>Povaha</strong><span>stejně důležitá jako vzhled</span></div>
+            <div><strong>Respekt</strong><span>ke psům i jejich lidem</span></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- KONTAKT -->
+      <section class="contact" id="kontakt" aria-labelledby="contact-title">
+        <div class="wrap contact-grid">
+          <div>
+            <p class="eyebrow">Kontakt</p>
+            <h2 id="contact-title">Napište nám.<br />Ozveme se do 24 hodin.</h2>
+            <p class="contact-note">
+              Zajímá vás štěně, handling, nebo hledáte hlídání na dovolenou?
+              Napište pár řádků o sobě a svém psovi.
+            </p>
+            <dl class="contact-list">
+              <div><dt>Telefon</dt><dd><a href="tel:+420000000000">+420 000 000 000</a></dd></div>
+              <div><dt>E-mail</dt><dd><a href="mailto:info@bellarmin.cz">info@bellarmin.cz</a></dd></div>
+              <div><dt>Lokalita</dt><dd>Doplnit obec, Česká republika</dd></div>
+            </dl>
+          </div>
+          <form class="form" onsubmit="event.preventDefault(); this.querySelector('.form-ok').hidden = false;">
+            <fieldset class="topics">
+              <legend>Mám zájem o</legend>
+              <label><input type="radio" name="topic" value="chov" checked /><span>Štěně</span></label>
+              <label><input type="radio" name="topic" value="handling" /><span>Handling</span></label>
+              <label><input type="radio" name="topic" value="hlidani" /><span>Hlídání</span></label>
+            </fieldset>
+            <label class="field"><span>Jméno</span><input type="text" name="name" autocomplete="name" required /></label>
+            <label class="field"><span>E-mail nebo telefon</span><input type="text" name="contact" required /></label>
+            <label class="field"><span>Zpráva</span><textarea name="message" rows="4" placeholder="Plemeno, věk psa, termín…"></textarea></label>
+            <button type="submit" class="btn btn-accent btn-block">Odeslat zprávu</button>
+            <p class="form-ok" hidden>Děkujeme, zpráva je na cestě. (ukázka – formulář zatím nic neodesílá)</p>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <footer class="foot">
+      <div class="wrap foot-grid">
+        <a href="#top" class="brand brand-light">
+          <span class="brand-mark" aria-hidden="true">B</span>
+          <span class="brand-text"><strong>Bellarmin</strong><small>chovatelská stanice</small></span>
+        </a>
+        <nav aria-label="Patička">
+          {nav.map((n) => <a href={n.href}>{n.label}</a>)}
+          <a href="#kontakt">Kontakt</a>
+        </nav>
+        <p>© {new Date().getFullYear()} Bellarmin. Chovatelská stanice registrovaná pod ČMKU / FCI.</p>
+      </div>
+    </footer>
+
+    <script is:inline>
+      const burger = document.querySelector('.burger');
+      const mnav = document.getElementById('mobile-nav');
+      const toggle = (open) => {
+        burger.setAttribute('aria-expanded', String(open));
+        document.body.classList.toggle('menu-open', open);
+      };
+      burger.addEventListener('click', () => toggle(burger.getAttribute('aria-expanded') !== 'true'));
+      mnav.querySelectorAll('a').forEach((a) => a.addEventListener('click', () => toggle(false)));
+      const top = document.querySelector('.top');
+      const onScroll = () => top.classList.toggle('scrolled', window.scrollY > 40);
+      window.addEventListener('scroll', onScroll, { passive: true });
+      onScroll();
+    </script>
+
+    <style is:global>
+      :root {
+        --espresso: #3d291b;
+        --brown: #593a24;
+        --tone-1: #8a5a36; /* oříšková hnědá */
+        --tone-2: #b48a62; /* světle hnědá */
+        --tone-3: #dcc5a8; /* béžová */
+        --forest: #2e4536;
+        --taupe: #8b8178;
+        --cream: #faf4e9;
+        --white: #ffffff;
+        --display: 'Oswald', 'Arial Narrow', sans-serif;
+        --body: 'Manrope', system-ui, sans-serif;
+        --gutter: clamp(16px, 4vw, 56px);
+        --head-h: 76px;
+      }
+      *, *::before, *::after { box-sizing: border-box; }
+      html { scroll-behavior: smooth; scroll-padding-top: 80px; }
+      body {
+        margin: 0;
+        background: var(--cream);
+        color: var(--espresso);
+        font-family: var(--body);
+        font-size: 17px;
+        line-height: 1.65;
+        -webkit-font-smoothing: antialiased;
+        overflow-x: hidden;
+      }
+      img { display: block; max-width: 100%; }
+      a { color: inherit; }
+      h1, h2, h3 {
+        font-family: var(--display);
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.005em;
+        line-height: 1.02;
+        margin: 0;
+      }
+      h2 { font-size: clamp(2.1rem, 4.6vw, 3.6rem); }
+      em { font-style: normal; color: var(--tone-1); }
+      p { margin: 0; }
+      .wrap { max-width: 1240px; margin: 0 auto; padding: 0 var(--gutter); }
+      .center { text-align: center; }
+
+      .eyebrow {
+        font-family: var(--body);
+        font-size: 0.78rem;
+        font-weight: 700;
+        letter-spacing: 0.22em;
+        text-transform: uppercase;
+        color: var(--tone-2);
+        margin-bottom: 1.1rem;
+        display: flex;
+        align-items: center;
+        gap: 0.8rem;
+      }
+      .eyebrow::before { content: ''; width: 28px; height: 2px; background: currentColor; }
+      .eyebrow-light { color: var(--tone-2); }
+
+      /* Tlačítka */
+      .btn {
+        display: inline-flex; align-items: center; justify-content: center;
+        gap: 0.5rem;
+        padding: 0.95rem 1.7rem;
+        font-family: var(--display);
+        font-size: 0.95rem;
+        font-weight: 500;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        text-decoration: none;
+        border: 2px solid transparent;
+        border-radius: 0;
+        cursor: pointer;
+        transition: background 0.2s, color 0.2s, border-color 0.2s, transform 0.2s;
+      }
+      .btn:hover { transform: translateY(-2px); }
+      .btn-sm { padding: 0.6rem 1.2rem; font-size: 0.85rem; }
+      .btn-accent { background: var(--tone-1); color: var(--white); }
+      .btn-accent:hover { background: var(--brown); }
+      .btn-dark { background: var(--espresso); color: var(--cream); }
+      .btn-dark:hover { background: var(--brown); }
+      .btn-ghost { border-color: rgba(250, 244, 233, 0.4); color: var(--cream); }
+      .btn-ghost:hover { border-color: var(--cream); }
+      .btn-block { width: 100%; }
+      .link {
+        font-family: var(--display); font-weight: 500; letter-spacing: 0.1em;
+        text-transform: uppercase; font-size: 0.9rem; text-decoration: none;
+        color: var(--brown); border-bottom: 2px solid var(--tone-2); padding-bottom: 2px;
+      }
+      .link-light { color: var(--cream); }
+
+      /* Hlavička */
+      .top {
+        position: fixed; inset: 0 0 auto 0; z-index: 50;
+        display: flex; align-items: center; gap: 2rem;
+        padding: 1.1rem var(--gutter);
+        color: var(--cream);
+        background: var(--espresso);
+        box-shadow: 0 1px 0 rgba(250, 244, 233, 0.08);
+        transition: background 0.3s, padding 0.3s, box-shadow 0.3s;
+      }
+      .top.scrolled, .menu-open .top {
+        background: var(--espresso);
+        padding-top: 0.7rem; padding-bottom: 0.7rem;
+        box-shadow: 0 6px 24px rgba(0, 0, 0, 0.18);
+      }
+      .brand { display: flex; align-items: center; gap: 0.75rem; text-decoration: none; margin-right: auto; }
+      .brand-mark {
+        width: 42px; height: 42px; display: grid; place-items: center;
+        border: 2px solid var(--tone-1); color: var(--tone-1);
+        font-family: var(--display); font-weight: 700; font-size: 1.4rem;
+      }
+      .brand-text { display: flex; flex-direction: column; line-height: 1.05; }
+      .brand-text strong {
+        font-family: var(--display); font-weight: 600; font-size: 1.35rem;
+        letter-spacing: 0.16em; text-transform: uppercase;
+      }
+      .brand-text small { font-size: 0.68rem; letter-spacing: 0.2em; text-transform: uppercase; opacity: 0.7; }
+      .nav { display: flex; gap: 2.2rem; }
+      .nav a, .mobile-nav a:not(.btn) {
+        font-family: var(--display); font-size: 0.92rem; font-weight: 500;
+        letter-spacing: 0.14em; text-transform: uppercase; text-decoration: none;
+        position: relative;
+      }
+      .nav a::after {
+        content: ''; position: absolute; left: 0; bottom: -6px; height: 2px; width: 0;
+        background: var(--tone-1); transition: width 0.25s;
+      }
+      .nav a:hover::after { width: 100%; }
+      .burger { display: none; background: none; border: 0; padding: 10px; cursor: pointer; }
+      .burger span { display: block; width: 26px; height: 2px; background: var(--cream); margin: 6px 0; transition: transform 0.25s; }
+      .menu-open .burger span:first-child { transform: translateY(4px) rotate(45deg); }
+      .menu-open .burger span:last-child { transform: translateY(-4px) rotate(-45deg); }
+      .mobile-nav {
+        position: fixed; inset: 0; z-index: 40; background: var(--espresso); color: var(--cream);
+        display: flex; flex-direction: column; justify-content: center; gap: 1.6rem;
+        padding: 0 var(--gutter);
+        opacity: 0; pointer-events: none; transition: opacity 0.3s;
+      }
+      .mobile-nav a:not(.btn) { font-size: 2rem; }
+      .menu-open .mobile-nav { opacity: 1; pointer-events: auto; }
+
+      /* Hero */
+      .hero {
+        display: grid; grid-template-columns: minmax(0, 42fr) minmax(0, 58fr);
+        min-height: min(100vh, 860px);
+        padding-top: var(--head-h);
+        background: var(--espresso); color: var(--cream);
+      }
+      .hero-text {
+        display: flex; flex-direction: column; justify-content: center;
+        padding: 3.5rem clamp(1.5rem, 4vw, 4.5rem) 4rem var(--gutter);
+        position: relative;
+      }
+      .hero h1 { font-size: clamp(3rem, 6.4vw, 6.2rem); margin-bottom: 1.8rem; }
+      .lead { font-size: 1.08rem; max-width: 30rem; color: rgba(250, 244, 233, 0.82); margin-bottom: 2.4rem; }
+      .hero-actions { display: flex; flex-wrap: wrap; gap: 0.9rem; }
+      .hero-photo { margin: 0; position: relative; overflow: hidden; }
+      .hero-photo img { width: 100%; height: 100%; object-fit: cover; object-position: 68% 50%; }
+      .hero-photo::before {
+        content: ''; position: absolute; inset: 0 auto 0 0; width: 22%; z-index: 1;
+        background: linear-gradient(90deg, var(--espresso), transparent);
+      }
+      .hero-photo figcaption {
+        position: absolute; right: 1.5rem; bottom: 1.5rem; z-index: 2;
+        font-size: 0.72rem; letter-spacing: 0.2em; text-transform: uppercase;
+        color: var(--cream); background: rgba(61, 41, 27, 0.55); padding: 0.45rem 0.8rem;
+        backdrop-filter: blur(6px);
+      }
+
+      /* Pilíře */
+      .pillars { padding: clamp(2.8rem, 5vw, 4rem) 0; }
+      .pillars-head {
+        display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between;
+        gap: 0.6rem 2.5rem; margin-bottom: 1.8rem;
+      }
+      .pillars-head h2 { font-size: clamp(1.7rem, 3vw, 2.4rem); }
+      .pillars-head p { color: var(--brown); max-width: 34rem; font-size: 0.97rem; }
+      .pillar-list {
+        list-style: none; margin: 0; padding: 0;
+        display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1rem;
+      }
+      .pillar-list a {
+        display: flex; align-items: center; gap: 1rem;
+        padding: 1.4rem 1.6rem; background: var(--white);
+        border-left: 4px solid var(--tone-1);
+        text-decoration: none; transition: background 0.25s, color 0.25s;
+      }
+      .pillar-list a:hover { background: var(--espresso); color: var(--cream); }
+      .num { font-family: var(--display); font-size: 0.95rem; color: var(--tone-1); letter-spacing: 0.1em; }
+      .p-title { font-family: var(--display); font-size: clamp(1.5rem, 2.4vw, 2rem); font-weight: 600; text-transform: uppercase; line-height: 1; }
+      .arrow { margin-left: auto; font-size: 1.5rem; color: var(--tone-1); transition: transform 0.25s; }
+      .pillar-list a:hover .arrow { transform: translateX(6px); }
+
+      /* Služby */
+      .service { padding: clamp(4.5rem, 9vw, 8rem) 0; position: relative; }
+      .service-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: clamp(2.5rem, 6vw, 6rem); align-items: center; }
+      .service-grid.reverse .service-photo { order: 2; }
+      .service-photo { margin: 0; position: relative; }
+      .service-photo img { width: 100%; height: 100%; object-fit: cover; }
+      .photo-portrait { aspect-ratio: 4 / 5; }
+      .photo-tall { aspect-ratio: 4 / 5; }
+      .photo-tall img { object-position: 50% 62%; }
+      .service-photo::after {
+        content: ''; position: absolute; inset: 1.2rem -1.2rem -1.2rem 1.2rem;
+        border: 2px solid var(--tone-2); z-index: -1;
+      }
+      .service-grid.reverse .service-photo::after { inset: 1.2rem 1.2rem -1.2rem -1.2rem; border-color: var(--tone-1); }
+      .service-body { position: relative; }
+      .service-body h2 { margin-bottom: 1.5rem; }
+      .service-body > p { color: var(--brown); max-width: 34rem; margin-bottom: 1.8rem; }
+      .big-num {
+        display: block; font-family: var(--display); font-weight: 700; line-height: 0.8;
+        font-size: clamp(5rem, 10vw, 8.5rem); color: transparent;
+        -webkit-text-stroke: 1.5px var(--tone-2); margin-bottom: 1.2rem;
+      }
+      .checks { list-style: none; padding: 0; margin: 0 0 2.2rem; display: grid; gap: 0.85rem; }
+      .checks li { padding-left: 2rem; position: relative; }
+      .checks li::before {
+        content: ''; position: absolute; left: 0; top: 0.55em; width: 14px; height: 14px;
+        background: var(--tone-1); clip-path: polygon(0 50%, 40% 90%, 100% 10%, 100% 30%, 40% 100%, 0 70%);
+      }
+      .service-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 1.6rem; }
+
+      .service-chov { background: var(--white); }
+      .service-handling { background: var(--forest); color: var(--cream); isolation: isolate; }
+      .service-handling .service-body > p { color: rgba(250, 244, 233, 0.8); }
+      .steps { list-style: none; padding: 0; margin: 0 0 2.2rem; display: grid; gap: 0; }
+      .steps li {
+        display: flex; align-items: center; gap: 1.1rem; padding: 0.95rem 0;
+        border-bottom: 1px solid rgba(250, 244, 233, 0.18);
+        font-family: var(--display); font-size: 1.15rem; letter-spacing: 0.06em; text-transform: uppercase;
+      }
+      .steps span {
+        width: 2.1rem; height: 2.1rem; flex: none; display: grid; place-items: center;
+        border: 1.5px solid var(--tone-1); color: var(--tone-1); font-size: 0.95rem;
+      }
+      .service-chov { isolation: isolate; }
+
+      .hlidani-head { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 3rem; align-items: end; margin-bottom: 3rem; }
+      .hlidani-head > p { color: var(--brown); }
+      .wide-photo { margin: 0 0 3.5rem; aspect-ratio: 21 / 9; overflow: hidden; }
+      .wide-photo img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 62%; }
+      .features { list-style: none; padding: 0; margin: 0 0 3.5rem; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 2rem; }
+      .features li { border-top: 3px solid var(--tone-1); padding-top: 1.2rem; }
+      .features h3 { font-size: 1.3rem; margin-bottom: 0.6rem; }
+      .features p { color: var(--taupe); font-size: 0.97rem; }
+
+      /* Manifest */
+      .manifest { background: var(--espresso); color: var(--cream); padding: clamp(4.5rem, 9vw, 8rem) 0; }
+      .manifest h2 { font-size: clamp(1.9rem, 3.8vw, 3.1rem); line-height: 1.12; max-width: 62rem; margin-bottom: 3.5rem; }
+      .values { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1px; background: rgba(250, 244, 233, 0.15); }
+      .values div { background: var(--espresso); padding: 1.5rem 1.5rem 1.5rem 0; display: flex; flex-direction: column; }
+      .values div + div { padding-left: 1.5rem; }
+      .values strong { font-family: var(--display); font-size: 1.6rem; text-transform: uppercase; font-weight: 600; color: var(--tone-2); }
+      .values span { color: rgba(250, 244, 233, 0.7); }
+
+      /* Kontakt */
+      .contact { padding: clamp(4.5rem, 9vw, 8rem) 0; }
+      .contact-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: clamp(2.5rem, 6vw, 6rem); align-items: start; }
+      .contact h2 { margin-bottom: 1.4rem; }
+      .contact-note { color: var(--brown); max-width: 30rem; margin-bottom: 2.4rem; }
+      .contact-list { margin: 0; display: grid; gap: 1.1rem; }
+      .contact-list div { display: grid; grid-template-columns: 7rem minmax(0, 1fr); border-bottom: 1px solid rgba(61, 41, 27, 0.15); padding-bottom: 1rem; }
+      .contact-list dt { font-size: 0.75rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--taupe); padding-top: 0.2rem; }
+      .contact-list dd { margin: 0; font-weight: 600; }
+      .contact-list a { text-decoration: none; }
+      .contact-list a:hover { color: var(--tone-1); }
+      .form { background: var(--white); padding: clamp(1.5rem, 4vw, 2.8rem); border-top: 4px solid var(--tone-1); display: grid; gap: 1.2rem; }
+      .topics { border: 0; padding: 0; margin: 0; display: flex; flex-wrap: wrap; gap: 0.6rem; }
+      .topics legend { font-size: 0.75rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--taupe); margin-bottom: 0.7rem; }
+      .topics input { position: absolute; opacity: 0; }
+      .topics span {
+        display: inline-block; padding: 0.55rem 1.1rem; border: 1.5px solid rgba(61, 41, 27, 0.25);
+        font-family: var(--display); letter-spacing: 0.1em; text-transform: uppercase; font-size: 0.88rem; cursor: pointer;
+      }
+      .topics input:checked + span { background: var(--espresso); border-color: var(--espresso); color: var(--cream); }
+      .topics input:focus-visible + span { outline: 2px solid var(--tone-1); outline-offset: 2px; }
+      .field { display: grid; gap: 0.4rem; }
+      .field span { font-size: 0.75rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--taupe); }
+      .field input, .field textarea {
+        font: inherit; color: inherit; background: var(--cream); border: 0; border-bottom: 2px solid rgba(61, 41, 27, 0.2);
+        padding: 0.8rem 0.9rem; border-radius: 0; resize: vertical;
+      }
+      .field input:focus, .field textarea:focus { outline: none; border-bottom-color: var(--tone-1); }
+      .form-ok { color: var(--forest); font-weight: 600; }
+
+      /* Patička */
+      .foot { background: var(--espresso); color: rgba(250, 244, 233, 0.7); padding: 3rem 0; font-size: 0.9rem; }
+      .foot-grid { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 1.5rem 3rem; }
+      .foot .brand { margin-right: 0; color: var(--cream); }
+      .foot nav { display: flex; flex-wrap: wrap; gap: 1.6rem; }
+      .foot nav a { text-decoration: none; font-family: var(--display); letter-spacing: 0.12em; text-transform: uppercase; font-size: 0.85rem; }
+      .foot nav a:hover { color: var(--tone-1); }
+      .foot p { width: 100%; padding-top: 1.5rem; border-top: 1px solid rgba(250, 244, 233, 0.12); font-size: 0.8rem; }
+
+      /* Varianta 2 – tónování na tmavém pozadí */
+      .hero em, .manifest em, .values strong { color: var(--tone-3); }
+      .hero .btn-accent, .service-handling .btn-accent, .top .btn-accent, .mobile-nav .btn-accent { background: var(--tone-3); color: var(--espresso); }
+      .hero .btn-accent:hover, .service-handling .btn-accent:hover, .top .btn-accent:hover, .mobile-nav .btn-accent:hover { background: var(--white); }
+      .brand-mark { border-color: var(--tone-2); color: var(--tone-3); }
+      .nav a::after { background: var(--tone-3); }
+      .pillar-list li:nth-child(2) a { border-left-color: var(--tone-2); }
+      .pillar-list li:nth-child(3) a { border-left-color: var(--tone-3); }
+      .pillar-list a:hover .arrow { color: var(--tone-3); }
+      .service-handling .steps span { border-color: var(--tone-3); color: var(--tone-3); }
+      .service-handling .service-photo::after { border-color: var(--tone-3); }
+      .service-handling .big-num { -webkit-text-stroke-color: var(--tone-3); }
+      .features li:nth-child(2) { border-top-color: var(--tone-2); }
+      .features li:nth-child(3) { border-top-color: var(--tone-3); }
+      .features li:nth-child(4) { border-top-color: var(--brown); }
+      .foot nav a:hover { color: var(--tone-3); }
+      .tones { display: flex; gap: 0; margin-top: 2.6rem; max-width: 18rem; }
+      .tones span { flex: 1; height: 6px; }
+
+      /* Responsivita */
+      @media (max-width: 980px) {
+        .nav, .top-cta { display: none; }
+        .burger { display: block; }
+        .hero { grid-template-columns: 1fr; min-height: 0; }
+        .hero-photo { order: -1; aspect-ratio: 4 / 3.4; }
+        .hero-photo::before { inset: auto 0 0 0; width: 100%; height: 35%; background: linear-gradient(0deg, var(--espresso), transparent); }
+        .hero-photo figcaption { display: none; }
+        .hero-text { padding: 1rem var(--gutter) 4rem; }
+        :root { --head-h: 66px; }
+        .service-grid, .hlidani-head, .contact-grid { grid-template-columns: 1fr; }
+        .service-grid.reverse .service-photo { order: 0; }
+        .service-photo { margin-right: 1.2rem; }
+        .service-grid.reverse .service-photo { margin: 0 0 0 1.2rem; }
+        .features { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+        .wide-photo { aspect-ratio: 4 / 3; }
+      }
+      @media (max-width: 560px) {
+        body { font-size: 16px; }
+        .features, .values { grid-template-columns: 1fr; }
+        .values div, .values div + div { padding: 1.2rem 0; }
+        .pillar-list { grid-template-columns: 1fr; gap: 0.6rem; }
+        .pillar-list a { padding: 1.1rem 1.2rem; }
+        .contact-list div { grid-template-columns: 1fr; gap: 0.2rem; }
+        .btn { padding: 0.9rem 1.3rem; }
+      }
+      @media (prefers-reduced-motion: reduce) {
+        html { scroll-behavior: auto; }
+        * { transition: none !important; }
+      }
+    </style>
+  </body>
+</html>
