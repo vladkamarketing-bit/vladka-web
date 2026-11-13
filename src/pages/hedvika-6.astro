@@ -1,6 +1,8 @@
 ---
 // Návrh úvodní stránky pro chovatelskou stanici Bellarmin (klientka Hedvika) – varianta 6:
 // grafika varianty 5, ale fotky bez bílých rámů a plochy s plastičtějším dojmem (vrstvené stíny, světlé hrany).
+// Animace: nástup úvodu, jemné vznášení září, odhalování sekcí, kreslení ikon, dobarvování citátu,
+// parallax a 3D náklon fotek pod myší, zvednutí karet při najetí.
 // Původní popis varianty 5:
 // styl variant 3/4, hero inspirované referencí: zaoblená karta, fotka v rámu s velkým zaoblením vlevo,
 // nadpis přesahující přes fotku, jemné barevné záře.
@@ -20,6 +22,10 @@ const nav = [
     <meta name="robots" content="noindex, nofollow" />
     <title>Bellarmin — chovatelská stanice</title>
     <meta name="description" content="Chovatelská stanice Bellarmin: odpovědný chov, profesionální handling na výstavách a hlídání psů v rodinném prostředí." />
+    <script is:inline>
+      document.documentElement.classList.add('js');
+      setTimeout(() => { if (!window.__bmReady) document.documentElement.classList.remove('js'); }, 2500);
+    </script>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet" />
@@ -56,7 +62,7 @@ const nav = [
           <span class="glow glow-b" aria-hidden="true"></span>
           <div class="hero-text">
             <div class="dots" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i></div>
-            <h1>Přátelský<br /><span class="soft">charakter</span></h1>
+            <h1><span class="ln"><span>Přátelský</span></span><span class="ln"><span class="soft">charakter</span></span></h1>
             <p class="lead">
               Chovatelská stanice Bellarmin – chov, handling na výstavách
               a hlídání psů se stejnou péčí a respektem.
@@ -75,11 +81,11 @@ const nav = [
       <!-- TŘI SLUŽBY -->
       <section class="services" id="sluzby" aria-labelledby="services-title">
         <div class="wrap">
-          <header class="services-head">
+          <header class="services-head" data-reveal>
             <h2 id="services-title">Tři služby, jeden přístup</h2>
             <p>Chováme, předvádíme i hlídáme se stejnou péčí – zdraví a pohoda psa jsou vždy na prvním místě.</p>
           </header>
-          <ul class="service-row">
+          <ul class="service-row" data-reveal="stagger">
             <li>
               <a href="#chov">
                 <svg viewBox="0 0 48 48" aria-hidden="true"><ellipse cx="24" cy="30" rx="9" ry="8" /><ellipse cx="13" cy="19" rx="3.6" ry="4.6" /><ellipse cx="20" cy="12.5" rx="3.6" ry="4.6" /><ellipse cx="28" cy="12.5" rx="3.6" ry="4.6" /><ellipse cx="35" cy="19" rx="3.6" ry="4.6" /></svg>
@@ -105,12 +111,12 @@ const nav = [
       <!-- CHOV -->
       <section class="block chov" id="chov" aria-labelledby="chov-title">
         <div class="wrap split">
-          <div class="split-photo">
+          <div class="split-photo" data-reveal="photo">
             <figure class="photo">
               <img src={`${img}/chov-svycarsky-pes.webp`} alt="Velký švýcarský salašnický pes s chovatelkou v zimní krajině" width="824" height="984" loading="lazy" />
             </figure>
           </div>
-          <div class="split-text">
+          <div class="split-text" data-reveal="stagger">
             <p class="label">Chov</p>
             <h2 id="chov-title">Chováme méně.<br /><span class="soft">Zato pořádně.</span></h2>
             <p class="body">
@@ -134,12 +140,12 @@ const nav = [
       <!-- HANDLING -->
       <section class="block handling" id="handling" aria-labelledby="handling-title">
         <div class="wrap split split-reverse">
-          <div class="split-photo">
+          <div class="split-photo" data-reveal="photo">
             <figure class="photo">
               <img src={`${img}/handling-vystava.webp`} alt="Handlerka se setrem a výstavní rozetou před zámkem" width="828" height="1444" loading="lazy" />
             </figure>
           </div>
-          <div class="split-text">
+          <div class="split-text" data-reveal="stagger">
             <p class="label label-light">Handling</p>
             <h2 id="handling-title">V kruhu rozhoduje<br /><span class="soft">každá vteřina.</span></h2>
             <p class="body">
@@ -163,15 +169,15 @@ const nav = [
       <!-- HLÍDÁNÍ -->
       <section class="block hlidani" id="hlidani" aria-labelledby="hlidani-title">
         <div class="wrap">
-          <header class="center-head">
+          <header class="center-head" data-reveal>
             <p class="label">Hlídání psů</p>
             <h2 id="hlidani-title">Odjeďte v klidu. <span class="soft">Tady je jako doma.</span></h2>
           </header>
           <div class="stay">
-            <figure class="stay-photo">
+            <figure class="stay-photo" data-reveal="photo">
               <img src={`${img}/hlidani-pelisky.webp`} alt="Psi odpočívají na pelíšcích v místnosti s výstavními trofejemi" width="828" height="563" loading="lazy" />
             </figure>
-            <div class="stay-card">
+            <div class="stay-card" data-reveal="card">
               <p>
                 Hlídáme jen tolik psů, kolik zvládneme opravdu dobře. Mají své
                 pelíšky, společnost a denní program – a vy každý den fotku,
@@ -192,12 +198,9 @@ const nav = [
       <!-- PŘÍSTUP -->
       <section class="quote" id="pristup" aria-labelledby="quote-title">
         <div class="wrap quote-inner">
-          <span class="quote-mark" aria-hidden="true"><i></i><i></i><i></i></span>
-          <h2 id="quote-title">
-            Pes není výstavní exponát ani projekt. Je to parťák, který si zaslouží
-            to nejlepší – <span class="soft">doma, v kruhu i na cestách.</span>
-          </h2>
-          <ul class="values">
+          <span class="quote-mark" aria-hidden="true" data-reveal="stagger"><i></i><i></i><i></i></span>
+          <h2 id="quote-title" class="reveal-words"><span class="w">Pes </span><span class="w">není </span><span class="w">výstavní </span><span class="w">exponát </span><span class="w">ani </span><span class="w">projekt. </span><span class="w">Je </span><span class="w">to </span><span class="w">parťák, </span><span class="w">který </span><span class="w">si </span><span class="w">zaslouží </span><span class="w">to </span><span class="w">nejlepší </span><span class="w">– </span><span class="w soft">doma, </span><span class="w soft">v </span><span class="w soft">kruhu </span><span class="w soft">i </span><span class="w soft">na </span><span class="w soft">cestách. </span></h2>
+          <ul class="values" data-reveal="stagger">
             <li>Zdraví na prvním místě</li>
             <li>Povaha stejně důležitá jako vzhled</li>
             <li>Respekt ke psům i jejich lidem</li>
@@ -208,7 +211,7 @@ const nav = [
       <!-- KONTAKT -->
       <section class="contact" id="kontakt" aria-labelledby="contact-title">
         <div class="wrap">
-          <div class="contact-card">
+          <div class="contact-card" data-reveal="card">
             <div class="contact-info">
               <p class="label">Kontakt</p>
               <h2 id="contact-title">Napište nám.<br /><span class="soft">Ozveme se do 24 hodin.</span></h2>
@@ -260,10 +263,68 @@ const nav = [
       };
       burger.addEventListener('click', () => toggle(burger.getAttribute('aria-expanded') !== 'true'));
       mnav.querySelectorAll('a').forEach((a) => a.addEventListener('click', () => toggle(false)));
-      const top = document.querySelector('.top');
-      const onScroll = () => top.classList.toggle('scrolled', window.scrollY > 30);
+      const topBar = document.querySelector('.top');
+      const onScroll = () => topBar.classList.toggle('scrolled', window.scrollY > 30);
       window.addEventListener('scroll', onScroll, { passive: true });
       onScroll();
+
+      (() => {
+        window.__bmReady = true;
+        const root = document.documentElement;
+        const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+        const els = [...document.querySelectorAll('[data-reveal]')];
+        if (reduce) { els.forEach((el) => el.classList.add('in')); document.querySelectorAll('.reveal-words .w').forEach((w) => w.classList.add('on')); return; }
+
+        /* Odhalování sekcí */
+        const io = new IntersectionObserver((entries) => entries.forEach((e) => {
+          if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+        }), { threshold: 0.12, rootMargin: '0px 0px -6% 0px' });
+        els.forEach((el) => io.observe(el));
+        const revealCheck = () => els.forEach((el) => { if (!el.classList.contains('in') && el.getBoundingClientRect().top < innerHeight * 0.9) el.classList.add('in'); });
+
+        /* Stagger – postupné zpoždění dětí */
+        document.querySelectorAll('[data-reveal="stagger"]').forEach((el) => [...el.children].forEach((c, i) => c.style.setProperty('--i', i)));
+
+        /* Scroll: parallax fotek, dobarvení citátu */
+        const imgs = [...document.querySelectorAll('.hero-frame img, .photo img, .stay-photo img')];
+        const words = [...document.querySelectorAll('.reveal-words')];
+        let tick = false;
+        const update = () => {
+          tick = false; const vh = innerHeight;
+          imgs.forEach((im) => {
+            const r = im.parentElement.getBoundingClientRect();
+            if (r.bottom < 0 || r.top > vh) return;
+            const c = (r.top + r.height / 2 - vh / 2) / vh;
+            im.style.setProperty('--py', (c * -5).toFixed(2) + '%');
+          });
+          words.forEach((b) => {
+            const r = b.getBoundingClientRect();
+            const prog = Math.min(1, Math.max(0, (vh * 0.82 - r.top) / (r.height + vh * 0.3)));
+            const ws = b.children;
+            for (let i = 0; i < ws.length; i++) ws[i].classList.toggle('on', i / ws.length < prog);
+          });
+          revealCheck();
+        };
+        addEventListener('scroll', () => { if (!tick) { tick = true; requestAnimationFrame(update); } }, { passive: true });
+        addEventListener('resize', update);
+        update();
+
+        /* 3D náklon fotek pod myší */
+        if (matchMedia('(pointer: fine)').matches) {
+          document.querySelectorAll('.hero-frame, .photo, .stay-photo').forEach((el) => {
+            el.addEventListener('mousemove', (e) => {
+              const r = el.getBoundingClientRect();
+              const x = (e.clientX - r.left) / r.width - 0.5, y = (e.clientY - r.top) / r.height - 0.5;
+              el.style.setProperty('--rx', (y * -5).toFixed(2) + 'deg');
+              el.style.setProperty('--ry', (x * 6).toFixed(2) + 'deg');
+              el.style.setProperty('--gx', ((x + 0.5) * 100).toFixed(1) + '%');
+              el.style.setProperty('--gy', ((y + 0.5) * 100).toFixed(1) + '%');
+              el.classList.add('tilting');
+            });
+            el.addEventListener('mouseleave', () => { el.style.setProperty('--rx', '0deg'); el.style.setProperty('--ry', '0deg'); el.classList.remove('tilting'); });
+          });
+        }
+      })();
     </script>
 
     <style is:global>
@@ -601,6 +662,97 @@ const nav = [
       .dots i { box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.6), 0 1px 2px rgba(61, 41, 27, 0.3); }
       .handling { background: radial-gradient(120% 80% at 30% 0%, #6a4630 0%, var(--brown) 55%, #4a301e 100%); }
       .quote { background: linear-gradient(180deg, #f3e8d8 0%, var(--sand) 100%); box-shadow: inset 0 12px 30px -20px rgba(61, 41, 27, 0.25), inset 0 -12px 30px -20px rgba(61, 41, 27, 0.25); }
+      /* ===== Varianta 6 – animace ===== */
+      :root { --ease: cubic-bezier(0.22, 1, 0.36, 1); }
+      /* Úvod – nástup (čisté CSS, nezávisí na skriptu) */
+      .hero h1 .ln { display: block; overflow: hidden; padding-bottom: 0.08em; margin-bottom: -0.08em; }
+      .hero h1 .ln > span { display: block; animation: lnUp 1.2s var(--ease) both; }
+      .hero h1 .ln + .ln > span { animation-delay: 0.12s; }
+      @keyframes lnUp { from { transform: translateY(108%); } to { transform: none; } }
+      .dots i { animation: dotPop 0.6s var(--ease) both; }
+      .dots i:nth-child(1) { animation-delay: 0.05s; } .dots i:nth-child(2) { animation-delay: 0.1s; } .dots i:nth-child(3) { animation-delay: 0.15s; }
+      .dots i:nth-child(4) { animation-delay: 0.2s; } .dots i:nth-child(5) { animation-delay: 0.25s; } .dots i:nth-child(6) { animation-delay: 0.3s; }
+      @keyframes dotPop { from { transform: scale(0); opacity: 0; } to { transform: none; opacity: 1; } }
+      .hero .lead, .hero .actions { animation: fadeUp 1s var(--ease) both; }
+      .hero .lead { animation-delay: 0.35s; } .hero .actions { animation-delay: 0.5s; }
+      @keyframes fadeUp { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: none; } }
+      .hero-frame { animation: frameIn 1.5s 0.2s var(--ease) both; }
+      @keyframes frameIn { from { opacity: 0; translate: 14% 0; clip-path: inset(0 0 0 100%); } to { opacity: 1; translate: 0 0; clip-path: inset(0 0 0 0); } }
+      .hero-card { animation: cardIn 1.1s var(--ease) both; }
+      @keyframes cardIn { from { opacity: 0; transform: translateY(18px) scale(0.985); } to { opacity: 1; transform: none; } }
+      .glow-a { animation: drift1 16s ease-in-out infinite alternate; }
+      .glow-b { animation: drift2 19s ease-in-out infinite alternate; }
+      @keyframes drift1 { to { transform: translate(-12%, -10%) scale(1.15); } }
+      @keyframes drift2 { to { transform: translate(18%, 14%) scale(1.2); } }
+
+      /* Fotky – parallax uvnitř, 3D náklon, odlesk pod myší */
+      .hero-frame, .photo, .stay-photo { overflow: hidden; transform: perspective(1200px) rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg)); transition: transform 0.6s var(--ease), box-shadow 0.6s var(--ease); will-change: transform; }
+      .tilting { transition: transform 0.15s linear, box-shadow 0.6s var(--ease); }
+      .hero-frame img, .photo img, .stay-photo img { transform: translateY(var(--py, 0%)) scale(1.1); transition: transform 0.2s linear; }
+      .hero-frame::before, .photo::before, .stay-photo::before {
+        content: ''; position: absolute; inset: 0; z-index: 2; border-radius: inherit; pointer-events: none; opacity: 0; transition: opacity 0.5s;
+        background: radial-gradient(circle at var(--gx, 50%) var(--gy, 50%), rgba(255, 255, 255, 0.28), transparent 45%);
+      }
+      .hero-frame::after, .photo::after, .stay-photo::after { z-index: 1; }
+      .tilting::before { opacity: 1; }
+      .photo:hover, .stay-photo:hover { box-shadow: 0 4px 8px rgba(61, 41, 27, 0.10), 0 24px 40px -14px rgba(61, 41, 27, 0.35), 0 64px 110px -40px rgba(61, 41, 27, 0.6); }
+
+      /* Odhalování při scrollu */
+      .js [data-reveal]:not([data-reveal="photo"]) { opacity: 0; transform: translateY(36px); transition: opacity 0.9s var(--ease), transform 1.1s var(--ease); }
+      .js [data-reveal]:not([data-reveal="photo"]).in { opacity: 1; transform: none; }
+      .js [data-reveal="stagger"] { opacity: 1; transform: none; }
+      .js [data-reveal="stagger"] > * { opacity: 0; transform: translateY(28px); transition: opacity 0.8s var(--ease), transform 1s var(--ease); transition-delay: calc(var(--i, 0) * 0.09s); }
+      .js [data-reveal="stagger"].in > * { opacity: 1; transform: none; }
+      .js [data-reveal="photo"] { clip-path: inset(12% 12% 12% 12% round 140px); transition: clip-path 1.4s var(--ease); }
+      .js [data-reveal="photo"].in { clip-path: inset(-20% -20% -20% -20%); }
+      .js .stay-photo[data-reveal="photo"] { clip-path: inset(10% 10% 10% 10% round 34px); }
+      .js .stay-photo[data-reveal="photo"].in { clip-path: inset(0 0 0 0 round 34px); }
+      .js [data-reveal="photo"] img { scale: 1.25; transition: scale 1.6s var(--ease), transform 0.2s linear; }
+      .js [data-reveal="photo"].in img { scale: 1; }
+      .js [data-reveal="card"] { transform: translateY(50px) scale(0.97); }
+      .js .stay-card[data-reveal="card"] { transform: translateX(60px); transition-delay: 0.2s; }
+      .js [data-reveal="card"].in { transform: none; }
+
+      /* Ikony služeb se nakreslí */
+      .service-row svg * { stroke-dasharray: 160; stroke-dashoffset: 0; }
+      .js .service-row svg * { stroke-dashoffset: 160; transition: stroke-dashoffset 1.6s var(--ease); transition-delay: calc(var(--i, 0) * 0.15s + 0.2s); }
+      .js .service-row.in svg * { stroke-dashoffset: 0; }
+      .service-row li { --i: 0; }
+      .service-row li:nth-child(2) { --i: 1; } .service-row li:nth-child(3) { --i: 2; }
+      .service-row a { transition: color 0.25s, transform 0.5s var(--ease); }
+      .service-row a:hover { transform: translateY(-4px); }
+
+      /* Časová osa handlingu */
+      .js .path::before { transform: scaleX(0); transform-origin: left; transition: transform 1.4s 0.3s var(--ease); }
+      .js .split-text.in .path::before { transform: none; }
+      .js .path li::before { transform: scale(0); transition: transform 0.6s var(--ease), background 0.4s; }
+      .js .split-text.in .path li::before { transform: none; }
+      .js .split-text.in .path li:nth-child(1)::before { transition-delay: 0.5s; }
+      .js .split-text.in .path li:nth-child(2)::before { transition-delay: 0.9s; }
+      .js .split-text.in .path li:nth-child(3)::before { transition-delay: 1.3s; }
+
+      /* Citát se dobarvuje slovo po slovu */
+      .reveal-words .w { color: rgba(61, 41, 27, 0.18); transition: color 0.5s; }
+      .reveal-words .w.on { color: var(--espresso); }
+      .reveal-words .w.soft.on { color: var(--tone-1); }
+      .js .quote-mark i { transform: scaleX(0); transform-origin: left; }
+      .js .quote-mark.in i { transform: none; transition: transform 0.8s var(--ease); transition-delay: calc(var(--i, 0) * 0.12s); }
+
+      /* Karty a tlačítka – zvednutí / zamáčknutí */
+      .stay-card, .services .wrap, .values li { transition: transform 0.6s var(--ease), box-shadow 0.6s var(--ease), opacity 0.9s var(--ease); }
+      .stay-card:hover, .values li:hover { transform: translateY(-4px); }
+      .btn-rect, .pill { transition: background 0.25s, color 0.25s, border-color 0.25s, transform 0.35s var(--ease), box-shadow 0.35s var(--ease); }
+      .btn-rect:hover, .pill:hover { transform: translateY(-2px); }
+      .btn-rect:active, .pill:active { transform: translateY(1px) scale(0.98); box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.25); }
+      .text-link { transition: background-size 0.4s var(--ease), color 0.3s; }
+
+      @media (prefers-reduced-motion: reduce) {
+        .hero h1 .ln > span, .dots i, .hero .lead, .hero .actions, .hero-frame, .hero-card, .glow-a, .glow-b { animation: none !important; }
+        .js [data-reveal], .js [data-reveal] > *, .js [data-reveal] img { opacity: 1 !important; transform: none !important; clip-path: none !important; scale: 1 !important; }
+        .js .service-row svg * { stroke-dashoffset: 0; }
+        .reveal-words .w { color: var(--espresso); } .reveal-words .w.soft { color: var(--tone-1); }
+        .hero-frame, .photo, .stay-photo, .hero-frame img, .photo img, .stay-photo img { transform: none !important; }
+      }
     </style>
   </body>
 </html>

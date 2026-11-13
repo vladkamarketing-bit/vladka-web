@@ -266,8 +266,8 @@ const nav = [
       };
       burger.addEventListener('click', () => toggle(burger.getAttribute('aria-expanded') !== 'true'));
       mnav.querySelectorAll('a').forEach((a) => a.addEventListener('click', () => toggle(false)));
-      const top = document.querySelector('.top');
-      const onScroll = () => top.classList.toggle('scrolled', window.scrollY > 30);
+      const topBar = document.querySelector('.top');
+      const onScroll = () => topBar.classList.toggle('scrolled', window.scrollY > 30);
       window.addEventListener('scroll', onScroll, { passive: true });
       onScroll();
     </script>
