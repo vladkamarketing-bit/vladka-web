@@ -50,7 +50,7 @@ const nav = [
       <section class="hero">
         <div class="hero-text">
           <p class="eyebrow eyebrow-light">Chov · Handling · Hlídání</p>
-          <h1>Pes, který<br />má <em>charakter.</em></h1>
+          <h1>Přátelský<br /><em>charakter.</em></h1>
           <p class="lead">
             Bellarmin je chovatelská stanice, kde se zdraví, povaha a krása
             berou stejně vážně. Vychováváme štěňata pro život, vodíme psy
@@ -71,34 +71,13 @@ const nav = [
       <section class="pillars" id="sluzby" aria-labelledby="pillars-title">
         <div class="wrap">
           <header class="pillars-head">
-            <p class="eyebrow">Tři služby, jeden přístup</p>
-            <h2 id="pillars-title">Všechno, co pes potřebuje.<br />Od prvního dne.</h2>
+            <h2 id="pillars-title">Tři služby, jeden přístup</h2>
+            <p>Chováme, předvádíme i hlídáme se stejnou péčí – zdraví a pohoda psa jsou vždy na prvním místě.</p>
           </header>
           <ol class="pillar-list">
-            <li>
-              <a href="#chov">
-                <span class="num">01</span>
-                <span class="p-title">Chov</span>
-                <span class="p-desc">Štěňata z promyšlených spojení, zdravotně prověřených rodičů a s rodokmenem.</span>
-                <span class="arrow" aria-hidden="true">→</span>
-              </a>
-            </li>
-            <li>
-              <a href="#handling">
-                <span class="num">02</span>
-                <span class="p-title">Handling</span>
-                <span class="p-desc">Příprava a předvedení vašeho psa na výstavách v Česku i v zahraničí.</span>
-                <span class="arrow" aria-hidden="true">→</span>
-              </a>
-            </li>
-            <li>
-              <a href="#hlidani">
-                <span class="num">03</span>
-                <span class="p-title">Hlídání</span>
-                <span class="p-desc">Péče v domácím prostředí, žádné kotce. Váš pes u nás žije jako doma.</span>
-                <span class="arrow" aria-hidden="true">→</span>
-              </a>
-            </li>
+            <li><a href="#chov"><span class="num">01</span><span class="p-title">Chov</span><span class="arrow" aria-hidden="true">→</span></a></li>
+            <li><a href="#handling"><span class="num">02</span><span class="p-title">Handling</span><span class="arrow" aria-hidden="true">→</span></a></li>
+            <li><a href="#hlidani"><span class="num">03</span><span class="p-title">Hlídání</span><span class="arrow" aria-hidden="true">→</span></a></li>
           </ol>
         </div>
       </section>
@@ -294,6 +273,7 @@ const nav = [
         --display: 'Oswald', 'Arial Narrow', sans-serif;
         --body: 'Manrope', system-ui, sans-serif;
         --gutter: clamp(16px, 4vw, 56px);
+        --head-h: 76px;
       }
       *, *::before, *::after { box-sizing: border-box; }
       html { scroll-behavior: smooth; scroll-padding-top: 80px; }
@@ -376,7 +356,8 @@ const nav = [
         display: flex; align-items: center; gap: 2rem;
         padding: 1.1rem var(--gutter);
         color: var(--cream);
-        background: linear-gradient(180deg, rgba(30, 20, 13, 0.55), rgba(30, 20, 13, 0));
+        background: var(--espresso);
+        box-shadow: 0 1px 0 rgba(250, 244, 233, 0.08);
         transition: background 0.3s, padding 0.3s, box-shadow 0.3s;
       }
       .top.scrolled, .menu-open .top {
@@ -424,11 +405,12 @@ const nav = [
       .hero {
         display: grid; grid-template-columns: minmax(0, 42fr) minmax(0, 58fr);
         min-height: min(100vh, 860px);
+        padding-top: var(--head-h);
         background: var(--espresso); color: var(--cream);
       }
       .hero-text {
         display: flex; flex-direction: column; justify-content: center;
-        padding: 8rem clamp(1.5rem, 4vw, 4.5rem) 4rem var(--gutter);
+        padding: 3.5rem clamp(1.5rem, 4vw, 4.5rem) 4rem var(--gutter);
         position: relative;
       }
       .hero h1 { font-size: clamp(3rem, 6.4vw, 6.2rem); margin-bottom: 1.8rem; }
@@ -448,20 +430,27 @@ const nav = [
       }
 
       /* Pilíře */
-      .pillars { padding: clamp(4.5rem, 9vw, 8rem) 0; }
-      .pillars-head { margin-bottom: 3rem; max-width: 46rem; }
-      .pillar-list { list-style: none; margin: 0; padding: 0; border-top: 2px solid var(--espresso); }
-      .pillar-list li { border-bottom: 1px solid rgba(61, 41, 27, 0.2); }
-      .pillar-list a {
-        display: grid; grid-template-columns: 5rem minmax(0, 1fr) minmax(0, 1.3fr) 3rem;
-        align-items: center; gap: 1.5rem; padding: 2rem 0.5rem;
-        text-decoration: none; transition: background 0.25s, padding 0.25s;
+      .pillars { padding: clamp(2.8rem, 5vw, 4rem) 0; }
+      .pillars-head {
+        display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between;
+        gap: 0.6rem 2.5rem; margin-bottom: 1.8rem;
       }
-      .pillar-list a:hover { background: var(--white); padding-left: 1.5rem; padding-right: 1.5rem; }
-      .num { font-family: var(--display); font-size: 1rem; color: var(--orange); letter-spacing: 0.1em; }
-      .p-title { font-family: var(--display); font-size: clamp(2rem, 4vw, 3.2rem); font-weight: 600; text-transform: uppercase; line-height: 1; }
-      .p-desc { color: var(--brown); }
-      .arrow { font-size: 1.8rem; color: var(--orange); transition: transform 0.25s; justify-self: end; }
+      .pillars-head h2 { font-size: clamp(1.7rem, 3vw, 2.4rem); }
+      .pillars-head p { color: var(--brown); max-width: 34rem; font-size: 0.97rem; }
+      .pillar-list {
+        list-style: none; margin: 0; padding: 0;
+        display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1rem;
+      }
+      .pillar-list a {
+        display: flex; align-items: center; gap: 1rem;
+        padding: 1.4rem 1.6rem; background: var(--white);
+        border-left: 4px solid var(--orange);
+        text-decoration: none; transition: background 0.25s, color 0.25s;
+      }
+      .pillar-list a:hover { background: var(--espresso); color: var(--cream); }
+      .num { font-family: var(--display); font-size: 0.95rem; color: var(--orange); letter-spacing: 0.1em; }
+      .p-title { font-family: var(--display); font-size: clamp(1.5rem, 2.4vw, 2rem); font-weight: 600; text-transform: uppercase; line-height: 1; }
+      .arrow { margin-left: auto; font-size: 1.5rem; color: var(--orange); transition: transform 0.25s; }
       .pillar-list a:hover .arrow { transform: translateX(6px); }
 
       /* Služby */
@@ -575,9 +564,7 @@ const nav = [
         .hero-photo::before { inset: auto 0 0 0; width: 100%; height: 35%; background: linear-gradient(0deg, var(--espresso), transparent); }
         .hero-photo figcaption { display: none; }
         .hero-text { padding: 1rem var(--gutter) 4rem; }
-        .pillar-list a { grid-template-columns: 3rem minmax(0, 1fr) 2rem; }
-        .p-desc { grid-column: 2 / 4; grid-row: 2; }
-        .arrow { grid-column: 3; grid-row: 1; }
+        :root { --head-h: 66px; }
         .service-grid, .hlidani-head, .contact-grid { grid-template-columns: 1fr; }
         .service-grid.reverse .service-photo { order: 0; }
         .service-photo { margin-right: 1.2rem; }
@@ -589,8 +576,8 @@ const nav = [
         body { font-size: 16px; }
         .features, .values { grid-template-columns: 1fr; }
         .values div, .values div + div { padding: 1.2rem 0; }
-        .pillar-list a { gap: 0.4rem 1rem; padding: 1.5rem 0; }
-        .pillar-list a:hover { padding-left: 0.5rem; padding-right: 0.5rem; }
+        .pillar-list { grid-template-columns: 1fr; gap: 0.6rem; }
+        .pillar-list a { padding: 1.1rem 1.2rem; }
         .contact-list div { grid-template-columns: 1fr; gap: 0.2rem; }
         .btn { padding: 0.9rem 1.3rem; }
       }
