@@ -111,7 +111,19 @@ $bellarmin_services = array(
 <figure class="wp-block-image size-large"><img src="<?php echo bellarmin_img( 'handling-vystava.webp' ); // phpcs:ignore ?>" alt="Handlerka se setrem a výstavní rozetou před zámkem"/></figure>
 <!-- /wp:image -->
 
-<?php echo bellarmin_gallery_images( 10, 'ctverec', 'Z výstav' ); // phpcs:ignore ?></figure>
+<!-- wp:image {"sizeSlug":"large","linkDestination":"none"} -->
+<figure class="wp-block-image size-large"><img src="<?php echo bellarmin_img( 'darvin-vystava.webp' ); // phpcs:ignore ?>" alt="Darvin Bellarmin s rozhodčí a handlerkou na výstavě"/></figure>
+<!-- /wp:image -->
+
+<!-- wp:image {"sizeSlug":"large","linkDestination":"none"} -->
+<figure class="wp-block-image size-large"><img src="<?php echo bellarmin_img( 'carmello-vystava.webp' ); // phpcs:ignore ?>" alt="Carmello Bellarmin s velkou rozetou na výstavě"/></figure>
+<!-- /wp:image -->
+
+<!-- wp:image {"sizeSlug":"large","linkDestination":"none"} -->
+<figure class="wp-block-image size-large"><img src="<?php echo bellarmin_img( 'handling-rozety.webp' ); // phpcs:ignore ?>" alt="Rozety a poháry – Nejlepší švýcarský salašnický pes"/></figure>
+<!-- /wp:image -->
+
+</figure>
 <!-- /wp:gallery --></div>
 <!-- /wp:group -->
 
