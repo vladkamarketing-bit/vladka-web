@@ -85,10 +85,6 @@ include get_theme_file_path( 'patterns/champion.php' );
 <!-- /wp:image -->
 
 <!-- wp:image {"sizeSlug":"large","linkDestination":"none"} -->
-<figure class="wp-block-image size-large"><img src="<?php echo bellarmin_img( 'galerie-bellarmin-02-trofeje.webp' ); // phpcs:ignore ?>" alt="Rozety a poháry – Nejlepší švýcarský salašnický pes"/></figure>
-<!-- /wp:image -->
-
-<!-- wp:image {"sizeSlug":"large","linkDestination":"none"} -->
 <figure class="wp-block-image size-large"><img src="<?php echo bellarmin_img( 'galerie-bellarmin-03.webp' ); // phpcs:ignore ?>" alt="Chovatelka se psem v zimní krajině"/></figure>
 <!-- /wp:image -->
 
@@ -108,7 +104,27 @@ include get_theme_file_path( 'patterns/champion.php' );
 <figure class="wp-block-image size-large"><img src="<?php echo bellarmin_img( 'galerie-bellarmin-07.webp' ); // phpcs:ignore ?>" alt="Dva psi odpočívají v trávě"/></figure>
 <!-- /wp:image -->
 
-<?php echo bellarmin_gallery_images( 5, 'ctverec', 'Galerie Bellarmin' ); // phpcs:ignore ?></figure>
+<!-- wp:image {"sizeSlug":"large","linkDestination":"none"} -->
+<figure class="wp-block-image size-large"><img src="<?php echo bellarmin_img( 'galerie-bellarmin-08.webp' ); // phpcs:ignore ?>" alt="Chovatelka se psem na lavičce"/></figure>
+<!-- /wp:image -->
+
+<!-- wp:image {"sizeSlug":"large","linkDestination":"none"} -->
+<figure class="wp-block-image size-large"><img src="<?php echo bellarmin_img( 'galerie-bellarmin-09.webp' ); // phpcs:ignore ?>" alt="Chovatelka leží se psem v podzimní trávě"/></figure>
+<!-- /wp:image -->
+
+<!-- wp:image {"sizeSlug":"large","linkDestination":"none"} -->
+<figure class="wp-block-image size-large"><img src="<?php echo bellarmin_img( 'galerie-bellarmin-10.webp' ); // phpcs:ignore ?>" alt="Portrét švýcarského salašnického psa ve sněhu"/></figure>
+<!-- /wp:image -->
+
+<!-- wp:image {"sizeSlug":"large","linkDestination":"none"} -->
+<figure class="wp-block-image size-large"><img src="<?php echo bellarmin_img( 'galerie-bellarmin-11.webp' ); // phpcs:ignore ?>" alt="Pes stojí na zasněžené cestě"/></figure>
+<!-- /wp:image -->
+
+<!-- wp:image {"sizeSlug":"large","linkDestination":"none"} -->
+<figure class="wp-block-image size-large"><img src="<?php echo bellarmin_img( 'galerie-bellarmin-12.webp' ); // phpcs:ignore ?>" alt="Chovatelka a pes v podzimním listí"/></figure>
+<!-- /wp:image -->
+
+</figure>
 <!-- /wp:gallery --></div>
 <!-- /wp:group -->
 
