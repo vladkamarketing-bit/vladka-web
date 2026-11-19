@@ -12,7 +12,7 @@
 ?>
 <!-- wp:group {"align":"full","className":"bm-cover-hero","layout":{"type":"default"}} -->
 <div class="wp-block-group alignfull bm-cover-hero"><!-- wp:image {"sizeSlug":"full","linkDestination":"none","align":"full","className":"bm-cover-hero__img"} -->
-<figure class="wp-block-image alignfull size-full bm-cover-hero__img"><img src="<?php echo bellarmin_img( 'hero-setr.webp' ); // phpcs:ignore ?>" alt="Chovatelská stanice Bellarmin"/></figure>
+<figure class="wp-block-image alignfull size-full bm-cover-hero__img"><img src="<?php echo bellarmin_img( 'bellarmin-lavicka.webp' ); // phpcs:ignore ?>" alt="Chovatelka se psem z chovatelské stanice Bellarmin na lavičce"/></figure>
 <!-- /wp:image -->
 
 <!-- wp:group {"className":"bm-cover-hero__title","layout":{"type":"constrained","contentSize":"1240px"}} -->
@@ -54,6 +54,7 @@ $bellarmin_champion = array(
 	'name'    => 'Darvin Bellarmin',
 	'titles'  => array( 'JCH ČR', 'CH ČR', 'CH SK', '6× CAJC', '14× CAC', '5× CACIB', '6× BOJ', '7× BOB' ),
 	'reverse' => false,
+	'photos'  => array( 'darvin-postoj.webp', 'darvin-vystava.webp' ),
 	'text'    => 'Krátký text o Darvinovi – povaha, plemeno a čím je výjimečný. (Doplníme.)',
 );
 include get_theme_file_path( 'patterns/champion.php' );
@@ -78,7 +79,11 @@ include get_theme_file_path( 'patterns/champion.php' );
 <!-- /wp:heading -->
 
 <!-- wp:gallery {"columns":6,"linkTo":"none","className":"is-style-bm-thumbs"} -->
-<figure class="wp-block-gallery has-nested-images columns-6 is-cropped is-style-bm-thumbs"><?php echo bellarmin_gallery_images( 12, 'ctverec', 'Galerie Bellarmin' ); // phpcs:ignore ?></figure>
+<figure class="wp-block-gallery has-nested-images columns-6 is-cropped is-style-bm-thumbs"><!-- wp:image {"sizeSlug":"large","linkDestination":"none"} -->
+<figure class="wp-block-image size-large"><img src="<?php echo bellarmin_img( 'galerie-bellarmin-01.webp' ); // phpcs:ignore ?>" alt="Dva psi z chovatelské stanice Bellarmin na zahradě"/></figure>
+<!-- /wp:image -->
+
+<?php echo bellarmin_gallery_images( 11, 'ctverec', 'Galerie Bellarmin' ); // phpcs:ignore ?></figure>
 <!-- /wp:gallery --></div>
 <!-- /wp:group -->
 

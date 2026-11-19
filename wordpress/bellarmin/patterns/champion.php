@@ -14,6 +14,9 @@ $bellarmin_ch = isset( $bellarmin_champion ) && is_array( $bellarmin_champion ) 
 	'reverse' => false,
 	'text'    => 'Krátký text o psovi – povaha, plemeno, čím je výjimečný.',
 );
+$bellarmin_photos = isset( $bellarmin_ch['photos'] ) ? $bellarmin_ch['photos'] : array();
+$bellarmin_ph_default = array( 'na-sirku', 'na-vysku', 'na-sirku' );
+$bellarmin_ph_label = array( 'postoj', 'fotka 2', 'fotka 3' );
 $bellarmin_cls = $bellarmin_ch['reverse'] ? 'bm-champion bm-champion--reverse' : 'bm-champion';
 ?>
 <!-- wp:columns {"className":"<?php echo esc_attr( $bellarmin_cls ); ?>"} -->
@@ -39,17 +42,13 @@ $bellarmin_cls = $bellarmin_ch['reverse'] ? 'bm-champion bm-champion--reverse' :
 
 <!-- wp:column {"width":"60%","className":"bm-champion__photos"} -->
 <div class="wp-block-column bm-champion__photos" style="flex-basis:60%"><!-- wp:gallery {"columns":2,"imageCrop":false,"linkTo":"none","className":"bm-champion__gallery"} -->
-<figure class="wp-block-gallery has-nested-images columns-2 bm-champion__gallery"><!-- wp:image {"sizeSlug":"large","linkDestination":"none"} -->
-<figure class="wp-block-image size-large"><img src="<?php echo bellarmin_placeholder( 'na-sirku' ); // phpcs:ignore ?>" alt="<?php echo esc_attr( $bellarmin_ch['name'] ); ?> – postoj"/></figure>
+<figure class="wp-block-gallery has-nested-images columns-2 bm-champion__gallery"><?php for ( $bellarmin_i = 0; $bellarmin_i < 3; $bellarmin_i++ ) :
+	$bellarmin_src = ! empty( $bellarmin_photos[ $bellarmin_i ] ) ? bellarmin_img( $bellarmin_photos[ $bellarmin_i ] ) : bellarmin_placeholder( $bellarmin_ph_default[ $bellarmin_i ] );
+	?><!-- wp:image {"sizeSlug":"large","linkDestination":"none"} -->
+<figure class="wp-block-image size-large"><img src="<?php echo $bellarmin_src; // phpcs:ignore ?>" alt="<?php echo esc_attr( $bellarmin_ch['name'] . ' – ' . $bellarmin_ph_label[ $bellarmin_i ] ); ?>"/></figure>
 <!-- /wp:image -->
 
-<!-- wp:image {"sizeSlug":"large","linkDestination":"none"} -->
-<figure class="wp-block-image size-large"><img src="<?php echo bellarmin_placeholder( 'na-vysku' ); // phpcs:ignore ?>" alt="<?php echo esc_attr( $bellarmin_ch['name'] ); ?> – fotka 2"/></figure>
-<!-- /wp:image -->
-
-<!-- wp:image {"sizeSlug":"large","linkDestination":"none"} -->
-<figure class="wp-block-image size-large"><img src="<?php echo bellarmin_placeholder( 'na-sirku' ); // phpcs:ignore ?>" alt="<?php echo esc_attr( $bellarmin_ch['name'] ); ?> – fotka 3"/></figure>
-<!-- /wp:image --></figure>
+<?php endfor; ?></figure>
 <!-- /wp:gallery --></div>
 <!-- /wp:column --></div>
 <!-- /wp:columns -->

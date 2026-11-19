@@ -26,7 +26,7 @@
 
 <!-- wp:column {"width":"56%","className":"bm-hero__media"} -->
 <div class="wp-block-column bm-hero__media" style="flex-basis:56%"><!-- wp:image {"sizeSlug":"full","linkDestination":"none","className":"bm-hero__img"} -->
-<figure class="wp-block-image size-full bm-hero__img"><img src="<?php echo bellarmin_img( 'hero-setr.webp' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>" alt="Chovatelka se psem v přírodě"/></figure>
+<figure class="wp-block-image size-full bm-hero__img"><img src="<?php echo bellarmin_img( 'hero-setr.webp' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>" alt="Chovatelka se setrem u řeky na podzim"/></figure>
 <!-- /wp:image --></div>
 <!-- /wp:column --></div>
 <!-- /wp:columns --></div>

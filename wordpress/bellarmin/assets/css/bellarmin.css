@@ -102,7 +102,7 @@ mark.has-inline-color { background: none; }
 	background: linear-gradient(90deg, var(--bm-espresso), transparent);
 }
 .bm-hero__img { position: absolute; inset: 0; margin: 0 !important; }
-.bm-hero__img img { width: 100%; height: 100% !important; object-fit: cover; object-position: 66% 50%; }
+.bm-hero__img img { width: 100%; height: 100% !important; object-fit: cover; object-position: 64% 50%; }
 
 /* ---------- Rozcestník ---------- */
 .bm-strip { padding-block: clamp(2.8rem, 5vw, 4rem); }
@@ -234,7 +234,7 @@ mark.has-inline-color { background: none; }
 /* Bellarmin – fotka přes celou šířku s nadpisem */
 .bm-cover-hero { position: relative; padding: 0 !important; background: var(--bm-espresso); }
 .bm-cover-hero__img { margin: 0 !important; }
-.bm-cover-hero__img img { width: 100%; height: min(78vh, 760px) !important; min-height: 360px; object-fit: cover; object-position: 60% 45%; display: block; }
+.bm-cover-hero__img img { width: 100%; height: min(78vh, 760px) !important; min-height: 360px; object-fit: cover; object-position: 50% 30%; display: block; }
 .bm-cover-hero__title {
 	position: absolute; left: 0; right: 0; bottom: 0; color: var(--bm-cream);
 	padding-block: clamp(5rem, 12vw, 9rem) clamp(2rem, 5vw, 3.5rem) !important;
