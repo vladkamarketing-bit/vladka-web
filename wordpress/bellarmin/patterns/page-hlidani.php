@@ -90,7 +90,27 @@ foreach ( array_chunk( $bellarmin_cards, 3 ) as $bellarmin_row ) :
 <figure class="wp-block-image size-large"><img src="<?php echo bellarmin_img( 'hlidani-02-zahrada.webp' ); // phpcs:ignore ?>" alt="Zahrada s houpačkou a lavičkou"/></figure>
 <!-- /wp:image -->
 
-<?php echo bellarmin_gallery_images( 7, 'ctverec', 'Hlídání psů' ); // phpcs:ignore ?></figure>
+<!-- wp:image {"sizeSlug":"large","linkDestination":"none"} -->
+<figure class="wp-block-image size-large"><img src="<?php echo bellarmin_img( 'hlidani-05.webp' ); // phpcs:ignore ?>" alt="Pes skáče ve sněhu při západu slunce"/></figure>
+<!-- /wp:image -->
+
+<!-- wp:image {"sizeSlug":"large","linkDestination":"none"} -->
+<figure class="wp-block-image size-large"><img src="<?php echo bellarmin_img( 'hlidani-06.webp' ); // phpcs:ignore ?>" alt="Jezevčík odpočívá na dece"/></figure>
+<!-- /wp:image -->
+
+<!-- wp:image {"sizeSlug":"large","linkDestination":"none"} -->
+<figure class="wp-block-image size-large"><img src="<?php echo bellarmin_img( 'hlidani-07.webp' ); // phpcs:ignore ?>" alt="Jezevčík a malý psík spolu na posteli"/></figure>
+<!-- /wp:image -->
+
+<!-- wp:image {"sizeSlug":"large","linkDestination":"none"} -->
+<figure class="wp-block-image size-large"><img src="<?php echo bellarmin_img( 'hlidani-08.webp' ); // phpcs:ignore ?>" alt="Čtyři psi odpočívají na trávě u domu"/></figure>
+<!-- /wp:image -->
+
+<!-- wp:image {"sizeSlug":"large","linkDestination":"none"} -->
+<figure class="wp-block-image size-large"><img src="<?php echo bellarmin_img( 'hlidani-09.webp' ); // phpcs:ignore ?>" alt="Chovatelka s bílým ovčákem a švýcarákem na trávě"/></figure>
+<!-- /wp:image -->
+
+</figure>
 <!-- /wp:gallery --></div>
 <!-- /wp:group -->
 
