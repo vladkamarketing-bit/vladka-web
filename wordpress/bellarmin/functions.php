@@ -93,3 +93,12 @@ function bellarmin_register_block_bits() {
 	);
 }
 add_action( 'init', 'bellarmin_register_block_bits' );
+
+/**
+ * Jemné animace: třída na <html> hned v hlavičce, aby se prvky neukázaly a pak „neposkočily“.
+ * Pojistka – když se skript šablony nenačte, obsah se po 2,5 s zobrazí bez animace.
+ */
+function bellarmin_anim_flag() {
+	echo "<script>(function(d){if(window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches)return;d.documentElement.classList.add('bm-anim');setTimeout(function(){if(!window.bmReady)d.documentElement.classList.remove('bm-anim');},2500);})(document);</script>\n";
+}
+add_action( 'wp_head', 'bellarmin_anim_flag', 1 );

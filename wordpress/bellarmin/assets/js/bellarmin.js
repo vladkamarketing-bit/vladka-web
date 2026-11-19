@@ -5,6 +5,52 @@
 ( function () {
 	'use strict';
 
+	window.bmReady = true;
+
+	/* Jemné animace při scrollování: prvky sekcí se postupně vynoří */
+	( function () {
+		var root = document.documentElement;
+		if ( ! root.classList.contains( 'bm-anim' ) || ! ( 'IntersectionObserver' in window ) ) {
+			root.classList.remove( 'bm-anim' );
+			return;
+		}
+		var itemSel = '.bm-kicker, .wp-block-heading, p, .wp-block-buttons, .wp-block-list, .wp-block-image, .bm-card, .bm-features > .wp-block-column, .bm-values > .wp-block-column, .bm-form-card, .wp-block-shortcode';
+		var sections = document.querySelectorAll( '.bm-main .wp-block-post-content > .alignfull:not(.bm-hero):not(.bm-cover-hero)' );
+		var targets = [];
+		Array.prototype.forEach.call( sections, function ( sec ) {
+			var n = 0;
+			Array.prototype.forEach.call( sec.querySelectorAll( itemSel ), function ( el ) {
+				if ( el.closest( '[data-bm-reveal]' ) || el.closest( '.bm-form' ) ) {
+					return;
+				}
+				if ( el.matches( '.wp-block-gallery figure, .wp-block-gallery .wp-block-image' ) ) {
+					el.setAttribute( 'data-bm-reveal', 'thumb' );
+					el.style.setProperty( '--bm-i', Math.min( n++, 12 ) );
+					targets.push( el );
+					return;
+				}
+				if ( el.closest( '.wp-block-gallery' ) ) {
+					return;
+				}
+				var kind = el.matches( '.wp-block-image' ) ? 'photo' : ( el.matches( '.bm-card, .bm-features > .wp-block-column, .bm-values > .wp-block-column, .bm-form-card' ) ? 'card' : 'up' );
+				el.setAttribute( 'data-bm-reveal', kind );
+				el.style.setProperty( '--bm-i', Math.min( n++, 8 ) );
+				targets.push( el );
+			} );
+		} );
+		var io = new IntersectionObserver( function ( entries ) {
+			entries.forEach( function ( e ) {
+				if ( e.isIntersecting ) {
+					e.target.classList.add( 'is-in' );
+					io.unobserve( e.target );
+				}
+			} );
+		}, { threshold: 0.12, rootMargin: '0px 0px -5% 0px' } );
+		targets.forEach( function ( el ) {
+			io.observe( el );
+		} );
+	}() );
+
 	/* Hlavička */
 	var header = document.querySelector( '.bm-site-header' );
 	if ( header ) {
