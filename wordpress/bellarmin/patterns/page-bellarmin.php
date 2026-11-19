@@ -54,7 +54,7 @@ $bellarmin_champion = array(
 	'name'    => 'Darvin Bellarmin',
 	'titles'  => array( 'JCH ČR', 'CH ČR', 'CH SK', '6× CAJC', '14× CAC', '5× CACIB', '6× BOJ', '7× BOB' ),
 	'reverse' => false,
-	'photos'  => array( 'darvin-postoj.webp', 'darvin-vystava.webp' ),
+	'photos'  => array( 'darvin-postoj.webp', 'darvin-vystava.webp', 'darvin-sedi.webp', 'darvin-vystava-2.webp' ),
 	'text'    => 'Krátký text o Darvinovi – povaha, plemeno a čím je výjimečný. (Doplníme.)',
 );
 include get_theme_file_path( 'patterns/champion.php' );

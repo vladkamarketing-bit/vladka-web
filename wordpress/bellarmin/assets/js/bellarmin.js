@@ -34,6 +34,22 @@
 		return best;
 	}
 
+	/* Fotky úspěšných odchovů: řada pod hlavní fotkou má stejnou výšku, nic se neořízne */
+	Array.prototype.forEach.call( document.querySelectorAll( '.bm-champion__gallery' ), function ( g ) {
+		var figs = Array.prototype.slice.call( g.querySelectorAll( 'figure.wp-block-image' ) ).slice( 1 );
+		figs.forEach( function ( fig ) {
+			var img = fig.querySelector( 'img' );
+			var apply = function () {
+				if ( img.naturalWidth && img.naturalHeight ) {
+					fig.style.setProperty( 'flex', ( img.naturalWidth / img.naturalHeight ).toFixed( 4 ) + ' 1 0', 'important' );
+					fig.style.setProperty( 'width', 'auto', 'important' );
+				}
+			};
+			if ( img.complete ) { apply(); } else { img.addEventListener( 'load', apply ); }
+		} );
+		g.classList.add( 'is-justified' );
+	} );
+
 	var galleries = document.querySelectorAll( '.wp-block-gallery' );
 	if ( ! galleries.length ) {
 		return;

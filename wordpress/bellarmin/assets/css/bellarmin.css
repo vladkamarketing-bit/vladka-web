@@ -257,6 +257,9 @@ mark.has-inline-color { background: none; }
 .bm-champion__gallery { gap: 12px !important; align-items: flex-start; }
 .wp-block-gallery.bm-champion__gallery.has-nested-images figure.wp-block-image:first-child { width: 100% !important; flex-basis: 100% !important; }
 .wp-block-gallery.bm-champion__gallery figure.wp-block-image img { cursor: zoom-in; }
+.wp-block-gallery.bm-champion__gallery.is-justified { flex-wrap: wrap; }
+.wp-block-gallery.bm-champion__gallery.is-justified figure.wp-block-image:not(:first-child) { min-width: 0; }
+.wp-block-gallery.bm-champion__gallery.is-justified figure.wp-block-image:not(:first-child) img { width: 100%; height: auto !important; }
 
 /* Galerie s náhledy */
 .wp-block-gallery.is-style-bm-thumbs { gap: 10px !important; }
