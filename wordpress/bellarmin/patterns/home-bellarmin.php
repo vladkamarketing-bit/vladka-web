@@ -12,7 +12,7 @@
 <div class="wp-block-group alignfull bm-section bm-section--white has-white-background-color has-background"><!-- wp:columns {"className":"bm-split"} -->
 <div class="wp-block-columns bm-split"><!-- wp:column {"className":"bm-split__media"} -->
 <div class="wp-block-column bm-split__media"><!-- wp:image {"sizeSlug":"large","linkDestination":"none","className":"is-style-bm-frame"} -->
-<figure class="wp-block-image size-large is-style-bm-frame"><img src="<?php echo bellarmin_img( 'chov-svycarsky-pes.webp' ); // phpcs:ignore ?>" alt="Pes z chovatelské stanice Bellarmin s chovatelkou"/></figure>
+<figure class="wp-block-image size-large is-style-bm-frame"><img src="<?php echo bellarmin_img( 'galerie-bellarmin-03.webp' ); // phpcs:ignore ?>" alt="Pes z chovatelské stanice Bellarmin s chovatelkou"/></figure>
 <!-- /wp:image --></div>
 <!-- /wp:column -->
 
