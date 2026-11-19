@@ -58,7 +58,7 @@ include get_theme_file_path( 'patterns/page-header.php' );
 
 <!-- wp:column {"className":"bm-split__media"} -->
 <div class="wp-block-column bm-split__media"><!-- wp:image {"sizeSlug":"large","linkDestination":"none","className":"is-style-bm-frame"} -->
-<figure class="wp-block-image size-large is-style-bm-frame"><img src="<?php echo bellarmin_img( 'handling-vystava.webp' ); // phpcs:ignore ?>" alt="Handlerka se psem a výstavní rozetou"/></figure>
+<figure class="wp-block-image size-large is-style-bm-frame"><img src="<?php echo bellarmin_img( 'handling-v-kruhu.webp' ); // phpcs:ignore ?>" alt="Handlerka předvádí setra ve výstavním kruhu"/></figure>
 <!-- /wp:image --></div>
 <!-- /wp:column --></div>
 <!-- /wp:columns --></div>
@@ -103,7 +103,15 @@ $bellarmin_services = array(
 <!-- /wp:heading -->
 
 <!-- wp:gallery {"columns":6,"linkTo":"none","className":"is-style-bm-thumbs"} -->
-<figure class="wp-block-gallery has-nested-images columns-6 is-cropped is-style-bm-thumbs"><?php echo bellarmin_gallery_images( 12, 'ctverec', 'Z výstav' ); // phpcs:ignore ?></figure>
+<figure class="wp-block-gallery has-nested-images columns-6 is-cropped is-style-bm-thumbs"><!-- wp:image {"sizeSlug":"large","linkDestination":"none"} -->
+<figure class="wp-block-image size-large"><img src="<?php echo bellarmin_img( 'handling-v-kruhu.webp' ); // phpcs:ignore ?>" alt="Handlerka předvádí setra ve výstavním kruhu"/></figure>
+<!-- /wp:image -->
+
+<!-- wp:image {"sizeSlug":"large","linkDestination":"none"} -->
+<figure class="wp-block-image size-large"><img src="<?php echo bellarmin_img( 'handling-vystava.webp' ); // phpcs:ignore ?>" alt="Handlerka se setrem a výstavní rozetou před zámkem"/></figure>
+<!-- /wp:image -->
+
+<?php echo bellarmin_gallery_images( 10, 'ctverec', 'Z výstav' ); // phpcs:ignore ?></figure>
 <!-- /wp:gallery --></div>
 <!-- /wp:group -->
 

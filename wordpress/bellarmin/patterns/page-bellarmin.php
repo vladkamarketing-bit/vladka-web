@@ -83,7 +83,11 @@ include get_theme_file_path( 'patterns/champion.php' );
 <figure class="wp-block-image size-large"><img src="<?php echo bellarmin_img( 'galerie-bellarmin-01.webp' ); // phpcs:ignore ?>" alt="Dva psi z chovatelské stanice Bellarmin na zahradě"/></figure>
 <!-- /wp:image -->
 
-<?php echo bellarmin_gallery_images( 11, 'ctverec', 'Galerie Bellarmin' ); // phpcs:ignore ?></figure>
+<!-- wp:image {"sizeSlug":"large","linkDestination":"none"} -->
+<figure class="wp-block-image size-large"><img src="<?php echo bellarmin_img( 'galerie-bellarmin-02-trofeje.webp' ); // phpcs:ignore ?>" alt="Rozety a poháry – Nejlepší švýcarský salašnický pes"/></figure>
+<!-- /wp:image -->
+
+<?php echo bellarmin_gallery_images( 10, 'ctverec', 'Galerie Bellarmin' ); // phpcs:ignore ?></figure>
 <!-- /wp:gallery --></div>
 <!-- /wp:group -->
 
