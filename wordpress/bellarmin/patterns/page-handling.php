@@ -112,6 +112,22 @@ $bellarmin_services = array(
 <!-- /wp:image -->
 
 <!-- wp:image {"sizeSlug":"large","linkDestination":"none"} -->
+<figure class="wp-block-image size-large"><img src="<?php echo bellarmin_img( 'handling-vystava-01.webp' ); // phpcs:ignore ?>" alt="Handlerka se setrem na stupních vítězů s velkou rozetou"/></figure>
+<!-- /wp:image -->
+
+<!-- wp:image {"sizeSlug":"large","linkDestination":"none"} -->
+<figure class="wp-block-image size-large"><img src="<?php echo bellarmin_img( 'handling-vystava-02.webp' ); // phpcs:ignore ?>" alt="Handlerka předvádí dva setry v kruhu"/></figure>
+<!-- /wp:image -->
+
+<!-- wp:image {"sizeSlug":"large","linkDestination":"none"} -->
+<figure class="wp-block-image size-large"><img src="<?php echo bellarmin_img( 'handling-vystava-03.webp' ); // phpcs:ignore ?>" alt="Handlerka staví setra do výstavního postoje"/></figure>
+<!-- /wp:image -->
+
+<!-- wp:image {"sizeSlug":"large","linkDestination":"none"} -->
+<figure class="wp-block-image size-large"><img src="<?php echo bellarmin_img( 'handling-vystava-04.webp' ); // phpcs:ignore ?>" alt="Handlerka běží se setrem ve výstavním kruhu"/></figure>
+<!-- /wp:image -->
+
+<!-- wp:image {"sizeSlug":"large","linkDestination":"none"} -->
 <figure class="wp-block-image size-large"><img src="<?php echo bellarmin_img( 'darvin-vystava.webp' ); // phpcs:ignore ?>" alt="Darvin Bellarmin s rozhodčí a handlerkou na výstavě"/></figure>
 <!-- /wp:image -->
 
