@@ -15,7 +15,7 @@ $bellarmin_ch = isset( $bellarmin_champion ) && is_array( $bellarmin_champion ) 
 	'text'    => 'Krátký text o psovi – povaha, plemeno, čím je výjimečný.',
 );
 $bellarmin_photos = isset( $bellarmin_ch['photos'] ) ? $bellarmin_ch['photos'] : array();
-$bellarmin_count = max( 3, count( $bellarmin_photos ) );
+$bellarmin_count = $bellarmin_photos ? count( $bellarmin_photos ) : 3;
 $bellarmin_cols = $bellarmin_count > 3 ? 3 : 2;
 $bellarmin_ph_default = array( 'na-sirku', 'na-vysku', 'na-sirku' );
 $bellarmin_cls = $bellarmin_ch['reverse'] ? 'bm-champion bm-champion--reverse' : 'bm-champion';
