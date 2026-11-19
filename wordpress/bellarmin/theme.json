@@ -1,0 +1,166 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/theme.json",
+	"version": 3,
+	"settings": {
+		"appearanceTools": true,
+		"useRootPaddingAwareAlignments": true,
+		"color": {
+			"defaultPalette": false,
+			"defaultGradients": false,
+			"palette": [
+				{ "slug": "espresso", "name": "Espresso (tmavě hnědá)", "color": "#3d291b" },
+				{ "slug": "brown", "name": "Hnědá", "color": "#593a24" },
+				{ "slug": "caramel", "name": "Karamelová", "color": "#bf874f" },
+				{ "slug": "orange", "name": "Oranžová", "color": "#df7b29" },
+				{ "slug": "forest", "name": "Lesní zelená", "color": "#2e4536" },
+				{ "slug": "taupe", "name": "Šedohnědá", "color": "#8b8178" },
+				{ "slug": "cream", "name": "Krémová", "color": "#faf4e9" },
+				{ "slug": "white", "name": "Bílá", "color": "#ffffff" }
+			]
+		},
+		"layout": {
+			"contentSize": "760px",
+			"wideSize": "1240px"
+		},
+		"spacing": {
+			"units": ["px", "rem", "%", "vw", "vh"],
+			"padding": true,
+			"margin": true,
+			"blockGap": true,
+			"spacingSizes": [
+				{ "slug": "20", "name": "XS", "size": "0.75rem" },
+				{ "slug": "30", "name": "S", "size": "1.25rem" },
+				{ "slug": "40", "name": "M", "size": "2rem" },
+				{ "slug": "50", "name": "L", "size": "clamp(2.5rem, 5vw, 4rem)" },
+				{ "slug": "60", "name": "XL", "size": "clamp(4rem, 9vw, 8rem)" }
+			]
+		},
+		"typography": {
+			"defaultFontSizes": false,
+			"fluid": true,
+			"fontSizes": [
+				{ "slug": "small", "name": "Malé", "size": "0.875rem" },
+				{ "slug": "medium", "name": "Běžné", "size": "1.0625rem" },
+				{ "slug": "large", "name": "Větší", "size": "1.25rem" },
+				{ "slug": "x-large", "name": "Nadpis", "size": "clamp(2.1rem, 4.6vw, 3.6rem)" },
+				{ "slug": "xx-large", "name": "Velký nadpis", "size": "clamp(3rem, 6.4vw, 6.2rem)" }
+			],
+			"fontFamilies": [
+				{
+					"slug": "oswald",
+					"name": "Oswald (nadpisy)",
+					"fontFamily": "Oswald, 'Arial Narrow', sans-serif",
+					"fontFace": [
+						{
+							"fontFamily": "Oswald",
+							"fontWeight": "200 700",
+							"fontStyle": "normal",
+							"fontDisplay": "swap",
+							"src": ["file:./assets/fonts/oswald-latin-ext-wght-normal.woff2"],
+							"unicodeRange": "U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF"
+						},
+						{
+							"fontFamily": "Oswald",
+							"fontWeight": "200 700",
+							"fontStyle": "normal",
+							"fontDisplay": "swap",
+							"src": ["file:./assets/fonts/oswald-latin-wght-normal.woff2"],
+							"unicodeRange": "U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD"
+						}
+					]
+				},
+				{
+					"slug": "manrope",
+					"name": "Manrope (text)",
+					"fontFamily": "Manrope, system-ui, sans-serif",
+					"fontFace": [
+						{
+							"fontFamily": "Manrope",
+							"fontWeight": "200 800",
+							"fontStyle": "normal",
+							"fontDisplay": "swap",
+							"src": ["file:./assets/fonts/manrope-latin-ext-wght-normal.woff2"],
+							"unicodeRange": "U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF"
+						},
+						{
+							"fontFamily": "Manrope",
+							"fontWeight": "200 800",
+							"fontStyle": "normal",
+							"fontDisplay": "swap",
+							"src": ["file:./assets/fonts/manrope-latin-wght-normal.woff2"],
+							"unicodeRange": "U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD"
+						}
+					]
+				}
+			]
+		}
+	},
+	"styles": {
+		"color": {
+			"background": "var(--wp--preset--color--cream)",
+			"text": "var(--wp--preset--color--espresso)"
+		},
+		"spacing": {
+			"blockGap": "1.5rem",
+			"padding": {
+				"left": "clamp(16px, 4vw, 56px)",
+				"right": "clamp(16px, 4vw, 56px)"
+			}
+		},
+		"typography": {
+			"fontFamily": "var(--wp--preset--font-family--manrope)",
+			"fontSize": "var(--wp--preset--font-size--medium)",
+			"lineHeight": "1.65"
+		},
+		"elements": {
+			"heading": {
+				"typography": {
+					"fontFamily": "var(--wp--preset--font-family--oswald)",
+					"fontWeight": "600",
+					"textTransform": "uppercase",
+					"lineHeight": "1.04",
+					"letterSpacing": "0.005em"
+				}
+			},
+			"h1": { "typography": { "fontSize": "var(--wp--preset--font-size--xx-large)" } },
+			"h2": { "typography": { "fontSize": "var(--wp--preset--font-size--x-large)" } },
+			"h3": { "typography": { "fontSize": "1.35rem" } },
+			"link": {
+				"color": { "text": "inherit" },
+				":hover": { "color": { "text": "var(--wp--preset--color--orange)" } }
+			},
+			"button": {
+				"color": {
+					"background": "var(--wp--preset--color--orange)",
+					"text": "var(--wp--preset--color--white)"
+				},
+				"border": { "radius": "0" },
+				"spacing": { "padding": { "top": "0.95rem", "bottom": "0.95rem", "left": "1.7rem", "right": "1.7rem" } },
+				"typography": {
+					"fontFamily": "var(--wp--preset--font-family--oswald)",
+					"fontSize": "0.95rem",
+					"fontWeight": "500",
+					"letterSpacing": "0.12em",
+					"textTransform": "uppercase"
+				},
+				":hover": {
+					"color": {
+						"background": "#c4661a",
+						"text": "var(--wp--preset--color--white)"
+					}
+				}
+			}
+		}
+	},
+	"customTemplates": [
+		{
+			"name": "page-full",
+			"title": "Bellarmin – celá šířka bez nadpisu",
+			"postTypes": ["page"]
+		}
+	],
+	"templateParts": [
+		{ "name": "header", "title": "Hlavička", "area": "header" },
+		{ "name": "footer", "title": "Patička", "area": "footer" }
+	]
+}
