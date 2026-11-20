@@ -63,7 +63,7 @@ $bellarmin_champion = array(
 	'name'    => 'Carmello Bellarmin',
 	'titles'  => array( 'Club Winner', 'Best of Breed', 'Best in Show', '57 GSMD z 299 psů', 'Absolut Winner' ),
 	'reverse' => true,
-	'photos'  => array( 'carmello-vystava.webp' ),
+	'photos'  => array( 'carmello-vystava.webp', 'carmello-2.webp', 'carmello-3.webp' ),
 	'text'    => '',
 );
 include get_theme_file_path( 'patterns/champion.php' );
