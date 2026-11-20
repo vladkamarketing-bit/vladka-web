@@ -26,11 +26,11 @@
 <!-- /wp:heading -->
 
 <!-- wp:paragraph -->
-<p>Bellarmin je malá chovatelská stanice, za kterou stojí roky práce s několika plemeny a řada psů úspěšných na výstavách i v běžném životě. Vždy jsme si zakládali na zdraví, povaze a respektu ke psům i jejich lidem.</p>
+<p>Bellarmin je malá chovatelská stanice, za kterou stojí roky chovatelské práce s velkým švýcarským salašnickým psem. Naše odchovy jsou nositeli přátelské a vyrovnané povahy i výstavních úspěchů. V první řadě je pro nás důležité zdraví a povaha našich odchovů.</p>
 <!-- /wp:paragraph -->
 
 <!-- wp:paragraph -->
-<p>V současné době neplánujeme žádný vrh. Podívejte se ale, jaké psy jsme odchovali a co za námi stojí.</p>
+<p>V současné době neplánujeme žádný vrh. Aktuální plány chovatelské stanice sledujte v <a href="<?php echo bellarmin_url( 'novinky' ); // phpcs:ignore ?>">novinkách</a>.</p>
 <!-- /wp:paragraph -->
 
 <!-- wp:buttons -->
