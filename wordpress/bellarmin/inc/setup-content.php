@@ -1,7 +1,8 @@
 <?php
 /**
- * Po aktivaci šablony založí stránky (Úvod, Bellarmin, Handling, Hlídání psů),
- * nastaví úvodní stránku a menu. Stránky, které už existují, nepřepisuje.
+ * Po aktivaci šablony založí stránky (Úvod, Bellarmin, Handling, Hlídání psů, Výcvik, Novinky),
+ * nastaví úvodní stránku, stránku novinek a menu. Stránky, které už existují, nepřepisuje.
+ * Při aktualizaci šablony doplní jen to, co v nové verzi přibylo.
  *
  * @package Bellarmin
  */
@@ -21,6 +22,8 @@ function bellarmin_pages() {
 		'bellarmin' => array( 'Bellarmin', 'page-bellarmin', 1 ),
 		'handling'  => array( 'Handling', 'page-handling', 2 ),
 		'hlidani'   => array( 'Hlídání psů', 'page-hlidani', 3 ),
+		'vycvik'    => array( 'Výcvik', 'page-vycvik', 4 ),
+		'novinky'   => array( 'Novinky', '', 5 ),
 	);
 }
 
@@ -44,7 +47,7 @@ function bellarmin_pattern_content( $file ) {
  * Založení obsahu.
  */
 function bellarmin_setup_content() {
-	if ( get_option( 'bellarmin_content_created' ) ) {
+	if ( (int) get_option( 'bellarmin_content_version' ) >= BELLARMIN_CONTENT_VERSION ) {
 		return;
 	}
 
@@ -78,7 +81,7 @@ function bellarmin_setup_content() {
 
 	// 2) Doplnit obsah ze vzorů (až teď znají správné odkazy) a šablonu „celá šířka“.
 	foreach ( bellarmin_pages() as $slug => $page ) {
-		if ( empty( $ids[ $slug ] ) || ! $ids[ $slug ][1] ) {
+		if ( empty( $ids[ $slug ] ) || ! $ids[ $slug ][1] || '' === $page[1] ) {
 			continue;
 		}
 		wp_update_post(
@@ -90,8 +93,12 @@ function bellarmin_setup_content() {
 		update_post_meta( $ids[ $slug ][0], '_wp_page_template', 'page-full' );
 	}
 
-	// 3) Úvodní stránka.
-	if ( ! empty( $ids['uvod'] ) ) {
+	// 3) Úvodní stránka a stránka s novinkami (příspěvky).
+	if ( ! empty( $ids['novinky'] ) ) {
+		update_option( 'page_for_posts', $ids['novinky'][0] );
+	}
+	bellarmin_sample_post();
+	if ( ! empty( $ids['uvod'] ) && $ids['uvod'][1] ) {
 		update_option( 'show_on_front', 'page' );
 		update_option( 'page_on_front', $ids['uvod'][0] );
 	}
@@ -105,9 +112,42 @@ function bellarmin_setup_content() {
 	// 5) Menu (Vzhled → Editor → Navigace).
 	bellarmin_ensure_navigation( $ids );
 
-	update_option( 'bellarmin_content_created', 1 );
+	update_option( 'bellarmin_content_version', BELLARMIN_CONTENT_VERSION );
 }
 add_action( 'after_switch_theme', 'bellarmin_setup_content' );
+add_action( 'admin_init', 'bellarmin_setup_content' );
+
+if ( ! defined( 'BELLARMIN_CONTENT_VERSION' ) ) {
+	define( 'BELLARMIN_CONTENT_VERSION', 2 );
+}
+
+/**
+ * Ukázková novinka, aby sekce Novinky nebyla prázdná. Výchozí „Ahoj světe“ přesune do koše.
+ */
+function bellarmin_sample_post() {
+	if ( get_option( 'bellarmin_sample_post' ) ) {
+		return;
+	}
+	foreach ( array( 'hello-world', 'ahoj-vsichni', 'ahoj-svete' ) as $bellarmin_slug ) {
+		$bellarmin_hello = get_page_by_path( $bellarmin_slug, OBJECT, 'post' );
+		if ( $bellarmin_hello ) {
+			wp_trash_post( $bellarmin_hello->ID );
+		}
+	}
+	$bellarmin_posts = get_posts( array( 'post_type' => 'post', 'numberposts' => 1, 'post_status' => 'publish' ) );
+	if ( ! $bellarmin_posts ) {
+		wp_insert_post(
+			array(
+				'post_type'    => 'post',
+				'post_status'  => 'publish',
+				'post_title'   => 'Spouštíme nový web Bellarmin',
+				'post_excerpt' => 'Vítejte na našem novém webu. Najdete tu vše o chovatelské stanici, handlingu, hlídání i výcviku psů – a tady v Novinkách vás budeme informovat, co se u nás děje.',
+				'post_content' => "<!-- wp:paragraph -->\n<p>Vítejte na našem novém webu. Najdete tu vše o chovatelské stanici Bellarmin, handlingu na výstavách, hlídání i výcviku psů.</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:paragraph -->\n<p>Tady v Novinkách vás budeme informovat o výsledcích z výstav, volných termínech hlídání a o všem, co se u nás děje. (Ukázkový příspěvek – upravte nebo smažte.)</p>\n<!-- /wp:paragraph -->",
+			)
+		);
+	}
+	update_option( 'bellarmin_sample_post', 1 );
+}
 
 /**
  * Menu jako blok navigace s odkazy na stránky.
@@ -115,16 +155,17 @@ add_action( 'after_switch_theme', 'bellarmin_setup_content' );
  * @param array $ids Pole slug => [ID, nově vytvořeno].
  */
 function bellarmin_ensure_navigation( $ids ) {
-	$nav_id = (int) get_option( 'bellarmin_nav_id' );
-	if ( $nav_id && get_post( $nav_id ) ) {
-		return;
-	}
-	$items = '';
-	foreach ( array( 'bellarmin', 'handling', 'hlidani' ) as $slug ) {
+	$nav_id   = (int) get_option( 'bellarmin_nav_id' );
+	$existing = ( $nav_id && get_post( $nav_id ) ) ? get_post( $nav_id ) : null;
+	$items    = '';
+	foreach ( array( 'bellarmin', 'handling', 'hlidani', 'vycvik', 'novinky' ) as $slug ) {
 		if ( empty( $ids[ $slug ] ) ) {
 			continue;
 		}
 		$id     = $ids[ $slug ][0];
+		if ( $existing && false !== strpos( $existing->post_content, '"id":' . $id . ',' ) ) {
+			continue;
+		}
 		$label  = 'hlidani' === $slug ? 'Hlídání' : get_the_title( $id );
 		$attrs  = array(
 			'label' => $label,
@@ -134,6 +175,16 @@ function bellarmin_ensure_navigation( $ids ) {
 			'kind'  => 'post-type',
 		);
 		$items .= '<!-- wp:navigation-link ' . wp_json_encode( $attrs, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE ) . ' /-->';
+	}
+	if ( $existing ) {
+		// Doplnit nové položky před „Kontakt“ (poslední položku), zbytek menu nechat, jak je.
+		if ( '' !== $items ) {
+			$content = $existing->post_content;
+			$pos     = strrpos( $content, '<!-- wp:navigation-link' );
+			$content = false === $pos ? $content . $items : substr( $content, 0, $pos ) . $items . substr( $content, $pos );
+			wp_update_post( array( 'ID' => $nav_id, 'post_content' => $content ) );
+		}
+		return;
 	}
 	$contact = array(
 		'label' => 'Kontakt',

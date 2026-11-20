@@ -26,14 +26,6 @@
 <!-- wp:list {"className":"is-style-bm-checks"} -->
 <ul class="wp-block-list is-style-bm-checks"><!-- wp:list-item -->
 <li>Příprava psa na výstavu</li>
-<!-- /wp:list-item -->
-
-<!-- wp:list-item -->
-<li>Odvedení psa na výstavě</li>
-<!-- /wp:list-item -->
-
-<!-- wp:list-item -->
-<li>Full servis</li>
 <!-- /wp:list-item --></ul>
 <!-- /wp:list -->
 
@@ -46,7 +38,7 @@
 
 <!-- wp:column {"className":"bm-split__media"} -->
 <div class="wp-block-column bm-split__media"><!-- wp:image {"sizeSlug":"large","linkDestination":"none","className":"is-style-bm-frame"} -->
-<figure class="wp-block-image size-large is-style-bm-frame"><img src="<?php echo bellarmin_img( 'handling-vystava.webp' ); // phpcs:ignore ?>" alt="Handlerka se psem a výstavní rozetou"/></figure>
+<figure class="wp-block-image size-large is-style-bm-frame"><img src="<?php echo bellarmin_img( 'handling-v-kruhu.webp' ); // phpcs:ignore ?>" alt="Handlerka předvádí setra ve výstavním kruhu"/></figure>
 <!-- /wp:image --></div>
 <!-- /wp:column --></div>
 <!-- /wp:columns --></div>

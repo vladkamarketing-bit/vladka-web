@@ -10,7 +10,7 @@
  * @package Bellarmin
  */
 
-foreach ( array( 'home-hero', 'home-strip', 'home-bellarmin', 'home-handling', 'home-hlidani', 'quote', 'contact' ) as $bellarmin_part ) {
+foreach ( array( 'home-hero', 'home-strip', 'home-bellarmin', 'home-handling', 'home-hlidani', 'home-vycvik', 'home-news', 'quote', 'contact' ) as $bellarmin_part ) {
 	include get_theme_file_path( 'patterns/' . $bellarmin_part . '.php' );
 	echo "\n\n";
 }

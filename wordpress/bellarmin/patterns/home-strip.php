@@ -12,11 +12,7 @@
 <div class="wp-block-group alignfull bm-strip"><!-- wp:group {"className":"bm-strip__head","layout":{"type":"flex","flexWrap":"wrap","justifyContent":"space-between","verticalAlignment":"bottom"}} -->
 <div class="wp-block-group bm-strip__head"><!-- wp:heading -->
 <h2 class="wp-block-heading">Co u nás najdete</h2>
-<!-- /wp:heading -->
-
-<!-- wp:paragraph -->
-<p>Chovatelskou stanici, handling na výstavách i hlídání psů – vždy se stejnou péčí a respektem ke psům.</p>
-<!-- /wp:paragraph --></div>
+<!-- /wp:heading --></div>
 <!-- /wp:group -->
 
 <!-- wp:buttons {"className":"is-style-bm-tiles"} -->
@@ -30,6 +26,10 @@
 
 <!-- wp:button -->
 <div class="wp-block-button"><a class="wp-block-button__link wp-element-button" href="<?php echo bellarmin_url( 'hlidani' ); // phpcs:ignore ?>">Hlídání psů</a></div>
+<!-- /wp:button -->
+
+<!-- wp:button -->
+<div class="wp-block-button"><a class="wp-block-button__link wp-element-button" href="<?php echo bellarmin_url( 'vycvik' ); // phpcs:ignore ?>">Výcvik</a></div>
 <!-- /wp:button --></div>
 <!-- /wp:buttons --></div>
 <!-- /wp:group -->

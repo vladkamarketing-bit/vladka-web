@@ -9,7 +9,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define( 'BELLARMIN_VERSION', '1.0.0' );
+define( 'BELLARMIN_VERSION', '1.1.0' );
+define( 'BELLARMIN_CONTENT_VERSION', 2 );
 
 require_once get_theme_file_path( 'inc/helpers.php' );
 require_once get_theme_file_path( 'inc/contact-form.php' );

@@ -49,6 +49,36 @@
 		targets.forEach( function ( el ) {
 			io.observe( el );
 		} );
+		/* Pojistka: co už je nad spodním okrajem okna (i při rychlém posunu nebo skoku na kotvu), ukázat */
+		var pending = targets.slice();
+		var check = function () {
+			var limit = window.innerHeight * 0.95;
+			pending = pending.filter( function ( el ) {
+				if ( el.classList.contains( 'is-in' ) ) {
+					return false;
+				}
+				if ( el.getBoundingClientRect().top < limit ) {
+					el.classList.add( 'is-in' );
+					io.unobserve( el );
+					return false;
+				}
+				return true;
+			} );
+			if ( ! pending.length ) {
+				window.removeEventListener( 'scroll', onCheck );
+			}
+		};
+		var ticking = false;
+		var onCheck = function () {
+			if ( ! ticking ) {
+				ticking = true;
+				window.requestAnimationFrame( function () {
+					ticking = false;
+					check();
+				} );
+			}
+		};
+		window.addEventListener( 'scroll', onCheck, { passive: true } );
 	}() );
 
 	/* Hlavička */
