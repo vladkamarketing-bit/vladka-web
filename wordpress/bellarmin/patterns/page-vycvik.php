@@ -15,8 +15,7 @@ $bellarmin_page_header = array(
 	'title'  => 'Výcvik',
 	'accent' => 'a výchova psů.',
 	'text'   => array(
-		'Psi, kteří jsou u nás na hlídání, nejen odpočívají. Pomáháme jim se socializací, učíme je základy poslušnosti a pracujeme s problémovým chováním – tak, aby se domů vraceli klidnější a jistější.',
-		'Pracujeme individuálně, s ohledem na povahu, věk i plemeno psa, a vždy pozitivně a bez stresu.',
+		'Kromě hlídání pomáháme také se socializací, učíme pejsky základy poslušnosti a pracujeme i s problémovým chováním – tak, aby se domů vraceli klidnější a jistější.',
 	),
 );
 include get_theme_file_path( 'patterns/page-header.php' );
