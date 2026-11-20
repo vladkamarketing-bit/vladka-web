@@ -34,11 +34,11 @@ $bellarmin_cls = $bellarmin_ch['reverse'] ? 'bm-champion bm-champion--reverse' :
 <ul class="wp-block-list is-style-bm-titles"><?php foreach ( $bellarmin_ch['titles'] as $bellarmin_t ) : ?><!-- wp:list-item -->
 <li><?php echo esc_html( $bellarmin_t ); ?></li>
 <!-- /wp:list-item --><?php endforeach; ?></ul>
-<!-- /wp:list -->
+<!-- /wp:list --><?php if ( ! empty( $bellarmin_ch['text'] ) ) : ?>
 
 <!-- wp:paragraph -->
 <p><?php echo esc_html( $bellarmin_ch['text'] ); ?></p>
-<!-- /wp:paragraph --></div>
+<!-- /wp:paragraph --><?php endif; ?></div>
 <!-- /wp:column -->
 
 <!-- wp:column {"width":"60%","className":"bm-champion__photos"} -->

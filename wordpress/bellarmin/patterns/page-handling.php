@@ -16,7 +16,7 @@ $bellarmin_page_header = array(
 	'accent' => 'na výstavách.',
 	'text'   => array(
 		'Profesionální handling znamená, že vašeho psa na výstavě předvede zkušená ruka – v kondici, s upravenou srstí a v klidu. Pes se tak ukáže v nejlepším světle a rozhodčí uvidí to, co v něm skutečně je.',
-		'Postaráme se o přípravu i samotné předvedení, nebo vše od A do Z. (Zástupný text – doplníme.)',
+		'Postaráme se o přípravu i samotné předvedení – vše od A do Z.',
 	),
 );
 include get_theme_file_path( 'patterns/page-header.php' );
@@ -70,14 +70,12 @@ include get_theme_file_path( 'patterns/page-header.php' );
 <!-- /wp:paragraph -->
 
 <!-- wp:heading -->
-<h2 class="wp-block-heading">Vyberte si,<br><mark style="background-color:rgba(0, 0, 0, 0)" class="has-inline-color has-orange-color">s čím pomůžeme.</mark></h2>
+<h2 class="wp-block-heading">Příprava, která<br><mark style="background-color:rgba(0, 0, 0, 0)" class="has-inline-color has-orange-color">je vidět v kruhu.</mark></h2>
 <!-- /wp:heading -->
 
 <?php
 $bellarmin_services = array(
 	array( 'Příprava psa na výstavu', 'Výstavní trénink, kondice, postoj a úprava srsti, aby byl pes na den D připravený. (Zástupný text.)' ),
-	array( 'Odvedení psa na výstavě', 'Vašeho psa předvedeme v kruhu my – s klidem, zkušeností a znalostí posuzování. (Zástupný text.)' ),
-	array( 'Full servis', 'Kompletní péče od přihlášky přes přípravu a dopravu až po předvedení a zpětnou vazbu. (Zástupný text.)' ),
 );
 ?>
 <!-- wp:columns {"className":"bm-cards bm-cards--dark"} -->

@@ -280,6 +280,7 @@ mark.has-inline-color { background: none; }
 .bm-card h3 { margin: 0 0 0.6rem; font-size: 1.3rem; }
 .bm-card p { margin: 0; color: var(--bm-taupe); font-size: 0.97rem; }
 .bm-cards--dark .bm-card { background: rgba(250, 244, 233, 0.06); box-shadow: none; }
+.bm-cards > .bm-card:only-child { flex: 0 1 560px !important; max-width: 560px; }
 .bm-cards--dark .bm-card p { color: rgba(250, 244, 233, 0.72); }
 .bm-section--cream .wp-block-image.bm-wide-photo { margin-top: 2.5rem; margin-bottom: 0; }
 
