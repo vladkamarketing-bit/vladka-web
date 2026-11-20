@@ -16,7 +16,7 @@ $bellarmin_page_header = array(
 	'accent' => 'jako u vás doma.',
 	'text'   => array(
 		'Odjíždíte na dovolenou nebo pracovní cestu a nechcete svého psa nechat v hotelu s kotci? U nás bude bydlet s námi v domě, s vlastním pelíškem, procházkami a společností.',
-		'Hlídáme jen menší počet psů, aby se každému dostalo pozornosti. Každý den vám pošleme fotku a krátkou zprávu, jak se váš pes má. (Zástupný text – doplníme.)',
+		'Hlídáme jen menší počet psů, aby se každému dostalo pozornosti. Každý den vám pošleme fotku a krátkou zprávu, jak se váš pes má.',
 	),
 );
 include get_theme_file_path( 'patterns/page-header.php' );

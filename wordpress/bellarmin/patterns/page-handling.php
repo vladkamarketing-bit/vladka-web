@@ -38,7 +38,7 @@ include get_theme_file_path( 'patterns/page-header.php' );
 <!-- /wp:paragraph -->
 
 <!-- wp:paragraph -->
-<p>Výsledkem je lepší hodnocení a cesta k prestižním titulům a oceněním – od CAJC a CAC přes CACIB až po BOB nebo Best in Show. (Zástupný text – doplníme.)</p>
+<p>Výsledkem je lepší hodnocení a cesta k prestižním titulům a oceněním – od CAJC a CAC přes CACIB až po BOB nebo Best in Show.</p>
 <!-- /wp:paragraph -->
 
 <!-- wp:list {"className":"is-style-bm-checks"} -->
@@ -75,7 +75,7 @@ include get_theme_file_path( 'patterns/page-header.php' );
 
 <?php
 $bellarmin_services = array(
-	array( 'Příprava psa na výstavu', 'Výstavní trénink, kondice, postoj a úprava srsti, aby byl pes na den D připravený. (Zástupný text.)' ),
+	array( 'Příprava psa na výstavu', 'Výstavní trénink, kondice, postoj a úprava srsti, aby byl pes na den D připravený.' ),
 );
 ?>
 <!-- wp:columns {"className":"bm-cards bm-cards--dark"} -->

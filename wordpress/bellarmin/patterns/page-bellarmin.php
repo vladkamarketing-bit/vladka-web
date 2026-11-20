@@ -12,7 +12,7 @@
 ?>
 <!-- wp:group {"align":"full","className":"bm-cover-hero","layout":{"type":"default"}} -->
 <div class="wp-block-group alignfull bm-cover-hero"><!-- wp:image {"sizeSlug":"full","linkDestination":"none","align":"full","className":"bm-cover-hero__img"} -->
-<figure class="wp-block-image alignfull size-full bm-cover-hero__img"><img src="<?php echo bellarmin_img( 'bellarmin-lavicka.webp' ); // phpcs:ignore ?>" alt="Chovatelka se psem z chovatelské stanice Bellarmin na lavičce"/></figure>
+<figure class="wp-block-image alignfull size-full bm-cover-hero__img"><img src="<?php echo bellarmin_img( 'bellarmin-stenata.webp' ); // phpcs:ignore ?>" alt="Chovatelka se štěňaty velkého švýcarského salašnického psa na zahradě"/></figure>
 <!-- /wp:image -->
 
 <!-- wp:group {"className":"bm-cover-hero__title","layout":{"type":"constrained","contentSize":"1240px"}} -->
@@ -36,11 +36,11 @@
 <!-- /wp:heading -->
 
 <!-- wp:paragraph {"className":"bm-lead"} -->
-<p class="bm-lead">Bellarmin je malá rodinná chovatelská stanice registrovaná pod ČMKU a FCI. Za léta práce s několika plemeny jsme odchovali psy, kteří obstáli ve výstavních kruzích doma i v zahraničí, a hlavně se stali spokojenými parťáky svých rodin.</p>
+<p class="bm-lead">Bellarmin je malá chovatelská stanice, za kterou stojí roky chovatelské práce s velkým švýcarským salašnickým psem. Naše odchovy jsou nositeli přátelské a vyrovnané povahy i výstavních úspěchů. V první řadě je pro nás důležité zdraví a povaha našich odchovů.</p>
 <!-- /wp:paragraph -->
 
 <!-- wp:paragraph -->
-<p>Každé spojení jsme vždy plánovali s ohledem na zdraví, povahu a exteriér. Štěňata vyrůstala s námi v domě, poznávala běžný svět od prvních týdnů a novým majitelům jsme byli oporou celý psí život. V současné době neplánujeme žádný vrh – o tom, co za námi stojí, ale nejlépe vypovídají naši odchovanci.</p>
+<p>V současné době neplánujeme žádný vrh. Aktuální plány chovatelské stanice sledujte v <a href="<?php echo bellarmin_url( 'novinky' ); // phpcs:ignore ?>">novinkách</a>.</p>
 <!-- /wp:paragraph --></div>
 <!-- /wp:group -->
 
