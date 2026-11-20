@@ -136,7 +136,7 @@ function bellarmin_sample_post() {
 	}
 	$bellarmin_posts = get_posts( array( 'post_type' => 'post', 'numberposts' => 1, 'post_status' => 'publish' ) );
 	if ( ! $bellarmin_posts ) {
-		wp_insert_post(
+		$bellarmin_post_id = wp_insert_post(
 			array(
 				'post_type'    => 'post',
 				'post_status'  => 'publish',
@@ -145,8 +145,46 @@ function bellarmin_sample_post() {
 				'post_content' => "<!-- wp:paragraph -->\n<p>Vítejte na našem novém webu. Najdete tu vše o chovatelské stanici Bellarmin, handlingu na výstavách, hlídání i výcviku psů.</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:paragraph -->\n<p>Tady v Novinkách vás budeme informovat o výsledcích z výstav, volných termínech hlídání a o všem, co se u nás děje. (Ukázkový příspěvek – upravte nebo smažte.)</p>\n<!-- /wp:paragraph -->",
 			)
 		);
+		if ( $bellarmin_post_id && ! is_wp_error( $bellarmin_post_id ) ) {
+			bellarmin_attach_theme_image( $bellarmin_post_id, 'galerie-bellarmin-12.webp', 'Chovatelka se psem v podzimním listí' );
+		}
 	}
 	update_option( 'bellarmin_sample_post', 1 );
+}
+
+/**
+ * Nahraje obrázek ze šablony do knihovny médií a nastaví ho jako náhledový obrázek příspěvku.
+ *
+ * @param int    $post_id Příspěvek.
+ * @param string $file    Soubor v assets/images.
+ * @param string $alt     Popis obrázku.
+ */
+function bellarmin_attach_theme_image( $post_id, $file, $alt ) {
+	$path = get_theme_file_path( 'assets/images/' . $file );
+	if ( ! file_exists( $path ) ) {
+		return;
+	}
+	$upload = wp_upload_bits( $file, null, file_get_contents( $path ) ); // phpcs:ignore WordPress.WP.AlternativeFunctions.file_get_contents_file_get_contents
+	if ( ! empty( $upload['error'] ) ) {
+		return;
+	}
+	$type = wp_check_filetype( $upload['file'] );
+	$att  = wp_insert_attachment(
+		array(
+			'post_mime_type' => $type['type'],
+			'post_title'     => $alt,
+			'post_status'    => 'inherit',
+		),
+		$upload['file'],
+		$post_id
+	);
+	if ( ! $att || is_wp_error( $att ) ) {
+		return;
+	}
+	require_once ABSPATH . 'wp-admin/includes/image.php';
+	wp_update_attachment_metadata( $att, wp_generate_attachment_metadata( $att, $upload['file'] ) );
+	update_post_meta( $att, '_wp_attachment_image_alt', $alt );
+	set_post_thumbnail( $post_id, $att );
 }
 
 /**

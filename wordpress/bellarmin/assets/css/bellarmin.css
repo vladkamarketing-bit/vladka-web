@@ -301,9 +301,11 @@ mark.has-inline-color { background: none; }
 .bm-news-card .wp-block-post-excerpt { margin: 0; color: var(--bm-brown); font-size: 0.95rem; }
 .bm-news-card .wp-block-post-excerpt__more-link { display: inline-block; margin-top: 0.6rem; font: 500 0.85rem var(--bm-display); letter-spacing: 0.1em; text-transform: uppercase; color: var(--bm-orange); text-decoration: none; }
 .bm-news .wp-block-query-pagination { margin-top: 2.5rem; font-family: var(--bm-display); letter-spacing: 0.08em; }
-.bm-post-hero h1 { max-width: 20ch; }
+.bm-post-hero h1 { font-size: clamp(2.4rem, 5vw, 4.2rem); }
+.bm-post { padding-top: clamp(2.5rem, 5vw, 4rem); }
+.bm-post__image img { width: 100%; height: auto; display: block; }
 .bm-post-hero .bm-kicker { margin-bottom: 1rem; }
-.bm-post__image { margin: 0 0 2.5rem !important; }
+.bm-post__image { margin: 0 auto 2.5rem !important; max-width: 880px; }
 .bm-post p { color: var(--bm-brown); font-size: 1.08rem; }
 .bm-post__back { margin-top: 3rem; }
 
