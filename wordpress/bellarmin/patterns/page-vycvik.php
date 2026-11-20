@@ -16,7 +16,7 @@ $bellarmin_page_header = array(
 	'accent' => 'a výchova psů.',
 	'text'   => array(
 		'Psi, kteří jsou u nás na hlídání, nejen odpočívají. Pomáháme jim se socializací, učíme je základy poslušnosti a pracujeme s problémovým chováním – tak, aby se domů vraceli klidnější a jistější.',
-		'Pracujeme individuálně, s ohledem na povahu, věk i plemeno psa, a vždy pozitivně a bez stresu. (Zástupný text – doplníme.)',
+		'Pracujeme individuálně, s ohledem na povahu, věk i plemeno psa, a vždy pozitivně a bez stresu.',
 	),
 );
 include get_theme_file_path( 'patterns/page-header.php' );
@@ -44,7 +44,7 @@ include get_theme_file_path( 'patterns/page-header.php' );
 <!-- /wp:paragraph -->
 
 <!-- wp:paragraph -->
-<p>Při předání vám ukážeme, co jsme spolu zvládli, a poradíme, jak v tom pokračovat doma. (Zástupný text – doplníme.)</p>
+<p>Při předání vám ukážeme, co jsme spolu zvládli, a poradíme, jak v tom pokračovat doma.</p>
 <!-- /wp:paragraph --></div>
 <!-- /wp:column --></div>
 <!-- /wp:columns --></div>
@@ -61,9 +61,9 @@ include get_theme_file_path( 'patterns/page-header.php' );
 
 <?php
 $bellarmin_services = array(
-	array( 'Socializace', 'Pes se učí klidně fungovat mezi lidmi i jinými psy a zvyká si na nové situace, zvuky a prostředí. (Zástupný text.)' ),
-	array( 'Základy poslušnosti', 'Přivolání, chůze na vodítku, sedni, lehni, zůstaň – základ, díky kterému je soužití s psem snazší. (Zástupný text.)' ),
-	array( 'Problémové chování', 'Tahání na vodítku, štěkání, skákání na lidi nebo nejistota – hledáme příčinu a postupně ji řešíme. (Zástupný text.)' ),
+	array( 'Socializace', 'Pes se učí klidně fungovat mezi lidmi i jinými psy a zvyká si na nové situace, zvuky a prostředí.' ),
+	array( 'Základy poslušnosti', 'Přivolání, chůze na vodítku, sedni, lehni, zůstaň – základ, díky kterému je soužití s psem snazší.' ),
+	array( 'Problémové chování', 'Tahání na vodítku, štěkání, skákání na lidi nebo nejistota – hledáme příčinu a postupně ji řešíme.' ),
 );
 ?>
 <!-- wp:columns {"className":"bm-cards bm-cards--dark"} -->
