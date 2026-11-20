@@ -15,8 +15,7 @@ $bellarmin_page_header = array(
 	'title'  => 'Handling',
 	'accent' => 'na výstavách.',
 	'text'   => array(
-		'Profesionální handling znamená, že vašeho psa na výstavě předvede zkušená ruka – v kondici, s upravenou srstí a v klidu. Pes se tak ukáže v nejlepším světle a rozhodčí uvidí to, co v něm skutečně je.',
-		'Postaráme se o přípravu i samotné předvedení – vše od A do Z.',
+		'Profesionální handling znamená, že vašeho psa na výstavě předvede zkušená ruka – v kondici, s upravenou srstí a v klidu. Výstavní trénink a veškerá péče pro vašeho pejska.',
 	),
 );
 include get_theme_file_path( 'patterns/page-header.php' );

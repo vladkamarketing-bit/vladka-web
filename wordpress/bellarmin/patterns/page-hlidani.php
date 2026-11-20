@@ -28,16 +28,13 @@ include get_theme_file_path( 'patterns/page-header.php' );
 <!-- /wp:paragraph -->
 
 <!-- wp:heading -->
-<h2 class="wp-block-heading">Prostor, péče<br><mark style="background-color:rgba(0, 0, 0, 0)" class="has-inline-color has-orange-color">a klid.</mark></h2>
+<h2 class="wp-block-heading">Prostor, péče<br><mark style="background-color:rgba(0, 0, 0, 0)" class="has-inline-color has-orange-color">a zkušené ruce.</mark></h2>
 <!-- /wp:heading -->
 
 <?php
 $bellarmin_cards = array(
 	array( 'Velká zahrada', 'Bezpečně oplocený prostor na pohyb, hru i odpočinek venku.' ),
 	array( 'Domácí péče a pelíšky', 'Žádné kotce ani boxy. Psi bydlí s námi v domě a mají své pelíšky.' ),
-	array( 'Klid', 'Tiché prostředí mimo ruch, kde si pes rychle zvykne a odpočine si.' ),
-	array( 'Pohoda', 'Pravidelný denní režim, procházky, hra a mazlení podle povahy psa.' ),
-	array( 'Bezpečí', 'Dohled po celý den, zabezpečená zahrada a ohled na zdraví každého psa.' ),
 	array( 'Odborná péče zkušeného chovatele', 'Rozumíme psí řeči, povahám i potřebám různých plemen.' ),
 );
 foreach ( array_chunk( $bellarmin_cards, 3 ) as $bellarmin_row ) :

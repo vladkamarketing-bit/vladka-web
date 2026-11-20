@@ -20,7 +20,7 @@
 <!-- /wp:heading -->
 
 <!-- wp:paragraph -->
-<p>Výstava není jen o krásném psovi. Je o přípravě, kondici, úpravě srsti a klidné ruce, která psa ukáže v nejlepším světle. To vše za vás převezmeme – od tréninku až po kruh.</p>
+<p>Profesionální handling znamená, že vašeho psa na výstavě předvede zkušená ruka – v kondici, s upravenou srstí a v klidu. Výstavní trénink a veškerá péče pro vašeho pejska.</p>
 <!-- /wp:paragraph -->
 
 <!-- wp:list {"className":"is-style-bm-checks"} -->
